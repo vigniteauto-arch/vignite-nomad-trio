@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Acquisition capteurs — format d'échange",
+  "type": "object",
+  "required": ["module", "lot_id", "timestamp", "capteurs"],
+  "properties": {
+    "module": {
+      "type": "string",
+      "enum": ["buffer", "stock", "ops"]
+    },
+    "lot_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "capteurs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id_capteur", "grandeur", "valeur", "unite"],
+        "properties": {
+          "id_capteur": {
+            "type": "string"
+          },
+          "grandeur": {
+            "type": "string"
+          },
+          "valeur": {
+            "type": "number"
+          },
+          "unite": {
+            "type": "string"
+          },
+          "qualite": {
+            "type": "string",
+            "enum": ["nominal", "degrade", "defaut"]
+          }
+        }
+      }
+    }
+  }
+}

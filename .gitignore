@@ -1,0 +1,18 @@
+# Fichiers sensibles — jamais versionnés
+*.env
+*.env.*
+secrets/
+keys/
+*.pem
+*.key
+
+# Données terrain et données personnelles
+data-terrain/
+*.csv-local
+
+# Divers
+.DS_Store
+Thumbs.db
+*.log
+__pycache__/
+.venv/
