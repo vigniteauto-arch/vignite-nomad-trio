@@ -19,3 +19,6 @@ __pycache__/
 
 # World Twin — sorties de simulation, jamais versionnées
 02-prototypage/world-twin/sorties/
+
+# World Twin — cache local des détections FIRMS, jamais versionné
+02-prototypage/world-twin/cache-firms/

@@ -42,6 +42,11 @@ class Prng:
 
 import json
 import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+import firms
 
 CHEMIN_CACHE = os.path.normpath(os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "..", "cache-meteo", "agregats-mensuels.json"
@@ -161,11 +166,24 @@ def meteo_synthetique(mois, jour, prng):
 
 
 def pain_points(biomasse, mois, prng):
-    """Pain points locaux simulés — ILLUSTRATION.
+    """Pain points locaux : feux actifs RÉELS si FIRMS est branchée.
 
-    À remplacer en P1 par NASA FIRMS (feux actifs GPS) et fiches pays
-    (réglementation du brûlage).
+    v0.3 : avec une MAP_KEY locale (firms.env), les feux actifs viennent
+    de NASA FIRMS (VIIRS NOAA-20, NRT) — DONNÉES RÉELLES du jour.
+    Sans clé : repli synthétique déterministe (ILLUSTRATION).
+    La dimension réglementaire du brûlage reste ILLUSTRATION (fiches
+    pays à sourcer).
     """
+    bassin = BIOMASSES_PILOTE[biomasse]["bassin"]
+    feux = firms.feux_bassin(bassin)
+    if feux is not None:
+        return {
+            "feux_actifs_detectes": feux["nb_feux"] > 0,
+            "nb_feux_reels": feux["nb_feux"],
+            "frp_total_mw": feux["frp_total_mw"],
+            "brulage_reglemente": prng.uniforme() < 0.5,
+            "etiquette": "DONNÉES RÉELLES (NASA FIRMS)",
+        }
     feux_actifs_detectes = prng.uniforme() < 0.25
     brulage_reglemente = prng.uniforme() < 0.5
     return {
@@ -187,5 +205,6 @@ def cellule(pays, region, biomasse, mois, prng):
             prng.intervalle(*BIOMASSES_PILOTE[biomasse]["humidite_pct"]), 1
         ),
         "meteo": meteo_du_bassin(BIOMASSES_PILOTE[biomasse]["bassin"], mois, prng),
+        "pain_points": pain_points(biomasse, mois, prng),
         "etiquette": "SYNTHÉTIQUE",
     }

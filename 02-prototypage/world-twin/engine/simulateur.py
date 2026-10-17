@@ -28,6 +28,7 @@ from datetime import datetime, timedelta, timezone
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 import scenario
+import firms
 
 # ---------------------------------------------------------------------------
 # Paramètres figés v0 (cahier pilote France — pilote-france-2027.md)
@@ -202,6 +203,16 @@ def simuler():
                                   "recette=" + decision["recette"] + " mode=" + decision["mode"],
                                   "lot=" + lot_id)
                     )
+                pp = cellule.get("pain_points", {})
+                if pp.get("feux_actifs_detectes"):
+                    evenements.append(
+                        evenement(date, "firms", "brulage_actif_reel",
+                                  "opportunite_approvisionnement + ciblage hub",
+                                  "nb_feux=%d frp=%.1f MW ; source=%s" % (
+                                      pp.get("nb_feux_reels", 0),
+                                      pp.get("frp_total_mw", 0.0),
+                                      pp.get("etiquette", "?")))
+                    )
                 meteo = cellule.get("meteo", {})
                 if meteo.get("precipitations_mm", 0.0) > 60.0:
                     evenements.append(
@@ -292,6 +303,23 @@ def rapport_run_markdown(run):
             m["lots"], m["fautes"], m["etat"],
         ))
     lignes.append("")
+    classement = firms.priorite_hubs()
+    if classement:
+        lignes.append("## Priorité des bassins — brûlage actif RÉEL (NASA FIRMS)")
+        lignes.append("")
+        lignes.append("| Bassin | Feux actifs (réel) | FRP total (MW) | Lecture |")
+        lignes.append("| --- | --- | --- | --- |")
+        for c in classement:
+            lecture = "priorité haute" if c["nb_feux"] > 0 else "calme — fenêtre idéale pour valoriser sans urgence"
+            lignes.append("| %s | %d | %.1f | %s |" % (
+                c["bassin"], c["nb_feux"], c["frp_total_mw"], lecture))
+        lignes.append("")
+    else:
+        lignes.append("## Priorité des bassins — brûlage actif")
+        lignes.append("")
+        lignes.append("Couche NASA FIRMS non branchée (pas de MAP_KEY locale) : ")
+        lignes.append("repli sur les pain points SYNTHÉTIQUES du moteur de scénarios.")
+        lignes.append("")
     lignes.append("## Journal fautes -> actions -> logs (extrait)")
     lignes.append("")
     lignes.append("| Horodatage | Module | Faute | Action | Log |")

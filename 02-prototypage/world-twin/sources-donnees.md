@@ -1,6 +1,6 @@
 # Sources de données monde — World Twin
 
-Sources vérifiées gratuites le 17 octobre 2026. Leur branchement est planifié en P1 ; en P0, le simulateur fonctionne sur hypothèses ILLUSTRATION clairement étiquetées.
+Sources vérifiées gratuites le 17 octobre 2026. Branchement en cours : Open-Meteo (ERA5) et NASA FIRMS sont branchées (17/10/2026) ; FAOSTAT et GEOGLAM restent planifiées en P1 ; en P0, le simulateur fonctionne sur hypothèses ILLUSTRATION clairement étiquetées.
 
 ## Sources
 
@@ -15,8 +15,9 @@ Sources vérifiées gratuites le 17 octobre 2026. Leur branchement est planifié
 
 - Contenu : feux actifs, points GPS horodatés, quasi temps réel et historique.
 - Accès : API exigeant une MAP_KEY gratuite sur inscription (mise à jour du 17/10/2026 ; l'inscription prend environ cinq minutes).
+- Statut : branchée et testée le 17/10/2026 — détections réelles intégrées au moteur de scénarios (pain points) et à la priorisation des hubs ; MAP_KEY dans firms.env local, jamais versionné (motif *.env).
 - Rôle : couche 1 — pain point brûlage, ciblage des zones à épargner, priorisation des hubs.
-- Limite : détection des feux, pas de leur cause ; croiser avec les statistiques nationales.
+- Limite : détection des feux, pas de leur cause ; croiser avec les statistiques nationales ; cache local d'un jour pour préserver le quota de transactions API.
 
 ### Open-Meteo
 
@@ -44,7 +45,7 @@ Sources vérifiées gratuites le 17 octobre 2026. Leur branchement est planifié
 1. Téléchargement FAOSTAT France : production et résidus des cinq biomasses du pilote.
 2. Croisement GEOGLAM : validation des fenêtres culturales du cahier pilote.
 3. Cache Open-Meteo : historique météo 2020-2026 des bassins pilotes.
-4. FIRMS : cartographie des feux sur les bassins pilotes, dernière saison.
+4. FIRMS : feux actifs du jour branchés (17/10/2026) ; reste la cartographie historique des bassins pilotes, dernière saison.
 5. Remplacement des ILLUSTRATIONS du cahier pilote par les valeurs sourcées, avec traçabilité source et date.
 
 ## Limites honnêtes
