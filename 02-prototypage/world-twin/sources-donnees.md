@@ -1,6 +1,6 @@
 # Sources de données monde — World Twin
 
-Sources vérifiées gratuites le 17 octobre 2026. Branchement : Open-Meteo (ERA5, dix bassins monde) et NASA FIRMS (dix boîtes monde) sont branchées (17/10/2026, vague P2) ; FAOSTAT est branchée pour la France ; l'atlas des gisements multi-pays est livré en v0.5 (17/10/2026, atlas-gisements-monde.md et engine/atlas_gisements.py) avec des sources publiques additionnelles par hub ; les fiches pays réglementaires sont livrées en v0.6 (17/10/2026, fiches-pays-reglementation.md et engine/fiches_reglementation.py) ; GEOGLAM reste planifiée ; toute valeur non sourcée est ILLUSTRATION clairement étiquetée.
+Sources vérifiées gratuites le 17 octobre 2026. Branchement : Open-Meteo (ERA5, dix bassins monde) et NASA FIRMS (dix boîtes monde) sont branchées (17/10/2026, vague P2) ; FAOSTAT est branchée pour la France ; l'atlas des gisements multi-pays est livré en v0.5 (17/10/2026, atlas-gisements-monde.md et engine/atlas_gisements.py) avec des sources publiques additionnelles par hub ; les fiches pays réglementaires sont livrées en v0.6 (17/10/2026, fiches-pays-reglementation.md et engine/fiches_reglementation.py) ; le croisement GEOGLAM est livré en v0.7 (17/10/2026, croisement-geoglam.md et engine/geoglam.py) — calendriers culturaux sous-nationaux, verdicts de fenêtres, conditions de campagne ; toute valeur non sourcée est ILLUSTRATION clairement étiquetée.
 
 ## Sources
 
@@ -30,9 +30,10 @@ Sources vérifiées gratuites le 17 octobre 2026. Branchement : Open-Meteo (ERA5
 ### GEOGLAM Crop Monitor
 
 - Contenu : calendriers culturaux et conditions de récolte sous-nationales.
-- Accès : libre.
-- Rôle : couche 1 — saisonnalité fine par région.
-- Limite : couverture inégale selon les pays.
+- Accès : libre. Bulletins Crop Monitor for AMIS (n° 143, 01/10/2026) et CM4EW (n° 120, 01/10/2026), conditions au 28/09/2026. Calendriers sous-nationaux CM4EW publiés sur Zenodo (DOI 10.5281/zenodo.10949971, V1.3 09/07/2025 et V1.4 24/02/2026, 554 Mo, licence CC-BY 4.0) — extraits en machine le 17/10/2026 (couche Africa GeoPortal). Les calendriers AMIS ne sont pas encore téléchargeables (« à venir ») ; le portail IPAD de l'USDA a été fermé au public (constat 17/10/2026) — les dates des pays AMIS sont sourcées par les bases publiques croisées que GEOGLAM documente (USDA, FAO GIEWS), complétées de sources locales (Arvalis, La France Agricole, ABrideCamargue, Grano Italiano, MAPA, Loneralj, Grain Brokers Australia, GeoPard/USDA FAS).
+- Statut : branché le 17/10/2026 (v0.7) — croisement-geoglam.md et engine/geoglam.py : calendriers par hub, verdicts de validation des fenêtres monde.py (maïs et riz du hub France validés), conditions de campagne datées, fenêtres candidates étiquetées À SOURCER.
+- Rôle : couche 1 — saisonnalité fine par région, validation des fenêtres d'opération, contexte de campagne (El Niño, sécheresse).
+- Limite : couverture inégale selon les pays — cultures pérennes (vigne, olivier, noyer, yerba) hors périmètre ; Suisse absente des deux bulletins.
 
 ### Fiches pays (curation manuelle)
 
@@ -55,7 +56,7 @@ Sources vérifiées gratuites le 17 octobre 2026. Branchement : Open-Meteo (ERA5
 ## Plan de branchement P2+
 
 1. FAOSTAT multi-pays : production et résidus des biomasses des hubs (Suisse, Italie, Espagne, Argentine, Maroc), même méthode que l'extraction France. FAIT en v0.5 (17/10/2026) sous forme d'atlas de données publiques sourcées par hub (atlas-gisements-monde.md) ; l'extraction bulk FAOSTAT proprement dite reste à faire pour affiner.
-2. Croisement GEOGLAM : validation des fenêtres culturales des hubs, hémisphère Sud inclus.
+2. Croisement GEOGLAM : validation des fenêtres culturales des hubs, hémisphère Sud inclus. FAIT en v0.7 (17/10/2026) : fenêtres mais-rdm et paille-riz (fr-rhone) VALIDÉES par sources croisées ; cohérence saisonnière restos-poda (ar-cuyo) VALIDÉE ; fenêtres candidates paille-blé-dur (it-puglia, es-extremadura), orge et paille-riz du Guadiana (es-extremadura), paille-blé (ar-cuyo, ma-atlas), restos de maïz (ar-misiones) — À SOURCER avant toute entrée dans monde.py.
 3. Fiches pays réglementaires : brûlage encadré, à sourcer document par document. FAIT en v0.6 (17/10/2026) : fiches-pays-reglementation.md et engine/fiches_reglementation.py — France L.541-21-1, Suisse OPair art. 26a, Italie D.Lgs 152/2006 + LR Puglia 38/2016, Espagne Ley 7/2022 art. 27.3, Argentine Ley 26.562, Maroc Loi 28-00 (la référence « loi 62.25 » du plan initial n'a pas été retrouvée et est écartée). Les textes légis sont publics : Légifrance/AIDA, Infoleg, SGG Maroc, DOE Estrémadure, bulletins officiels régionaux.
 4. FIRMS historique : cartographie multi-saison des dix bassins, au-delà du jour courant.
 5. Remplacement progressif des ILLUSTRATIONS du cahier pilote monde par les valeurs sourcées, avec traçabilité source et date.
