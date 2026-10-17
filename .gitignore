@@ -16,3 +16,6 @@ Thumbs.db
 *.log
 __pycache__/
 .venv/
+
+# World Twin — sorties de simulation, jamais versionnées
+02-prototypage/world-twin/sorties/
