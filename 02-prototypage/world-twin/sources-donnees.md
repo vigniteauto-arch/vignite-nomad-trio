@@ -7,14 +7,14 @@ Sources vérifiées gratuites le 17 octobre 2026. Leur branchement est planifié
 ### FAOSTAT (Organisation des Nations unies pour l'alimentation et l'agriculture)
 
 - Contenu : production agricole et résidus par pays, brûlage des résidus (méthode IPCC), ~245 pays, historique pluriannuel.
-- Accès : libre, portail FAOSTAT, exports CSV, API.
+- Accès : libre, portail FAOSTAT et téléchargements en masse (bulk) ; la nouvelle API faostatservices.fao.org exige une clé — passer par le bulk, gratuit (constaté le 17/10/2026).
 - Rôle : couche 1 — gisements par pays et biomasse, réglementation du brûlage.
 - Limite : agrégation au niveau pays ; la maille régionale demande des extrapolations documentées.
 
 ### NASA FIRMS (Fire Information for Resource Management System)
 
 - Contenu : feux actifs, points GPS horodatés, quasi temps réel et historique.
-- Accès : API libre, tutoriels Python officiels.
+- Accès : API exigeant une MAP_KEY gratuite sur inscription (mise à jour du 17/10/2026 ; l'inscription prend environ cinq minutes).
 - Rôle : couche 1 — pain point brûlage, ciblage des zones à épargner, priorisation des hubs.
 - Limite : détection des feux, pas de leur cause ; croiser avec les statistiques nationales.
 
@@ -22,6 +22,7 @@ Sources vérifiées gratuites le 17 octobre 2026. Leur branchement est planifié
 
 - Contenu : météo historique (réanalyse ERA5, 1940 à aujourd'hui) et prévisions, anywhere on Earth.
 - Accès : API gratuite sans clé, fair use ~10 000 requêtes/jour.
+- Statut : branchée le 17/10/2026 — agrégations mensuelles réelles des quatre bassins pilotes versionnées dans cache-meteo/.
 - Rôle : couche 1 — fenêtres d'opération météo, humidité simulée, arrêts saisonniers.
 - Limite : fair use ; prévoir une cache locale dès le multi-pays.
 

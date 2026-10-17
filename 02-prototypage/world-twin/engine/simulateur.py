@@ -38,7 +38,8 @@ ANNEE = 2027
 TRIO_ID = "fr-hub01-trio-1"
 PAYS = "France"
 REGION = "pilote-v0"
-OPERATEURS_PAR_TRIO = 3   # hypothèse v0 à figer
+OPERATEURS_PAR_TRIO = 2   # figé 17/10/2026 — modèle tournant : hub régional
+                            # de 3 à 5 trios, éloignés de 1 h 30 à 2 h de route max
 MTBF_HEURES = 720.0       # ILLUSTRATION, non calibré
 MTTR_HEURES = 8.0         # ILLUSTRATION, non calibré
 LOTS_PAR_JOUR = 2         # ILLUSTRATION
@@ -200,6 +201,14 @@ def simuler():
                         evenement(date, "vde", "interlocks=" + ",".join(decision["interlocks"]),
                                   "recette=" + decision["recette"] + " mode=" + decision["mode"],
                                   "lot=" + lot_id)
+                    )
+                meteo = cellule.get("meteo", {})
+                if meteo.get("precipitations_mm", 0.0) > 60.0:
+                    evenements.append(
+                        evenement(date, "meteo", "mois_humide_surveillance",
+                                  "lots maintenus sous surveillance humidite",
+                                  "precip_mensuelles=%.1f mm ; source=%s" % (
+                                      meteo["precipitations_mm"], meteo.get("etiquette", "?")))
                     )
             heures_disponibles += 24.0
 

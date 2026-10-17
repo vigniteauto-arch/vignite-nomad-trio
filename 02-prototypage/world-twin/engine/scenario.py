@@ -6,7 +6,10 @@ synthétique, pain points locaux (brûlage, réglementation).
 
 RÈGLES :
 - Aucune valeur calibrée : tout est ILLUSTRATION jusqu'au branchement
-  des sources FAOSTAT / FIRMS / Open-Meteo / GEOGLAM (P1).
+  des sources FAOSTAT / FIRMS / GEOGLAM (P2).
+- v0.2 : si cache-meteo/agregats-mensuels.json est présent, la météo
+  vient du RÉEL (Open-Meteo ERA5, agrégations mensuelles) ; sinon
+  repli synthétique déterministe.
 - Déterminisme complet : la graine suffit à reproduire un run.
 - Sorties étiquetées SYNTHÉTIQUE — registre de développement,
   jamais le registre de production.
@@ -35,6 +38,45 @@ class Prng:
 
     def entier(self, bas, haut):
         return bas + self.suivant() % (haut - bas + 1)
+
+
+import json
+import os
+
+CHEMIN_CACHE = os.path.normpath(os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), "..", "cache-meteo", "agregats-mensuels.json"
+))
+
+_cache_meteo = None
+
+
+def _charger_cache_meteo():
+    """Charge le cache ERA5 (agregats mensuels) si présent, sinon {}."""
+    global _cache_meteo
+    if _cache_meteo is None:
+        try:
+            with open(CHEMIN_CACHE, encoding="utf-8") as f:
+                _cache_meteo = json.load(f).get("bassins", {})
+        except Exception:
+            _cache_meteo = {}
+    return _cache_meteo
+
+
+def meteo_du_bassin(bassin, mois, prng):
+    """Météo du bassin pour le mois : RÉELLE si cache ERA5 présent, sinon synthétique."""
+    cache = _charger_cache_meteo()
+    entrees = [
+        v for cle, v in cache.get(bassin, {}).items()
+        if int(cle[-2:]) == mois
+    ]
+    if entrees:
+        return {
+            "temperature_moy_c": round(sum(e["temperature_moy_c"] for e in entrees) / len(entrees), 1),
+            "humidite_moy_pct": round(sum(e["humidite_moy_pct"] for e in entrees) / len(entrees), 1),
+            "precipitations_mm": round(sum(e["precipitations_mm"] for e in entrees) / len(entrees), 1),
+            "etiquette": "DONNÉES RÉELLES (Open-Meteo ERA5)",
+        }
+    return meteo_synthetique(mois, 1, prng)
 
 
 # ---------------------------------------------------------------------------
@@ -144,5 +186,6 @@ def cellule(pays, region, biomasse, mois, prng):
         "humidite_pct": round(
             prng.intervalle(*BIOMASSES_PILOTE[biomasse]["humidite_pct"]), 1
         ),
+        "meteo": meteo_du_bassin(BIOMASSES_PILOTE[biomasse]["bassin"], mois, prng),
         "etiquette": "SYNTHÉTIQUE",
     }

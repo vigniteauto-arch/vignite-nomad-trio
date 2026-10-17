@@ -15,14 +15,14 @@ Règles inviolables :
 
 ## 2. Paramètres figés v0
 
-| Paramètre | Valeur v0 | Statut |
+| Paramètre | Valeur | Statut |
 | --- | --- | --- |
 | Graine déterministe | 42 | figé |
 | Année simulée | 2027 | figé |
 | Trios simulés | 1 — FR-HUB-01-TRIO-1 | figé (P2 : multi-trios) |
-| Opérateurs par trio | 3 | hypothèse à figer |
-| MTBF (temps moyen entre pannes) | 720 heures | ILLUSTRATION, non calibré |
-| MTTR (temps moyen de réparation) | 8 heures | ILLUSTRATION, non calibré |
+| Opérateurs par trio | 2, tournants sur le hub régional (3 à 5 trios, 1 h 30 à 2 h de route) | figé le 17/10/2026 |
+| MTBF (temps moyen entre pannes) | 720 heures | ILLUSTRATION, figé par décision du 17/10 |
+| MTTR (temps moyen de réparation) | 8 heures | ILLUSTRATION, figé — couvre le temps de route inter-trios |
 | Durée d'un lot simulé | 6 heures | ILLUSTRATION, non calibré |
 | Horaire simulé | 2 lots par jour ouvré | ILLUSTRATION |
 

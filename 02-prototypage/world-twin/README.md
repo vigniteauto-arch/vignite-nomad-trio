@@ -26,8 +26,10 @@ Statut : P0+1 — pilote France v0 (2027). Squelette non calibré, déterministe
 - README.md — cette spécification.
 - pilote-france-2027.md — cahier du pilote France : cinq biomasses, douze mois, paramètres figés v0.
 - sources-donnees.md — sources de données monde, accès, limites, plan de branchement.
-- engine/scenario.py — couche 3 : scénarios déterministes non calibrés.
-- engine/simulateur.py — couche 4 : simulateur de flotte et générateur de rapports.
+- engine/scenario.py — couche 3 : scénarios déterministes non calibrés ; lecture optionnelle du cache météo ERA5 réel.
+- engine/simulateur.py — couche 4 : simulateur de flotte et générateur de rapports (figeage du 17/10/2026 : 2 opérateurs tournants par hub, MTBF 720 h, MTTR 8 h).
+- engine/monte_carlo.py — runs multi-graines et sensibilité (figeage), agrégats dans sorties/.
+- cache-meteo/agregats-mensuels.json — agrégations mensuelles RÉELLES Open-Meteo ERA5 des quatre bassins pilotes (données publiques, versionnées).
 - sorties/ — rapports et télémétrie générés (ignorés par git, jamais versionnés).
 
 ## Lancement
@@ -36,7 +38,7 @@ Statut : P0+1 — pilote France v0 (2027). Squelette non calibré, déterministe
 python3 engine/simulateur.py
 ```
 
-Aucune dépendance : bibliothèque standard uniquement, graine déterministe. Un run complet écrit dans sorties/ :
+Aucune dépendance : bibliothèque standard uniquement, graine déterministe. Monte Carlo : `python3 engine/monte_carlo.py [graines_baseline] [graines_par_variante]`. Un run complet écrit dans sorties/ :
 
 - rapport-run.md et rapport-run.json — synthèse du run : lots, fautes, actions, logs, disponibilité ;
 - telemetrie-echantillon.json — télémétrie SYNTHÉTIQUE au contrat du digital twin ;
@@ -44,7 +46,7 @@ Aucune dépendance : bibliothèque standard uniquement, graine déterministe. Un
 
 ## Phases
 
-- P0 : spécification, cahier pilote France, paramètres figés v0. En cours.
-- P1 (nov-déc 2026) : sources réelles branchées, centaines de simulations, rapport quotidien planifié.
+- P0 : spécification, cahier pilote France, paramètres figés. Terminé le 17/10/2026 (figeage : 2 opérateurs tournants par hub, MTBF 720 h, MTTR 8 h).
+- P1 (nov-déc 2026) : 900 runs Monte Carlo réalisés (403 200 lots) ; météo ERA5 réelle branchée ; FAOSTAT extrait ; rapport quotidien planifié.
 - P2 (T1 2027) : multi-pays (Carré d'Or, LatAm, Al-Atlas), hubs, Monte Carlo milliers de runs, KPI pays/région.
 - P3 (post-Nomad v1) : shadow mode réel, replay des campagnes réelles, calibrage edge-first.
