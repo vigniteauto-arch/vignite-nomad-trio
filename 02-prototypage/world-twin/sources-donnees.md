@@ -1,6 +1,6 @@
 # Sources de données monde — World Twin
 
-Sources vérifiées gratuites le 17 octobre 2026. Branchement : Open-Meteo (ERA5, dix bassins monde) et NASA FIRMS (dix boîtes monde) sont branchées (17/10/2026, vague P2) ; FAOSTAT est branchée pour la France ; l'atlas des gisements multi-pays est livré en v0.5 (17/10/2026, atlas-gisements-monde.md et engine/atlas_gisements.py) avec des sources publiques additionnelles par hub ; GEOGLAM reste planifiée ; toute valeur non sourcée est ILLUSTRATION clairement étiquetée.
+Sources vérifiées gratuites le 17 octobre 2026. Branchement : Open-Meteo (ERA5, dix bassins monde) et NASA FIRMS (dix boîtes monde) sont branchées (17/10/2026, vague P2) ; FAOSTAT est branchée pour la France ; l'atlas des gisements multi-pays est livré en v0.5 (17/10/2026, atlas-gisements-monde.md et engine/atlas_gisements.py) avec des sources publiques additionnelles par hub ; les fiches pays réglementaires sont livrées en v0.6 (17/10/2026, fiches-pays-reglementation.md et engine/fiches_reglementation.py) ; GEOGLAM reste planifiée ; toute valeur non sourcée est ILLUSTRATION clairement étiquetée.
 
 ## Sources
 
@@ -56,7 +56,7 @@ Sources vérifiées gratuites le 17 octobre 2026. Branchement : Open-Meteo (ERA5
 
 1. FAOSTAT multi-pays : production et résidus des biomasses des hubs (Suisse, Italie, Espagne, Argentine, Maroc), même méthode que l'extraction France. FAIT en v0.5 (17/10/2026) sous forme d'atlas de données publiques sourcées par hub (atlas-gisements-monde.md) ; l'extraction bulk FAOSTAT proprement dite reste à faire pour affiner.
 2. Croisement GEOGLAM : validation des fenêtres culturales des hubs, hémisphère Sud inclus.
-3. Fiches pays réglementaires : brûlage encadré (Ley 26.562 argentine, interdictions locales Espagne/Italie, cadre Maroc loi 62.25), à sourcer document par document.
+3. Fiches pays réglementaires : brûlage encadré, à sourcer document par document. FAIT en v0.6 (17/10/2026) : fiches-pays-reglementation.md et engine/fiches_reglementation.py — France L.541-21-1, Suisse OPair art. 26a, Italie D.Lgs 152/2006 + LR Puglia 38/2016, Espagne Ley 7/2022 art. 27.3, Argentine Ley 26.562, Maroc Loi 28-00 (la référence « loi 62.25 » du plan initial n'a pas été retrouvée et est écartée). Les textes légis sont publics : Légifrance/AIDA, Infoleg, SGG Maroc, DOE Estrémadure, bulletins officiels régionaux.
 4. FIRMS historique : cartographie multi-saison des dix bassins, au-delà du jour courant.
 5. Remplacement progressif des ILLUSTRATIONS du cahier pilote monde par les valeurs sourcées, avec traçabilité source et date.
 

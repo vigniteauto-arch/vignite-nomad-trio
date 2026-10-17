@@ -2,7 +2,7 @@
 
 Programme World Twin : faire tourner le trio Nomad v1 « comme si » il opérait déjà partout dans le monde — toutes biomasses par pays et région, couplé à la saisonnalité des récoltes, aux pain points locaux (brûlage, réglementation), à la météo et aux points GPS — afin de nourrir le VDE de milliers de lots simulés et de produire le rapport quotidien World Ops, avant même que le premier acier ne soit commandé.
 
-Statut : P2 — flotte monde (Carré d'Or, LatAm, Al-Atlas : 7 hubs, 2 hémisphères). Squelette non calibré, déterministe. Couches réelles branchées : météo ERA5 (10 bassins) et brûlage NASA FIRMS (10 boîtes), le 17/10/2026. V0.5 (17/10/2026) : atlas des gisements mondiaux en données publiques sourcées (les 7 hubs) et lecture des résultats Monte Carlo.
+Statut : P2 — flotte monde (Carré d'Or, LatAm, Al-Atlas : 7 hubs, 2 hémisphères). Squelette non calibré, déterministe. Couches réelles branchées : météo ERA5 (10 bassins) et brûlage NASA FIRMS (10 boîtes), le 17/10/2026. V0.5 (17/10/2026) : atlas des gisements mondiaux en données publiques sourcées (les 7 hubs) et lecture des résultats Monte Carlo. V0.6 (17/10/2026) : fiches pays réglementaires — cadre légal du brûlage des résidus pour les 7 hubs.
 
 ## Règles absolues
 
@@ -28,6 +28,7 @@ Statut : P2 — flotte monde (Carré d'Or, LatAm, Al-Atlas : 7 hubs, 2 hémisph�
 - pilote-monde-2027.md — cahier P2 : les sept hubs de la flotte monde, saisonnalité hémisphère Sud incluse, données réelles branchées.
 - sources-donnees.md — sources de données monde, accès, limites, plan de branchement.
 - atlas-gisements-monde.md — atlas des gisements mondiaux des 7 hubs : données publiques sourcées et étiquetées (v0.5), méthode, ratios de conversion.
+- fiches-pays-reglementation.md — fiches pays réglementaires (v0.6) : cadre légal du brûlage des résidus pour les 7 hubs, sanctions, pain points, sources légales croisées.
 - engine/monde.py — grammaire mondiale des hubs (P2) : pays, régions, biomasses, fenêtres, graines ; maintenance déduite des fenêtres.
 - engine/scenario.py — couche 3 : scénarios déterministes non calibrés ; lecture optionnelle du cache météo ERA5 réel ; fiche/bassin optionnels pour les hubs monde.
 - engine/simulateur.py — couche 4 : simulateur de flotte monde et générateur de rapports (KPI par hub, priorisation mondiale FIRMS) ; fr-rhone réplique exactement v0.3.
@@ -36,6 +37,7 @@ Statut : P2 — flotte monde (Carré d'Or, LatAm, Al-Atlas : 7 hubs, 2 hémisph�
 - engine/firms.env.example — modèle commenté du fichier de configuration local de la clé FIRMS (firms.env, jamais versionné).
 - engine/atlas_gisements.py — atlas machine des gisements mondiaux : constantes étiquetées par hub (v0.5), contrôle de couverture contre monde.py.
 - engine/lecture_resultats.py — lecture des résultats Monte Carlo (v0.5) : classement des hubs par disponibilité, sensibilité au figeage, synthèse du dernier run ; écrit sorties/lecture-resultats.md et .json.
+- engine/fiches_reglementation.py — fiches pays réglementaires machine (v0.6) : statut du brûlage et références légales par hub, contrôle de couverture contre monde.py.
 - cache-meteo/agregats-mensuels.json — agrégations mensuelles RÉELLES Open-Meteo ERA5 des dix bassins (4 pilote + 6 monde, données publiques, versionnées).
 - sorties/ — rapports et télémétrie générés (ignorés par git, jamais versionnés).
 
@@ -58,5 +60,5 @@ Aucune dépendance : bibliothèque standard uniquement, graine déterministe. Mo
 
 - P0 : spécification, cahier pilote France, paramètres figés. Terminé le 17/10/2026 (figeage : 2 opérateurs tournants par hub, MTBF 720 h, MTTR 8 h).
 - P1 (nov-déc 2026) : 900 runs Monte Carlo réalisés (403 200 lots) ; météo ERA5 réelle branchée ; couche brûlage NASA FIRMS réelle branchée (17/10/2026) ; FAOSTAT extrait ; rapport quotidien planifié.
-- P2 (démarrée le 17/10/2026) : multi-pays — Carré d'Or (Suisse, Italie, Espagne), LatAm (Argentine : Cuyo, Misiones), Al-Atlas (Maroc) ; 7 hubs, 2 hémisphères ; ERA5 réelle sur 10 bassins ; FIRMS sur 10 boîtes ; Monte Carlo monde à l'échelle du millier de runs ; KPI pays/région dans le rapport. V0.5 (17/10/2026) : atlas des gisements mondiaux multi-pays livré (données publiques sourcées, FAOSTAT/COI/MAPA/INYM/OFAG), lecture des résultats Monte Carlo. Reste : fiches pays réglementaires.
+- P2 (démarrée le 17/10/2026) : multi-pays — Carré d'Or (Suisse, Italie, Espagne), LatAm (Argentine : Cuyo, Misiones), Al-Atlas (Maroc) ; 7 hubs, 2 hémisphères ; ERA5 réelle sur 10 bassins ; FIRMS sur 10 boîtes ; Monte Carlo monde à l'échelle du millier de runs ; KPI pays/région dans le rapport. V0.5 (17/10/2026) : atlas des gisements mondiaux multi-pays livré (données publiques sourcées, FAOSTAT/COI/MAPA/INYM/OFAG), lecture des résultats Monte Carlo. V0.6 (17/10/2026) : fiches pays réglementaires livrées (cadre légal du brûlage, 7 hubs). Reste : croisement GEOGLAM, FIRMS historique multi-saison.
 - P3 (post-Nomad v1) : shadow mode réel, replay des campagnes réelles, calibrage edge-first.
