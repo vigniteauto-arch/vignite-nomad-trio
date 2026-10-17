@@ -1,6 +1,6 @@
 # Sources de données monde — World Twin
 
-Sources vérifiées gratuites le 17 octobre 2026. Branchement en cours : Open-Meteo (ERA5) et NASA FIRMS sont branchées (17/10/2026) ; FAOSTAT et GEOGLAM restent planifiées en P1 ; en P0, le simulateur fonctionne sur hypothèses ILLUSTRATION clairement étiquetées.
+Sources vérifiées gratuites le 17 octobre 2026. Branchement : Open-Meteo (ERA5, dix bassins monde) et NASA FIRMS (dix boîtes monde) sont branchées (17/10/2026, vague P2) ; FAOSTAT est branchée pour la France, reste le multi-pays ; GEOGLAM reste planifiée ; toute valeur non sourcée est ILLUSTRATION clairement étiquetée.
 
 ## Sources
 
@@ -15,7 +15,7 @@ Sources vérifiées gratuites le 17 octobre 2026. Branchement en cours : Open-Me
 
 - Contenu : feux actifs, points GPS horodatés, quasi temps réel et historique.
 - Accès : API exigeant une MAP_KEY gratuite sur inscription (mise à jour du 17/10/2026 ; l'inscription prend environ cinq minutes).
-- Statut : branchée et testée le 17/10/2026 — détections réelles intégrées au moteur de scénarios (pain points) et à la priorisation des hubs ; MAP_KEY dans firms.env local, jamais versionné (motif *.env).
+- Statut : branchée et testée le 17/10/2026 — détections réelles intégrées au moteur de scénarios (pain points) et à la priorisation des hubs ; vague P2 : dix boîtes géographiques monde (une par bassin, Carré d'Or à Al-Atlas) ; MAP_KEY dans firms.env local, jamais versionné (motif *.env).
 - Rôle : couche 1 — pain point brûlage, ciblage des zones à épargner, priorisation des hubs.
 - Limite : détection des feux, pas de leur cause ; croiser avec les statistiques nationales ; cache local d'un jour pour préserver le quota de transactions API.
 
@@ -23,7 +23,7 @@ Sources vérifiées gratuites le 17 octobre 2026. Branchement en cours : Open-Me
 
 - Contenu : météo historique (réanalyse ERA5, 1940 à aujourd'hui) et prévisions, anywhere on Earth.
 - Accès : API gratuite sans clé, fair use ~10 000 requêtes/jour.
-- Statut : branchée le 17/10/2026 — agrégations mensuelles réelles des quatre bassins pilotes versionnées dans cache-meteo/.
+- Statut : branchée le 17/10/2026 — agrégations mensuelles réelles versionnées dans cache-meteo/ ; vague P2 : dix bassins (France ×4, Suisse Léman, Italie Puglia, Espagne Estrémadure, Argentine Cuyo, Argentine Misiones, Maroc Al-Atlas) ; convention jours de pluie ≥ 0,2 mm, fenêtre 2025-10-01 → 2026-10-10 UTC.
 - Rôle : couche 1 — fenêtres d'opération météo, humidité simulée, arrêts saisonniers.
 - Limite : fair use ; prévoir une cache locale dès le multi-pays.
 
@@ -40,13 +40,13 @@ Sources vérifiées gratuites le 17 octobre 2026. Branchement en cours : Open-Me
 - Base : études LatAm et Al-Atlas déjà en amorce.
 - Rôle : couche 1 — dimension réglementaire et commerciale.
 
-## Plan de branchement P1
+## Plan de branchement P2+
 
-1. Téléchargement FAOSTAT France : production et résidus des cinq biomasses du pilote.
-2. Croisement GEOGLAM : validation des fenêtres culturales du cahier pilote.
-3. Cache Open-Meteo : historique météo 2020-2026 des bassins pilotes.
-4. FIRMS : feux actifs du jour branchés (17/10/2026) ; reste la cartographie historique des bassins pilotes, dernière saison.
-5. Remplacement des ILLUSTRATIONS du cahier pilote par les valeurs sourcées, avec traçabilité source et date.
+1. FAOSTAT multi-pays : production et résidus des biomasses des hubs (Suisse, Italie, Espagne, Argentine, Maroc), même méthode que l'extraction France.
+2. Croisement GEOGLAM : validation des fenêtres culturales des hubs, hémisphère Sud inclus.
+3. Fiches pays réglementaires : brûlage encadré (Ley 26.562 argentine, interdictions locales Espagne/Italie, cadre Maroc loi 62.25), à sourcer document par document.
+4. FIRMS historique : cartographie multi-saison des dix bassins, au-delà du jour courant.
+5. Remplacement progressif des ILLUSTRATIONS du cahier pilote monde par les valeurs sourcées, avec traçabilité source et date.
 
 ## Limites honnêtes
 

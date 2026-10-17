@@ -2,15 +2,22 @@
 """Couche 4/5 — Simulateur flotte World Twin (squelette non calibré).
 
 Simule l'exploitation du trio Nomad v1 « comme si » il opérait déjà :
-douze mois, cinq biomasses, pannes injectées, télémétrie SYNTHÉTIQUE
-au contrat Edge, VDE en mode stub, rapports.
+douze mois, pannes injectées, télémétrie SYNTHÉTIQUE au contrat Edge,
+VDE en mode stub, rapports.
+
+v0.4 (P2) : flotte MONDE — Carré d'Or (France, Suisse, Italie, Espagne),
+LatAm (Argentine — Cuyo, Misiones), Al-Atlas (Maroc). Chaque hub vit
+dans engine/monde.py, avec sa saisonnalité propre (hémisphère Sud
+inclus) et sa graine déterministe. Le hub fr-rhone réplique
+exactement le pilote France v0.3.
 
 Lancement (bibliothèque standard uniquement, aucune dépendance) :
 
-    python3 simulateur.py
+    python3 simulateur.py                 # monde : tous les hubs P2
+    python3 simulateur.py fr-rhone        # un seul hub (compat v0.3)
 
 Écrit dans ../sorties/ (ignoré par git, jamais versionné) :
-    rapport-run.md / rapport-run.json       — synthèse du run
+    rapport-run.md / rapport-run.json       — synthèse du run (KPI par hub)
     telemetrie-echantillon.json             — télémétrie SYNTHÉTIQUE
     rapport-quotidien-exemple.md            — base du rapport World Ops
 
@@ -29,6 +36,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 import scenario
 import firms
+import monde
 
 # ---------------------------------------------------------------------------
 # Paramètres figés v0 (cahier pilote France — pilote-france-2027.md)
@@ -36,9 +44,6 @@ import firms
 
 SEED = 42
 ANNEE = 2027
-TRIO_ID = "fr-hub01-trio-1"
-PAYS = "France"
-REGION = "pilote-v0"
 OPERATEURS_PAR_TRIO = 2   # figé 17/10/2026 — modèle tournant : hub régional
                             # de 3 à 5 trios, éloignés de 1 h 30 à 2 h de route max
 MTBF_HEURES = 720.0       # ILLUSTRATION, non calibré
@@ -69,7 +74,7 @@ CATALOGUE_CAPTEURS = {
 
 
 # ---------------------------------------------------------------------------
-# VDE — stub non calibré (les coefficients réels vivent hors dépôt)
+# VDE — stub non calibré (les coefficients réels vivent hors du dépôt)
 # ---------------------------------------------------------------------------
 
 def vde_decider(biomasse, humidite_pct, prng):
@@ -122,11 +127,24 @@ def telemetrie_module(module, lot_id, horodatage, prng, qualite="nominal"):
 
 
 # ---------------------------------------------------------------------------
-# Simulation
+# Simulation — générique par hub (engine/monde.py)
 # ---------------------------------------------------------------------------
 
-def simuler():
-    prng = scenario.Prng(SEED)
+def simuler(hub_id="fr-rhone", graine=None):
+    """Simule une année du trio d'un hub, de façon déterministe.
+
+    hub_id : identifiant du hub dans monde.HUBS_MONDE.
+    graine : graine du run ; par défaut, celle du hub.
+    Le hub fr-rhone réplique exactement le pilote France v0.3.
+    """
+    hub = monde.HUBS_MONDE[hub_id]
+    graine_run = graine if graine is not None else hub["graine"]
+    trio_id = hub["trio_id"]
+    pays = hub["pays"]
+    region = hub["region"]
+    maintenance = monde.mois_maintenance(hub)
+
+    prng = scenario.Prng(graine_run)
     evenements = []          # faute -> action -> log
     telemetrie = []
     resume_mensuel = []
@@ -139,8 +157,8 @@ def simuler():
     debut_annee = datetime(ANNEE, 1, 1, tzinfo=timezone.utc)
 
     for mois in range(1, 13):
-        biomasses = scenario.biomasses_du_mois(mois)
-        en_maintenance = mois in scenario.MOIS_MAINTENANCE
+        biomasses = monde.biomasses_du_mois(hub, mois)
+        en_maintenance = mois in maintenance
         lots_mois = 0
         fautes_mois = 0
 
@@ -186,7 +204,11 @@ def simuler():
                 if not biomasses:
                     break
                 biomasse = biomasses[indice_lot % len(biomasses)]
-                cellule = scenario.cellule(PAYS, REGION, biomasse, mois, prng)
+                fiche = hub["biomasses"][biomasse]
+                cellule = scenario.cellule(
+                    pays, region, biomasse, mois, prng,
+                    fiche=fiche, bassin=fiche["bassin"],
+                )
                 decision = vde_decider(biomasse, cellule["humidite_pct"], prng)
                 horodatage = date.replace(hour=6 + 6 * indice_lot).isoformat().replace("+00:00", "Z")
                 lot_id = "lot-%04d-%s" % (lots_total + 1, biomasse)
@@ -236,9 +258,12 @@ def simuler():
 
     disponibilite = heures_disponibles / (heures_disponibles + heures_indisponibles)
     return {
-        "trio": TRIO_ID,
+        "trio": trio_id,
+        "hub": hub_id,
+        "pays": pays,
+        "region": region,
         "annee": ANNEE,
-        "graine": SEED,
+        "graine": graine_run,
         "lots_total": lots_total,
         "fautes_total": len([e for e in evenements if e["faute"].startswith(("panne", "capteur", "vis", "press", "sur"))]),
         "evenements": evenements,
@@ -278,31 +303,8 @@ MOIS_NOMS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet",
              "août", "septembre", "octobre", "novembre", "décembre"]
 
 
-def rapport_run_markdown(run):
-    lignes = []
-    lignes.append("# Rapport de run — World Twin pilote France %d" % run["annee"])
-    lignes.append("")
-    lignes.append("Étiquette : **%s** — registre de développement, valeurs non calibrées." % run["etiquette_globale"])
-    lignes.append("")
-    lignes.append("## Synthèse")
-    lignes.append("")
-    lignes.append("- Trio : %s, %d opérateurs (hypothèse v0)." % (run["trio"], OPERATEURS_PAR_TRIO))
-    lignes.append("- Graine : %d — run reproductible à l'identique." % run["graine"])
-    lignes.append("- Lots simulés : %d. Fautes : %d." % (run["lots_total"], run["fautes_total"]))
-    lignes.append("- Disponibilité : %.1f %% (disponible %.0f h, indisponible %.0f h)."
-                  % (run["disponibilite_pct"], run["heures_disponibles"], run["heures_indisponibles"]))
-    lignes.append("")
-    lignes.append("## Résumé mensuel")
-    lignes.append("")
-    lignes.append("| Mois | Biomasses actives | Lots | Fautes | État |")
-    lignes.append("| --- | --- | --- | --- | --- |")
-    for m in run["resume_mensuel"]:
-        lignes.append("| %s | %s | %d | %d | %s |" % (
-            MOIS_NOMS[m["mois"] - 1],
-            ", ".join(m["biomasses"]) or "—",
-            m["lots"], m["fautes"], m["etat"],
-        ))
-    lignes.append("")
+def _section_priorite_firms(lignes):
+    """Section priorisation des bassins — brûlage actif réel si branché."""
     classement = firms.priorite_hubs()
     if classement:
         lignes.append("## Priorité des bassins — brûlage actif RÉEL (NASA FIRMS)")
@@ -320,23 +322,82 @@ def rapport_run_markdown(run):
         lignes.append("Couche NASA FIRMS non branchée (pas de MAP_KEY locale) : ")
         lignes.append("repli sur les pain points SYNTHÉTIQUES du moteur de scénarios.")
         lignes.append("")
+
+
+def rapport_run_markdown(runs):
+    """Rapport markdown d'un run : un hub ou la flotte monde entière."""
+    monde_complet = len(runs) > 1
+    titre = "World Twin flotte monde %d" % runs[0]["annee"] if monde_complet \
+        else "World Twin %s (%s) %d" % (runs[0]["hub"], runs[0]["pays"], runs[0]["annee"])
+    lignes = []
+    lignes.append("# Rapport de run — %s" % titre)
+    lignes.append("")
+    lignes.append("Étiquette : **%s** — registre de développement, valeurs non calibrées."
+                  % runs[0]["etiquette_globale"])
+    lignes.append("")
+
+    lots_total = sum(r["lots_total"] for r in runs)
+    fautes_total = sum(r["fautes_total"] for r in runs)
+    evenements_total = sum(len(r["evenements"]) for r in runs)
+    heures_indispo = sum(r["heures_indisponibles"] for r in runs)
+    heures_dispo = sum(r["heures_disponibles"] for r in runs)
+    dispo_globale = heures_dispo / (heures_dispo + heures_indispo) * 100.0
+
+    lignes.append("## Synthèse")
+    lignes.append("")
+    lignes.append("- Hubs : %d. Trios : %d, %d opérateurs par trio (hypothèse v0)."
+                  % (len(runs), len(runs), OPERATEURS_PAR_TRIO))
+    lignes.append("- Lots simulés : %d. Fautes : %d. Événements : %d."
+                  % (lots_total, fautes_total, evenements_total))
+    lignes.append("- Disponibilité flotte : %.1f %% (disponible %.0f h, indisponible %.0f h)."
+                  % (dispo_globale, heures_dispo, heures_indispo))
+    lignes.append("")
+    lignes.append("## KPI par hub")
+    lignes.append("")
+    lignes.append("| Hub | Pays | Région | Lots | Fautes | Disponibilité |")
+    lignes.append("| --- | --- | --- | --- | --- | --- |")
+    for r in runs:
+        lignes.append("| %s | %s | %s | %d | %d | %.1f %% |" % (
+            r["hub"], r["pays"], r["region"],
+            r["lots_total"], r["fautes_total"], r["disponibilite_pct"]))
+    lignes.append("")
+
+    lignes.append("## Résumé mensuel (flotte, lots cumulés)")
+    lignes.append("")
+    lignes.append("| Mois | Lots | Fautes |")
+    lignes.append("| --- | --- | --- |")
+    for mois in range(1, 13):
+        lots_mois = sum(m["lots"] for r in runs for m in r["resume_mensuel"] if m["mois"] == mois)
+        fautes_mois = sum(m["fautes"] for r in runs for m in r["resume_mensuel"] if m["mois"] == mois)
+        lignes.append("| %s | %d | %d |" % (MOIS_NOMS[mois - 1], lots_mois, fautes_mois))
+    lignes.append("")
+
+    _section_priorite_firms(lignes)
+
     lignes.append("## Journal fautes -> actions -> logs (extrait)")
     lignes.append("")
-    lignes.append("| Horodatage | Module | Faute | Action | Log |")
-    lignes.append("| --- | --- | --- | --- | --- |")
-    for e in run["evenements"][:40]:
-        lignes.append("| %s | %s | %s | %s | %s |" % (
-            e["timestamp"], e["module"], e["faute"], e["action"], e["log"],
+    lignes.append("| Horodatage | Hub | Module | Faute | Action | Log |")
+    lignes.append("| --- | --- | --- | --- | --- | --- |")
+    tous = []
+    for r in runs:
+        for e in r["evenements"]:
+            tous.append((r["hub"], e))
+    for hub, e in tous[:40]:
+        lignes.append("| %s | %s | %s | %s | %s | %s |" % (
+            e["timestamp"], hub, e["module"], e["faute"], e["action"], e["log"],
         ))
-    if len(run["evenements"]) > 40:
+    if len(tous) > 40:
         lignes.append("")
-        lignes.append("… et %d autres événements dans rapport-run.json." % (len(run["evenements"]) - 40))
+        lignes.append("… et %d autres événements dans rapport-run.json." % (len(tous) - 40))
     lignes.append("")
     return "\n".join(lignes) + "\n"
 
 
-def rapport_quotidien_exemple(run):
-    dernier_jour = run["evenements"][-5:] if run["evenements"] else []
+def rapport_quotidien_exemple(runs):
+    dernier_jour = []
+    for r in runs:
+        for e in r["evenements"][-5:]:
+            dernier_jour.append((r["hub"], e))
     lignes = []
     lignes.append("# World Ops — rapport quotidien (exemple simulé)")
     lignes.append("")
@@ -344,57 +405,87 @@ def rapport_quotidien_exemple(run):
     lignes.append("")
     lignes.append("## État de la flotte")
     lignes.append("")
-    lignes.append("- %s : operationnel, %d lots cumulés." % (run["trio"], run["lots_total"]))
-    lignes.append("- Disponibilité cumulée : %.1f %%." % run["disponibilite_pct"])
+    for r in runs:
+        lignes.append("- %s (%s, %s) : %d lots cumulés, disponibilité %.1f %%."
+                      % (r["trio"], r["hub"], r["pays"], r["lots_total"], r["disponibilite_pct"]))
     lignes.append("")
     lignes.append("## Fautes -> actions -> logs (derniers événements)")
     lignes.append("")
     if dernier_jour:
-        for e in dernier_jour:
-            lignes.append("- %s — %s : %s → %s (%s)" % (
-                e["timestamp"], e["module"], e["faute"], e["action"], e["log"]))
+        for hub, e in dernier_jour[-8:]:
+            lignes.append("- %s — %s / %s : %s → %s (%s)" % (
+                e["timestamp"], hub, e["module"], e["faute"], e["action"], e["log"]))
     else:
         lignes.append("- Aucune faute. Journée nominale.")
     lignes.append("")
     lignes.append("## Recommandations")
     lignes.append("")
-    lignes.append("- Vérifier la fenêtre de la biomasse active du mois dans le cahier pilote.")
-    lignes.append("- Confirmer les paramètres MTBF/MTTR avant le passage P2.")
+    lignes.append("- Vérifier les fenêtres des biomasses actives du mois dans les cahiers pilotes.")
+    lignes.append("- Confirmer les paramètres MTBF/MTTR avant le passage P3 (shadow mode réel).")
     lignes.append("- Rappel : toute donnée reste SYNTHÉTIQUE, registre de développement.")
     lignes.append("")
     return "\n".join(lignes) + "\n"
 
 
 def main():
-    run = simuler()
+    argument = sys.argv[1] if len(sys.argv) > 1 else None
+    if argument is None:
+        hub_ids = list(monde.HUBS_MONDE)
+    elif argument in monde.HUBS_MONDE:
+        hub_ids = [argument]
+    else:
+        print("ERREUR : hub inconnu « %s ». Hubs disponibles : %s"
+              % (argument, ", ".join(monde.HUBS_MONDE)))
+        return 1
+
+    runs = [simuler(hub_id) for hub_id in hub_ids]
+
     dossier_sorties = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "sorties")
     dossier_sorties = os.path.normpath(dossier_sorties)
     os.makedirs(dossier_sorties, exist_ok=True)
 
     with open(os.path.join(dossier_sorties, "rapport-run.md"), "w", encoding="utf-8") as f:
-        f.write(rapport_run_markdown(run))
+        f.write(rapport_run_markdown(runs))
 
-    run_json = dict(run)
-    telemetrie_echantillon = run["telemetrie"][:120]
-    del run_json["telemetrie"]
+    runs_json = []
+    telemetrie_globale = []
+    for run in runs:
+        run_json = dict(run)
+        telemetrie_globale.extend(run["telemetrie"])
+        del run_json["telemetrie"]
+        runs_json.append(run_json)
+    charge_json = {
+        "etiquette_globale": ETIQUETTE,
+        "mode": "monde" if len(runs) > 1 else runs[0]["hub"],
+        "hubs": [r["hub"] for r in runs],
+        "totaux": {
+            "lots_total": sum(r["lots_total"] for r in runs),
+            "fautes_total": sum(r["fautes_total"] for r in runs),
+            "evenements_total": sum(len(r["evenements"]) for r in runs),
+            "heures_indisponibles": round(sum(r["heures_indisponibles"] for r in runs), 1),
+        },
+        "runs": runs_json,
+    }
     with open(os.path.join(dossier_sorties, "rapport-run.json"), "w", encoding="utf-8") as f:
-        json.dump(run_json, f, ensure_ascii=False, indent=2)
+        json.dump(charge_json, f, ensure_ascii=False, indent=2)
         f.write("\n")
 
     with open(os.path.join(dossier_sorties, "telemetrie-echantillon.json"), "w", encoding="utf-8") as f:
         json.dump(
             {"etiquette": ETIQUETTE, "contrat": "digital-twin/schemas/donnees-capteurs.schema.json",
-             "enregistrements": telemetrie_echantillon},
+             "enregistrements": telemetrie_globale[:120]},
             f, ensure_ascii=False, indent=2,
         )
         f.write("\n")
 
     with open(os.path.join(dossier_sorties, "rapport-quotidien-exemple.md"), "w", encoding="utf-8") as f:
-        f.write(rapport_quotidien_exemple(run))
+        f.write(rapport_quotidien_exemple(runs))
 
     print(">> Run World Twin terminé (étiquette %s)" % ETIQUETTE)
-    print(">> Trio %s — %d lots, %d événements, disponibilité %.1f %%"
-          % (run["trio"], run["lots_total"], len(run["evenements"]), run["disponibilite_pct"]))
+    for r in runs:
+        print(">> %-18s %-10s — %4d lots, %3d événements, dispo %.1f %%"
+              % (r["trio"], r["pays"], r["lots_total"],
+                 len(r["evenements"]), r["disponibilite_pct"]))
     print(">> Sorties : %s" % dossier_sorties)
     return 0
 

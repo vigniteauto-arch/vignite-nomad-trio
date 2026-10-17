@@ -31,12 +31,20 @@ CHEMIN_CLE = os.path.join(DOSSIER, "firms.env")
 DOSSIER_CACHE = os.path.join(DOSSIER, "cache-firms")
 API = "https://firms.modaps.eosdis.nasa.gov/api/area/csv/{cle}/VIIRS_NOAA20_NRT/{boite}/{jours}"
 
-# Boîtes géographiques des bassins pilotes (ouest, sud, est, nord).
+# Boîtes géographiques des bassins pilotes et du monde P2 (ouest, sud, est, nord).
 BOITES_BASSINS = {
+    # Pilote France (v0.3)
     "vallee-du-rhone": (4.40, 43.90, 5.30, 44.50),
     "camargue":        (3.50, 43.20, 5.50, 44.30),
     "perigord":        (0.20, 44.70, 1.20, 45.30),
     "sud-ouest":       (-1.00, 43.60, 0.00, 44.50),
+    # Carré d'Or, LatAm, Al-Atlas (P2)
+    "suisse-leman":       (6.40, 46.30, 7.20, 46.75),
+    "italie-puglia":      (15.30, 40.70, 16.60, 41.70),
+    "espagne-extremadure": (-6.60, 38.70, -5.00, 39.60),
+    "argentine-cuyo":     (-69.60, -34.20, -67.40, -32.50),
+    "argentine-misiones": (-55.80, -27.80, -54.30, -26.40),
+    "maroc-atlas":        (-6.20, 32.90, -4.60, 34.20),
 }
 
 _memoire = {}

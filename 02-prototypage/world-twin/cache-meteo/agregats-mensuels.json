@@ -322,6 +322,487 @@
     "precipitations_mm": 30.9,
     "jours_pluie": 8
    }
+  },
+  "suisse-leman": {
+   "2025-10": {
+    "temperature_moy_c": 11.8,
+    "humidite_moy_pct": 83.9,
+    "precipitations_mm": 188.0,
+    "jours_pluie": 14
+   },
+   "2025-11": {
+    "temperature_moy_c": 7.2,
+    "humidite_moy_pct": 80.2,
+    "precipitations_mm": 175.9,
+    "jours_pluie": 15
+   },
+   "2025-12": {
+    "temperature_moy_c": 4.7,
+    "humidite_moy_pct": 82.2,
+    "precipitations_mm": 40.4,
+    "jours_pluie": 9
+   },
+   "2026-01": {
+    "temperature_moy_c": 2.6,
+    "humidite_moy_pct": 79.5,
+    "precipitations_mm": 105.9,
+    "jours_pluie": 17
+   },
+   "2026-02": {
+    "temperature_moy_c": 6.1,
+    "humidite_moy_pct": 83.4,
+    "precipitations_mm": 169.6,
+    "jours_pluie": 19
+   },
+   "2026-03": {
+    "temperature_moy_c": 7.0,
+    "humidite_moy_pct": 75.4,
+    "precipitations_mm": 85.8,
+    "jours_pluie": 16
+   },
+   "2026-04": {
+    "temperature_moy_c": 12.9,
+    "humidite_moy_pct": 63.5,
+    "precipitations_mm": 41.7,
+    "jours_pluie": 8
+   },
+   "2026-05": {
+    "temperature_moy_c": 15.3,
+    "humidite_moy_pct": 73.9,
+    "precipitations_mm": 144.1,
+    "jours_pluie": 17
+   },
+   "2026-06": {
+    "temperature_moy_c": 21.4,
+    "humidite_moy_pct": 68.0,
+    "precipitations_mm": 97.5,
+    "jours_pluie": 13
+   },
+   "2026-07": {
+    "temperature_moy_c": 24.0,
+    "humidite_moy_pct": 56.9,
+    "precipitations_mm": 55.8,
+    "jours_pluie": 11
+   },
+   "2026-08": {
+    "temperature_moy_c": 23.9,
+    "humidite_moy_pct": 66.6,
+    "precipitations_mm": 116.2,
+    "jours_pluie": 17
+   },
+   "2026-09": {
+    "temperature_moy_c": 19.9,
+    "humidite_moy_pct": 65.7,
+    "precipitations_mm": 36.3,
+    "jours_pluie": 5
+   },
+   "2026-10": {
+    "temperature_moy_c": 16.7,
+    "humidite_moy_pct": 82.5,
+    "precipitations_mm": 70.1,
+    "jours_pluie": 6
+   }
+  },
+  "italie-puglia": {
+   "2025-10": {
+    "temperature_moy_c": 17.0,
+    "humidite_moy_pct": 71.4,
+    "precipitations_mm": 110.7,
+    "jours_pluie": 14
+   },
+   "2025-11": {
+    "temperature_moy_c": 13.0,
+    "humidite_moy_pct": 79.1,
+    "precipitations_mm": 102.0,
+    "jours_pluie": 14
+   },
+   "2025-12": {
+    "temperature_moy_c": 10.1,
+    "humidite_moy_pct": 85.3,
+    "precipitations_mm": 58.4,
+    "jours_pluie": 8
+   },
+   "2026-01": {
+    "temperature_moy_c": 9.0,
+    "humidite_moy_pct": 78.9,
+    "precipitations_mm": 45.6,
+    "jours_pluie": 15
+   },
+   "2026-02": {
+    "temperature_moy_c": 10.9,
+    "humidite_moy_pct": 80.5,
+    "precipitations_mm": 49.6,
+    "jours_pluie": 18
+   },
+   "2026-03": {
+    "temperature_moy_c": 10.9,
+    "humidite_moy_pct": 81.4,
+    "precipitations_mm": 81.7,
+    "jours_pluie": 20
+   },
+   "2026-04": {
+    "temperature_moy_c": 15.3,
+    "humidite_moy_pct": 75.5,
+    "precipitations_mm": 108.4,
+    "jours_pluie": 10
+   },
+   "2026-05": {
+    "temperature_moy_c": 19.7,
+    "humidite_moy_pct": 58.6,
+    "precipitations_mm": 40.8,
+    "jours_pluie": 8
+   },
+   "2026-06": {
+    "temperature_moy_c": 25.9,
+    "humidite_moy_pct": 57.6,
+    "precipitations_mm": 9.0,
+    "jours_pluie": 2
+   },
+   "2026-07": {
+    "temperature_moy_c": 27.8,
+    "humidite_moy_pct": 55.7,
+    "precipitations_mm": 17.5,
+    "jours_pluie": 6
+   },
+   "2026-08": {
+    "temperature_moy_c": 29.5,
+    "humidite_moy_pct": 55.5,
+    "precipitations_mm": 1.2,
+    "jours_pluie": 2
+   },
+   "2026-09": {
+    "temperature_moy_c": 24.3,
+    "humidite_moy_pct": 61.1,
+    "precipitations_mm": 14.4,
+    "jours_pluie": 8
+   },
+   "2026-10": {
+    "temperature_moy_c": 20.1,
+    "humidite_moy_pct": 70.9,
+    "precipitations_mm": 21.8,
+    "jours_pluie": 4
+   }
+  },
+  "espagne-extremadure": {
+   "2025-10": {
+    "temperature_moy_c": 20.1,
+    "humidite_moy_pct": 62.5,
+    "precipitations_mm": 46.4,
+    "jours_pluie": 12
+   },
+   "2025-11": {
+    "temperature_moy_c": 11.6,
+    "humidite_moy_pct": 76.1,
+    "precipitations_mm": 87.6,
+    "jours_pluie": 13
+   },
+   "2025-12": {
+    "temperature_moy_c": 9.2,
+    "humidite_moy_pct": 84.5,
+    "precipitations_mm": 86.6,
+    "jours_pluie": 18
+   },
+   "2026-01": {
+    "temperature_moy_c": 8.4,
+    "humidite_moy_pct": 84.2,
+    "precipitations_mm": 124.7,
+    "jours_pluie": 22
+   },
+   "2026-02": {
+    "temperature_moy_c": 11.5,
+    "humidite_moy_pct": 78.6,
+    "precipitations_mm": 166.8,
+    "jours_pluie": 15
+   },
+   "2026-03": {
+    "temperature_moy_c": 13.0,
+    "humidite_moy_pct": 66.5,
+    "precipitations_mm": 32.5,
+    "jours_pluie": 10
+   },
+   "2026-04": {
+    "temperature_moy_c": 18.2,
+    "humidite_moy_pct": 55.0,
+    "precipitations_mm": 75.1,
+    "jours_pluie": 11
+   },
+   "2026-05": {
+    "temperature_moy_c": 21.3,
+    "humidite_moy_pct": 45.9,
+    "precipitations_mm": 20.9,
+    "jours_pluie": 7
+   },
+   "2026-06": {
+    "temperature_moy_c": 28.1,
+    "humidite_moy_pct": 38.0,
+    "precipitations_mm": 4.7,
+    "jours_pluie": 5
+   },
+   "2026-07": {
+    "temperature_moy_c": 29.2,
+    "humidite_moy_pct": 32.9,
+    "precipitations_mm": 0.0,
+    "jours_pluie": 0
+   },
+   "2026-08": {
+    "temperature_moy_c": 26.9,
+    "humidite_moy_pct": 44.0,
+    "precipitations_mm": 8.6,
+    "jours_pluie": 7
+   },
+   "2026-09": {
+    "temperature_moy_c": 26.5,
+    "humidite_moy_pct": 36.3,
+    "precipitations_mm": 4.2,
+    "jours_pluie": 2
+   },
+   "2026-10": {
+    "temperature_moy_c": 19.9,
+    "humidite_moy_pct": 66.4,
+    "precipitations_mm": 45.6,
+    "jours_pluie": 6
+   }
+  },
+  "argentine-cuyo": {
+   "2025-10": {
+    "temperature_moy_c": 19.0,
+    "humidite_moy_pct": 33.4,
+    "precipitations_mm": 2.8,
+    "jours_pluie": 3
+   },
+   "2025-11": {
+    "temperature_moy_c": 22.5,
+    "humidite_moy_pct": 39.6,
+    "precipitations_mm": 22.5,
+    "jours_pluie": 8
+   },
+   "2025-12": {
+    "temperature_moy_c": 25.4,
+    "humidite_moy_pct": 37.6,
+    "precipitations_mm": 24.9,
+    "jours_pluie": 7
+   },
+   "2026-01": {
+    "temperature_moy_c": 25.7,
+    "humidite_moy_pct": 46.8,
+    "precipitations_mm": 42.4,
+    "jours_pluie": 13
+   },
+   "2026-02": {
+    "temperature_moy_c": 23.1,
+    "humidite_moy_pct": 53.4,
+    "precipitations_mm": 17.1,
+    "jours_pluie": 8
+   },
+   "2026-03": {
+    "temperature_moy_c": 20.7,
+    "humidite_moy_pct": 58.7,
+    "precipitations_mm": 26.9,
+    "jours_pluie": 9
+   },
+   "2026-04": {
+    "temperature_moy_c": 15.7,
+    "humidite_moy_pct": 62.9,
+    "precipitations_mm": 9.6,
+    "jours_pluie": 8
+   },
+   "2026-05": {
+    "temperature_moy_c": 11.0,
+    "humidite_moy_pct": 57.6,
+    "precipitations_mm": 5.3,
+    "jours_pluie": 2
+   },
+   "2026-06": {
+    "temperature_moy_c": 8.8,
+    "humidite_moy_pct": 66.0,
+    "precipitations_mm": 3.9,
+    "jours_pluie": 4
+   },
+   "2026-07": {
+    "temperature_moy_c": 8.0,
+    "humidite_moy_pct": 71.3,
+    "precipitations_mm": 17.8,
+    "jours_pluie": 10
+   },
+   "2026-08": {
+    "temperature_moy_c": 10.6,
+    "humidite_moy_pct": 55.5,
+    "precipitations_mm": 18.0,
+    "jours_pluie": 8
+   },
+   "2026-09": {
+    "temperature_moy_c": 14.0,
+    "humidite_moy_pct": 40.1,
+    "precipitations_mm": 15.1,
+    "jours_pluie": 5
+   },
+   "2026-10": {
+    "temperature_moy_c": 15.1,
+    "humidite_moy_pct": 51.2,
+    "precipitations_mm": 11.1,
+    "jours_pluie": 5
+   }
+  },
+  "argentine-misiones": {
+   "2025-10": {
+    "temperature_moy_c": 20.8,
+    "humidite_moy_pct": 72.1,
+    "precipitations_mm": 207.7,
+    "jours_pluie": 12
+   },
+   "2025-11": {
+    "temperature_moy_c": 23.1,
+    "humidite_moy_pct": 70.2,
+    "precipitations_mm": 94.3,
+    "jours_pluie": 15
+   },
+   "2025-12": {
+    "temperature_moy_c": 24.7,
+    "humidite_moy_pct": 76.5,
+    "precipitations_mm": 262.3,
+    "jours_pluie": 19
+   },
+   "2026-01": {
+    "temperature_moy_c": 25.4,
+    "humidite_moy_pct": 68.3,
+    "precipitations_mm": 89.8,
+    "jours_pluie": 15
+   },
+   "2026-02": {
+    "temperature_moy_c": 26.6,
+    "humidite_moy_pct": 69.5,
+    "precipitations_mm": 122.8,
+    "jours_pluie": 14
+   },
+   "2026-03": {
+    "temperature_moy_c": 25.6,
+    "humidite_moy_pct": 78.7,
+    "precipitations_mm": 111.9,
+    "jours_pluie": 19
+   },
+   "2026-04": {
+    "temperature_moy_c": 21.9,
+    "humidite_moy_pct": 80.5,
+    "precipitations_mm": 298.4,
+    "jours_pluie": 17
+   },
+   "2026-05": {
+    "temperature_moy_c": 16.3,
+    "humidite_moy_pct": 79.3,
+    "precipitations_mm": 93.2,
+    "jours_pluie": 9
+   },
+   "2026-06": {
+    "temperature_moy_c": 14.3,
+    "humidite_moy_pct": 81.1,
+    "precipitations_mm": 227.5,
+    "jours_pluie": 10
+   },
+   "2026-07": {
+    "temperature_moy_c": 17.5,
+    "humidite_moy_pct": 78.4,
+    "precipitations_mm": 191.2,
+    "jours_pluie": 18
+   },
+   "2026-08": {
+    "temperature_moy_c": 18.8,
+    "humidite_moy_pct": 75.5,
+    "precipitations_mm": 159.6,
+    "jours_pluie": 20
+   },
+   "2026-09": {
+    "temperature_moy_c": 19.3,
+    "humidite_moy_pct": 69.9,
+    "precipitations_mm": 119.7,
+    "jours_pluie": 12
+   },
+   "2026-10": {
+    "temperature_moy_c": 20.2,
+    "humidite_moy_pct": 81.9,
+    "precipitations_mm": 137.9,
+    "jours_pluie": 8
+   }
+  },
+  "maroc-atlas": {
+   "2025-10": {
+    "temperature_moy_c": 21.5,
+    "humidite_moy_pct": 58.9,
+    "precipitations_mm": 4.3,
+    "jours_pluie": 3
+   },
+   "2025-11": {
+    "temperature_moy_c": 14.3,
+    "humidite_moy_pct": 69.6,
+    "precipitations_mm": 61.1,
+    "jours_pluie": 9
+   },
+   "2025-12": {
+    "temperature_moy_c": 9.7,
+    "humidite_moy_pct": 80.5,
+    "precipitations_mm": 207.3,
+    "jours_pluie": 21
+   },
+   "2026-01": {
+    "temperature_moy_c": 9.9,
+    "humidite_moy_pct": 83.1,
+    "precipitations_mm": 216.4,
+    "jours_pluie": 23
+   },
+   "2026-02": {
+    "temperature_moy_c": 12.4,
+    "humidite_moy_pct": 79.0,
+    "precipitations_mm": 129.8,
+    "jours_pluie": 11
+   },
+   "2026-03": {
+    "temperature_moy_c": 12.3,
+    "humidite_moy_pct": 77.3,
+    "precipitations_mm": 61.4,
+    "jours_pluie": 19
+   },
+   "2026-04": {
+    "temperature_moy_c": 16.3,
+    "humidite_moy_pct": 68.9,
+    "precipitations_mm": 75.4,
+    "jours_pluie": 13
+   },
+   "2026-05": {
+    "temperature_moy_c": 20.5,
+    "humidite_moy_pct": 54.7,
+    "precipitations_mm": 17.7,
+    "jours_pluie": 7
+   },
+   "2026-06": {
+    "temperature_moy_c": 24.6,
+    "humidite_moy_pct": 58.3,
+    "precipitations_mm": 0.3,
+    "jours_pluie": 0
+   },
+   "2026-07": {
+    "temperature_moy_c": 28.5,
+    "humidite_moy_pct": 42.0,
+    "precipitations_mm": 1.6,
+    "jours_pluie": 3
+   },
+   "2026-08": {
+    "temperature_moy_c": 27.0,
+    "humidite_moy_pct": 51.5,
+    "precipitations_mm": 2.7,
+    "jours_pluie": 1
+   },
+   "2026-09": {
+    "temperature_moy_c": 27.3,
+    "humidite_moy_pct": 43.5,
+    "precipitations_mm": 8.1,
+    "jours_pluie": 6
+   },
+   "2026-10": {
+    "temperature_moy_c": 22.7,
+    "humidite_moy_pct": 61.4,
+    "precipitations_mm": 23.1,
+    "jours_pluie": 9
+   }
   }
- }
+ },
+ "convention_jours_pluie": "precipitation_sum >= 0.2 mm (fenêtre 2025-10-01 → 2026-10-10, UTC)"
 }

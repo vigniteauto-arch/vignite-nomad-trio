@@ -139,12 +139,16 @@ def biomasses_du_mois(mois):
     ]
 
 
-def gisement_illustration(biomasse, mois, prng):
+def gisement_illustration(biomasse, mois, prng, fiche=None):
     """Gisement simulé en tonnes pour le mois — ILLUSTRATION, non calibré.
 
     À remplacer en P1 par FAOSTAT (production et résidus, méthode IPCC).
+    v0.4 : fiche optionnelle (hubs du monde — engine/monde.py) ; défaut
+    = pilote France.
     """
-    charge = BIOMASSES_PILOTE[biomasse]["charge_mois"].get(mois, "moyenne")
+    if fiche is None:
+        fiche = BIOMASSES_PILOTE[biomasse]
+    charge = fiche["charge_mois"].get(mois, "moyenne")
     facteur = FACTEUR_CHARGE.get(charge, 0.5)
     return round(60.0 * facteur * prng.intervalle(0.8, 1.2), 1)
 
@@ -165,16 +169,18 @@ def meteo_synthetique(mois, jour, prng):
     }
 
 
-def pain_points(biomasse, mois, prng):
+def pain_points(biomasse, mois, prng, bassin=None):
     """Pain points locaux : feux actifs RÉELS si FIRMS est branchée.
 
     v0.3 : avec une MAP_KEY locale (firms.env), les feux actifs viennent
     de NASA FIRMS (VIIRS NOAA-20, NRT) — DONNÉES RÉELLES du jour.
     Sans clé : repli synthétique déterministe (ILLUSTRATION).
-    La dimension réglementaire du brûlage reste ILLUSTRATION (fiches
-    pays à sourcer).
+    v0.4 : bassin optionnel (hubs du monde — engine/monde.py) ; défaut
+    = pilote France. La dimension réglementaire du brûlage reste
+    ILLUSTRATION (fiches pays à sourcer).
     """
-    bassin = BIOMASSES_PILOTE[biomasse]["bassin"]
+    if bassin is None:
+        bassin = BIOMASSES_PILOTE[biomasse]["bassin"]
     feux = firms.feux_bassin(bassin)
     if feux is not None:
         return {
@@ -193,18 +199,27 @@ def pain_points(biomasse, mois, prng):
     }
 
 
-def cellule(pays, region, biomasse, mois, prng):
-    """Assemble les paramètres d'une cellule (pays, région, biomasse, mois)."""
+def cellule(pays, region, biomasse, mois, prng, fiche=None, bassin=None):
+    """Assemble les paramètres d'une cellule (pays, région, biomasse, mois).
+
+    v0.4 : fiche et bassin optionnels (hubs du monde — engine/monde.py) ;
+    par défaut, le pilote France (BIOMASSES_PILOTE). L'ordre des
+    tirages déterministes est inchangé — compatibilité v0.3.
+    """
+    if fiche is None:
+        fiche = BIOMASSES_PILOTE[biomasse]
+    if bassin is None:
+        bassin = fiche["bassin"]
     return {
         "pays": pays,
         "region": region,
         "biomasse": biomasse,
         "mois": mois,
-        "gisement_t": gisement_illustration(biomasse, mois, prng),
+        "gisement_t": gisement_illustration(biomasse, mois, prng, fiche),
         "humidite_pct": round(
-            prng.intervalle(*BIOMASSES_PILOTE[biomasse]["humidite_pct"]), 1
+            prng.intervalle(*fiche["humidite_pct"]), 1
         ),
-        "meteo": meteo_du_bassin(BIOMASSES_PILOTE[biomasse]["bassin"], mois, prng),
-        "pain_points": pain_points(biomasse, mois, prng),
+        "meteo": meteo_du_bassin(bassin, mois, prng),
+        "pain_points": pain_points(biomasse, mois, prng, bassin),
         "etiquette": "SYNTHÉTIQUE",
     }
