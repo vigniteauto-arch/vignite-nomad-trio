@@ -25,3 +25,6 @@ __pycache__/
 
 # World Twin - le modele de cle FIRMS est versionne (jamais la cle reelle)
 !02-prototypage/world-twin/engine/firms.env.example
+
+# World Twin — cache FIRMS historique, jamais versionné
+02-prototypage/world-twin/cache-firms-histo/
