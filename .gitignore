@@ -31,3 +31,6 @@ __pycache__/
 
 # World Twin — cache FAOSTAT bulk local, jamais versionné
 02-prototypage/world-twin/cache-faostat-bulk/
+
+# World Twin — cache météo temps réel, jamais versionné
+02-prototypage/world-twin/cache-meteo-temps-reel/
