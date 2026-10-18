@@ -29,7 +29,7 @@ Statut : P2 — flotte monde (Carré d'Or, LatAm, Al-Atlas : 7 hubs, 2 hémisph�
 - sources-donnees.md — sources de données monde, accès, limites, plan de branchement.
 - atlas-gisements-monde.md — atlas des gisements mondiaux des 7 hubs : données publiques sourcées et étiquetées (v0.5), méthode, ratios de conversion.
 - fiches-pays-reglementation.md — fiches pays réglementaires (v0.6) : cadre légal du brûlage des résidus pour les 7 hubs, sanctions, pain points, sources légales croisées.
-- croisement-geoglam.md — croisement GEOGLAM (v0.7) : calendriers culturaux sous-nationaux des 7 hubs, verdicts de validation des fenêtres, conditions de campagne, fenêtres candidates étiquetées.
+- croisement-geoglam.md — croisement GEOGLAM (v0.7) : calendriers culturaux sous-nationaux réels des 7 hubs, verdicts des fenêtres du moteur, fenêtres candidates étiquetées À SOURCER.
 - engine/monde.py — grammaire mondiale des hubs (P2) : pays, régions, biomasses, fenêtres, graines ; maintenance déduite des fenêtres.
 - engine/scenario.py — couche 3 : scénarios déterministes non calibrés ; lecture optionnelle du cache météo ERA5 réel ; fiche/bassin optionnels pour les hubs monde.
 - engine/simulateur.py — couche 4 : simulateur de flotte monde et générateur de rapports (KPI par hub, priorisation mondiale FIRMS) ; fr-rhone réplique exactement v0.3.
@@ -39,7 +39,7 @@ Statut : P2 — flotte monde (Carré d'Or, LatAm, Al-Atlas : 7 hubs, 2 hémisph�
 - engine/atlas_gisements.py — atlas machine des gisements mondiaux : constantes étiquetées par hub (v0.5), contrôle de couverture contre monde.py.
 - engine/lecture_resultats.py — lecture des résultats Monte Carlo (v0.5) : classement des hubs par disponibilité, sensibilité au figeage, synthèse du dernier run ; écrit sorties/lecture-resultats.md et .json.
 - engine/fiches_reglementation.py — fiches pays réglementaires machine (v0.6) : statut du brûlage et références légales par hub, contrôle de couverture contre monde.py.
-- engine/geoglam.py — croisement GEOGLAM machine (v0.7) : calendriers culturaux par hub (étiquetés), conditions de campagne, fenêtres candidates, contrôles de couverture et de cohérence.
+- engine/geoglam.py — croisement GEOGLAM machine (v0.7) : calendriers culturaux par hub étiquetés, conditions de campagne, fenêtres candidates, contrôles de couverture et de cohérence contre monde.py.
 - cache-meteo/agregats-mensuels.json — agrégations mensuelles RÉELLES Open-Meteo ERA5 des dix bassins (4 pilote + 6 monde, données publiques, versionnées).
 - sorties/ — rapports et télémétrie générés (ignorés par git, jamais versionnés).
 
@@ -52,7 +52,7 @@ python3 engine/simulateur.py fr-rhone        # un hub seul (réplique v0.3)
 
 Configuration optionnelle de la couche brûlage réelle : copier `engine/firms.env.example` en `firms.env` à la racine du dossier world-twin, y coller la MAP_KEY FIRMS (gratuite, inscription sur la NASA, environ cinq minutes). Le fichier `firms.env` est exclu du dépôt (motif `*.env`) ; la clé vit uniquement en local. Sans clé, le simulateur fonctionne en repli synthétique sans erreur.
 
-Aucune dépendance : bibliothèque standard uniquement, graine déterministe. Monte Carlo : `python3 engine/monte_carlo.py [graines_baseline] [graines_par_variante] [france|monde|hub]` — le mode `monde` tourne à l'échelle du millier de runs (agrégats par hub, mémoire constante, progression affichée). Atlas gisements : `python3 engine/atlas_gisements.py [hub]` (sommaire ou fiche d'un hub). Lecture des résultats : `python3 engine/lecture_resultats.py` — à lancer après un Monte Carlo (erreur propre sinon). Un run complet écrit dans sorties/ :
+Aucune dépendance : bibliothèque standard uniquement, graine déterministe. Monte Carlo : `python3 engine/monte_carlo.py [graines_baseline] [graines_par_variante] [france|monde|hub]` — le mode `monde` tourne à l'échelle du millier de runs (agrégats par hub, mémoire constante, progression affichée). Atlas gisements : `python3 engine/atlas_gisements.py [hub]` (sommaire ou fiche d'un hub). Croisement GEOGLAM : `python3 engine/geoglam.py [hub|croisement]` (sommaire, fiche d'un hub ou croisement machine complet). Lecture des résultats : `python3 engine/lecture_resultats.py` — à lancer après un Monte Carlo (erreur propre sinon). Un run complet écrit dans sorties/ :
 
 - rapport-run.md et rapport-run.json — synthèse du run : lots, fautes, actions, logs, disponibilité ;
 - telemetrie-echantillon.json — télémétrie SYNTHÉTIQUE au contrat du digital twin ;
@@ -62,5 +62,5 @@ Aucune dépendance : bibliothèque standard uniquement, graine déterministe. Mo
 
 - P0 : spécification, cahier pilote France, paramètres figés. Terminé le 17/10/2026 (figeage : 2 opérateurs tournants par hub, MTBF 720 h, MTTR 8 h).
 - P1 (nov-déc 2026) : 900 runs Monte Carlo réalisés (403 200 lots) ; météo ERA5 réelle branchée ; couche brûlage NASA FIRMS réelle branchée (17/10/2026) ; FAOSTAT extrait ; rapport quotidien planifié.
-- P2 (démarrée le 17/10/2026) : multi-pays — Carré d'Or (Suisse, Italie, Espagne), LatAm (Argentine : Cuyo, Misiones), Al-Atlas (Maroc) ; 7 hubs, 2 hémisphères ; ERA5 réelle sur 10 bassins ; FIRMS sur 10 boîtes ; Monte Carlo monde à l'échelle du millier de runs ; KPI pays/région dans le rapport. V0.5 (17/10/2026) : atlas des gisements mondiaux multi-pays livré (données publiques sourcées, FAOSTAT/COI/MAPA/INYM/OFAG), lecture des résultats Monte Carlo. V0.6 (17/10/2026) : fiches pays réglementaires livrées (cadre légal du brûlage, 7 hubs). V0.7 (17/10/2026) : croisement GEOGLAM livré (calendriers culturaux réels, fenêtres du moteur validées pour le maïs et le riz du hub France, fenêtres candidates étiquetées À SOURCER). Reste : FIRMS historique multi-saison, extraction bulk FAOSTAT.
+- P2 (démarrée le 17/10/2026) : multi-pays — Carré d'Or (Suisse, Italie, Espagne), LatAm (Argentine : Cuyo, Misiones), Al-Atlas (Maroc) ; 7 hubs, 2 hémisphères ; ERA5 réelle sur 10 bassins ; FIRMS sur 10 boîtes ; Monte Carlo monde à l'échelle du millier de runs ; KPI pays/région dans le rapport. V0.5 (17/10/2026) : atlas des gisements mondiaux multi-pays livré (données publiques sourcées, FAOSTAT/COI/MAPA/INYM/OFAG), lecture des résultats Monte Carlo. V0.6 (17/10/2026) : fiches pays réglementaires livrées (cadre légal du brûlage, 7 hubs). V0.7 (17/10/2026) : croisement GEOGLAM livré (calendriers culturaux sous-nationaux, fenêtres moteur validées, fenêtres candidates À SOURCER). Reste : FIRMS historique multi-saison, extraction bulk FAOSTAT.
 - P3 (post-Nomad v1) : shadow mode réel, replay des campagnes réelles, calibrage edge-first.
