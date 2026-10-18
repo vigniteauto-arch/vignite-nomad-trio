@@ -28,3 +28,6 @@ __pycache__/
 
 # World Twin — cache FIRMS historique, jamais versionné
 02-prototypage/world-twin/cache-firms-histo/
+
+# World Twin — cache FAOSTAT bulk local, jamais versionné
+02-prototypage/world-twin/cache-faostat-bulk/
