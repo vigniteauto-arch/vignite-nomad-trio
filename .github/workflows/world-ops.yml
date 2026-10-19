@@ -1,0 +1,45 @@
+name: World Ops quotidien
+on:
+  schedule:
+    - cron: "0 5 * * *"   # 05:00 UTC = 07:00 Paris (heure d'ete)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write   # commit de l'horodatage quotidien
+
+jobs:
+  world-ops:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 02-prototypage/world-twin
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Simulation flotte monde (9 trios, deterministe, caches versionnes)
+        run: python3 engine/simulateur.py
+      - name: Monte Carlo leger quotidien (monde, 100 graines baseline + 20/variante)
+        run: python3 engine/monte_carlo.py 100 20 monde
+      - name: Lecture des resultats
+        run: python3 engine/lecture_resultats.py
+      - name: Regeneration de la carte (meteo fraiche, template versionne)
+        run: python3 engine/build_carte.py
+      - name: Horodatage du passage ops (preuve d'execution observable)
+        run: |
+          printf '%s
+' "Dernier passage World Ops : $(date -u '+%d/%m/%Y %H:%M UTC') — run ${{ github.run_id }}" > ops-horodatage.md
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ops-horodatage.md
+          git commit -m "chore(ops): horodatage automatique" || echo "rien a committer"
+          git push
+      - name: Publication des rapports et de la carte (artifacts, 30 jours)
+        uses: actions/upload-artifact@v4
+        with:
+          name: world-ops-rapport-${{ github.run_id }}
+          path: |
+            02-prototypage/world-twin/sorties/
+            02-prototypage/world-twin/sorties-cartes/
+          retention-days: 30

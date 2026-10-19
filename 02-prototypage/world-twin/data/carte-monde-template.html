@@ -1,0 +1,331 @@
+
+<!doctype html>
+<!-- Généré par engine/build_carte.py — NE PAS ÉDITER : modifier data/carte-monde-template.html -->
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>World Twin — Carte mondiale des trios Nomad en simulation</title>
+<style>
+:root{font-family:Inter,system-ui,Segoe UI,sans-serif;color:#e5e7eb;background:#0b1220;margin:0}
+body{margin:0;background:#0b1220}
+header{padding:14px 20px 10px;background:#0e1628;border-bottom:1px solid #1f2a44}
+h1{font-size:17px;margin:0 0 4px;font-weight:600;color:#fff}
+.sub{font-size:12px;color:#94a3b8;line-height:1.5}
+.badge{display:inline-block;background:#7c2d12;color:#fed7aa;font-size:10px;font-weight:700;letter-spacing:.08em;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:8px}
+.badge.pub{background:#14532d;color:#bbf7d0}
+.strip{display:flex;gap:18px;flex-wrap:wrap;margin-top:8px;font-size:12px;color:#cbd5e1}
+.strip b{color:#34d399;font-weight:600}
+.strip .k{color:#64748b}
+main{display:flex;gap:0;height:calc(100vh - 108px);min-height:560px}
+#mapwrap{flex:1;position:relative;min-width:0}
+svg{width:100%;height:100%;display:block}
+.controls{position:absolute;top:10px;left:10px;background:rgba(14,22,40,.92);border:1px solid #1f2a44;border-radius:8px;padding:10px 12px;font-size:12px;z-index:5}
+.controls label{display:block;margin:3px 0;color:#cbd5e1;cursor:pointer;user-select:none}
+.legend{position:absolute;bottom:10px;left:10px;background:rgba(14,22,40,.92);border:1px solid #1f2a44;border-radius:8px;padding:8px 12px;font-size:11px;color:#94a3b8;z-index:5}
+.lg{display:flex;align-items:center;gap:6px;margin:2px 0}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+#panel{width:400px;max-width:46vw;background:#0e1628;border-left:1px solid #1f2a44;overflow-y:auto;padding:16px 18px;font-size:12.5px;line-height:1.55}
+#panel h2{font-size:15px;margin:0 0 2px;color:#fff}
+#panel h3{font-size:12px;margin:14px 0 4px;color:#34d399;text-transform:uppercase;letter-spacing:.06em}
+#panel .tag{display:inline-block;font-size:10px;padding:1px 7px;border-radius:4px;margin-right:4px;margin-bottom:2px;font-weight:600}
+.tag.ok{background:#14532d;color:#bbf7d0}.tag.off{background:#3f3f46;color:#d4d4d8}.tag.ill{background:#78350f;color:#fde68a}.tag.src{background:#164e63;color:#a5f3fc}.tag.pri{background:#4c1d95;color:#ddd6fe}
+table{border-collapse:collapse;width:100%;margin:4px 0}
+td,th{padding:3px 6px;border-bottom:1px solid #1f2a44;text-align:left;font-size:11.5px;vertical-align:top}
+th{color:#64748b;font-weight:600}
+.muted{color:#64748b}
+.warn{background:#1c1917;border:1px solid #44403c;border-radius:6px;padding:8px 10px;color:#d6d3d1;font-size:11px;margin-top:12px}
+.gre{background:#0f1f16;border:1px solid #14532d;border-radius:6px;padding:8px 10px;color:#bbf7d0;font-size:11px;margin-top:10px}
+.country{fill:#18233c;stroke:#2a3a5e;stroke-width:.4;cursor:pointer}
+.country:hover{fill:#243252}
+.country.has{fill:#1d2c4a;stroke:#3b82f6;stroke-width:.5}
+.country.has:hover{fill:#29406e}
+.country.sel{fill:#374b78}
+.hubmark{cursor:pointer}
+#mapwrap svg{cursor:grab;touch-action:none}
+#mapwrap svg.panning{cursor:grabbing}
+.zoomui{position:absolute;top:10px;right:10px;display:flex;flex-direction:column;gap:4px;z-index:6}
+.zoomui button{width:30px;height:30px;border-radius:6px;border:1px solid #1f2a44;background:rgba(14,22,40,.92);color:#e5e7eb;font-size:15px;font-weight:700;cursor:pointer;line-height:1;padding:0}
+.zoomui button:hover{background:#1f2a44}
+.zoomui .zreset{font-size:13px;height:24px}
+.firmsc{fill:#ef4444;fill-opacity:.14;stroke:#ef4444;stroke-opacity:.45;stroke-width:1;pointer-events:none}
+.vinDot{cursor:pointer}
+.fleet{background:#111b30;border:1px solid #1f2a44;border-radius:8px;padding:10px 12px;margin-top:12px;font-size:11.5px;color:#94a3b8}
+.fleet b{color:#34d399}
+.fam{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.fam span{background:#18233c;border:1px solid #2a3a5e;border-radius:12px;padding:2px 9px;font-size:11px;color:#cbd5e1}
+@media (max-width:820px){main{flex-direction:column;height:auto}#mapwrap{height:420px}#panel{width:auto;max-width:none;border-left:none;border-top:1px solid #1f2a44}}
+</style>
+</head>
+<body>
+<header>
+<h1>World Twin — la flotte mondiale de trios Nomad « as if in operation » <span class="badge">SYNTHÉTIQUE — SIMULATION</span><span class="badge pub">DONNÉES PUBLIQUES SOURCÉES</span></h1>
+<div class="sub">Carte du monde « remplie de trios Nomad en opération » — 7 hubs, 2 hémisphères · cliquer un hub (marqueur N) ou un pays coloré · météo réelle pointée __POINTAGE__ (réelle) — en local téléchargé : passage en direct Open-Meteo si le réseau est disponible · sources : FAOSTAT bulk 2024, NASA FIRMS 2021-2025, GEOGLAM, fiches pays, Open-Meteo · aucune valeur calibrée du VDE (doctrine PI).</div>
+<div class="strip">
+<span><span class="k">Trios simulés :</span> <b>9</b></span>
+<span><span class="k">Opérateurs tournants :</span> <b>2 / trio</b> (hub régional 3-5 trios)</span>
+<span><span class="k">MTBF / MTTR :</span> <b>720 h / 8 h</b> (figeage 17/10)</span>
+<span><span class="k">Monte Carlo P2 :</span> <b>12 600 runs · 3 628 800 lots</b></span>
+<span><span class="k">Disponibilité :</span> <b>99,3 → 100 %</b></span>
+<span><span class="k">Atlas :</span> <b>52 intrants master</b> · 67 intrants locaux (18 pays) · 32 intrants viticoles (22 pays)</span>
+</div>
+</header>
+<main>
+<div id="mapwrap">
+<div class="controls">
+<b style="color:#cbd5e1">Couches</b>
+<label><input type="checkbox" id="lFirms" checked> Brûlage réel — cercles FIRMS (5 saisons)</label>
+<label><input type="checkbox" id="lVin" checked> Intrants viticoles (atlas v1.2 — 22 pays)</label>
+<label><input type="checkbox" id="lLoc" checked> Intrants locaux (atlas v1.1 — 18 pays)</label>
+</div>
+<div class="legend">
+<div class="lg"><span class="dot" style="background:#22c55e;border:2px solid #0b1220"></span> Hub Vignite — trio Nomad en simulation</div>
+<div class="lg"><span class="dot" style="background:#3b82f6"></span> Pays des atlas (fiche cliquable)</div>
+<div class="lg"><span class="dot" style="background:#8b5cf6"></span> Point intrant viticole / local</div>
+<div class="lg"><span class="dot" style="background:rgba(239,68,68,.35);border:1px solid #ef4444"></span> Détections de feux FIRMS (rayon ∝ détections)</div>
+</div>
+<svg id="map" viewBox="0 0 960 480"></svg>
+<div class="zoomui" id="zoomui">
+<button id="zin" title="Zoom avant (molette : pointer le lieu)">+</button>
+<button id="zout" title="Zoom arrière">−</button>
+<button id="zreset" class="zreset" title="Vue globale">↺</button>
+</div>
+</div>
+<aside id="panel"></aside>
+</main>
+<script>
+const COUNTRIES = __COUNTRIES__;
+const D = __DATA__;
+const svg = document.getElementById("map");
+const panel = document.getElementById("panel");
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function proj(lon,lat){return [(lon+180)*(960/360),(90-lat)*(480/180)]}
+function fmt(n){return n===null||n===undefined?"—":n.toLocaleString("fr-FR")}
+
+// --- index pays
+const IDX = {};
+D.vin.forEach(v=>{IDX[v.iso]=IDX[v.iso]||{};IDX[v.iso].vin=v});
+D.loc.forEach(l=>{IDX[l.iso]=IDX[l.iso]||{};IDX[l.iso].loc=l});
+D.hubs.forEach(h=>{if(!IDX[isoOf(h)])IDX[isoOf(h)]={};IDX[isoOf(h)].hub=h});
+
+function isoOf(h){return {France:"FR",Suisse:"CH",Italie:"IT",Espagne:"ES",Argentine:"AR","Maroc":"MA"}[h.pays]}
+
+// --- fond de carte
+COUNTRIES.forEach(c=>{
+  const p=document.createElementNS("http://www.w3.org/2000/svg","path");
+  p.setAttribute("d",c.d);p.setAttribute("class","country");
+  if(IDX[c.iso]){p.classList.add("has")}
+  p.addEventListener("click",()=>{ if(IDX[c.iso]) showCountry(c.iso,c.n); else showNone(c.n)});
+  svg.appendChild(p);
+});
+
+// --- cercles FIRMS
+const gF=document.createElementNS("http://www.w3.org/2000/svg","g");
+D.firms.forEach(f=>{
+  const [x,y]=proj(f.gps[1],f.gps[0]);
+  const r=Math.max(4,Math.sqrt(f.det)/1.6);
+  const c=document.createElementNS("http://www.w3.org/2000/svg","circle");
+  c.setAttribute("cx",x);c.setAttribute("cy",y);c.setAttribute("r",r.toFixed(1));
+  c.setAttribute("class","firmsc");gF.appendChild(c);
+});
+svg.appendChild(gF);
+
+// --- marqueurs intrants viticoles / locaux
+const gV=document.createElementNS("http://www.w3.org/2000/svg","g");
+const gL=document.createElementNS("http://www.w3.org/2000/svg","g");
+D.vin.forEach(v=>{ if(v.iso==="AR"||v.iso==="ES"||v.iso==="MA"||v.iso==="CH")return; addDot(gV,v.gps,"#8b5cf6",()=>showCountry(v.iso,v.p)) });
+D.loc.forEach(l=>{ if(l.iso==="AR"||l.iso==="ES"||l.iso==="MA"||l.iso==="CH"||l.iso==="FR"||l.iso==="IT")return; addDot(gL,l.gps,"#a78bfa",()=>showCountry(l.iso,l.p)) });
+function addDot(g,gps,col,cb){
+  const [x,y]=proj(gps[1],gps[0]);
+  const c=document.createElementNS("http://www.w3.org/2000/svg","circle");
+  c.setAttribute("cx",x);c.setAttribute("cy",y);c.setAttribute("r",3);
+  c.setAttribute("fill",col);c.setAttribute("class","vinDot");
+  c.addEventListener("click",cb);g.appendChild(c);
+}
+svg.appendChild(gV);svg.appendChild(gL);
+
+// --- hubs
+D.hubs.forEach(h=>{
+  const [x,y]=proj(h.gps[1],h.gps[0]);
+  const g=document.createElementNS("http://www.w3.org/2000/svg","g");
+  g.setAttribute("class","hubmark");
+  const pulse=document.createElementNS("http://www.w3.org/2000/svg","circle");
+  pulse.setAttribute("cx",x);pulse.setAttribute("cy",y);pulse.setAttribute("r",11);
+  pulse.setAttribute("fill","#22c55e");pulse.setAttribute("fill-opacity","0.18");
+  const c=document.createElementNS("http://www.w3.org/2000/svg","circle");
+  c.setAttribute("cx",x);c.setAttribute("cy",y);c.setAttribute("r",6);
+  c.setAttribute("fill","#22c55e");c.setAttribute("stroke","#0b1220");c.setAttribute("stroke-width",1.5);
+  const t=document.createElementNS("http://www.w3.org/2000/svg","text");
+  t.setAttribute("x",x);t.setAttribute("y",y+3.2);t.setAttribute("text-anchor","middle");
+  t.setAttribute("font-size","8");t.setAttribute("font-weight","700");t.setAttribute("fill","#052e16");
+  t.textContent="N";
+  g.appendChild(pulse);g.appendChild(c);g.appendChild(t);
+  g.addEventListener("click",()=>showHub(h.id));
+  svg.appendChild(g);
+});
+
+document.getElementById("lFirms").addEventListener("change",e=>gF.style.display=e.target.checked?"":"none");
+document.getElementById("lVin").addEventListener("change",e=>gV.style.display=e.target.checked?"":"none");
+document.getElementById("lLoc").addEventListener("change",e=>gL.style.display=e.target.checked?"":"none");
+
+// --- fiches
+function activeNow(ranges){
+  const m=new Date().getMonth()+1;
+  return ranges.some(r=>{const a=r[0],b=r[1];return a<=b?(m>=a&&m<=b):(m>=a||m<=b)});
+}
+let LIVE=null,lastShown=null;
+function metLine(key){
+  const w=(LIVE&&LIVE[key])||D.meteo[key];if(!w)return "";
+  const src=(LIVE&&LIVE[key])?"<span class='tag ok'>EN DIRECT (Open-Meteo)</span>":"pointage figé au build ("+esc(D.pointage)+")";
+  return "<tr><td>Météo réelle — "+src+"</td><td>"+w.t+" °C · "+w.h+" % HR · "+w.p+" mm · vent "+w.v+" km/h</td></tr>";
+}
+function tryLiveMeteo(){
+  if(typeof fetch!=="function")return;
+  const gpsOf=k=>{
+    if(k==="US_MARC")k="US";
+    const h=D.hubs.find(x=>x.id===k);if(h)return h.gps;
+    const v=D.vin.find(x=>x.iso===k);if(v)return v.gps;
+    const l=D.loc.find(x=>x.iso===k);if(l)return l.gps;
+    return null;
+  };
+  const pts=Object.keys(D.meteo).map(k=>({k,g:gpsOf(k)})).filter(x=>x.g);
+  if(!pts.length)return;
+  const q="https://api.open-meteo.com/v1/forecast?latitude="+pts.map(x=>x.g[0]).join(",")+"&longitude="+pts.map(x=>x.g[1]).join(",")+"&current=temperature_2m,relative_humidity_2m,precipitation,wind_speed_10m&wind_speed_unit=kmh";
+  fetch(q).then(r=>{if(!r.ok)throw 0;return r.json()}).then(a=>{
+    const arr=Array.isArray(a)?a:[a];LIVE={};
+    const r1=v=>Math.round(v*10)/10;
+    pts.forEach((x,i)=>{
+      const c=arr[i]&&arr[i].current;if(!c)return;
+      LIVE[x.k]={t:r1(c.temperature_2m),h:c.relative_humidity_2m,p:r1(c.precipitation),v:r1(c.wind_speed_10m)};
+    });
+    if(lastShown)lastShown();
+  }).catch(()=>{});
+}
+function showHub(id){
+  lastShown=()=>showHub(id);
+  const h=D.hubs.find(x=>x.id===id);
+  let rows="";
+  h.bio.forEach(b=>{
+    const act=activeNow(b[2]);
+    rows+="<tr><td>"+esc(b[0])+"</td><td>"+b[1]+"</td><td><span class='tag "+(act?"ok":"off")+"'>"+(act?"FENÊTRE ACTIVE":"maintenance")+"</span></td></tr>";
+  });
+  let gis="";
+  h.gis.forEach(g=>{gis+="<tr><td>"+esc(g[0])+"</td><td>"+esc(g[1])+"</td><td>"+esc(g[2])+"</td><td><span class='tag "+(g[3].indexOf("SOURCÉ")===0?"src":"ill")+"'>"+esc(g[3])+"</span></td></tr>"});
+  const actives=h.bio.filter(b=>activeNow(b[2]));
+  panel.innerHTML="<h2>"+esc(h.id)+" — "+esc(h.pays)+"</h2>"+
+  "<div class='muted'>"+esc(h.region)+" · GPS "+h.gps.join(", ")+" (approximation de région)</div>"+
+  "<h3>Trio Nomad en opération (simulation)</h3>"+
+  "<table><tr><td>Unité</td><td>"+esc(h.triolabel)+" — "+h.trios+(h.trios>1?" trios":" trio")+", 2 lots/jour ouvré</td></tr>"+
+  "<tr><td>Personnel simulé</td><td>2 opérateurs tournants par trio · hub régional 3-5 trios (1 h 30 - 2 h de route)</td></tr>"+
+  "<tr><td>Fiabilité</td><td>MTBF 720 h · MTTR 8 h · disponibilité Monte Carlo : "+h.dispo+"</td></tr>"+
+  "<tr><td>Statut ce mois</td><td>"+(actives.length?"<span class='tag ok'>EN OPÉRATION</span> — "+actives.length+" biomasse(s) dans la fenêtre":"<span class='tag off'>ARRÊT SAISONNIER SIMULÉ</span> — maintenance préventive + calibrages")+"</td></tr>"+
+  metLine(h.id)+"</table>"+
+  "<h3>Fenêtres d'opération (moteur monde.py)</h3><table><tr><th>Biomasse</th><th>Mois</th><th>Statut</th></tr>"+rows+"</table>"+
+  "<h3>Gisements documentaires 2024 (publics)</h3><table><tr><th>Biomasse</th><th>Gisement t/an</th><th>Ratio</th><th>Étiquette</th></tr>"+gis+"</table>"+
+  "<h3>Brûlage observé — NASA FIRMS 2021-2025</h3><table>"+
+  "<tr><td>Bassin</td><td>"+esc(h.firms.bassin)+"</td></tr>"+
+  "<tr><td>Détections (après filtre des sources fixes)</td><td>"+esc(h.firms.det)+"</td></tr>"+
+  "<tr><td>FRP cumulée</td><td>"+esc(h.firms.frp)+"</td></tr>"+
+  "<tr><td>Mois dominants</td><td>"+esc(h.firms.mois)+"</td></tr></table>"+
+  "<h3>Réglementation du brûlage</h3><table>"+
+  "<tr><td>Statut</td><td>"+esc(h.reg.statut)+"</td></tr>"+
+  "<tr><td>Cadre</td><td>"+esc(h.reg.cadre)+"</td></tr>"+
+  "<tr><td>Vérification</td><td><span class='tag src'>"+esc(h.reg.verif)+"</span></td></tr></table>"+
+  (h.cand?"<h3>Fenêtre candidate</h3><div class='gre'>"+esc(h.cand)+"</div>":"")+
+  "<div class='warn'><b>CA potentiel business :</b> hors périmètre public — doctrine PI du dépôt (volumes adressables, prix, parts de marché). Version interne / data room uniquement. Devant un investisseur : « simulation », toujours.</div>"+
+  "<div class='warn'>Résultats SYNTHÉTIQUES sur registre de développement — la qualification reste le monopole des FAT/SAT sur machines réelles.</div>";
+}
+function showCountry(iso,name){
+  lastShown=()=>showCountry(iso,name);
+  const e=IDX[iso];const vin=e.vin;const loc=e.loc;
+  let out="<h2>"+esc(name)+"</h2>";
+  if(vin){
+    const fen={N:"taille d'hiver janvier-mars · crush sept.-oct.",S:"taille d'hiver austral juin-août · vendange fév.-avril",TROP:"double régime tropical (deux tailles/an documentées)"}[vin.h];
+    out+="<h3>Viticulture — atlas v1.2 (FAOSTAT 2024, SOURCÉ)</h3><table>"+
+    "<tr><td>Raisins 2024</td><td>"+fmt(vin.r)+" t</td></tr>"+
+    "<tr><td>Vigne</td><td>"+fmt(vin.ha)+" ha</td></tr>"+
+    "<tr><td>Sarments de taille</td><td>"+fmt(vin.sar)+" t/an <span class='tag ill'>ILLUSTRATION ≈ 2 t/ha</span></td></tr>"+
+    "<tr><td>Marc de pressurage</td><td>"+fmt(vin.marc)+" t/an <span class='tag ill'>ILLUSTRATION ≈ 15 % vendange</span></td></tr>"+
+    "<tr><td>Fenêtre</td><td>"+esc(fen)+"</td></tr>"+
+    (vin.iso==="US"?metLine("US")+metLine("US_MARC"):metLine(vin.iso))+"</table>";
+  }
+  if(loc){
+    out+="<h3>Biomasses locales — atlas v1.1</h3><table>"+
+    "<tr><td>Intrants locaux référencés</td><td>"+loc.n+"</td></tr>"+
+    "<tr><td>Familles</td><td>"+esc(loc.fam)+"</td></tr>"+
+    "<tr><td>Ancre de volume (FAOSTAT bulk 2024)</td><td>"+esc(loc.ancre)+"</td></tr></table>"+
+    "<div class='muted' style='margin-top:4px'>Réglementation : "+(e.hub?"<span class='tag src'>DONNÉES RÉELLES (fiche hub)</span>":"<span class='tag off'>À VÉRIFIER — re-vérification locale obligatoire avant usage externe")+"</span></div>";
+  }
+  if(e.hub){out+="<div class='gre'>Hub de la flotte : "+esc(e.hub.id)+" — cliquer le marqueur N vert sur la carte pour ouvrir la fiche trio en opération.</div>";}
+  else{out+="<div class='warn'>Point candidat (pas un hub de la flotte) — GPS = approximation de région, jamais un cadastre. Les gisements bruts ne sont PAS des volumes adressables (récoltable partiel, rétention au sol, valorisations existantes).</div>";}
+  out+="<div class='muted' style='margin-top:8px'>Etiquettes : SOURCÉ = vérifiable, source citée · ILLUSTRATION = ordre de grandeur documentaire à sourcer avant usage externe.</div>";
+  panel.innerHTML=out;
+}
+function showNone(name){
+  lastShown=()=>showNone(name);
+  panel.innerHTML="<h2>"+esc(name)+"</h2><div class='muted'>Hors périmètre des atlas v1.0 - v1.2 du World Twin. Candidat possible d'une vague v1.3 multi-continents (les productions FAOSTAT de 101 pays candidats ont déjà été ancrées en interne).</div><div class='warn'>Cette carte ne versionne que des données publiques : aucun des six paramètres calibrés du VDE (doctrine PI).</div>";
+}
+// --- zoom / pan (viewBox)
+const VB0={x:0,y:0,w:960,h:480};
+let vb={x:0,y:0,w:960,h:480},movedAt=-1e9,drag=null;
+function applyVB(){svg.setAttribute("viewBox",vb.x+" "+vb.y+" "+vb.w+" "+vb.h)}
+function clampVB(){
+  if(vb.w>960)vb.w=960;
+  if(vb.w<40)vb.w=40;
+  vb.h=vb.w*0.5;
+  const mx=vb.w*0.25,my=vb.h*0.25;
+  if(vb.x<-mx)vb.x=-mx;
+  if(vb.x>960-vb.w+mx)vb.x=960-vb.w+mx;
+  if(vb.y<-my)vb.y=-my;
+  if(vb.y>480-vb.h+my)vb.y=480-vb.h+my;
+}
+function zoomAt(px,py,f){
+  const nw=Math.min(960,Math.max(40,vb.w/f));
+  const k=nw/vb.w;
+  vb.x=px-(px-vb.x)*k;
+  vb.y=py-(py-vb.y)*k;
+  vb.w=nw;
+  clampVB();applyVB();
+}
+function evtVB(e){
+  const r=svg.getBoundingClientRect();
+  return [vb.x+(e.clientX-r.left)/r.width*vb.w, vb.y+(e.clientY-r.top)/r.height*vb.h];
+}
+function zoomCenter(f){zoomAt(vb.x+vb.w/2,vb.y+vb.h/2,f)}
+svg.addEventListener("wheel",e=>{e.preventDefault();const p=evtVB(e);zoomAt(p[0],p[1],e.deltaY<0?1.25:0.8)},{passive:false});
+svg.addEventListener("dblclick",e=>{e.preventDefault();const p=evtVB(e);zoomAt(p[0],p[1],1.8)});
+document.getElementById("zin").addEventListener("click",()=>zoomCenter(1.35));
+document.getElementById("zout").addEventListener("click",()=>zoomCenter(1/1.35));
+document.getElementById("zreset").addEventListener("click",()=>{vb={x:VB0.x,y:VB0.y,w:VB0.w,h:VB0.h};applyVB()});
+svg.addEventListener("pointerdown",e=>{
+  if(e.pointerType==="mouse"&&e.button!==0)return;
+  // PAS de setPointerCapture ici : la capture posée au pointerdown retargete
+  // le clic vers le SVG (spec Pointer Events) et tue tous les clics pays/hub/point
+  drag={x:e.clientX,y:e.clientY,vx:vb.x,vy:vb.y,moved:false,cap:false};
+});
+svg.addEventListener("pointermove",e=>{
+  if(!drag)return;
+  const r=svg.getBoundingClientRect();
+  if(Math.abs(e.clientX-drag.x)+Math.abs(e.clientY-drag.y)>3){
+    drag.moved=true;svg.classList.add("panning");
+    if(!drag.cap){drag.cap=true;try{svg.setPointerCapture(e.pointerId)}catch(err){}}
+  }
+  if(!drag.moved)return;
+  vb.x=drag.vx-(e.clientX-drag.x)/r.width*vb.w;
+  vb.y=drag.vy-(e.clientY-drag.y)/r.height*vb.h;
+  clampVB();applyVB();
+});
+["pointerup","pointercancel"].forEach(ev=>svg.addEventListener(ev,e=>{
+  if(drag&&drag.moved){
+    movedAt=Date.now();
+    if(drag.cap){try{svg.releasePointerCapture(e.pointerId)}catch(err){}}
+  }
+  drag=null;svg.classList.remove("panning");
+}));
+svg.addEventListener("click",e=>{if(Date.now()-movedAt<300)e.stopPropagation();},true);
+
+showHub("fr-rhone");
+tryLiveMeteo();
+</script>
+</body>
+</html>
