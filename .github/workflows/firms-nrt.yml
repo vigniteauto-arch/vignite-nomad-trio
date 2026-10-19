@@ -1,0 +1,30 @@
+name: FIRMS NRT quotidien
+on:
+  schedule:
+    - cron: "30 5 * * *"   # 05:30 UTC = 07:30 Paris (heure d'ete)
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  firms-nrt:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 02-prototypage/world-twin
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Releve FIRMS VIIRS NRT des 10 bassins (repli synthetique sans cle)
+        run: python3 engine/firms_nrt.py
+        env:
+          FIRMS_MAP_KEY: ${{ secrets.FIRMS_MAP_KEY }}
+      - name: Publication du releve (artifact 30 jours, jamais versionne)
+        uses: actions/upload-artifact@v4
+        with:
+          name: firms-nrt-${{ github.run_id }}
+          path: 02-prototypage/world-twin/sorties-firms-nrt/
+          retention-days: 30
