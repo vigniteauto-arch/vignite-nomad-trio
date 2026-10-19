@@ -28,8 +28,7 @@ jobs:
         run: python3 engine/build_carte.py
       - name: Horodatage du passage ops (preuve d'execution observable)
         run: |
-          printf '%s
-' "Dernier passage World Ops : $(date -u '+%d/%m/%Y %H:%M UTC') — run ${{ github.run_id }}" > ops-horodatage.md
+          echo "Dernier passage World Ops : $(date -u '+%d/%m/%Y %H:%M UTC') — run ${{ github.run_id }}" > ops-horodatage.md
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add ops-horodatage.md
