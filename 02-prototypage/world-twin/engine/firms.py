@@ -129,13 +129,20 @@ def priorite_hubs(bassins=None, jours=1):
 
     Base de la priorisation des hubs : plus un bassin brûle, plus un
     trio y est prioritaire (pain point vif, opportunité d'approvision-
-    nement et de message écologique). Sans clé ou sans données :
-    liste vide — le repli est synthétique.
+    nement et de message écologique).
+
+    V1.4 — pondération par l'énergie : le classement trie d'abord par
+    FRP total (MW, l'énergie rayonnée, proportionnelle à la biomasse
+    consommée — Wooster et al. 2005), puis par nombre de détections.
+    Dix petits feux de ratissement ne pèsent plus un chantier de
+    chaumes : l'énergie l'emporte sur le comptage.
+    Sans clé ou sans données : liste vide — le repli est synthétique.
     """
     classement = []
     for bassin in (bassins or BOITES_BASSINS):
         donnees = feux_bassin(bassin, jours=jours)
         if donnees:
             classement.append(donnees)
-    classement.sort(key=lambda d: (-d["nb_feux"], d["bassin"]))
+    classement.sort(key=lambda d: (-d["frp_total_mw"], -d["nb_feux"], d["bassin"]))
     return classement
+

@@ -67,3 +67,27 @@ Sources vérifiées gratuites le 17 octobre 2026. Branchement : Open-Meteo (ERA5
 - Aucune source ne remplace la qualification machine : FAT/SAT sur acier réel uniquement.
 - Les données agrégées au niveau pays masquent les réalités régionales : chaque extrapolation est documentée.
 - Les volumes téléchargés vivent hors du dépôt (espace de travail chiffré) ; seules les spécifications et les agrégations non sensibles sont versionnées.
+
+## Chaîne FRP → FRE → biomasse → émissions (V1.4, 22/10/2026)
+
+Sources de la couche de conversion ajoutée en v1.4 :
+
+- Wooster M. J., Roberts G., Perry G. L. W., Kaufman Y. J. (2005), « Retrieval
+  of biomass combustion rates and totals from fire radiative power
+  observations », J. Geophys. Res. 110, D24311, doi:10.1029/2005JD006318 —
+  relation FRP/FRE/biomasse consommée, coefficient ≈ 0,368 kg de matière sèche
+  par MJ.
+- NOAA NESDIS (rapport technique FBCC) — coefficient de combustion FRE-biomasse
+  mesuré de 0,368 à 0,453 kg/MJ selon les études (incertitude d'un facteur ~2).
+- IPCC 2006 Guidelines Vol. 4 Ch. 2 Tab. 2.5 — facteurs d'émission des résidus
+  agricoles (g par kg de matière sèche brûlée) : CO2 1 515, CH4 2,7, N2O 0,07,
+  CO 92, NOx 2,5 ; GWP AR6 (CH4 27,0, N2O 273).
+- Hall J., Argueta F., Giglio L. (2022), « Crop Residue Burning Emission
+  Coefficients », Zenodo doi:10.5281/zenodo.7013656 (CC BY 4.0) — coefficients
+  par culture (blé, riz, maïs, canne à sucre) pour l'affinage futur.
+
+Statut : BRANCHÉE le 22/10/2026 (engine/fre_conversions.py nouveau ;
+engine/firms_nrt.py et engine/firms.py mis à jour). Étiquette : ESTIMATION
+DOCUMENTAIRE ILLUSTRATION. Usage : priorisation des hubs, argumentaire,
+rapport World Ops — jamais le calibrage, jamais le registre Merkle de
+production.

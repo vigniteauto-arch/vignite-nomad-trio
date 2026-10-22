@@ -74,3 +74,31 @@ Aucune dépendance : bibliothèque standard uniquement, graine déterministe. Mo
 - P1 (nov-déc 2026) : 900 runs Monte Carlo réalisés (403 200 lots) ; météo ERA5 réelle branchée ; couche brûlage NASA FIRMS réelle branchée (17/10/2026) ; FAOSTAT extrait ; rapport quotidien planifié.
 - P2 (démarrée le 17/10/2026) : multi-pays — Carré d'Or (Suisse, Italie, Espagne), LatAm (Argentine : Cuyo, Misiones), Al-Atlas (Maroc) ; 7 hubs, 2 hémisphères ; ERA5 réelle sur 10 bassins ; FIRMS sur 10 boîtes ; Monte Carlo monde à l'échelle du millier de runs ; KPI pays/région dans le rapport. V0.5 (17/10/2026) : atlas des gisements mondiaux multi-pays livré (données publiques sourcées, FAOSTAT/COI/MAPA/INYM/OFAG), lecture des résultats Monte Carlo. V0.6 (17/10/2026) : fiches pays réglementaires livrées (cadre légal du brûlage, 7 hubs). V0.7 (17/10/2026) : croisement GEOGLAM livré (calendriers culturaux sous-nationaux, fenêtres moteur validées, fenêtres candidates À SOURCER). V0.8 (18/10/2026) : FIRMS historique multi-saison livré (cinq saisons réelles 2021-2025, dix bassins, filtre des sources fixes, croisement des fenêtres). V0.9 (18/10/2026) : extraction bulk FAOSTAT multi-pays livrée (six pays, six cultures, séries 2019-2024, gisements documentaires dérivés, croisement avec l'atlas v0.5). V1.0 (18/10/2026) : atlas des biomasses monde livré (52 intrants placés, couverture monde.py contrôlée, réglementation étiquetée, météo temps réelle branchée). V1.1 (18/10/2026) : atlas des biomasses locales par pays livré (18 pays, 67 intrants FAOSTAT 2024, deux points rattachés aux hubs existants Meknès et Lavaux, croisement de cohérence contre le master v1.0). V1.2 (18/10/2026) : atlas des vignobles du monde livré (22 pays viticoles, 32 intrants FAOSTAT 2024, deux points rattachés aux hubs existants Mendoza et Extrémadure, croisement de cohérence contre le master v1.0 et l'atlas v1.1).
 - P3 (post-Nomad v1) : shadow mode réel, replay des campagnes réelles, calibrage edge-first.
+
+## V1.4 — chaîne FRP → FRE → biomasse → émissions (22/10/2026)
+
+La couche brûlage FIRMS passe du comptage à l'énergie : chaque relevé quotidien
+(engine/firms_nrt.py) alimente engine/fre_conversions.py, qui convertit le FRP
+total des détections (MW) en énergie radiative extrapolée sur la journée (FRE,
+MJ), en biomasse sèche consommée (coefficient 0,368 kg/MJ, Wooster et al.
+2005, fourchette 0,368-0,453) et en émissions estimées (facteurs IPCC 2006
+Vol. 4 Tab. 2.5, résidus agricoles ; GWP AR6). La priorisation des hubs
+(engine/firms.py) trie désormais par FRP total décroissant avant le nombre de
+détections : l'énergie l'emporte sur le comptage — dix petits feux de
+ratissement ne pèsent plus un chantier de chaumes.
+
+Lancement :
+
+    python3 engine/fre_conversions.py chaine 18,1        # chaîne d'un FRP relevé (MW)
+    python3 engine/fre_conversions.py chaine 18,1 7       # sur 7 jours
+    python3 engine/fre_conversions.py exemple             # cas d'école Camargue 17/10
+
+Le relevé quotidien (sorties-firms-nrt/, jamais versionné) ajoute les colonnes
+fre_mj, biomasse_t, co2_t, ch4_t, n2o_t, co2e_nonco2_t et une section « chaîne »
+dans resume.md, base de la section feux du rapport World Ops.
+
+DOCTRINE : toutes les valeurs dérivées sont des ESTIMATIONS DOCUMENTAIRES
+ILLUSTRATION — jamais calibrées, jamais une donnée de qualification, jamais
+sur le registre Merkle de production. Limites honnêtes : extrapolation à
+combustion constante entre passages (~2/jour), incertitude d'un facteur ~2 sur
+la biomasse (NOAA), feux < 375 m sous-détectés, nuages et panaches masquants.
