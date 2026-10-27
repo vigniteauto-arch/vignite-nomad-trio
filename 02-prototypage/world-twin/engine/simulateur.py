@@ -11,6 +11,13 @@ dans engine/monde.py, avec sa saisonnalité propre (hémisphère Sud
 inclus) et sa graine déterministe. Le hub fr-rhone réplique
 exactement le pilote France v0.3.
 
+v0.5 (V1.6, 27/10/2026) : figeage acté — trois variantes optionnelles,
+désactivées par défaut (compatibilité arrière exacte, aucun tirage
+prng supplémentaire quand elles sont éteintes) :
+- M1 : MTTR en mélange mineur/majeur + délai de réponse ;
+- M2 : commissioning (MTBF réduit sur les premières heures d'un trio) ;
+- M3 : couplage staffing (facteur multiplicatif du MTTR).
+
 Lancement (bibliothèque standard uniquement, aucune dépendance) :
 
     python3 simulateur.py                 # monde : tous les hubs P2
@@ -50,6 +57,15 @@ MTBF_HEURES = 720.0       # ILLUSTRATION, non calibré
 MTTR_HEURES = 8.0         # ILLUSTRATION, non calibré
 LOTS_PAR_JOUR = 2         # ILLUSTRATION
 CAPTEURS_PAR_MODULE = 3   # jouet : la vraie nomenclature vit hors dépôt
+
+# Figeage V1.6 (27/10/2026) — variantes M1/M2/M3, ÉTEINTES par défaut :
+# ces valeurs redonnent EXACTEMENT le comportement v0.4 (aucun tirage
+# prng supplémentaire — la compatibilité arrière est par construction).
+MELANGE_MTTR = None        # M1 : None, ou (p_mineur, mttr_mineur_h, mttr_majeur_h)
+DELAI_REPONSE_H = 0.0      # M1 : délai moyen d'arrivée des opérateurs (nuit, route)
+FACTEUR_STAFFING = 1.0     # M3 : 1.5 si le ratio opérateurs/trio franchit le plafond
+MTBF_COMMISSIONING_H = None  # M2 : None, ou MTBF des premières heures d'un trio neuf
+HEURES_COMMISSIONING = 0.0   # M2 : durée de la phase de commissioning
 
 ETIQUETTE = "SYNTHÉTIQUE"
 
@@ -130,6 +146,34 @@ def telemetrie_module(module, lot_id, horodatage, prng, qualite="nominal"):
 # Simulation — générique par hub (engine/monde.py)
 # ---------------------------------------------------------------------------
 
+def _mtbf_courant(heures_operation_cumulees):
+    """MTBF courant — M2 : commissioning pendant les premières heures.
+
+    Retourne MTBF_HEURES quand la variante est éteinte ou la phase
+    passée : le tirage de hazard est alors IDENTIQUE au v0.4.
+    """
+    if MTBF_COMMISSIONING_H is None:
+        return MTBF_HEURES
+    if heures_operation_cumulees < HEURES_COMMISSIONING:
+        return MTBF_COMMISSIONING_H
+    return MTBF_HEURES
+
+
+def _tirer_mttr(prng):
+    """Durée de réparation simulée — variantes M1/M3 actives ou non.
+
+    Ordre des tirages prng IDENTIQUE au v0.4 quand les variantes sont
+    éteintes (compatibilité arrière par construction).
+    """
+    if MELANGE_MTTR is None:
+        duree = MTTR_HEURES
+    else:
+        p_mineur, mineur, majeur = MELANGE_MTTR
+        duree = mineur if prng.uniforme() < p_mineur else majeur
+    duree = duree * prng.intervalle(0.5, 1.5) * FACTEUR_STAFFING
+    return round(duree + DELAI_REPONSE_H, 1)
+
+
 def simuler(hub_id="fr-rhone", graine=None):
     """Simule une année du trio d'un hub, de façon déterministe.
 
@@ -153,6 +197,7 @@ def simuler(hub_id="fr-rhone", graine=None):
     heures_indisponibles = 0.0
     etat = "operationnel"   # operationnel | en_panne | maintenance_saisonniere
     fin_panne = None
+    heures_operation_cumulees = 0.0  # M2 : commissioning (0.0 par défaut)
 
     debut_annee = datetime(ANNEE, 1, 1, tzinfo=timezone.utc)
 
@@ -175,12 +220,12 @@ def simuler(hub_id="fr-rhone", graine=None):
                 continue
 
             # Pannes : hazard déterministe sur MTBF/MTTR (ILLUSTRATION).
-            if etat == "operationnel" and prng.uniforme() < (24.0 / MTBF_HEURES):
+            if etat == "operationnel" and prng.uniforme() < (24.0 / _mtbf_courant(heures_operation_cumulees)):
                 fautes_mois += 1
                 module = prng.entier(0, 2)
                 nom_module = ("buffer", "stock", "ops")[module]
                 panne = PANNES_ILLUSTRATION[prng.entier(0, len(PANNES_ILLUSTRATION) - 1)]
-                duree = round(MTTR_HEURES * prng.intervalle(0.5, 1.5), 1)
+                duree = _tirer_mttr(prng)
                 etat = "en_panne"
                 fin_panne = date + timedelta(hours=duree)
                 evenements.append(
@@ -244,6 +289,7 @@ def simuler(hub_id="fr-rhone", graine=None):
                                       meteo["precipitations_mm"], meteo.get("etiquette", "?")))
                     )
             heures_disponibles += 24.0
+            heures_operation_cumulees += 24.0  # M2 : fin de journée opérationnelle
 
         resume_mensuel.append(
             {
@@ -271,6 +317,14 @@ def simuler(hub_id="fr-rhone", graine=None):
         "heures_disponibles": round(heures_disponibles, 1),
         "heures_indisponibles": round(heures_indisponibles, 1),
         "disponibilite_pct": round(disponibilite * 100.0, 1),
+        "figeage": {
+            "mtbf_h": MTBF_HEURES,
+            "mttr_h": MTTR_HEURES,
+            "melange_mttr": MELANGE_MTTR,
+            "delai_reponse_h": DELAI_REPONSE_H,
+            "facteur_staffing": FACTEUR_STAFFING,
+            "commissioning": (MTBF_COMMISSIONING_H, HEURES_COMMISSIONING),
+        },
         "telemetrie": telemetrie,
         "etiquette_globale": ETIQUETTE,
     }

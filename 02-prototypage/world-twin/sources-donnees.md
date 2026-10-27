@@ -100,3 +100,11 @@ production.
 - Statut : BRANCHÉE le 27/10/2026 — engine/atlas_sols_emit.py (inventaire md5, réassemblage des .part dans cache-sols/ jamais versionné, extraction optionnelle via lecteur HDF5 local, rattachement aux dix bassins de la flotte) et atlas-sols-emit.md. Étiquette : SOURCÉ (fractions EMIT) / ILLUSTRATION (lectures agronomiques).
 - Rôle : couche 1 — observable minéralogie par bassin, lecture documentaire des fiches intrants (rétention, CEC — Capacité d'Échange Cationique, dosage biochar indicatif).
 - Limite : EMIT voit la surface affleurante, pas les sols couverts ni profonds ; trois scènes L2B ne couvrent pas le monde (le L3 ASA couvre au demi-degré) ; boîtes de bassin = approximation de région ; extraction .nc hors bibliothèque standard (h5py/netCDF4/xarray en local).
+
+## Flotte généralisée (V1.6, 27/10/2026)
+
+- Contenu : flotte mondiale simulée « as if in operation » dérivée des trois atlas versionnés (v1.0 master 52 intrants, v1.1 pays 67 intrants, v1.2 vignobles 32 intrants) : 151 points, dont 138 généralisés après exclusion des 13 points rattachés aux hubs de la flotte P2.
+- Dérivation : clustering déterministe par pays, rayon de mutualisation 300 km (ILLUSTRATION) — 81 hubs généralisés sur 32 pays, 88 trios, 162 opérateurs. Règle opérateurs figée : 2 opérateurs tournants pour 5 trios maximum par hub, sixième trio = seconde équipe.
+- Modules : engine/flotte_monde.py (sommaire | flotte | run [HUB] | monte-carlo [GRAINES]), flotte-monde.md ; simulateur v0.5 (knobs M1/M2/M3 éteints par défaut, baseline 720 h / 8 h strictement inchangée) et monte_carlo v0.5 (variantes M1-melange-80-4h-20-24h, M2-commissioning-240h-500h, M3-staffing-1-5x).
+- Étiquette : SYNTHÉTIQUE — registre de développement, jamais le registre Merkle de production. Aucune donnée calibrée. Hubs généralisés sans boîte FIRMS (Fire Information for Resource Management) : repli synthétique du moteur de scénarios, étiqueté comme tel.
+- Limites : dimensionnement des trios par densité de points ILLUSTRATION (capacité trio non calibrée), humidités par famille ILLUSTRATION, mutualisation à 300 km hypothèse de démonstration ; P3 (shadow mode réel, post-Nomad v1) remplacera par les gisements addressables.
