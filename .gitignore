@@ -36,3 +36,6 @@ __pycache__/
 02-prototypage/world-twin/cache-meteo-temps-reel/
 sorties-cartes/
 sorties-firms-nrt/
+
+# World Twin — cache sols EMIT (réassemblages et extractions), jamais versionné
+02-prototypage/world-twin/cache-sols/

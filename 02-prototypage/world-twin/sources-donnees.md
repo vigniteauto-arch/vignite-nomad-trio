@@ -91,3 +91,12 @@ engine/firms_nrt.py et engine/firms.py mis à jour). Étiquette : ESTIMATION
 DOCUMENTAIRE ILLUSTRATION. Usage : priorisation des hubs, argumentaire,
 rapport World Ops — jamais le calibrage, jamais le registre Merkle de
 production.
+
+## Minéralogie des sols — NASA EMIT (V1.5, 27/10/2026)
+
+- Contenu : identification minérale des surfaces affleurantes — argiles 1:1 (kaolinite) et 2:1 (smectite, illite, chlorite, vermiculite), carbonates (calcite, dolomite), sulfates (gypsum), oxydes de fer (hématite, goethite).
+- Produits : EMIT L2B MIN « Estimated Mineral Identification and Band Depth and Uncertainty », maille 60 m (trois granules scènes versionnés) ; EMIT L3 ASA « Aggregated Mineral Spectral Abundance and Uncertainty », agrégation mondiale au demi-degré. EMIT — Earth Surface Mineral Dust Source Investigation, spectromètre imageur de la station spatiale internationale.
+- Accès : données publiques NASA LP DAAC (Land Processes Distributed Active Archive Center) / Earthdata ; fichiers uploadés le 24/10/2026, déplacés de la racine du dépôt vers data/emit/ par la vague v1.5.
+- Statut : BRANCHÉE le 27/10/2026 — engine/atlas_sols_emit.py (inventaire md5, réassemblage des .part dans cache-sols/ jamais versionné, extraction optionnelle via lecteur HDF5 local, rattachement aux dix bassins de la flotte) et atlas-sols-emit.md. Étiquette : SOURCÉ (fractions EMIT) / ILLUSTRATION (lectures agronomiques).
+- Rôle : couche 1 — observable minéralogie par bassin, lecture documentaire des fiches intrants (rétention, CEC — Capacité d'Échange Cationique, dosage biochar indicatif).
+- Limite : EMIT voit la surface affleurante, pas les sols couverts ni profonds ; trois scènes L2B ne couvrent pas le monde (le L3 ASA couvre au demi-degré) ; boîtes de bassin = approximation de région ; extraction .nc hors bibliothèque standard (h5py/netCDF4/xarray en local).
