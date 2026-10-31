@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Couche P2.7 — flotte généralisée « as if in operation » (V1.6, 27/10/2026).
+"""Couche P2.7 — flotte généralisée « as if in operation » (V1.7, 31/10/2026).
 
 Fait tourner le trio Nomad v1 en simulation sur TOUS les points des
 atlas versionnés (v1.0 : 52 intrants du master, v1.1 : 67 intrants
@@ -29,9 +29,13 @@ RÈGLES :
   leurs étiquettes SOURCÉ / ILLUSTRATION / À VÉRIFIER d'origine.
 - Les hubs généralisés n'ont pas de boîte FIRMS : les pain points
   retombent proprement sur le repli synthétique du moteur de scénarios.
-- La capacité d'un trio n'est PAS calibrée : le dimensionnement des
-  flottes (trios par hub) est une règle ILLUSTRATION par densité de
-  points d'intrants, à remplacer en P3 par les gisements addressables.
+- La capacité d'un trio n'est PAS calibrée : depuis la v1.7, le
+  dimensionnement des flottes (trios par hub) suit le gisement FAOSTAT
+  du mix d'intrants du hub (couche gisements_hubs, fenêtre 2020-2024,
+  somme des milieux de fourchette des points sourcés) par paliers
+  ILLUSTRATION. La part récoltable et la décomposition régionale
+  addressable restent À SOURCER (P3) : le proxy national est documenté
+  dans chaque fiche d'atlas (« brut national »).
 
 Lancement (bibliothèque standard uniquement) :
 
@@ -58,6 +62,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import atlas_biomasses_monde
 import atlas_biomasses_pays
 import atlas_vignobles_monde
+import gisements_hubs
 import monde
 import simulateur
 
@@ -192,12 +197,34 @@ def _charge_mois(fenetre):
     return charge
 
 
-def _trios_du_cluster(nb_points):
-    """Flotte d'un hub par densité d'intrants — ILLUSTRATION, non calibré.
+def _trios_du_cluster(gisement, nb_points):
+    """Flotte d'un hub — v1.7 : paliers sur le gisement FAOSTAT du hub.
 
-    1 à 3 points : 1 trio. 4 à 6 : 2. 7 à 9 : 3. 10 à 12 : 4. 13 et plus : 5.
+    Gisement (somme des milieux de fourchette des points sourcés, en
+    tonnes par an) : moins de 0,5 Mt : 1 trio. 0,5 à 2 : 2. 2 à 10 : 3.
+    10 à 50 : 4. 50 et plus : 5. Seuils ILLUSTRATION, plafond figé de
+    couverture d'une équipe d'opérateurs. Repli sur la règle de densité
+    v1.6 si le hub n'a aucun point sourcé FAOSTAT (jamais de valeur
+    inventée).
     """
-    return min(TRIOS_MAX_PAR_HUB, 1 + (nb_points - 1) // 3)
+    trios = gisements_hubs.trios_du_gisement(gisement, TRIOS_MAX_PAR_HUB)
+    if trios is None:
+        return min(TRIOS_MAX_PAR_HUB, 1 + (nb_points - 1) // 3)
+    return trios
+
+
+def _resume_gisement(gisement):
+    """Résumé arrondi du gisement d'un hub pour les sorties JSON."""
+    if gisement is None:
+        return None
+    return {
+        "min_t_an": round(gisement["min"], 1),
+        "moy_t_an": round(gisement["moy"], 1),
+        "max_t_an": round(gisement["max"], 1),
+        "points_sources": len(gisement["sources"]),
+        "points_a_sourcer": len(gisement["a_sourcer"]),
+        "etiquette": "SOURCÉ (FAOSTAT 2020-2024) + ratios ILLUSTRATION",
+    }
 
 
 def hubs_generalises():
@@ -221,7 +248,9 @@ def hubs_generalises():
                     "charge_mois": _charge_mois(point["fenetre"]),
                     "humidite_pct": _humidite_famille(point["famille"]),
                 }
-            trios = _trios_du_cluster(len(cluster))
+            gisement = gisements_hubs.gisement_cluster(
+                [p["token"] for p in cluster])
+            trios = _trios_du_cluster(gisement, len(cluster))
             lat_centre = round(sum(p["lat"] for p in cluster) / len(cluster), 2)
             lon_centre = round(sum(p["lon"] for p in cluster) / len(cluster), 2)
             hubs[hub_id] = {
@@ -239,6 +268,7 @@ def hubs_generalises():
                                                       // TRIOS_MAX_PAR_HUB),
                     "clusters": [p["token"] for p in cluster],
                     "sources_atlas": sorted({p["source_atlas"] for p in cluster}),
+                    "gisement": _resume_gisement(gisement),
                     "etiquette": ETIQUETTE,
                 },
             }
@@ -249,6 +279,17 @@ def composition():
     hubs, points, exclus = hubs_generalises()
     trios = sum(h["_meta"]["trios"] for h in hubs.values())
     operateurs = sum(h["_meta"]["operateurs"] for h in hubs.values())
+    points_sources = sum(h["_meta"]["gisement"]["points_sources"]
+                         for h in hubs.values()
+                         if h["_meta"]["gisement"])
+    points_a_sourcer = sum(h["_meta"]["gisement"]["points_a_sourcer"]
+                           for h in hubs.values()
+                           if h["_meta"]["gisement"])
+    points_a_sourcer += sum(h["_meta"]["points"] for h in hubs.values()
+                            if not h["_meta"]["gisement"])
+    gisement_mondial = sum(h["_meta"]["gisement"]["moy_t_an"]
+                           for h in hubs.values()
+                           if h["_meta"]["gisement"])
     return {
         "etiquette": ETIQUETTE,
         "points_atlas": len(points) + len(exclus),
@@ -259,12 +300,24 @@ def composition():
         "trios": trios,
         "operateurs": operateurs,
         "ratio_operateurs_par_trio": round(operateurs / trios, 2) if trios else 0.0,
+        "gisements": {
+            "fenetre": list(gisements_hubs.FENETRE),
+            "points_sources": points_sources,
+            "points_a_sourcer": points_a_sourcer,
+            "somme_mondiale_t_an": round(gisement_mondial, 1),
+            "seuils_trios_t": [int(s) for s in gisements_hubs.SEUILS_TRIO],
+            "etiquette": "SOURCÉ (FAOSTAT 2020-2024) + ratios ILLUSTRATION, "
+                         "proxys nationaux (décomposition régionale P3)",
+        },
         "figeage": {
             "mtbf_h": simulateur.MTBF_HEURES,
             "mttr_h": simulateur.MTTR_HEURES,
             "operateurs_par_equipe": EQUIPE_OPERATEURS,
             "plafond_trios_par_equipe": TRIOS_MAX_PAR_HUB,
             "rayon_cluster_km": RAYON_CLUSTER_KM,
+            "regle_trios": "v1.7 : paliers sur gisement FAOSTAT (fenêtre "
+                           "2020-2024), repli densité v1.6 si hub sans "
+                           "point sourcé",
             "note": "2 opérateurs couvrent jusqu'à 5 trios (doctrine IoT) ; "
                     "6e trio = seconde équipe ; M1/M2/M3 = variantes Monte Carlo",
         },
@@ -421,7 +474,7 @@ def verifier():
 def sommaire():
     comp = composition()
     lignes = [
-        "Flotte généralisée World Twin (V1.6) — étiquette %s" % ETIQUETTE,
+        "Flotte généralisée World Twin (V1.7) — étiquette %s" % ETIQUETTE,
         "",
         "- Points d'atlas : %d (rattachés flotte P2 : %d, généralisés : %d)"
         % (comp["points_atlas"], comp["points_rattaches_flotte_p2"],
@@ -429,6 +482,13 @@ def sommaire():
         "- Hubs généralisés : %d sur %d pays" % (comp["hubs_generalises"], comp["pays"]),
         "- Trios : %d — opérateurs : %d (ratio %.2f par trio)"
         % (comp["trios"], comp["operateurs"], comp["ratio_operateurs_par_trio"]),
+        "- Dimensionnement v1.7 : gisement FAOSTAT %d-%d, points sourcés %d, "
+        "À SOURCER %d, somme mondiale %.0f Mt/an (proxy national, P3 pour "
+        "l'addressable)" % (comp["gisements"]["fenetre"][0],
+                            comp["gisements"]["fenetre"][1],
+                            comp["gisements"]["points_sources"],
+                            comp["gisements"]["points_a_sourcer"],
+                            comp["gisements"]["somme_mondiale_t_an"] / 1.0e6),
         "- Figeage : MTBF %g h, MTTR %g h, 2 opérateurs pour %d trios max, "
         "6e trio = seconde équipe" % (simulateur.MTBF_HEURES,
                                       simulateur.MTTR_HEURES,
@@ -440,14 +500,31 @@ def sommaire():
     return "\n".join(lignes) + "\n"
 
 
+def _formate_tonnes(valeur):
+    """Formate une masse annuelle en t, kt ou Mt (lisibilité des tables)."""
+    if valeur >= 1.0e6:
+        return "%.2g Mt" % (valeur / 1.0e6)
+    if valeur >= 1.0e3:
+        return "%.3g kt" % (valeur / 1.0e3)
+    return "%.3g t" % valeur
+
+
 def table_flotte():
     hubs, _, _ = hubs_generalises()
-    lignes = ["| Hub | Pays | Points | Trios | Ops | Graine |",
-              "| --- | --- | --- | --- | --- | --- |"]
+    lignes = ["| Hub | Pays | Points | Trios | Ops | Graine | Gisement (t/an) |",
+              "| --- | --- | --- | --- | --- | --- | --- |"]
     for hid, h in hubs.items():
         m = h["_meta"]
-        lignes.append("| %s | %s | %d | %d | %d | %d |" % (
-            hid, h["pays"], m["points"], m["trios"], m["operateurs"], h["graine"]))
+        if m["gisement"]:
+            gisement = "%s à %s" % (_formate_tonnes(m["gisement"]["min_t_an"]),
+                                    _formate_tonnes(m["gisement"]["max_t_an"]))
+            if m["gisement"]["points_a_sourcer"]:
+                gisement += " (+%d à sourcer)" % m["gisement"]["points_a_sourcer"]
+        else:
+            gisement = "À SOURCER"
+        lignes.append("| %s | %s | %d | %d | %d | %d | %s |" % (
+            hid, h["pays"], m["points"], m["trios"], m["operateurs"],
+            h["graine"], gisement))
     return "\n".join(lignes) + "\n"
 
 
