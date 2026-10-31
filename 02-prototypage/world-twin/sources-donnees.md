@@ -119,3 +119,14 @@ production.
 - Statut : BRANCHÉE le 31/10/2026 — engine/gisements_hubs.py (verifier, table), engine/flotte_monde.py v1.7 (sommaire, flotte, run, monte-carlo). Étiquette : SOURCÉ (séries FAOSTAT) / ILLUSTRATION (ratios de résidus).
 - Rôle : couche 1 — gisements par point et par hub, dimensionnement de la flotte généralisée, base du rapport World Ops.
 - Limite : gisements nationaux (proxy « brut national » documenté dans chaque fiche), décomposition régionale addressable À SOURCER (P3), ratios non calibrés, bases de masse hétérogènes assumées (sèche pour grains et pailles, humide pour bagasse, écorces, cerises de café, cabosses fraîches).
+
+## Boîtes FIRMS des hubs généralisés (V1.8, 31/10/2026)
+
+- Contenu : zone FIRMS par hub généralisé — boîte ±1.0° latitude / ±1.5° longitude autour du centre du cluster (81 hubs), même convention que les dix boîtes P2, enregistrée au runtime dans le registre de engine/firms.py par engine/flotte_monde.py v1.8.
+- Capteur : VIIRS_NOAA20_NRT (Visible Infrared Imaging Radiometer Suite, satellite NOAA-20 — National Oceanic and Atmospheric Administration, Near Real Time), mission de référence après la cessation Suomi NPP du 01/11/2026.
+- Activation : MAP_KEY gratuite (obtenue le 17/10/2026) lue depuis firms.env (jamais versionné, motif *.env) ou la variable FIRMS_MAP_KEY — en local pour les runs, dans le secret GitHub Actions pour le relevé quotidien CI. Sans clé : repli synthétique propre, workflow vert.
+- Alignement : les tirages du moteur de scénarios (v0.6) sont identiques avec ou sans clé — les pain points réels n'altèrent que la narration (événements firms), jamais les lots, fautes ni disponibilité. La série historique Monte Carlo reste comparable.
+- Quota : limite officielle 5 000 transactions par intervalle de 10 minutes — le circuit complet (relevé quotidien de 91 zones + runs du jour) consomme environ 91 requêtes par jour, marge massive.
+- Statut : BRANCHÉE le 31/10/2026 — engine/firms.py v1.2 (registre de zones), engine/firms_nrt.py v1.2 (relevé 91 zones), engine/flotte_monde.py v1.8, engine/scenario.py v0.6. Étiquette : DONNÉES RÉELLES (NASA FIRMS) pour les événements, SYNTHÉTIQUE pour le run global.
+- Rôle : couche 1 — pain points réels par hub (opportunité d'approvisionnement, ciblage, argument techfin), base de la section feux du rapport World Ops.
+- Limite : cliché du jour (pas une climatologie par hub — les fenêtres historiques restent À L'ÉTUDE), feux de moins de 375 m sous-détectés, nuages et panaches masquants, incertitude d'un facteur environ 2 sur la biomasse dérivée, aucune attribution automatique d'un feu à une biomasse précise. Détail complet : firms-hubs.md.

@@ -178,23 +178,29 @@ def pain_points(biomasse, mois, prng, bassin=None):
     v0.4 : bassin optionnel (hubs du monde — engine/monde.py) ; défaut
     = pilote France. La dimension réglementaire du brûlage reste
     ILLUSTRATION (fiches pays à sourcer).
+    v0.6 (V1.8, 31/10/2026) : les deux tirages du générateur sont
+    effectués AVANT le branchement FIRMS, dans le même ordre dans les
+    deux chemins — le flux pseudo-aléatoire reste strictement identique
+    avec ou sans MAP_KEY. Les pain points réels n'altèrent que la
+    narration (événements firms du run), jamais les lots, fautes ni
+    disponibilité : la série historique reste comparable.
     """
     if bassin is None:
         bassin = BIOMASSES_PILOTE[biomasse]["bassin"]
+    tirage_feux = prng.uniforme()
+    tirage_brulage = prng.uniforme()
     feux = firms.feux_bassin(bassin)
     if feux is not None:
         return {
             "feux_actifs_detectes": feux["nb_feux"] > 0,
             "nb_feux_reels": feux["nb_feux"],
             "frp_total_mw": feux["frp_total_mw"],
-            "brulage_reglemente": prng.uniforme() < 0.5,
+            "brulage_reglemente": tirage_brulage < 0.5,
             "etiquette": "DONNÉES RÉELLES (NASA FIRMS)",
         }
-    feux_actifs_detectes = prng.uniforme() < 0.25
-    brulage_reglemente = prng.uniforme() < 0.5
     return {
-        "feux_actifs_detectes": feux_actifs_detectes,
-        "brulage_reglemente": brulage_reglemente,
+        "feux_actifs_detectes": tirage_feux < 0.25,
+        "brulage_reglemente": tirage_brulage < 0.5,
         "etiquette": "SYNTHÉTIQUE",
     }
 

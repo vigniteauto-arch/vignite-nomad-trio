@@ -1,5 +1,17 @@
 # Flotte généralisée World Twin — V1.6 (27/10/2026)
 
+## Mise à jour du 31/10/2026 — V1.7 gisements et V1.8 pain points réels
+
+Ce document décrit la vague V1.6. Deux vagues ultérieures le complètent :
+la V1.7 (dimensionnement par gisement réel FAOSTAT — Food and Agriculture
+Organization of the United Nations, fenêtre 2020-2024, 208 trios, 162
+opérateurs : gisements-hubs-generalises.md) et la V1.8 (boîtes FIRMS des
+hubs — Fire Information for Resource Management System : chaque hub
+enregistre sa zone GPS, les pain points deviennent des feux RÉELS avec
+la MAP_KEY locale, tirages alignés : firms-hubs.md). La composition de
+référence est celle du sommaire machine : 81 hubs, 208 trios, 162
+opérateurs.
+
 ## Statut
 
 V1.6 actée le 27/10/2026 (« go » de Manu Moineau) : figeage des paramètres

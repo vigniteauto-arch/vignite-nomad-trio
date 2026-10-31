@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Releve FIRMS VIIRS NOAA-20 NRT des 10 bassins (repli synthetique sans cle)
+      - name: Releve FIRMS VIIRS NOAA-20 NRT des 10 bassins + 81 hubs generalises (repli synthetique sans cle)
         run: python3 engine/firms_nrt.py
         env:
           FIRMS_MAP_KEY: ${{ secrets.FIRMS_MAP_KEY }}

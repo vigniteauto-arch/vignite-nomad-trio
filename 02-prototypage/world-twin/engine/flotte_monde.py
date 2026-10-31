@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Couche P2.7 — flotte généralisée « as if in operation » (V1.7, 31/10/2026).
+"""Couche P2.7 — flotte généralisée « as if in operation » (V1.8, 31/10/2026).
 
 Fait tourner le trio Nomad v1 en simulation sur TOUS les points des
 atlas versionnés (v1.0 : 52 intrants du master, v1.1 : 67 intrants
@@ -25,10 +25,16 @@ Figeage acté (27/10/2026, « go » de Manu) :
 RÈGLES :
 - Étiquette SYNTHÉTIQUE — registre de développement, jamais production.
 - Aucune valeur calibrée, aucun paramètre VDE, aucune clé (doctrine PI).
-- Gisements, réglementations et volumes restent ceux des atlas, avec
+- V1.8 (31/10/2026) — pain points réels par hub : chaque hub enregistre
+  sa zone GPS (boîte ±1.0° latitude / ±1.5° longitude autour du centre
+  du cluster) dans le registre de engine/firms.py au moment de sa
+  construction. Avec une MAP_KEY locale (firms.env ou FIRMS_MAP_KEY),
+  les pain points du hub deviennent des feux RÉELS NASA FIRMS du jour.
+  Sans clé : repli synthétique propre, inchangé. Les tirages du moteur
+  sont alignés (scenario v0.6) : les KPI restent identiques avec ou
+  sans clé.
+- Les gisements, réglementations et volumes restent ceux des atlas, avec
   leurs étiquettes SOURCÉ / ILLUSTRATION / À VÉRIFIER d'origine.
-- Les hubs généralisés n'ont pas de boîte FIRMS : les pain points
-  retombent proprement sur le repli synthétique du moteur de scénarios.
 - La capacité d'un trio n'est PAS calibrée : depuis la v1.7, le
   dimensionnement des flottes (trios par hub) suit le gisement FAOSTAT
   du mix d'intrants du hub (couche gisements_hubs, fenêtre 2020-2024,
@@ -62,6 +68,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import atlas_biomasses_monde
 import atlas_biomasses_pays
 import atlas_vignobles_monde
+import firms
 import gisements_hubs
 import monde
 import simulateur
@@ -243,7 +250,7 @@ def hubs_generalises():
             biomasses = {}
             for point in cluster:
                 biomasses[point["token"].lower()] = {
-                    "bassin": hub_id,  # hors BOITES_BASSINS : repli synthétique FIRMS
+                    "bassin": hub_id,  # zone GPS enregistrée dans firms (V1.8)
                     "fenetre_operation": list(point["fenetre"]),
                     "charge_mois": _charge_mois(point["fenetre"]),
                     "humidite_pct": _humidite_famille(point["famille"]),
@@ -253,6 +260,9 @@ def hubs_generalises():
             trios = _trios_du_cluster(gisement, len(cluster))
             lat_centre = round(sum(p["lat"] for p in cluster) / len(cluster), 2)
             lon_centre = round(sum(p["lon"] for p in cluster) / len(cluster), 2)
+            # V1.8 : le hub enregistre sa zone GPS — pain points FIRMS réels
+            # avec une MAP_KEY locale, repli synthétique sinon.
+            firms.enregistrer_zone_gps(hub_id, lat_centre, lon_centre)
             hubs[hub_id] = {
                 "pays": pays,
                 "region": "hub généralisé (%d points, centre %s/%s) — %s"
@@ -269,6 +279,8 @@ def hubs_generalises():
                     "clusters": [p["token"] for p in cluster],
                     "sources_atlas": sorted({p["source_atlas"] for p in cluster}),
                     "gisement": _resume_gisement(gisement),
+                    "lat_centre": lat_centre,
+                    "lon_centre": lon_centre,
                     "etiquette": ETIQUETTE,
                 },
             }
@@ -474,7 +486,7 @@ def verifier():
 def sommaire():
     comp = composition()
     lignes = [
-        "Flotte généralisée World Twin (V1.7) — étiquette %s" % ETIQUETTE,
+        "Flotte généralisée World Twin (V1.8) — étiquette %s" % ETIQUETTE,
         "",
         "- Points d'atlas : %d (rattachés flotte P2 : %d, généralisés : %d)"
         % (comp["points_atlas"], comp["points_rattaches_flotte_p2"],
@@ -494,6 +506,9 @@ def sommaire():
                                       simulateur.MTTR_HEURES,
                                       TRIOS_MAX_PAR_HUB),
         "- Variantes M1/M2/M3 : voir monte_carlo.py (V1.6)",
+        "- Pain points V1.8 : zone GPS enregistrée par hub (boîte ±1.0° lat / "
+        "±1.5° lon) — feux RÉELS NASA FIRMS avec une MAP_KEY locale, repli "
+        "synthétique sinon, KPI identiques dans les deux cas",
         "",
         "Commandes : sommaire | flotte | run [HUB] | monte-carlo [GRAINES]",
     ]

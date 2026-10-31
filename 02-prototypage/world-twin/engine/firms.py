@@ -13,6 +13,14 @@ CLÉ (RÈGLES) :
 - Sans clé : repli — le moteur de scénarios utilise ses pain points
   synthétiques déterministes (aucune panne).
 
+V1.8 (31/10/2026) — hubs généralisés : chaque hub de la flotte
+généralisée (engine/flotte_monde.py) enregistre sa zone GPS au moment
+de sa construction (boîte ±1.0° latitude / ±1.5° longitude autour du
+centre du cluster, même convention que firms_nrt.py). Avec une clé,
+ses pain points deviennent des feux RÉELS. Limite officielle de l'API
+FIRMS : 5 000 transactions par intervalle de 10 minutes — le circuit
+complet (10 bassins P2 + 81 hubs) consomme 91 requêtes par jour.
+
 DONNÉES : NASA FIRMS, domaine public, agrégations par bassin. Les
 détails bruts sont mis en cache local (cache-firms/, jamais versionné) ;
 seules les agrégations non sensibles sont manipulées.
@@ -46,6 +54,22 @@ BOITES_BASSINS = {
     "argentine-misiones": (-55.80, -27.80, -54.30, -26.40),
     "maroc-atlas":        (-6.20, 32.90, -4.60, 34.20),
 }
+
+# Zones des hubs généralisés, enregistrées au runtime par
+# engine/flotte_monde.py (boîte GPS autour du centre du cluster).
+REGISTRE_ZONES = {}
+
+
+def enregistrer_zone(nom, boite):
+    """Enregistre la boîte (ouest, sud, est, nord) d'une zone nommée."""
+    REGISTRE_ZONES[nom] = tuple(float(v) for v in boite)
+
+
+def enregistrer_zone_gps(nom, lat, lon, demi_lat=1.0, demi_lon=1.5):
+    """Enregistre une zone par point GPS — même convention que firms_nrt."""
+    enregistrer_zone(nom, (lon - demi_lon, lat - demi_lat,
+                           lon + demi_lon, lat + demi_lat))
+
 
 _memoire = {}
 
@@ -97,11 +121,12 @@ def feux_bassin(bassin, jours=1, aujourdhui=None):
     memo = _memoire.get((bassin, jour, jours))
     if memo is not None:
         return memo
-    if bassin not in BOITES_BASSINS:
+    zone = BOITES_BASSINS.get(bassin) or REGISTRE_ZONES.get(bassin)
+    if zone is None:
         return None
     resultat = _lire_cache(bassin, jour)
     if resultat is None:
-        boite = ",".join("%g" % v for v in BOITES_BASSINS[bassin])
+        boite = ",".join("%g" % v for v in zone)
         url = API.format(cle=cle, boite=boite, jours=jours)
         try:
             with urllib.request.urlopen(url, timeout=25) as reponse:
