@@ -107,3 +107,27 @@ Sorties dans sorties/ (jamais versionnées) :
 flotte-generale-composition.json, flotte-generale-run.json/.md,
 flotte-generale-mc.json. Tout résultat porté en réunion ou devant
 investisseur se dit « simulation » — jamais exploitation réelle.
+
+## Mise à jour du 08/11/2026 — V2.2 flotte totale mondiale (« go » de Manu)
+
+- Les SIX atlas régionaux sont câblés dans `engine/flotte_monde.py` : la collecte
+  couvre désormais les huit atlas versionnés (v1.0 master 52, v1.1 pays 67,
+  v1.2 vignobles 32, v1.3 Asie 72, v1.4 Europe du Nord et scieries 64,
+  v1.5 Amérique du Nord Canada 7, v1.6 Moyen-Orient complet 21,
+  v1.7 Afrique complète 136, v1.8 Amérique latine et centrale restante 66).
+- Composition V2.2 : 517 points d'atlas, 13 rattachés flotte P2, 504 généralisés ;
+  217 hubs sur 140 pays ; 392 trios ; 434 opérateurs (ratio 1,11 par trio, plafond
+  2 opérateurs pour 5 trios).
+- Nouveaux pays couverts : 88 pays régionaux (20 Europe du Nord, 1 Canada,
+  11 Moyen-Orient, 38 Afrique, 19 Amérique latine et centrale), hors pays déjà
+  couverts par v1.0-v1.3.
+- Gisements : les points v1.3-v1.8 sont hors snapshot FAOSTAT v17 (32 pays) :
+  repli densité v1.6 documenté, aucune valeur inventée ; extension du snapshot
+  (v18) en action P3, mapping FAOSTAT des nouveaux jetons en action P3.
+- Run annuel monde total SYNTHÉTIQUE (année 2027) : 392 runs trio,
+  78 064 lots, 714 fautes (9,15 pour 1 000 lots), 23 575 événements,
+  disponibilité moyenne 99,64 % (min 98,30 %, max 100 %). Monte Carlo monde
+  10 graines x 217 hubs = 2 170 runs, 780 640 lots, disponibilité flotte
+  moyenne 99,6 %.
+- Rappel : étiquette SYNTHÉTIQUE, registre de développement, jamais
+  production ; devant un investisseur on dit « simulation ».

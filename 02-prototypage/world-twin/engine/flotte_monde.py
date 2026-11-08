@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
-"""Couche P2.7 — flotte généralisée « as if in operation » (V1.8, 31/10/2026).
+"""Couche P2.7 — flotte généralisée « as if in operation » (V2.2, 08/11/2026).
 
 Fait tourner le trio Nomad v1 en simulation sur TOUS les points des
 atlas versionnés (v1.0 : 52 intrants du master, v1.1 : 67 intrants
-locaux par pays, v1.2 : 32 intrants viticoles) : les points candidats
+locaux par pays, v1.2 : 32 intrants viticoles, v1.3 : 72 intrants
+Asie, v1.4 : Europe du Nord et scieries, v1.5 : Amérique du Nord
+(Canada), v1.6 : Moyen-Orient complet, v1.7 : Afrique complète,
+v1.8 : Amérique latine et centrale restante) : les points candidats
 sont clusterés en hubs généralisés par pays et par proximité
 géographique, chaque hub reçoit sa flotte de trios et ses équipes
 d'opérateurs selon le figeage acté du 27/10/2026, puis le simulateur
@@ -68,6 +71,12 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import atlas_biomasses_monde
 import atlas_biomasses_pays
 import atlas_vignobles_monde
+import atlas_biomasses_asie
+import atlas_europe_nord
+import atlas_amerique_nord
+import atlas_moyen_orient
+import atlas_afrique
+import atlas_amerique_latine
 import firms
 import gisements_hubs
 import monde
@@ -95,7 +104,7 @@ HUMIDITE_DEFAUT = (20.0, 50.0)
 # ---------------------------------------------------------------------------
 
 def _collecte_points():
-    """Tous les points d'intrants des atlas v1.0/v1.1/v1.2.
+    """Tous les points d'intrants des atlas v1.0 à v1.8.
 
     Les points rattachés aux 7 hubs de la flotte P2 (hubs_flotte non
     vide) sont exclus : ils tournent déjà dans le simulateur monde.
@@ -140,6 +149,42 @@ def _collecte_points():
             copie = dict(fiche)
             copie["pays"] = pays
             ajouter(copie, "v1.2")
+    # v1.3 — atlas Asie (72 intrants)
+    for pays, bloc in atlas_biomasses_asie.PAYS_ASIE.items():
+        for fiche in bloc.get("intrants", []):
+            copie = dict(fiche)
+            copie["pays"] = pays
+            ajouter(copie, "v1.3")
+    # v1.4 — atlas Europe du Nord et scieries
+    for pays, bloc in atlas_europe_nord.PAYS_EUROPE_NORD.items():
+        for fiche in bloc.get("intrants", []):
+            copie = dict(fiche)
+            copie["pays"] = pays
+            ajouter(copie, "v1.4")
+    # v1.5 — atlas Amérique du Nord (Canada)
+    for pays, bloc in atlas_amerique_nord.PAYS_AMERIQUE_NORD.items():
+        for fiche in bloc.get("intrants", []):
+            copie = dict(fiche)
+            copie["pays"] = pays
+            ajouter(copie, "v1.5")
+    # v1.6 — atlas Moyen-Orient complet
+    for pays, bloc in atlas_moyen_orient.PAYS_MOYEN_ORIENT.items():
+        for fiche in bloc.get("intrants", []):
+            copie = dict(fiche)
+            copie["pays"] = pays
+            ajouter(copie, "v1.6")
+    # v1.7 — atlas Afrique complète
+    for pays, bloc in atlas_afrique.PAYS_AFRIQUE.items():
+        for fiche in bloc.get("intrants", []):
+            copie = dict(fiche)
+            copie["pays"] = pays
+            ajouter(copie, "v1.7")
+    # v1.8 — atlas Amérique latine et centrale restante
+    for pays, bloc in atlas_amerique_latine.PAYS_AMERIQUE_LATINE.items():
+        for fiche in bloc.get("intrants", []):
+            copie = dict(fiche)
+            copie["pays"] = pays
+            ajouter(copie, "v1.8")
     return points, exclus
 
 
@@ -486,7 +531,7 @@ def verifier():
 def sommaire():
     comp = composition()
     lignes = [
-        "Flotte généralisée World Twin (V1.8) — étiquette %s" % ETIQUETTE,
+        "Flotte généralisée World Twin (V2.2, atlas v1.0-v1.8) — étiquette %s" % ETIQUETTE,
         "",
         "- Points d'atlas : %d (rattachés flotte P2 : %d, généralisés : %d)"
         % (comp["points_atlas"], comp["points_rattaches_flotte_p2"],

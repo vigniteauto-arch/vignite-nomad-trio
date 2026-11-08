@@ -20,8 +20,12 @@ jobs:
           python-version: "3.12"
       - name: Simulation flotte monde (9 trios, deterministe, caches versionnes)
         run: python3 engine/simulateur.py
-      - name: Monte Carlo leger quotidien (monde, 100 graines baseline + 20/variante)
+      - name: Monte Carlo leger quotidien (monde P2, 100 graines baseline + 20/variante)
         run: python3 engine/monte_carlo.py 100 20 monde
+      - name: Flotte totale V2.1 — run annuel tous hubs généralisés (dont Asie v1.3)
+        run: python3 engine/flotte_monde.py run
+      - name: Monte Carlo monde flotte généralisée (20 graines x tous les hubs)
+        run: python3 engine/flotte_monde.py monte-carlo 20
       - name: Lecture des resultats
         run: python3 engine/lecture_resultats.py
       - name: Regeneration de la carte (meteo fraiche, template versionne)
