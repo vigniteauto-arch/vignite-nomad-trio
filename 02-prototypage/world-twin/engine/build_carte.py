@@ -177,6 +177,11 @@ def construire_couches(mode):
     import sites_transformation                          # noqa: E402 (engine/)
     couches_sites = sites_transformation.couches()
 
+    # V2.9 : adossement aux négociants dominants des filières — 219 fiches,
+    # faits publics uniquement (aucun contact, aucun coût).
+    import partenaires_fileres                           # noqa: E402 (engine/)
+    couches_partenaires = partenaires_fileres.couches()
+
     prive = mode == "prive"
     couches_cao = {}
     for hid, h in cao["hubs"].items():
@@ -212,7 +217,7 @@ def construire_couches(mode):
 
     p3sites = [{"lat": s["lat"], "lon": s["lon"], "type": s["type"]}
                for s in sites["sites"].values()]
-    return hubgps, couches_cao, couches_p3, p3sites, couches_sites
+    return hubgps, couches_cao, couches_p3, p3sites, couches_sites, couches_partenaires
 
 
 def verifier(pays, monde, html, mode, data_json):
@@ -245,6 +250,14 @@ def verifier(pays, monde, html, mode, data_json):
     if nb_sites != nb_p3:
         raise RuntimeError("couche sites de transformation incomplète : %d fiches "
                            "(attendu %d, comme CaO/P3)" % (nb_sites, nb_p3))
+    nb_partenaires = len(monde.get("partenaires", {}))
+    if nb_partenaires != nb_p3:
+        raise RuntimeError("couche partenaires filière incomplète : %d fiches "
+                           "(attendu %d, comme CaO/P3)" % (nb_partenaires, nb_p3))
+    for hid in ("fr-rhone", "gen-bresil-3", "gen-mexique-4"):
+        fiche = monde.get("partenaires", {}).get(hid)
+        if not fiche or not fiche.get("familles"):
+            raise RuntimeError("fiche partenaire absente ou vide : %s" % hid)
     for hid in ("fr-rhone", "ma-atlas", "gen-cote-d-ivoire-2"):
         fiche = monde.get("sites", {}).get(hid)
         if not fiche or not fiche.get("type_site"):
@@ -258,7 +271,8 @@ def verifier(pays, monde, html, mode, data_json):
                                % (nb_mh, len(monde.get("hubgps", {}))))
     if mode == "public":
         couches_json = json.dumps({"cao": monde.get("cao", {}), "p3": monde.get("p3", {}),
-                                   "sites": monde.get("sites", {})},
+                                   "sites": monde.get("sites", {}),
+                                   "partenaires": monde.get("partenaires", {})},
                                   ensure_ascii=False, separators=(",", ":"))
         for indice in ("cout", "€", "eur_t", "eur_an"):
             if indice in couches_json:
@@ -278,12 +292,14 @@ def main():
     args = analyse.parse_args()
     classe, libelle, _, _ = MODES[args.mode]
     pays, monde, gabarit = charger()
-    hubgps, couches_cao, couches_p3, p3sites, couches_sites = construire_couches(args.mode)
+    hubgps, couches_cao, couches_p3, p3sites, couches_sites, couches_partenaires = \
+        construire_couches(args.mode)
     monde["hubgps"] = hubgps
     monde["cao"] = couches_cao
     monde["p3"] = couches_p3
     monde["p3sites"] = p3sites
     monde["sites"] = couches_sites
+    monde["partenaires"] = couches_partenaires
     monde["mode"] = args.mode
     chemin_meteo_hubs = os.path.join(DATA, "meteo-hubs-pointage.json")
     if args.meteo_hubs and not args.offline:

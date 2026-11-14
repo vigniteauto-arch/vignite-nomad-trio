@@ -63,7 +63,7 @@ th{color:#64748b;font-weight:600}
 <body>
 <header>
 <h1>World Twin — la flotte mondiale de trios Nomad « as if in operation » <span class="badge">SYNTHÉTIQUE — SIMULATION</span><span class="badge pub">DONNÉES PUBLIQUES SOURCÉES</span><span class="badge __MODECLASS__">__MODE__</span></h1>
-<div class="sub">Carte du monde « remplie de trios Nomad en opération » — 7 hubs pilotes + 217 hubs généralisés (flotte V2.3), 2 hémisphères · cliquer un hub (marqueur N), un losange orange (hub généralisé CaO/P3) ou un pays coloré · météo réelle pointée __POINTAGE__ (réelle) — en local téléchargé : passage en direct Open-Meteo si le réseau est disponible · sources : FAOSTAT bulk 2024, NASA FIRMS 2021-2025, GEOGLAM, fiches pays, Open-Meteo, socle minéral CaO P2.9 (USGS MCS 2026, FAOSTAT bois 2024, OWID), sites industriels P3 (Global Energy Monitor GCCT/GIST/GBPT), sites de transformation post-récolte V2.8 (LPI Banque mondiale 2023 ou édition la plus récente, moyenne régionale en proxy pour les pays jamais enquêtés, RAI 2023 SDSN, indicateur ODD 9.1.1) · aucune valeur calibrée du VDE (doctrine PI).</div>
+<div class="sub">Carte du monde « remplie de trios Nomad en opération » — 7 hubs pilotes + 217 hubs généralisés (flotte V2.3), 2 hémisphères · cliquer un hub (marqueur N), un losange orange (hub généralisé CaO/P3) ou un pays coloré · météo réelle pointée __POINTAGE__ (réelle) — en local téléchargé : passage en direct Open-Meteo si le réseau est disponible · sources : FAOSTAT bulk 2024, NASA FIRMS 2021-2025, GEOGLAM, fiches pays, Open-Meteo, socle minéral CaO P2.9 (USGS MCS 2026, FAOSTAT bois 2024, OWID), sites industriels P3 (Global Energy Monitor GCCT/GIST/GBPT), sites de transformation post-récolte V2.9 (LPI Banque mondiale 2023 ou édition la plus récente, moyenne régionale en proxy pour les pays jamais enquêtés, RAI 2023 SDSN, indicateur ODD 9.1.1), adossement aux négociants dominants des filières V2.9 (pilote / LOI à l'usine / franchise-licensing, faits publics) · aucune valeur calibrée du VDE (doctrine PI).</div>
 <div class="strip">
 <span><span class="k">Trios simulés :</span> <b>480</b> (V2.3 : 217 hubs généralisés + 7 bassins pilotes)</span>
 <span><span class="k">Opérateurs tournants :</span> <b>2 / trio</b> (hub régional 3-5 trios)</span>
@@ -231,7 +231,7 @@ function caop3Tables(id){
     (p.cout_eur_an!=null?"<tr><td>Coût achats (PRIVÉ · ILLUSTRATION)</td><td><span class='tag pri'>"+fmt(p.cout_eur_an)+" €/an"+(p.deficit_marche_t_an?" · déficit marché "+fmt(p.deficit_marche_t_an)+" t à 90 €/t":"")+"</span></td></tr>":"")+
     "</table>";}
   const s=D.sites&&D.sites[id];
-  if(s){out+="<h3>Site de transformation — V2.8</h3><table>"+
+  if(s){out+="<h3>Site de transformation — V2.9</h3><table>"+
     "<tr><td>Type de site dominant</td><td>"+esc(s.type_site)+"</td></tr>"+
     "<tr><td>Familles de co-produits</td><td>"+esc(s.familles)+"</td></tr>"+
     "<tr><td>Captabilité au site (gisement / champ)</td><td>"+s.captabilite+" <span class='tag "+(s.cap_statut==="SOURCÉ"?"src":"ill")+"'>"+(s.cap_statut||"ILLUSTRATION")+"</span></td></tr>"+
@@ -239,6 +239,17 @@ function caop3Tables(id){
     "<tr><td>Fenêtre de fraîcheur récolte → usine</td><td>"+esc(s.fenetre)+"</td></tr>"+
     "<tr><td>LPI "+(s.lpi_edition||"—")+" (Banque mondiale, logistique)</td><td>"+(s.lpi!=null?(s.lpi+" / 5 "+(s.lpi_proxy?"<span class='tag reg'>RÉGIONAL</span> — "+esc(s.lpi_detail).replace(/^RÉGIONAL \(/,"").replace(/\)$/,""):"<span class='tag src'>SOURCÉ</span>")):(s.lpi_edition?"édition "+s.lpi_edition:"<span class='tag off'>À SOURCER — jamais enquêté, aucune édition</span>"))+"</td></tr>"+
     "<tr><td>RAI 2023 (accès rural, ODD 9.1.1)</td><td>"+(s.rai!=null?s.rai+" % <span class='tag src'>SOURCÉ</span> — SDSN, d'après Banque mondiale":"<span class='tag off'>À SOURCER</span>")+"</td></tr></table>";}
+  const pt=D.partenaires&&D.partenaires[id];
+  if(pt){out+="<h3>Adossement filière — V2.9</h3><table>"+
+    pt.familles.map(function(e){
+      var cls=e.statut.indexOf("SOURCÉ")===0?"src":(e.statut.indexOf("MONDIAL")===0?"reg":"ill");
+      return "<tr><td>"+esc(e.famille)+"</td><td>"+esc(e.acteur)+
+        " <span class='tag "+cls+"'>"+esc(e.statut.split(" (")[0])+"</span><br>"+
+        "<span class='muted'>adossement : <b>"+(e.mode==="LOI_USINE"?"LOI / contrat à l'usine":(e.mode==="PILOTE"?"projet pilote collecte":"franchise / licensing"))+
+        "</b> · ancre "+(e.portee==="PAYS"?"pays (documenté)":"mondiale (repli)")+"</span></td></tr>";
+    }).join("")+
+    "<tr><td>Mode d'entrée pays</td><td>"+(pt.entree==="DIRECT"?"<b>DIRECT</b> — périmètre pilotes / filiales Vignite":"<b>FRANCHISE / LICENSING</b> — le partenaire finance le matériel, Vignite perçoit des royalties (doctrine international)")+"</td></tr>"+
+    "</table><div class='muted'>Négociants dominants : faits publics uniquement · aucun contact, aucun état de négociation, aucun coût (doctrine PI).</div>";}
   return out;
 }
 function showGen(id){
