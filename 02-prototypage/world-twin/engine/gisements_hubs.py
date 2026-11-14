@@ -12,7 +12,7 @@ MÉTHODE :
   Production ou Area harvested du couple pays/item) multipliée par un ratio
   de résidu ILLUSTRATION (min, milieu, max) issu des fiches d'atlas.
 - Les valeurs FAOSTAT proviennent du snapshot versionné
-  gisements-faostat-snapshot-v17.json (régénérable, voir le document
+  gisements-faostat-snapshot-v18.json (régénérable, voir le document
   gisements-hubs-generalises.md). Le bulk brut (545 Mo) ne jamais être
   versionné : doctrine cache-faostat-bulk/.
 - Les points sans équivalent FAOSTAT (forestier, minéral, marin,
@@ -49,7 +49,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 FENETRE = (2020, 2024)
 SNAPSHOT = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                        "gisements-faostat-snapshot-v17.json")
+                        "gisements-faostat-snapshot-v18.json")
 
 # Paliers de dimensionnement ILLUSTRATION : gisement du hub en t/an.
 # 1 à 5 trios, plafond figé de 5 trios par équipe d'opérateurs.
@@ -90,7 +90,28 @@ PAYS_FAOSTAT = {
     "Russie": "Russian Federation",
     "Suisse": "Switzerland",
     "Turquie": "Türkiye",
+    "Afghanistan": "Afghanistan",
+    "Azerbaïdjan": "Azerbaijan",
+    "Bangladesh": "Bangladesh",
+    "Cambodge": "Cambodia",
+    "Corée du Sud": "Republic of Korea",
+    "Indonésie": "Indonesia",
+    "Irak": "Iraq",
+    "Japon": "Japan",
+    "Kazakhstan": "Kazakhstan",
+    "Kirghizistan": "Kyrgyzstan",
+    "Laos": "Lao People's Democratic Republic",
+    "Myanmar": "Myanmar",
+    "Népal": "Nepal",
+    "Ouzbékistan": "Uzbekistan",
+    "Pakistan": "Pakistan",
+    "Sri Lanka": "Sri Lanka",
+    "Syrie": "Syrian Arab Republic",
+    "Tadjikistan": "Tajikistan",
+    "Thaïlande": "Thailand",
+    "Turkménistan": "Turkmenistan",
     "Viêt Nam": "Viet Nam",
+    # --- Asie (atlas v1.3) ---
 }
 
 # Ratio de résidu (min, milieu, max) appliqué à la base FAOSTAT.
@@ -100,6 +121,11 @@ PAYS_FAOSTAT = {
 # mention, « Area harvested » en hectares pour les ratios en t/ha.
 AUTRE_NOIX = ("Other nuts (excluding wild edible nuts and groundnuts),"
               " in shell, n.e.c.")
+
+# Atlas v1.4 à v1.8 : points en repli densité (aucun item FAOSTAT
+# direct, gisement estimé par densité régionale côté flotte_monde
+# — comptés sans erreur dans la couverture du verifier).
+REPLI_DENSITE_ATLAS = ("v1.4", "v1.5", "v1.6", "v1.7", "v1.8")
 
 MAPPINGS = {
     # --- Arabie Saoudite ---
@@ -369,6 +395,224 @@ MAPPINGS = {
                     "element": "Production", "ratio": (0.45, 0.50, 0.55),
                     "note": "proxy « Other nuts » ≈ pacanes, proxy national"
                             " documenté (la fiche citait la Géorgie)"},
+    # --- Asie (atlas v1.3, snapshot v18) ---
+    "BALLE_RIZ_AF": {"pays": "Afghanistan", "item": "Rice",
+                                                           "element": "Production", "ratio": (0.18, 0.2, 0.22),
+                                                           "note": "balle de riz, ratio v1.3 Asie"},
+    "PAILLE_BLE_AF": {"pays": "Afghanistan", "item": "Wheat",
+                                                             "element": "Production", "ratio": (1.0, 1.2, 1.4),
+                                                             "note": "paille de blé, ratio v1.3 Asie"},
+    "TIGE_COTON_AF": {"pays": "Afghanistan", "item": "Seed cotton, unginned",
+                                                                             "element": "Production", "ratio": (2.5, 3.0, 3.5),
+                                                                             "note": "tiges de coton, ratio v1.3 Asie"},
+    "PAILLE_BLE_AZ": {"pays": "Azerbaïdjan", "item": "Wheat",
+                                                             "element": "Production", "ratio": (1.0, 1.2, 1.4),
+                                                             "note": "paille de blé, ratio v1.3 Asie"},
+    "PAILLE_ORGE_AZ": {"pays": "Azerbaïdjan", "item": "Barley",
+                                                               "element": "Production", "ratio": (0.8, 1.0, 1.2),
+                                                               "note": "paille d'orge, ratio v1.3 Asie"},
+    "TIGE_COTON_AZ": {"pays": "Azerbaïdjan", "item": "Seed cotton, unginned",
+                                                                             "element": "Production", "ratio": (2.5, 3.0, 3.5),
+                                                                             "note": "tiges de coton, ratio v1.3 Asie"},
+    "BALLE_RIZ_BD": {"pays": "Bangladesh", "item": "Rice",
+                                                          "element": "Production", "ratio": (0.18, 0.2, 0.22),
+                                                          "note": "balle de riz, ratio v1.3 Asie"},
+    "PAILLE_BLE_BD": {"pays": "Bangladesh", "item": "Wheat",
+                                                            "element": "Production", "ratio": (1.0, 1.2, 1.4),
+                                                            "note": "paille de blé, ratio v1.3 Asie"},
+    "PAILLE_MAIS_BD": {"pays": "Bangladesh", "item": "Maize (corn)",
+                                                                    "element": "Production", "ratio": (0.2, 0.25, 0.3),
+                                                                    "note": "résidus de maïs, ratio v1.3 Asie"},
+    "TIGE_JUTE_BD": {"pays": "Bangladesh", "item": "Jute, raw or retted",
+                                                                         "element": "Production", "ratio": (1.5, 1.8, 2.1),
+                                                                         "note": "tiges de jute, ratio v1.3 Asie"},
+    "BALLE_RIZ_KH": {"pays": "Cambodge", "item": "Rice",
+                                                        "element": "Production", "ratio": (0.18, 0.2, 0.22),
+                                                        "note": "balle de riz, ratio v1.3 Asie"},
+    "ECORCE_MANIOC_KH": {"pays": "Cambodge", "item": "Cassava, fresh",
+                                                                      "element": "Production", "ratio": (0.13, 0.15, 0.17),
+                                                                      "note": "écorces de manioc, ratio v1.3 Asie"},
+    "BALLE_RIZ_KR": {"pays": "Corée du Sud", "item": "Rice",
+                                                            "element": "Production", "ratio": (0.18, 0.2, 0.22),
+                                                            "note": "balle de riz, ratio v1.3 Asie"},
+    "PAILLE_ORGE_KR": {"pays": "Corée du Sud", "item": "Barley",
+                                                                "element": "Production", "ratio": (0.8, 1.0, 1.2),
+                                                                "note": "paille d'orge, ratio v1.3 Asie"},
+    "BAGASSE_CANNE_ID": {"pays": "Indonésie", "item": "Sugar cane",
+                                                                   "element": "Production", "ratio": (0.25, 0.3, 0.35),
+                                                                   "note": "bagasse de canne, ratio v1.3 Asie"},
+    "BALLE_RIZ_ID": {"pays": "Indonésie", "item": "Rice",
+                                                         "element": "Production", "ratio": (0.18, 0.2, 0.22),
+                                                         "note": "balle de riz, ratio v1.3 Asie"},
+    "ECORCE_MANIOC_ID": {"pays": "Indonésie", "item": "Cassava, fresh",
+                                                                       "element": "Production", "ratio": (0.13, 0.15, 0.17),
+                                                                       "note": "écorces de manioc, ratio v1.3 Asie"},
+    "EFB_PALMIER_ID": {"pays": "Indonésie", "item": "Oil palm fruit",
+                                                                     "element": "Production", "ratio": (0.2, 0.22, 0.24),
+                                                                     "note": "rafles de palmier à huile, ratio v1.3 Asie"},
+    "PAILLE_MAIS_ID": {"pays": "Indonésie", "item": "Maize (corn)",
+                                                                   "element": "Production", "ratio": (0.2, 0.25, 0.3),
+                                                                   "note": "résidus de maïs, ratio v1.3 Asie"},
+    "PAILLE_BLE_IQ": {"pays": "Irak", "item": "Wheat",
+                                                      "element": "Production", "ratio": (1.0, 1.2, 1.4),
+                                                      "note": "paille de blé, ratio v1.3 Asie"},
+    "RACHIS_DATTIER_IQ": {"pays": "Irak", "item": "Dates",
+                                                          "element": "Area harvested", "ratio": (2.0, 2.5, 3.0),
+                                                          "note": "rachis de dattier figé v1.3, en t/ha"},
+    "BALLE_RIZ_IR": {"pays": "Iran", "item": "Rice",
+                                                    "element": "Production", "ratio": (0.18, 0.2, 0.22),
+                                                    "note": "balle de riz, ratio v1.3 Asie"},
+    "PAILLE_BLE_IR": {"pays": "Iran", "item": "Wheat",
+                                                      "element": "Production", "ratio": (1.0, 1.2, 1.4),
+                                                      "note": "paille de blé, ratio v1.3 Asie"},
+    "PAILLE_ORGE_IR": {"pays": "Iran", "item": "Barley",
+                                                        "element": "Production", "ratio": (0.8, 1.0, 1.2),
+                                                        "note": "paille d'orge, ratio v1.3 Asie"},
+    "RACHIS_DATTIER_IR": {"pays": "Iran", "item": "Dates",
+                                                          "element": "Area harvested", "ratio": (2.0, 2.5, 3.0),
+                                                          "note": "rachis de dattier figé v1.3, en t/ha"},
+    "BALLE_RIZ_JP": {"pays": "Japon", "item": "Rice",
+                                                     "element": "Production", "ratio": (0.18, 0.2, 0.22),
+                                                     "note": "balle de riz, ratio v1.3 Asie"},
+    "PAILLE_BLE_JP": {"pays": "Japon", "item": "Wheat",
+                                                       "element": "Production", "ratio": (1.0, 1.2, 1.4),
+                                                       "note": "paille de blé, ratio v1.3 Asie"},
+    "PAILLE_BLE_KZ": {"pays": "Kazakhstan", "item": "Wheat",
+                                                            "element": "Production", "ratio": (1.0, 1.2, 1.4),
+                                                            "note": "paille de blé, ratio v1.3 Asie"},
+    "PAILLE_ORGE_KZ": {"pays": "Kazakhstan", "item": "Barley",
+                                                              "element": "Production", "ratio": (0.8, 1.0, 1.2),
+                                                              "note": "paille d'orge, ratio v1.3 Asie"},
+    "TIGE_COTON_KZ": {"pays": "Kazakhstan", "item": "Seed cotton, unginned",
+                                                                            "element": "Production", "ratio": (2.5, 3.0, 3.5),
+                                                                            "note": "tiges de coton, ratio v1.3 Asie"},
+    "TIGE_TOURNESOL_KZ": {"pays": "Kazakhstan", "item": "Sunflower seed",
+                                                                         "element": "Production", "ratio": (1.6, 2.0, 2.4),
+                                                                         "note": "tiges de tournesol, ratio v1.3 Asie"},
+    "PAILLE_BLE_KG": {"pays": "Kirghizistan", "item": "Wheat",
+                                                              "element": "Production", "ratio": (1.0, 1.2, 1.4),
+                                                              "note": "paille de blé, ratio v1.3 Asie"},
+    "PAILLE_ORGE_KG": {"pays": "Kirghizistan", "item": "Barley",
+                                                                "element": "Production", "ratio": (0.8, 1.0, 1.2),
+                                                                "note": "paille d'orge, ratio v1.3 Asie"},
+    "TIGE_COTON_KG": {"pays": "Kirghizistan", "item": "Seed cotton, unginned",
+                                                                              "element": "Production", "ratio": (2.5, 3.0, 3.5),
+                                                                              "note": "tiges de coton, ratio v1.3 Asie"},
+    "BALLE_RIZ_LA": {"pays": "Laos", "item": "Rice",
+                                                    "element": "Production", "ratio": (0.18, 0.2, 0.22),
+                                                    "note": "balle de riz, ratio v1.3 Asie"},
+    "ECORCE_MANIOC_LA": {"pays": "Laos", "item": "Cassava, fresh",
+                                                                  "element": "Production", "ratio": (0.13, 0.15, 0.17),
+                                                                  "note": "écorces de manioc, ratio v1.3 Asie"},
+    "BAGASSE_CANNE_MM": {"pays": "Myanmar", "item": "Sugar cane",
+                                                                 "element": "Production", "ratio": (0.25, 0.3, 0.35),
+                                                                 "note": "bagasse de canne, ratio v1.3 Asie"},
+    "BALLE_RIZ_MM": {"pays": "Myanmar", "item": "Rice",
+                                                       "element": "Production", "ratio": (0.18, 0.2, 0.22),
+                                                       "note": "balle de riz, ratio v1.3 Asie"},
+    "PAILLE_MAIS_MM": {"pays": "Myanmar", "item": "Maize (corn)",
+                                                                 "element": "Production", "ratio": (0.2, 0.25, 0.3),
+                                                                 "note": "résidus de maïs, ratio v1.3 Asie"},
+    "BALLE_RIZ_NP": {"pays": "Népal", "item": "Rice",
+                                                     "element": "Production", "ratio": (0.18, 0.2, 0.22),
+                                                     "note": "balle de riz, ratio v1.3 Asie"},
+    "PAILLE_BLE_NP": {"pays": "Népal", "item": "Wheat",
+                                                       "element": "Production", "ratio": (1.0, 1.2, 1.4),
+                                                       "note": "paille de blé, ratio v1.3 Asie"},
+    "PAILLE_MAIS_NP": {"pays": "Népal", "item": "Maize (corn)",
+                                                               "element": "Production", "ratio": (0.2, 0.25, 0.3),
+                                                               "note": "résidus de maïs, ratio v1.3 Asie"},
+    "PAILLE_BLE_UZ": {"pays": "Ouzbékistan", "item": "Wheat",
+                                                             "element": "Production", "ratio": (1.0, 1.2, 1.4),
+                                                             "note": "paille de blé, ratio v1.3 Asie"},
+    "TIGE_COTON_UZ": {"pays": "Ouzbékistan", "item": "Seed cotton, unginned",
+                                                                             "element": "Production", "ratio": (2.5, 3.0, 3.5),
+                                                                             "note": "tiges de coton, ratio v1.3 Asie"},
+    "BAGASSE_CANNE_PK": {"pays": "Pakistan", "item": "Sugar cane",
+                                                                  "element": "Production", "ratio": (0.25, 0.3, 0.35),
+                                                                  "note": "bagasse de canne, ratio v1.3 Asie"},
+    "PAILLE_BLE_PK": {"pays": "Pakistan", "item": "Wheat",
+                                                          "element": "Production", "ratio": (1.0, 1.2, 1.4),
+                                                          "note": "paille de blé, ratio v1.3 Asie"},
+    "TIGE_COTON_PK": {"pays": "Pakistan", "item": "Seed cotton, unginned",
+                                                                          "element": "Production", "ratio": (2.5, 3.0, 3.5),
+                                                                          "note": "tiges de coton, ratio v1.3 Asie"},
+    "PAILLE_AVOINE_RU": {"pays": "Russie", "item": "Oats",
+                                                          "element": "Production", "ratio": (0.8, 1.0, 1.2),
+                                                          "note": "paille d'avoine, ratio v1.3 Asie"},
+    "PAILLE_BLE_RU": {"pays": "Russie", "item": "Wheat",
+                                                        "element": "Production", "ratio": (1.0, 1.2, 1.4),
+                                                        "note": "paille de blé, ratio v1.3 Asie"},
+    "PAILLE_MAIS_RU": {"pays": "Russie", "item": "Maize (corn)",
+                                                                "element": "Production", "ratio": (0.2, 0.25, 0.3),
+                                                                "note": "résidus de maïs, ratio v1.3 Asie"},
+    "PAILLE_ORGE_RU": {"pays": "Russie", "item": "Barley",
+                                                          "element": "Production", "ratio": (0.8, 1.0, 1.2),
+                                                          "note": "paille d'orge, ratio v1.3 Asie"},
+    "TIGE_TOURNESOL_RU": {"pays": "Russie", "item": "Sunflower seed",
+                                                                     "element": "Production", "ratio": (1.6, 2.0, 2.4),
+                                                                     "note": "tiges de tournesol, ratio v1.3 Asie"},
+    "BALLE_RIZ_LK": {"pays": "Sri Lanka", "item": "Rice",
+                                                         "element": "Production", "ratio": (0.18, 0.2, 0.22),
+                                                         "note": "balle de riz, ratio v1.3 Asie"},
+    "RESIDU_THE_LK": {"pays": "Sri Lanka", "item": "Tea leaves",
+                                                                "element": "Area harvested", "ratio": (0.5, 0.6, 0.7),
+                                                                "note": "résidu de théier v1.3, en t/ha"},
+    "PAILLE_BLE_SY": {"pays": "Syrie", "item": "Wheat",
+                                                       "element": "Production", "ratio": (1.0, 1.2, 1.4),
+                                                       "note": "paille de blé, ratio v1.3 Asie"},
+    "PAILLE_ORGE_SY": {"pays": "Syrie", "item": "Barley",
+                                                         "element": "Production", "ratio": (0.8, 1.0, 1.2),
+                                                         "note": "paille d'orge, ratio v1.3 Asie"},
+    "PAILLE_BLE_TJ": {"pays": "Tadjikistan", "item": "Wheat",
+                                                             "element": "Production", "ratio": (1.0, 1.2, 1.4),
+                                                             "note": "paille de blé, ratio v1.3 Asie"},
+    "TIGE_COTON_TJ": {"pays": "Tadjikistan", "item": "Seed cotton, unginned",
+                                                                             "element": "Production", "ratio": (2.5, 3.0, 3.5),
+                                                                             "note": "tiges de coton, ratio v1.3 Asie"},
+    "BAGASSE_CANNE_TH": {"pays": "Thaïlande", "item": "Sugar cane",
+                                                                   "element": "Production", "ratio": (0.25, 0.3, 0.35),
+                                                                   "note": "bagasse de canne, ratio v1.3 Asie"},
+    "BALLE_RIZ_TH": {"pays": "Thaïlande", "item": "Rice",
+                                                         "element": "Production", "ratio": (0.18, 0.2, 0.22),
+                                                         "note": "balle de riz, ratio v1.3 Asie"},
+    "ECORCE_MANIOC_TH": {"pays": "Thaïlande", "item": "Cassava, fresh",
+                                                                       "element": "Production", "ratio": (0.13, 0.15, 0.17),
+                                                                       "note": "écorces de manioc, ratio v1.3 Asie"},
+    "EFB_PALMIER_TH": {"pays": "Thaïlande", "item": "Oil palm fruit",
+                                                                     "element": "Production", "ratio": (0.2, 0.22, 0.24),
+                                                                     "note": "rafles de palmier à huile, ratio v1.3 Asie"},
+    "PAILLE_BLE_TM": {"pays": "Turkménistan", "item": "Wheat",
+                                                              "element": "Production", "ratio": (1.0, 1.2, 1.4),
+                                                              "note": "paille de blé, ratio v1.3 Asie"},
+    "TIGE_COTON_TM": {"pays": "Turkménistan", "item": "Seed cotton, unginned",
+                                                                              "element": "Production", "ratio": (2.5, 3.0, 3.5),
+                                                                              "note": "tiges de coton, ratio v1.3 Asie"},
+    "BALLE_RIZ_TR": {"pays": "Turquie", "item": "Rice",
+                                                       "element": "Production", "ratio": (0.18, 0.2, 0.22),
+                                                       "note": "balle de riz, ratio v1.3 Asie"},
+    "PAILLE_AVOINE_TR": {"pays": "Turquie", "item": "Oats",
+                                                           "element": "Production", "ratio": (0.8, 1.0, 1.2),
+                                                           "note": "paille d'avoine, ratio v1.3 Asie"},
+    "PAILLE_BLE_TR": {"pays": "Turquie", "item": "Wheat",
+                                                         "element": "Production", "ratio": (1.0, 1.2, 1.4),
+                                                         "note": "paille de blé, ratio v1.3 Asie"},
+    "PAILLE_MAIS_TR": {"pays": "Turquie", "item": "Maize (corn)",
+                                                                 "element": "Production", "ratio": (0.2, 0.25, 0.3),
+                                                                 "note": "résidus de maïs, ratio v1.3 Asie"},
+    "PAILLE_ORGE_TR": {"pays": "Turquie", "item": "Barley",
+                                                           "element": "Production", "ratio": (0.8, 1.0, 1.2),
+                                                           "note": "paille d'orge, ratio v1.3 Asie"},
+    "RESIDU_THE_TR": {"pays": "Turquie", "item": "Tea leaves",
+                                                              "element": "Area harvested", "ratio": (0.5, 0.6, 0.7),
+                                                              "note": "résidu de théier v1.3, en t/ha"},
+    "TIGE_COTON_TR": {"pays": "Turquie", "item": "Seed cotton, unginned",
+                                                                         "element": "Production", "ratio": (2.5, 3.0, 3.5),
+                                                                         "note": "tiges de coton, ratio v1.3 Asie"},
+    "TIGE_TOURNESOL_TR": {"pays": "Turquie", "item": "Sunflower seed",
+                                                                      "element": "Production", "ratio": (1.6, 2.0, 2.4),
+                                                                      "note": "tiges de tournesol, ratio v1.3 Asie"},
+
 }
 
 # Familles v1.2 (viticoles) : marc et sarments par pays.
@@ -440,6 +684,26 @@ A_SOURCER = {
                 " de Sargazo",
     "ECORCE_EUCALYPTUS": "filière bois papetier hors FAOSTAT, à sourcer"
                           " CELPA/ICNF",
+    # V2.4 (14/11/2026) — nouveaux jetons pérennes : ratios SOURCÉS par la
+    # littérature (deepsearch pérennes), mais hors snapshot v18 figé en V2.3.
+    # Jamais de valeur inventée : séries FAOSTAT à inscrire au snapshot
+    # v19 (action P3). D'ici là, repli densité du cluster, aucun effet sur
+    # le dimensionnement (gardes vérifiées : 217 hubs, 480 trios).
+    "EFB_PALMIER_MY": "rafles de palmier Malaisie (V2.4), ratio SOURCÉ"
+                      " littérature 0,22 x régimes, série FAOSTAT à"
+                      " inscrire au snapshot v19 (P3)",
+    "EFB_PALMIER_CI": "rafles de palmier Côte d'Ivoire (V2.4), ratio"
+                      " SOURCÉ littérature 0,22 x régimes, série FAOSTAT"
+                      " à inscrire au snapshot v19 (P3)",
+    "EFB_PALMIER_EC": "rafles de palmier Équateur (V2.4), ratio SOURCÉ"
+                      " littérature 0,22 x régimes, série FAOSTAT à"
+                      " inscrire au snapshot v19 (P3)",
+    "BOURRE_COCO_MY": "bourre de coco Malaisie (V2.4), ratio SOURCÉ FAO"
+                      " 0,35 x noix, série FAOSTAT à inscrire au snapshot"
+                      " v19 (P3)",
+    "PULPE_CAFE_MX": "pulpe de café Mexique (V2.4), ratio SOURCÉ"
+                     " littérature 2,0 x café vert, série FAOSTAT à"
+                     " inscrire au snapshot v19 (P3)",
 }
 
 _MEMO_SNAPSHOT = None
@@ -554,7 +818,8 @@ def verifier():
         if not ok:
             rapport["erreurs"].append("doctrine : %s %s" % (pays, item))
 
-    # Reproduction des valeurs SOURCÉ des fiches v1.1 et v1.2 (2024).
+    # Reproduction des valeurs SOURCÉ des fiches v1.1, v1.2 et v1.3
+    # (2024 ; Asie : fiches v1.3, snapshot v18).
     fiches = {
         "PAILLE_BLE_SA": 0.8e6, "PAILLE_BLE_AR": 18.5e6,
         "PAILLE_MAIS_AR": 57e6, "PAILLE_SOJA_AR": 48e6,
@@ -602,6 +867,79 @@ def verifier():
         "SARMENT_VIGNE_RO": 0.324e6, "SARMENT_VIGNE_RU": 0.153e6,
         "SARMENT_VIGNE_TR": 0.745e6, "SARMENT_VIGNE_EG": 0.160e6,
         "MARC_RAISIN_US": 0.735e6, "SARMENT_VIGNE_US": 0.747e6,
+        "BAGASSE_CANNE_ID": 9.6e6,
+        "BAGASSE_CANNE_MM": 3.6e6,
+        "BAGASSE_CANNE_PK": 25.3e6,
+        "BAGASSE_CANNE_TH": 24.7e6,
+        "BALLE_RIZ_AF": 0.1308e6,
+        "BALLE_RIZ_BD": 12.1e6,
+        "BALLE_RIZ_ID": 10.6e6,
+        "BALLE_RIZ_IR": 0.695764e6,
+        "BALLE_RIZ_JP": 2e6,
+        "BALLE_RIZ_KH": 2.8e6,
+        "BALLE_RIZ_KR": 0.956623e6,
+        "BALLE_RIZ_LA": 0.750148e6,
+        "BALLE_RIZ_LK": 0.939691e6,
+        "BALLE_RIZ_MM": 5.5e6,
+        "BALLE_RIZ_NP": 1.2e6,
+        "BALLE_RIZ_TH": 6.7e6,
+        "BALLE_RIZ_TR": 0.2038e6,
+        "ECORCE_MANIOC_ID": 2.3e6,
+        "ECORCE_MANIOC_KH": 2.1e6,
+        "ECORCE_MANIOC_LA": 1.1e6,
+        "ECORCE_MANIOC_TH": 4.3e6,
+        "EFB_PALMIER_ID": 53.5e6,
+        "EFB_PALMIER_TH": 4.1e6,
+        "PAILLE_AVOINE_RU": 3e6,
+        "PAILLE_AVOINE_TR": 0.39e6,
+        "PAILLE_BLE_AF": 6.2e6,
+        "PAILLE_BLE_AZ": 2.3e6,
+        "PAILLE_BLE_BD": 1.4e6,
+        "PAILLE_BLE_IQ": 6.3e6,
+        "PAILLE_BLE_IR": 20.1e6,
+        "PAILLE_BLE_JP": 1.2e6,
+        "PAILLE_BLE_KG": 0.797796e6,
+        "PAILLE_BLE_KZ": 22.3e6,
+        "PAILLE_BLE_NP": 2.4e6,
+        "PAILLE_BLE_PK": 38.2e6,
+        "PAILLE_BLE_RU": 99.1e6,
+        "PAILLE_BLE_SY": 2.9e6,
+        "PAILLE_BLE_TJ": 1.1e6,
+        "PAILLE_BLE_TM": 1.6e6,
+        "PAILLE_BLE_TR": 25e6,
+        "PAILLE_BLE_UZ": 8.1e6,
+        "PAILLE_MAIS_BD": 1.1e6,
+        "PAILLE_MAIS_ID": 3.8e6,
+        "PAILLE_MAIS_MM": 0.5125e6,
+        "PAILLE_MAIS_NP": 0.798467e6,
+        "PAILLE_MAIS_RU": 3.5e6,
+        "PAILLE_MAIS_TR": 2e6,
+        "PAILLE_ORGE_AZ": 1.1e6,
+        "PAILLE_ORGE_IR": 4e6,
+        "PAILLE_ORGE_KG": 0.61105e6,
+        "PAILLE_ORGE_KR": 0.04773e6,
+        "PAILLE_ORGE_KZ": 3.8e6,
+        "PAILLE_ORGE_RU": 16.7e6,
+        "PAILLE_ORGE_SY": 1.6e6,
+        "PAILLE_ORGE_TR": 8.1e6,
+        "RACHIS_DATTIER_IQ": 0.642e6,
+        "RACHIS_DATTIER_IR": 0.339e6,
+        "RESIDU_THE_LK": 0.161e6,
+        "RESIDU_THE_TR": 0.049e6,
+        "TIGE_COTON_AF": 0.361524e6,
+        "TIGE_COTON_AZ": 0.712953e6,
+        "TIGE_COTON_KG": 0.139014e6,
+        "TIGE_COTON_KZ": 0.904984e6,
+        "TIGE_COTON_PK": 10.5e6,
+        "TIGE_COTON_TJ": 0.759546e6,
+        "TIGE_COTON_TM": 1.8e6,
+        "TIGE_COTON_TR": 6.7e6,
+        "TIGE_COTON_UZ": 8.8e6,
+        "TIGE_JUTE_BD": 3.8e6,
+        "TIGE_TOURNESOL_KZ": 3.7e6,
+        "TIGE_TOURNESOL_RU": 34.4e6,
+        "TIGE_TOURNESOL_TR": 4.4e6,
+
     }
     for token, fiche in sorted(fiches.items()):
         gisement = gisement_token(token)
@@ -624,6 +962,7 @@ def verifier():
     # Couverture exhaustive des points des atlas versionnés.
     points, exclus = flotte_monde._collecte_points()
     manquants, a_sourcer, pays_errones = [], [], []
+    repli, repli_par_atlas = [], {}
     for point in points:
         token = point["token"]
         if token in MAPPINGS:
@@ -631,13 +970,20 @@ def verifier():
                 pays_errones.append((token, point["pays"]))
         elif token in A_SOURCER:
             a_sourcer.append(token)
+        elif point.get("source_atlas") in REPLI_DENSITE_ATLAS:
+            repli.append(token)
+            repli_par_atlas[point["source_atlas"]] = (
+                repli_par_atlas.get(point["source_atlas"], 0) + 1)
         else:
             manquants.append(token)
     rapport["couverture"] = {
         "points": len(points), "exclus_p2": len(exclus),
-        "mappes": len(points) - len(manquants) - len(a_sourcer),
+        "mappes": (len(points) - len(manquants) - len(a_sourcer)
+                   - len(repli)),
         "a_sourcer": sorted(set(a_sourcer)),
         "manquants": sorted(set(manquants)),
+        "repli_densite": len(repli),
+        "repli_par_atlas": repli_par_atlas,
         "pays_errones": pays_errones,
     }
     if manquants or pays_errones:

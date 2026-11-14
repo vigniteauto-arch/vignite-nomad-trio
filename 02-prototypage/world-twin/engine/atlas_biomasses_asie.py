@@ -18,7 +18,7 @@ v1.3 : familles Céréales et Tropical uniquement.
 Conventions de ratios figées v1.3 (ILLUSTRATION, à borner localement) :
 - balle de riz : 0,20 × riz paddy
 - bagasse de canne : 0,30 × canne à sucre
-- rafles de palmier : 0,22 × régimes
+- rafles de palmier : 0,22 × régimes (SOURCÉ V2.4 : fourchette 0,20-0,28, deepsearch pérennes 14/11/2026)
 - écorces de manioc : 0,15 × racines fraîches
 - paille de blé : 1,2 × grain
 - paille d'orge : 1,0 × grain
@@ -83,6 +83,7 @@ ETIQUETTE_A_VERIFIER = "À VÉRIFIER"
 SOURCE_PRODUCTION = ("production FAOSTAT bulk Production_Crops_Livestock_E, "
                      "valeurs 2024 (mise à jour du 31/12/2025)")
 ETQ_GISEMENT_SOURCÉ = "SOURCÉ (production FAOSTAT 2024) + ratio ILLUSTRATION"
+ETQ_GISEMENT_SOURCÉ_LIT = "SOURCÉ (production FAOSTAT 2024) + ratio SOURCÉ (littérature, deepsearch pérennes 14/11/2026)"
 
 MOIS_COURTS = _master.MOIS_COURTS
 
@@ -385,8 +386,8 @@ PAYS_ASIE = {
             "region": "Riau (bassin palmier de Sumatra)", "lat": 0.53, "lon": 101.44,
             "type_point": "point candidat", "hubs_flotte": {},
             "type_biomasse": "rafles de régimes de palmier à huile",
-            "production": "régimes de palmier : 243 000 000 t (2024, FAOSTAT)", "ratio": "rafles ≈ 0,22 × régimes",
-            "gisement": "rafles ≈ 53,5 Mt/an", "etiquette_gisement": ETQ_GISEMENT_SOURCÉ,
+            "production": "régimes de palmier : 243 000 000 t (2024, FAOSTAT)", "ratio": "rafles ≈ 0,22 × régimes (fourchette 0,20-0,28, SOURCÉ)",
+            "gisement": "rafles ≈ 53,5 Mt/an", "etiquette_gisement": ETQ_GISEMENT_SOURCÉ_LIT,
             "fenetre": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "fenetre_note": "régimes toute l'année, point tropical exempté",
             "techniques": "récolte des régimes, stérilisation et pressage en huilerie",
         },
@@ -1080,8 +1081,8 @@ PAYS_ASIE = {
             "region": "Krabi (bassin palmier du Sud)", "lat": 8.11, "lon": 98.90,
             "type_point": "point candidat", "hubs_flotte": {},
             "type_biomasse": "rafles de régimes de palmier à huile",
-            "production": "régimes de palmier : 18 606 769 t (2024, FAOSTAT)", "ratio": "rafles ≈ 0,22 × régimes",
-            "gisement": "rafles ≈ 4,1 Mt/an", "etiquette_gisement": ETQ_GISEMENT_SOURCÉ,
+            "production": "régimes de palmier : 18 606 769 t (2024, FAOSTAT)", "ratio": "rafles ≈ 0,22 × régimes (fourchette 0,20-0,28, SOURCÉ)",
+            "gisement": "rafles ≈ 4,1 Mt/an", "etiquette_gisement": ETQ_GISEMENT_SOURCÉ_LIT,
             "fenetre": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "fenetre_note": "régimes toute l'année, point tropical exempté",
             "techniques": "récolte des régimes, stérilisation et pressage en huilerie",
         },

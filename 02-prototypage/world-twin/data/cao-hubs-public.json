@@ -1,0 +1,2209 @@
+{
+ "hubs": {
+  "fr-rhone": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 11400.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": true,
+   "pays": "France",
+   "ratio": 19.59,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-afghanistan-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 50490.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Afghanistan",
+   "ratio": 28.92,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-afghanistan-2": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 16830.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Afghanistan",
+   "ratio": 28.92,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-afrique-du-sud-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 110630.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Afrique du Sud",
+   "ratio": 95.05,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-algerie-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 80600.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Algérie",
+   "ratio": 69.24,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-allemagne-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 514350.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Allemagne",
+   "ratio": 883.77,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-angola-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 62670.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Angola",
+   "ratio": 53.84,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-arabie-saoudite-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 50370.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Arabie Saoudite",
+   "ratio": 86.55,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-arabie-saoudite-2": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 100750.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Arabie Saoudite",
+   "ratio": 86.55,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-arabie-saoudite-3": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 50370.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Arabie Saoudite",
+   "ratio": 86.55,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-argentine-1": {
+   "besoin_t_an": 2328.0,
+   "capacite_t_an": 21390.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Argentine",
+   "ratio": 9.19,
+   "statut": "AUTONOME",
+   "trios": 4
+  },
+  "gen-argentine-2": {
+   "besoin_t_an": 2328.0,
+   "capacite_t_an": 21390.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Argentine",
+   "ratio": 9.19,
+   "statut": "AUTONOME",
+   "trios": 4
+  },
+  "gen-argentine-3": {
+   "besoin_t_an": 2910.0,
+   "capacite_t_an": 26730.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Argentine",
+   "ratio": 9.19,
+   "statut": "AUTONOME",
+   "trios": 5
+  },
+  "gen-argentine-4": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 5350.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Argentine",
+   "ratio": 9.19,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-australie-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 2510.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Australie",
+   "ratio": 4.31,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-australie-2": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 2510.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Australie",
+   "ratio": 4.31,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-australie-3": {
+   "besoin_t_an": 2328.0,
+   "capacite_t_an": 10030.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Australie",
+   "ratio": 4.31,
+   "statut": "AUTONOME",
+   "trios": 4
+  },
+  "gen-australie-4": {
+   "besoin_t_an": 2328.0,
+   "capacite_t_an": 10030.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Australie",
+   "ratio": 4.31,
+   "statut": "AUTONOME",
+   "trios": 4
+  },
+  "gen-australie-5": {
+   "besoin_t_an": 2328.0,
+   "capacite_t_an": 10030.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Australie",
+   "ratio": 4.31,
+   "statut": "AUTONOME",
+   "trios": 4
+  },
+  "gen-australie-6": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 7530.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Australie",
+   "ratio": 4.31,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-australie-7": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 2510.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Australie",
+   "ratio": 4.31,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-autriche-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 19160.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Autriche",
+   "ratio": 32.91,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-azerbaidjan-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 16670.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Azerbaïdjan",
+   "ratio": 9.55,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-bangladesh-1": {
+   "besoin_t_an": 2328.0,
+   "capacite_t_an": 291650.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Bangladesh",
+   "ratio": 125.28,
+   "statut": "AUTONOME",
+   "trios": 4
+  },
+  "gen-belgique-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 19270.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Belgique",
+   "ratio": 33.12,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-belize-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 760.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Belize",
+   "ratio": 1.3,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-benin-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 28080.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Bénin",
+   "ratio": 24.12,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-bielorussie-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 22140.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Biélorussie",
+   "ratio": 19.02,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-bolivie-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 21520.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Bolivie",
+   "ratio": 18.49,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-botswana-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 4510.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Botswana",
+   "ratio": 7.75,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-bresil-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 108380.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Brésil",
+   "ratio": 62.07,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-bresil-2": {
+   "besoin_t_an": 2910.0,
+   "capacite_t_an": 180640.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Brésil",
+   "ratio": 62.07,
+   "statut": "AUTONOME",
+   "trios": 5
+  },
+  "gen-bresil-3": {
+   "besoin_t_an": 2910.0,
+   "capacite_t_an": 180640.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Brésil",
+   "ratio": 62.07,
+   "statut": "AUTONOME",
+   "trios": 5
+  },
+  "gen-bresil-4": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 36130.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Brésil",
+   "ratio": 62.07,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-bresil-5": {
+   "besoin_t_an": 2910.0,
+   "capacite_t_an": 180640.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Brésil",
+   "ratio": 62.07,
+   "statut": "AUTONOME",
+   "trios": 5
+  },
+  "gen-bresil-6": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 36130.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Brésil",
+   "ratio": 62.07,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-bulgarie-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 12350.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Bulgarie",
+   "ratio": 21.22,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-burkina-faso-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 49280.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Burkina Faso",
+   "ratio": 42.34,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-burundi-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 26710.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Burundi",
+   "ratio": 45.9,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-cambodge-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 33180.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Cambodge",
+   "ratio": 19.0,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-cameroun-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 54200.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Cameroun",
+   "ratio": 46.56,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-canada-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 21050.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Canada",
+   "ratio": 36.17,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-canada-2": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 42100.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Canada",
+   "ratio": 36.17,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-chili-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 44540.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Chili",
+   "ratio": 38.26,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-chine-1": {
+   "besoin_t_an": 2910.0,
+   "capacite_t_an": 3470020.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Chine",
+   "ratio": 1192.45,
+   "statut": "AUTONOME",
+   "trios": 5
+  },
+  "gen-chine-2": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 694000.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Chine",
+   "ratio": 1192.45,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-chine-3": {
+   "besoin_t_an": 2910.0,
+   "capacite_t_an": 3470020.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Chine",
+   "ratio": 1192.45,
+   "statut": "AUTONOME",
+   "trios": 5
+  },
+  "gen-chine-4": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 2082010.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Chine",
+   "ratio": 1192.45,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-chine-5": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 2082010.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Chine",
+   "ratio": 1192.45,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-chine-6": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 1388010.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Chine",
+   "ratio": 1192.45,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-chine-7": {
+   "besoin_t_an": 2910.0,
+   "capacite_t_an": 3470020.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Chine",
+   "ratio": 1192.45,
+   "statut": "AUTONOME",
+   "trios": 5
+  },
+  "gen-chypre-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 2130.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Chypre",
+   "ratio": 3.66,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-colombie-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 87600.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Colombie",
+   "ratio": 75.26,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-congo-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 11160.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Congo",
+   "ratio": 19.18,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-coree-du-sud-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 795070.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Corée du Sud",
+   "ratio": 683.05,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-costa-rica-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 10780.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Costa Rica",
+   "ratio": 9.26,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-cote-d-ivoire-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 19060.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Côte d'Ivoire",
+   "ratio": 10.92,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-cote-d-ivoire-2": {
+   "besoin_t_an": 2328.0,
+   "capacite_t_an": 25410.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Côte d'Ivoire",
+   "ratio": 10.92,
+   "statut": "AUTONOME",
+   "trios": 4
+  },
+  "gen-cote-d-ivoire-3": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 12710.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Côte d'Ivoire",
+   "ratio": 10.92,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-cuba-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 18390.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Cuba",
+   "ratio": 31.59,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-danemark-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 11150.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Danemark",
+   "ratio": 19.15,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-egypte-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 312970.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Égypte",
+   "ratio": 537.75,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-el-salvador-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 13370.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "El Salvador",
+   "ratio": 11.49,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-emirats-arabes-unis-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 16830.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Émirats arabes unis",
+   "ratio": 28.92,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-equateur-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 32750.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Équateur",
+   "ratio": 18.76,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-espagne-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 7890.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Espagne",
+   "ratio": 13.55,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-espagne-2": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 23660.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Espagne",
+   "ratio": 13.55,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-espagne-3": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 23660.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Espagne",
+   "ratio": 13.55,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-espagne-4": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 23660.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Espagne",
+   "ratio": 13.55,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-estonie-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 5590.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Estonie",
+   "ratio": 9.61,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-etats-unis-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 83250.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "États-Unis",
+   "ratio": 143.04,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-etats-unis-2": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 166500.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "États-Unis",
+   "ratio": 143.04,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-etats-unis-3": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 249750.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "États-Unis",
+   "ratio": 143.04,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-etats-unis-4": {
+   "besoin_t_an": 2328.0,
+   "capacite_t_an": 333010.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "États-Unis",
+   "ratio": 143.04,
+   "statut": "AUTONOME",
+   "trios": 4
+  },
+  "gen-etats-unis-5": {
+   "besoin_t_an": 2910.0,
+   "capacite_t_an": 416260.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "États-Unis",
+   "ratio": 143.04,
+   "statut": "AUTONOME",
+   "trios": 5
+  },
+  "gen-ethiopie-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 304640.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Éthiopie",
+   "ratio": 261.72,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-finlande-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 17150.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Finlande",
+   "ratio": 29.46,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-france-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 11400.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "France",
+   "ratio": 19.59,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-france-2": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 34210.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "France",
+   "ratio": 19.59,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-france-3": {
+   "besoin_t_an": 2328.0,
+   "capacite_t_an": 45610.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "France",
+   "ratio": 19.59,
+   "statut": "AUTONOME",
+   "trios": 4
+  },
+  "gen-france-4": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 11400.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "France",
+   "ratio": 19.59,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-france-5": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 11400.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "France",
+   "ratio": 19.59,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-gabon-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 4830.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Gabon",
+   "ratio": 8.3,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-gambie-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 4960.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Gambie",
+   "ratio": 8.52,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-georgie-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 6260.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Géorgie",
+   "ratio": 10.75,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-ghana-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 100290.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Ghana",
+   "ratio": 86.16,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-grece-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 8420.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Grèce",
+   "ratio": 14.46,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-grece-2": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 8420.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Grèce",
+   "ratio": 14.46,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-guatemala-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 48190.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Guatemala",
+   "ratio": 41.4,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-guinee-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 33430.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Guinée",
+   "ratio": 28.72,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-guinee-bissau-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 6030.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Guinée-Bissau",
+   "ratio": 10.36,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-guyana-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 1990.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Guyana",
+   "ratio": 3.41,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-haiti-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 20250.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Haïti",
+   "ratio": 34.79,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-honduras-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 23570.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Honduras",
+   "ratio": 20.25,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-hongrie-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 17430.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Hongrie",
+   "ratio": 14.97,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-inde-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 255260.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Inde",
+   "ratio": 438.59,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-inde-2": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 765770.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Inde",
+   "ratio": 438.59,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-inde-3": {
+   "besoin_t_an": 2910.0,
+   "capacite_t_an": 1276280.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Inde",
+   "ratio": 438.59,
+   "statut": "AUTONOME",
+   "trios": 5
+  },
+  "gen-inde-4": {
+   "besoin_t_an": 2910.0,
+   "capacite_t_an": 1276280.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Inde",
+   "ratio": 438.59,
+   "statut": "AUTONOME",
+   "trios": 5
+  },
+  "gen-indonesie-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 91260.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Indonésie",
+   "ratio": 52.27,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-indonesie-2": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 91260.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Indonésie",
+   "ratio": 52.27,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-indonesie-3": {
+   "besoin_t_an": 2328.0,
+   "capacite_t_an": 121680.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Indonésie",
+   "ratio": 52.27,
+   "statut": "AUTONOME",
+   "trios": 4
+  },
+  "gen-indonesie-4": {
+   "besoin_t_an": 2910.0,
+   "capacite_t_an": 152100.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Indonésie",
+   "ratio": 52.27,
+   "statut": "AUTONOME",
+   "trios": 5
+  },
+  "gen-irak-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 28550.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Irak",
+   "ratio": 24.52,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-irak-2": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 42820.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Irak",
+   "ratio": 24.52,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-iran-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 58030.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Iran",
+   "ratio": 99.72,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-iran-2": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 116070.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Iran",
+   "ratio": 99.72,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-iran-3": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 174100.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Iran",
+   "ratio": 99.72,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-iran-4": {
+   "besoin_t_an": 2328.0,
+   "capacite_t_an": 232140.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Iran",
+   "ratio": 99.72,
+   "statut": "AUTONOME",
+   "trios": 4
+  },
+  "gen-irlande-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 8420.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Irlande",
+   "ratio": 14.46,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-israel-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 14640.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Israël",
+   "ratio": 12.57,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-italie-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 12900.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Italie",
+   "ratio": 22.17,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-italie-2": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 38710.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Italie",
+   "ratio": 22.17,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-italie-3": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 25810.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Italie",
+   "ratio": 22.17,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-italie-4": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 25810.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Italie",
+   "ratio": 22.17,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-jamaique-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 4890.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Jamaïque",
+   "ratio": 8.41,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-japon-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 638520.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Japon",
+   "ratio": 365.7,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-japon-2": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 425680.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Japon",
+   "ratio": 365.7,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-jordanie-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 18440.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Jordanie",
+   "ratio": 31.69,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-kazakhstan-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 7190.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Kazakhstan",
+   "ratio": 6.17,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-kazakhstan-2": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 10780.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Kazakhstan",
+   "ratio": 6.17,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-kazakhstan-3": {
+   "besoin_t_an": 2328.0,
+   "capacite_t_an": 14370.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Kazakhstan",
+   "ratio": 6.17,
+   "statut": "AUTONOME",
+   "trios": 4
+  },
+  "gen-kenya-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 108950.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Kenya",
+   "ratio": 93.6,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-kirghizistan-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 11210.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Kirghizistan",
+   "ratio": 9.63,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-koweit-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 7670.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Koweït",
+   "ratio": 13.18,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-laos-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 16810.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Laos",
+   "ratio": 14.44,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-lettonie-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 6780.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Lettonie",
+   "ratio": 11.65,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-liban-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 9170.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Liban",
+   "ratio": 15.76,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-liberia-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 18070.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Liberia",
+   "ratio": 31.05,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-libye-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 12480.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Libye",
+   "ratio": 10.72,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-lituanie-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 6310.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Lituanie",
+   "ratio": 5.42,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-madagascar-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 63070.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Madagascar",
+   "ratio": 54.18,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-malaisie-1": {
+   "besoin_t_an": 2328.0,
+   "capacite_t_an": 20890.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Malaisie",
+   "ratio": 8.97,
+   "statut": "AUTONOME",
+   "trios": 4
+  },
+  "gen-malaisie-2": {
+   "besoin_t_an": 2328.0,
+   "capacite_t_an": 20890.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Malaisie",
+   "ratio": 8.97,
+   "statut": "AUTONOME",
+   "trios": 4
+  },
+  "gen-malaisie-3": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 15670.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Malaisie",
+   "ratio": 8.97,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-malawi-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 38730.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Malawi",
+   "ratio": 66.54,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-mali-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 42750.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Mali",
+   "ratio": 36.73,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-maroc-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 32560.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Maroc",
+   "ratio": 18.65,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-maurice-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 2020.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Maurice",
+   "ratio": 3.47,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-mauritanie-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 9990.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Mauritanie",
+   "ratio": 17.17,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-mexique-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 27060.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Mexique",
+   "ratio": 46.5,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-mexique-2": {
+   "besoin_t_an": 2328.0,
+   "capacite_t_an": 108260.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Mexique",
+   "ratio": 46.5,
+   "statut": "AUTONOME",
+   "trios": 4
+  },
+  "gen-mexique-3": {
+   "besoin_t_an": 2328.0,
+   "capacite_t_an": 108260.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Mexique",
+   "ratio": 46.5,
+   "statut": "AUTONOME",
+   "trios": 4
+  },
+  "gen-mexique-4": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 27060.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Mexique",
+   "ratio": 46.5,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-moldavie-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 5240.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Moldavie",
+   "ratio": 9.0,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-mozambique-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 67310.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Mozambique",
+   "ratio": 57.83,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-myanmar-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 58970.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Myanmar",
+   "ratio": 33.78,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-myanmar-2": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 58970.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Myanmar",
+   "ratio": 33.78,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-nepal-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 56420.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Népal",
+   "ratio": 32.31,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-nicaragua-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 10790.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Nicaragua",
+   "ratio": 9.27,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-niger-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 52400.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Niger",
+   "ratio": 90.04,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-nigeria-1": {
+   "besoin_t_an": 2328.0,
+   "capacite_t_an": 418090.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Nigeria",
+   "ratio": 179.59,
+   "statut": "AUTONOME",
+   "trios": 4
+  },
+  "gen-norvege-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 10770.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Norvège",
+   "ratio": 9.25,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-nouvelle-zelande-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 8220.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Nouvelle-Zélande",
+   "ratio": 14.13,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-oman-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 8030.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Oman",
+   "ratio": 13.8,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-ouganda-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 116190.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Ouganda",
+   "ratio": 99.82,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-ouzbekistan-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 28190.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Ouzbékistan",
+   "ratio": 16.15,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-ouzbekistan-2": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 28190.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Ouzbékistan",
+   "ratio": 16.15,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-pakistan-1": {
+   "besoin_t_an": 2328.0,
+   "capacite_t_an": 207750.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Pakistan",
+   "ratio": 89.24,
+   "statut": "AUTONOME",
+   "trios": 4
+  },
+  "gen-pakistan-2": {
+   "besoin_t_an": 2328.0,
+   "capacite_t_an": 207750.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Pakistan",
+   "ratio": 89.24,
+   "statut": "AUTONOME",
+   "trios": 4
+  },
+  "gen-panama-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 7830.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Panama",
+   "ratio": 13.46,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-paraguay-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 17740.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Paraguay",
+   "ratio": 15.24,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-pays-bas-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 30490.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Pays-Bas",
+   "ratio": 52.39,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-perou-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 59270.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Pérou",
+   "ratio": 101.84,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-philippines-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 57260.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Philippines",
+   "ratio": 32.79,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-philippines-2": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 57260.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Philippines",
+   "ratio": 32.79,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-philippines-3": {
+   "besoin_t_an": 2328.0,
+   "capacite_t_an": 76340.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Philippines",
+   "ratio": 32.79,
+   "statut": "AUTONOME",
+   "trios": 4
+  },
+  "gen-pologne-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 66370.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Pologne",
+   "ratio": 57.02,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-portugal-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 19320.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Portugal",
+   "ratio": 16.59,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-qatar-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 4710.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Qatar",
+   "ratio": 8.1,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-rdc-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 245400.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "RDC",
+   "ratio": 210.82,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-rep-dominicaine-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 18780.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Rép. dominicaine",
+   "ratio": 16.13,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-roumanie-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 35490.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Roumanie",
+   "ratio": 60.98,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-royaume-uni-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 73680.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Royaume-Uni",
+   "ratio": 63.3,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-royaume-uni-2": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 36840.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Royaume-Uni",
+   "ratio": 63.3,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-russie-1": {
+   "besoin_t_an": 2910.0,
+   "capacite_t_an": 291520.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Russie",
+   "ratio": 100.18,
+   "statut": "AUTONOME",
+   "trios": 5
+  },
+  "gen-russie-2": {
+   "besoin_t_an": 2328.0,
+   "capacite_t_an": 233220.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Russie",
+   "ratio": 100.18,
+   "statut": "AUTONOME",
+   "trios": 4
+  },
+  "gen-russie-3": {
+   "besoin_t_an": 2328.0,
+   "capacite_t_an": 233220.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Russie",
+   "ratio": 100.18,
+   "statut": "AUTONOME",
+   "trios": 4
+  },
+  "gen-russie-4": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 174910.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Russie",
+   "ratio": 100.18,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-rwanda-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 26290.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Rwanda",
+   "ratio": 45.17,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-senegal-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 33390.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Sénégal",
+   "ratio": 28.69,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-serbie-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 15750.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Serbie",
+   "ratio": 27.07,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-sierra-leone-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 18660.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Sierra Leone",
+   "ratio": 32.06,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-slovaquie-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 9110.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Slovaquie",
+   "ratio": 15.66,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-somalie-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 44450.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Somalie",
+   "ratio": 76.38,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-soudan-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 92290.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Soudan",
+   "ratio": 79.29,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-soudan-du-sud-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 22170.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Soudan du Sud",
+   "ratio": 38.09,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-sri-lanka-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 39830.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Sri Lanka",
+   "ratio": 34.22,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-suede-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 10710.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Suède",
+   "ratio": 18.4,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-suede-2": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 10710.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Suède",
+   "ratio": 18.4,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-suisse-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 15650.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Suisse",
+   "ratio": 26.88,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-suriname-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 1070.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Suriname",
+   "ratio": 1.84,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-syrie-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 14940.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Syrie",
+   "ratio": 12.83,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-syrie-2": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 22400.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Syrie",
+   "ratio": 12.83,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-tadjikistan-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 19530.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Tadjikistan",
+   "ratio": 11.19,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-tanzanie-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 127810.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Tanzanie",
+   "ratio": 109.8,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-tchad-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 37880.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Tchad",
+   "ratio": 32.54,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-tchequie-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 19840.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Tchéquie",
+   "ratio": 17.04,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-thailande-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 55150.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Thaïlande",
+   "ratio": 31.58,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-thailande-2": {
+   "besoin_t_an": 2328.0,
+   "capacite_t_an": 73530.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Thaïlande",
+   "ratio": 31.58,
+   "statut": "AUTONOME",
+   "trios": 4
+  },
+  "gen-togo-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 16740.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Togo",
+   "ratio": 28.76,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-trinite-et-tobago-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 2400.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Trinité-et-Tobago",
+   "ratio": 4.12,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-tunisie-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 21590.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Tunisie",
+   "ratio": 18.55,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-turkmenistan-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 6990.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Turkménistan",
+   "ratio": 4.0,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-turkmenistan-2": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 4660.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Turkménistan",
+   "ratio": 4.0,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-turquie-1": {
+   "besoin_t_an": 2328.0,
+   "capacite_t_an": 217730.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Turquie",
+   "ratio": 93.53,
+   "statut": "AUTONOME",
+   "trios": 4
+  },
+  "gen-turquie-2": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 163300.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Turquie",
+   "ratio": 93.53,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-turquie-3": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 108870.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Turquie",
+   "ratio": 93.53,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-turquie-4": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 54430.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Turquie",
+   "ratio": 93.53,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-turquie-5": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 163300.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Turquie",
+   "ratio": 93.53,
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-ukraine-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 22170.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Ukraine",
+   "ratio": 38.09,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-ukraine-2": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 44340.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Ukraine",
+   "ratio": 38.09,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-uruguay-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 7260.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Uruguay",
+   "ratio": 6.23,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-venezuela-1": {
+   "besoin_t_an": 582.0,
+   "capacite_t_an": 48510.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Venezuela",
+   "ratio": 83.35,
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-viet-nam-1": {
+   "besoin_t_an": 2910.0,
+   "capacite_t_an": 599650.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Viêt Nam",
+   "ratio": 206.07,
+   "statut": "AUTONOME",
+   "trios": 5
+  },
+  "gen-yemen-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 62860.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Yémen",
+   "ratio": 54.01,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-zambie-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 52230.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Zambie",
+   "ratio": 44.87,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-zimbabwe-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_t_an": 34020.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": false,
+   "pays": "Zimbabwe",
+   "ratio": 29.23,
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "ma-atlas": {
+   "besoin_t_an": 1746.0,
+   "capacite_t_an": 32560.0,
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "hub_pilote": true,
+   "pays": "Maroc",
+   "ratio": 18.65,
+   "statut": "AUTONOME",
+   "trios": 3
+  }
+ },
+ "provenance": {
+  "date": "2026-11-14",
+  "etiquette": "SOURCÉ (USGS MCS 2026, FAOSTAT, OWID) + ratios ILLUSTRATION",
+  "etiquette_simulation": "SYNTHÉTIQUE",
+  "note": "Réactifs minéraux par hub — chaîne documentaire publique (USGS MCS 2026, FAOSTAT bois 2024, OWID population 2023). Capacités et besoins par hub, sans AUCUNE donnée économique privée. Versionné."
+ },
+ "totaux_hubs_generalises": {
+  "besoin_t_an": 279360.0,
+  "capacite_mt_co2_an": 34.73,
+  "hubs": 217,
+  "statuts": {
+   "AUTONOME": 217
+  },
+  "trios": 480
+ }
+}

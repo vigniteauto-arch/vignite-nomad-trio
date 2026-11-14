@@ -39,3 +39,7 @@ sorties-firms-nrt/
 
 # World Twin — cache sols EMIT (réassemblages et extractions), jamais versionné
 02-prototypage/world-twin/cache-sols/
+
+# World Twin — sorties PRIVÉES CaO/P3 (coûts, plans d'achat), jamais versionnées
+02-prototypage/world-twin/data/cao-hubs.json
+02-prototypage/world-twin/data/sourcing-p3.json

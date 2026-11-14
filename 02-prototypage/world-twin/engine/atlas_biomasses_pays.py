@@ -15,7 +15,9 @@ Decision Engine) et aucune valeur calibrée. Seules des données publiques sont
 versionnées : géographie, productions nationales FAOSTAT (Food and Agriculture
 Organization of the United Nations), ratios documentaires, calendriers,
 réglementation. Les productions sont SOURCÉES (bulk FAOSTAT 2024) ; les ratios
-résidus sont ILLUSTRATION ; la réglementation est DONNÉES RÉELLES pour les
+résidus sont ILLUSTRATION, sauf les jetons passés en ratio SOURCÉ (littérature)
+par la vague V2.4 du 14/11/2026 : cacao, café, coco, amande, rafles de palmier,
+pulpe de café ; la réglementation est DONNÉES RÉELLES pour les
 juridictions hub couvertes par les fiches v0.6 et À VÉRIFIER pour les autres.
 
 Bibliothèque standard uniquement, déterministe, aucune dépendance réseau.
@@ -41,6 +43,7 @@ ETIQUETTE_A_SOURCER = "À SOURCER"
 SOURCE_PRODUCTION = ("production FAOSTAT bulk Production_Crops_Livestock_E, "
                      "valeurs 2024 (mise à jour du 31/12/2025)")
 ETQ_GISEMENT_SOURCÉ = "SOURCÉ (production FAOSTAT 2024) + ratio ILLUSTRATION"
+ETQ_GISEMENT_SOURCÉ_LIT = "SOURCÉ (production FAOSTAT 2024) + ratio SOURCÉ (littérature, deepsearch pérennes 14/11/2026)"
 
 MOIS_COURTS = _master.MOIS_COURTS
 
@@ -341,8 +344,8 @@ PAYS_BIOMASSES = {
             "region": "Soubré (Sud-Comoé, ancre industrielle cacaoyère)", "lat": 5.78, "lon": -6.60,
             "type_point": "point candidat", "hubs_flotte": {},
             "type_biomasse": "coques de fèves décortiquées (flux des unités de transformation, distinct de la cabosse au verger)",
-            "production": "fèves de cacao : 1 890 442 t (2024, FAOSTAT)", "ratio": "coque ≈ 0,70 × fèves",
-            "gisement": "coques ≈ 1,3 Mt/an", "etiquette_gisement": ETQ_GISEMENT_SOURCÉ,
+            "production": "fèves de cacao : 1 890 442 t (2024, FAOSTAT)", "ratio": "coques ≈ 3,0 × fèves (poids frais ; coque 67-76 % de la cabosse, planification littérature jusqu'à 10 × fèves)",
+            "gisement": "coques ≈ 5,7 Mt/an en poids frais", "etiquette_gisement": ETQ_GISEMENT_SOURCÉ_LIT,
             "fenetre": [10, 11, 12, 1, 2, 3], "fenetre_note": "campagne principale octobre-mars (petite récolte en mai-août)",
             "techniques": "écabossage au verger, fermentation en bacs, séchage solaire, décorticage en usine",
         },
@@ -355,6 +358,16 @@ PAYS_BIOMASSES = {
             "gisement": "fibres + coques ≈ 0,57 Mt/an, concentrées en huileries", "etiquette_gisement": ETQ_GISEMENT_SOURCÉ,
             "fenetre": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "fenetre_note": "production permanente (régimes toute l'année)",
             "techniques": "plantations villageoises et agro-industrielles, stérilisation/pressage en huilerie, chaudières fibres",
+        },
+        {
+            "token": "EFB_PALMIER_CI", "famille": "Tropical", "nom_fr": "Rafles de palmier à huile",
+            "region": "Grand-Lahou (ceinture palmicoïde du Sud)", "lat": 5.25, "lon": -5.02,
+            "type_point": "point candidat", "hubs_flotte": {},
+            "type_biomasse": "rafles de régimes vides après stérilisation et égrappage (EFB)",
+            "production": "régimes de palmier : 2 298 984 t (2024, FAOSTAT)", "ratio": "rafles ≈ 0,22 × régimes (fourchette 0,20-0,28, SOURCÉ)",
+            "gisement": "rafles ≈ 0,51 Mt/an, concentrées en huileries", "etiquette_gisement": ETQ_GISEMENT_SOURCÉ_LIT,
+            "fenetre": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "fenetre_note": "production permanente (régimes toute l'année)",
+            "techniques": "huileries villageoises et industrielles, mulch inter-rangs en replantation",
         },
         {
             "token": "PAILLE_RIZ_CI", "famille": "Céréales", "nom_fr": "Paille de riz",
@@ -399,6 +412,16 @@ PAYS_BIOMASSES = {
             "gisement": "fibres ≈ 0,32 Mt/an, concentrées en extracteurs", "etiquette_gisement": ETQ_GISEMENT_SOURCÉ,
             "fenetre": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "fenetre_note": "production permanente",
             "techniques": "plantations agro-industrielles, extracteurs concentrés, chaudières fibres",
+        },
+        {
+            "token": "EFB_PALMIER_EC", "famille": "Tropical", "nom_fr": "Rafles de palmier à huile",
+            "region": "Santo Domingo (bassin palmicole de l'Ouest)", "lat": -0.25, "lon": -79.15,
+            "type_point": "point candidat", "hubs_flotte": {},
+            "type_biomasse": "rafles de régimes vides après stérilisation et égrappage (EFB)",
+            "production": "régimes de palmier : 2 651 973 t (2024, FAOSTAT)", "ratio": "rafles ≈ 0,22 × régimes (fourchette 0,20-0,28, SOURCÉ)",
+            "gisement": "rafles ≈ 0,58 Mt/an, en extracteurs", "etiquette_gisement": ETQ_GISEMENT_SOURCÉ_LIT,
+            "fenetre": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "fenetre_note": "production permanente",
+            "techniques": "extracteurs agro-industriels, compostage et combustible",
         },
         {
             "token": "BAGASSE_CANNE_EC", "famille": "Tropical", "nom_fr": "Bagasse de canne à sucre",
@@ -513,8 +536,8 @@ PAYS_BIOMASSES = {
             "region": "Modesto (vallée Centrale de Californie, monde de l'amande)", "lat": 37.63, "lon": -121.00,
             "type_point": "point candidat", "hubs_flotte": {},
             "type_biomasse": "coques (hull) et écales (shell) des hullers/shellers",
-            "production": "amandes en coque : 2 000 340 t (2024, FAOSTAT)", "ratio": "coques+écales ≈ 2,0 × amande décortiquée",
-            "gisement": "coques+écales ≈ 4 Mt/an, concentrées en hullers", "etiquette_gisement": ETQ_GISEMENT_SOURCÉ,
+            "production": "amandes en coque : 2 000 340 t (2024, FAOSTAT)", "ratio": "coques+écales ≈ 2,0 × amande décortiquée (fourchette 2,0-2,8 ; écales 52 % et coques 33 % du fruit frais, SOURCÉ)",
+            "gisement": "coques+écales ≈ 4 Mt/an, concentrées en hullers", "etiquette_gisement": ETQ_GISEMENT_SOURCÉ_LIT,
             "fenetre": [8, 9, 10], "fenetre_note": "récolte août-octobre, décorticage continu ensuite",
             "techniques": "secoueuses mécaniques, hullers/shellers centraux, marché litière/combustible établi",
         },
@@ -661,14 +684,34 @@ PAYS_BIOMASSES = {
             "techniques": "plantations industrielles, moulins concentrent fibres/coques, chaudières biomasse",
         },
         {
+            "token": "EFB_PALMIER_MY", "famille": "Tropical", "nom_fr": "Rafles de palmier à huile",
+            "region": "Sandakan (Sabah, frontière palmicole de l'Est)", "lat": 5.84, "lon": 118.11,
+            "type_point": "point candidat", "hubs_flotte": {},
+            "type_biomasse": "rafles de régimes vides après stérilisation et égrappage (EFB)",
+            "production": "régimes de palmier : 100 163 525 t (2024, FAOSTAT)", "ratio": "rafles ≈ 0,22 × régimes (fourchette 0,20-0,28, SOURCÉ)",
+            "gisement": "rafles ≈ 22,0 Mt/an, flux dominant des moulins", "etiquette_gisement": ETQ_GISEMENT_SOURCÉ_LIT,
+            "fenetre": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "fenetre_note": "production permanente des régimes",
+            "techniques": "stérilisation et égrappage en moulin, mulch au champ ou combustible de chaudière",
+        },
+        {
             "token": "COQUE_COCO_MY", "famille": "Coques & noyaux", "nom_fr": "Coques de noix de coco",
             "region": "Kudat (Sabah, cocoteraies du Nord)", "lat": 6.89, "lon": 116.85,
             "type_point": "point candidat", "hubs_flotte": {},
             "type_biomasse": "coques (endocarpe) de noix de coco déshuskées",
-            "production": "noix de coco : 673 553 t (2024, FAOSTAT)", "ratio": "coque ≈ 0,40 × noix",
-            "gisement": "coques ≈ 0,27 Mt/an, en déshuskeurs/coprah", "etiquette_gisement": ETQ_GISEMENT_SOURCÉ,
+            "production": "noix de coco : 673 553 t (2024, FAOSTAT)", "ratio": "coques ≈ 0,15 × noix (endocarpe ; la bourre, 0,35 × noix selon la FAO, est le jeton distinct BOURRE_COCO_MY)",
+            "gisement": "coques ≈ 0,10 Mt/an, en déshuskeurs/coprah", "etiquette_gisement": ETQ_GISEMENT_SOURCÉ_LIT,
             "fenetre": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "fenetre_note": "récolte permanente",
             "techniques": "récolte manuelle, déshuskage en points de coprah, charbon de coque traditionnel",
+        },
+        {
+            "token": "BOURRE_COCO_MY", "famille": "Tropical", "nom_fr": "Bourre de noix de coco",
+            "region": "Kudat (Sabah, cocoteraies du Nord)", "lat": 6.89, "lon": 116.85,
+            "type_point": "point candidat", "hubs_flotte": {},
+            "type_biomasse": "bourre ou écorce de noix (mésocarpe fibreux) du déshuskage",
+            "production": "noix de coco : 673 553 t (2024, FAOSTAT)", "ratio": "bourre ≈ 0,35 × noix (FAO, SOURCÉ)",
+            "gisement": "bourre ≈ 0,24 Mt/an, en déshuskeurs", "etiquette_gisement": ETQ_GISEMENT_SOURCÉ_LIT,
+            "fenetre": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "fenetre_note": "récolte permanente",
+            "techniques": "récolte manuelle, déshuskage en points de coprah, fibres de bourre en géotextile",
         },
         {
             "token": "PAILLE_RIZ_MY", "famille": "Céréales", "nom_fr": "Paille de riz",
@@ -773,9 +816,19 @@ PAYS_BIOMASSES = {
             "region": "Tapachula (Chiapas, ceinture du café)", "lat": 14.91, "lon": -92.26,
             "type_point": "point candidat", "hubs_flotte": {},
             "type_biomasse": "coques (pergamino) et pulpes des beneficios humides",
-            "production": "café vert : 194 470 t (2024, FAOSTAT)", "ratio": "coque+parche ≈ 0,20 × café marchand",
+            "production": "café vert : 194 470 t (2024, FAOSTAT)", "ratio": "coques+parches ≈ 0,20 × café marchand (voie lavado ; la pulpe, flux humide dominant, est le jeton PULPE_CAFE_MX)",
             "gisement": "coques/parches ≈ 39 kt/an, en beneficios", "etiquette_gisement": ETQ_GISEMENT_SOURCÉ,
             "fenetre": [11, 12, 1, 2], "fenetre_note": "récolte novembre-mars",
+            "techniques": "petits producteurs, beneficios humides de village, compostage des pulpes traditionnel",
+        },
+        {
+            "token": "PULPE_CAFE_MX", "famille": "Tropical", "nom_fr": "Pulpe de café (voie humide)",
+            "region": "Tapachula (Chiapas, ceinture du café)", "lat": 14.91, "lon": -92.26,
+            "type_point": "point candidat", "hubs_flotte": {},
+            "type_biomasse": "pulpe du dépulpage en voie lavado (flux humide dominant des beneficios)",
+            "production": "café vert : 194 470 t (2024, FAOSTAT)", "ratio": "pulpe ≈ 2,0 × café vert (fourchette 1,5-2,5 ; pulpe 30-50 % du fruit, SOURCÉ)",
+            "gisement": "pulpe ≈ 0,39 Mt/an, en beneficios humides", "etiquette_gisement": ETQ_GISEMENT_SOURCÉ_LIT,
+            "fenetre": [11, 12, 1, 2], "fenetre_note": "récolte et dépulpage novembre-mars",
             "techniques": "petits producteurs, beneficios humides de village, compostage des pulpes traditionnel",
         },
     ],
@@ -959,8 +1012,8 @@ PAYS_BIOMASSES = {
             "region": "Đắk Lắk (Tay Nguyen, ancre des hauts plateaux — distinct du marc déjà placé)", "lat": 12.78, "lon": 108.22,
             "type_point": "point candidat", "hubs_flotte": {},
             "type_biomasse": "coques (parche/pergamino) du café décortiqué après séchage",
-            "production": "café vert : 2 015 289 t (2024, FAOSTAT)", "ratio": "coque+parche ≈ 0,20 × café marchand",
-            "gisement": "coques/parches ≈ 0,40 Mt/an, en stations de décorticage", "etiquette_gisement": ETQ_GISEMENT_SOURCÉ,
+            "production": "café vert : 2 015 289 t (2024, FAOSTAT)", "ratio": "coques+parches ≈ 0,20 × café marchand (voie sèche robusta, fourchette 0,20-0,50, SOURCÉ)",
+            "gisement": "coques/parches ≈ 0,40 Mt/an, en stations de décorticage", "etiquette_gisement": ETQ_GISEMENT_SOURCÉ_LIT,
             "fenetre": [10, 11, 12, 1, 2], "fenetre_note": "récolte octobre-janvier, usinage sec ensuite",
             "techniques": "récolte manuelle, séchage solaire/ mécanique, décorticage en stations, coques en combustible de séchoirs",
         },

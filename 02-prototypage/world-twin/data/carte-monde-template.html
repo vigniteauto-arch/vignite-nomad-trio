@@ -14,6 +14,7 @@ h1{font-size:17px;margin:0 0 4px;font-weight:600;color:#fff}
 .sub{font-size:12px;color:#94a3b8;line-height:1.5}
 .badge{display:inline-block;background:#7c2d12;color:#fed7aa;font-size:10px;font-weight:700;letter-spacing:.08em;padding:2px 8px;border-radius:4px;vertical-align:middle;margin-left:8px}
 .badge.pub{background:#14532d;color:#bbf7d0}
+.badge.pri{background:#4c1d95;color:#ddd6fe}
 .strip{display:flex;gap:18px;flex-wrap:wrap;margin-top:8px;font-size:12px;color:#cbd5e1}
 .strip b{color:#34d399;font-weight:600}
 .strip .k{color:#64748b}
@@ -50,6 +51,8 @@ th{color:#64748b;font-weight:600}
 .zoomui .zreset{font-size:13px;height:24px}
 .firmsc{fill:#ef4444;fill-opacity:.14;stroke:#ef4444;stroke-opacity:.45;stroke-width:1;pointer-events:none}
 .vinDot{cursor:pointer}
+.caod{cursor:pointer}
+.sitec{pointer-events:none}
 .fleet{background:#111b30;border:1px solid #1f2a44;border-radius:8px;padding:10px 12px;margin-top:12px;font-size:11.5px;color:#94a3b8}
 .fleet b{color:#34d399}
 .fam{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
@@ -59,10 +62,10 @@ th{color:#64748b;font-weight:600}
 </head>
 <body>
 <header>
-<h1>World Twin — la flotte mondiale de trios Nomad « as if in operation » <span class="badge">SYNTHÉTIQUE — SIMULATION</span><span class="badge pub">DONNÉES PUBLIQUES SOURCÉES</span></h1>
-<div class="sub">Carte du monde « remplie de trios Nomad en opération » — 7 hubs, 2 hémisphères · cliquer un hub (marqueur N) ou un pays coloré · météo réelle pointée __POINTAGE__ (réelle) — en local téléchargé : passage en direct Open-Meteo si le réseau est disponible · sources : FAOSTAT bulk 2024, NASA FIRMS 2021-2025, GEOGLAM, fiches pays, Open-Meteo · aucune valeur calibrée du VDE (doctrine PI).</div>
+<h1>World Twin — la flotte mondiale de trios Nomad « as if in operation » <span class="badge">SYNTHÉTIQUE — SIMULATION</span><span class="badge pub">DONNÉES PUBLIQUES SOURCÉES</span><span class="badge __MODECLASS__">__MODE__</span></h1>
+<div class="sub">Carte du monde « remplie de trios Nomad en opération » — 7 hubs pilotes + 217 hubs généralisés (flotte V2.3), 2 hémisphères · cliquer un hub (marqueur N), un losange orange (hub généralisé CaO/P3) ou un pays coloré · météo réelle pointée __POINTAGE__ (réelle) — en local téléchargé : passage en direct Open-Meteo si le réseau est disponible · sources : FAOSTAT bulk 2024, NASA FIRMS 2021-2025, GEOGLAM, fiches pays, Open-Meteo, socle minéral CaO P2.9 (USGS MCS 2026, FAOSTAT bois 2024, OWID), sites industriels P3 (Global Energy Monitor GCCT/GIST/GBPT), sites de transformation post-récolte V2.5 (LPI 2023, Banque mondiale) · aucune valeur calibrée du VDE (doctrine PI).</div>
 <div class="strip">
-<span><span class="k">Trios simulés :</span> <b>9</b></span>
+<span><span class="k">Trios simulés :</span> <b>480</b> (V2.3 : 217 hubs généralisés + 7 bassins pilotes)</span>
 <span><span class="k">Opérateurs tournants :</span> <b>2 / trio</b> (hub régional 3-5 trios)</span>
 <span><span class="k">MTBF / MTTR :</span> <b>720 h / 8 h</b> (figeage 17/10)</span>
 <span><span class="k">Monte Carlo P2 :</span> <b>12 600 runs · 3 628 800 lots</b></span>
@@ -77,12 +80,16 @@ th{color:#64748b;font-weight:600}
 <label><input type="checkbox" id="lFirms" checked> Brûlage réel — cercles FIRMS (5 saisons)</label>
 <label><input type="checkbox" id="lVin" checked> Intrants viticoles (atlas v1.2 — 22 pays)</label>
 <label><input type="checkbox" id="lLoc" checked> Intrants locaux (atlas v1.1 — 18 pays)</label>
+<label><input type="checkbox" id="lCao" checked> Socle minéral CaO — 217 hubs généralisés (P2.9, losanges orange)</label>
+<label><input type="checkbox" id="lSite"> Sites industriels réels P3 — cimenteries / aciéries / bois (Global Energy Monitor)</label>
 </div>
 <div class="legend">
 <div class="lg"><span class="dot" style="background:#22c55e;border:2px solid #0b1220"></span> Hub Vignite — trio Nomad en simulation</div>
 <div class="lg"><span class="dot" style="background:#3b82f6"></span> Pays des atlas (fiche cliquable)</div>
 <div class="lg"><span class="dot" style="background:#8b5cf6"></span> Point intrant viticole / local</div>
 <div class="lg"><span class="dot" style="background:rgba(239,68,68,.35);border:1px solid #ef4444"></span> Détections de feux FIRMS (rayon ∝ détections)</div>
+<div class="lg"><span style="display:inline-block;width:9px;height:9px;background:#f59e0b;transform:rotate(45deg);margin:0 2px"></span> Hub généralisé V2.3 — socle minéral CaO (cliquable)</div>
+<div class="lg"><span class="dot" style="background:#fbbf24"></span> Cimenterie (GCCT) · <span class="dot" style="background:#ef4444"></span> Aciérie à haut fourneau (GIST) · <span class="dot" style="background:#86efac"></span> Unité bois (GBPT)</div>
 </div>
 <svg id="map" viewBox="0 0 960 480"></svg>
 <div class="zoomui" id="zoomui">
@@ -168,12 +175,83 @@ document.getElementById("lFirms").addEventListener("change",e=>gF.style.display=
 document.getElementById("lVin").addEventListener("change",e=>gV.style.display=e.target.checked?"":"none");
 document.getElementById("lLoc").addEventListener("change",e=>gL.style.display=e.target.checked?"":"none");
 
+// --- couche sites industriels P3 (cimenteries / aciéries / bois — Global Energy Monitor)
+const gS=document.createElementNS("http://www.w3.org/2000/svg","g");
+const COLSITE={ciment:"#fbbf24",acier:"#ef4444",bois:"#86efac"};
+(D.p3sites||[]).forEach(s=>{
+  const [x,y]=proj(s.lon,s.lat);
+  const c=document.createElementNS("http://www.w3.org/2000/svg","circle");
+  c.setAttribute("cx",x);c.setAttribute("cy",y);c.setAttribute("r",1.2);
+  c.setAttribute("fill",COLSITE[s.type]||"#fbbf24");c.setAttribute("fill-opacity",".75");
+  c.setAttribute("class","sitec");gS.appendChild(c);
+});
+svg.appendChild(gS);
+
+// --- couche CaO P2.9 : losanges orange sur les hubs généralisés V2.3
+const gC=document.createElementNS("http://www.w3.org/2000/svg","g");
+const OPAC={AUTONOME:.85,COUVERT:.65,PARTIEL:.45,A_SOURCER:.25};
+(D.cao?Object.keys(D.cao):[]).forEach(id=>{
+  const g0=D.hubgps&&D.hubgps[id];if(!g0)return;
+  const [x,y]=proj(g0[1],g0[0]);const s=4.6;
+  const p=document.createElementNS("http://www.w3.org/2000/svg","polygon");
+  p.setAttribute("points",[x,y-s,x+s,y,x,y+s,x-s,y].join(","));
+  p.setAttribute("fill","#f59e0b");
+  p.setAttribute("fill-opacity",String(OPAC[(D.cao[id]||D.p3[id]||{}).statut]??.5));
+  p.setAttribute("stroke","#f59e0b");p.setAttribute("stroke-width",".6");
+  p.setAttribute("class","caod");
+  p.addEventListener("click",()=>showGen(id));
+  gC.appendChild(p);
+});
+svg.appendChild(gC);
+document.getElementById("lCao").addEventListener("change",e=>gC.style.display=e.target.checked?"":"none");
+document.getElementById("lSite").addEventListener("change",e=>gS.style.display=e.target.checked?"":"none");
+
 // --- fiches
 function activeNow(ranges){
   const m=new Date().getMonth()+1;
   return ranges.some(r=>{const a=r[0],b=r[1];return a<=b?(m>=a&&m<=b):(m>=a||m<=b)});
 }
 let LIVE=null,lastShown=null;
+function statTag(s){const cls={AUTONOME:"ok",COUVERT:"src",PARTIEL:"ill",A_SOURCER:"off"}[s]||"off";return "<span class='tag "+cls+"'>"+esc(s)+"</span>"}
+function fmtT(n){return fmt(Math.round(n))+" t/an"}
+function caop3Tables(id){
+  const c=D.cao&&D.cao[id];const p=D.p3&&D.p3[id];
+  let out="";
+  if(c){out+="<h3>Socle minéral CaO — P2.9</h3><table>"+
+    "<tr><td>Statut</td><td>"+statTag(c.statut)+" · ratio capacité / besoin : "+c.ratio+"</td></tr>"+
+    "<tr><td>Besoin de réactifs (582 t CO2/an × trios)</td><td>"+fmtT(c.besoin_t_an)+"</td></tr>"+
+    "<tr><td>Capacité nationale proratisée</td><td>"+fmtT(c.capacite_t_an)+"</td></tr>"+
+    (c.cout_eur_an!=null?"<tr><td>Coût approvisionnement (PRIVÉ · ILLUSTRATION)</td><td><span class='tag pri'>"+fmt(c.cout_eur_an)+" €/an · "+c.cout_eur_t+" €/t CO2</span></td></tr>":"")+
+    "</table>";}
+  if(p){out+="<h3>Sourcing réel — sites industriels P3</h3><table>"+
+    "<tr><td>Statut</td><td>"+statTag(p.statut)+" · ratio : "+p.ratio+"</td></tr>"+
+    "<tr><td>Site le plus proche</td><td>"+p.distance_site_proche_km+" km (rayon "+p.rayon_km+" km)</td></tr>"+
+    "<tr><td>Sites retenus dans le rayon</td><td>"+p.nb_sites+"</td></tr>"+
+    "<tr><td>Capacité CO2 dans le rayon</td><td>"+fmtT(p.capacite_rayon_t_an)+"</td></tr>"+
+    (p.cout_eur_an!=null?"<tr><td>Coût achats (PRIVÉ · ILLUSTRATION)</td><td><span class='tag pri'>"+fmt(p.cout_eur_an)+" €/an"+(p.deficit_marche_t_an?" · déficit marché "+fmt(p.deficit_marche_t_an)+" t à 90 €/t":"")+"</span></td></tr>":"")+
+    "</table>";}
+  const s=D.sites&&D.sites[id];
+  if(s){out+="<h3>Site de transformation — V2.5</h3><table>"+
+    "<tr><td>Type de site dominant</td><td>"+esc(s.type_site)+"</td></tr>"+
+    "<tr><td>Familles de co-produits</td><td>"+esc(s.familles)+"</td></tr>"+
+    "<tr><td>Captabilité au site (gisement / champ)</td><td>"+s.captabilite+" <span class='tag ill'>ILLUSTRATION</span></td></tr>"+
+    "<tr><td>Énergie du site</td><td>"+esc(s.energie_site)+(s.energie_site==="AUTONOME"?" — le site VEND de l'énergie, cibler les co-produits en excès":" — le site ACHÈTE de l'énergie")+"</td></tr>"+
+    "<tr><td>Fenêtre de fraîcheur récolte → usine</td><td>"+esc(s.fenetre)+"</td></tr>"+
+    "<tr><td>LPI 2023 (Banque mondiale, logistique)</td><td>"+(s.lpi!=null?s.lpi+" / 5 <span class='tag src'>SOURCÉ</span>":"<span class='tag off'>À SOURCER — pays non enquêté en 2023</span>")+"</td></tr>"+
+    "<tr><td>RAI (accès rural, ODD 9.1.1)</td><td><span class='tag off'>À SOURCER — vague suivante</span></td></tr></table>";}
+  return out;
+}
+function showGen(id){
+  lastShown=()=>showGen(id);
+  const c=D.cao&&D.cao[id];const p=D.p3&&D.p3[id];
+  const pays=(c||p||{}).pays||"";const g=D.hubgps&&D.hubgps[id];
+  let out="<h2>"+esc(id)+" — "+esc(pays)+"</h2>"+
+  "<div class='muted'>Hub généralisé de la flotte V2.3 (simulation) · GPS "+(g?esc(g.join(", ")):"—")+" (centre de cluster, ILLUSTRATION)</div>"+
+  caop3Tables(id);
+  if(!c&&!p){out+="<div class='warn'>Hub sans couche CaO/P3 dans cette version.</div>";}
+  out+="<div class='warn'>Résultats SYNTHÉTIQUES sur registre de développement · sources : USGS MCS 2026, FAOSTAT bois 2024, OWID, Global Energy Monitor (GCCT / GIST / GBPT) + ratios ILLUSTRATION. Devant un investisseur : « simulation », toujours.</div>";
+  panel.innerHTML=out;
+}
 function metLine(key){
   const w=(LIVE&&LIVE[key])||D.meteo[key];if(!w)return "";
   const src=(LIVE&&LIVE[key])?"<span class='tag ok'>EN DIRECT (Open-Meteo)</span>":"pointage figé au build ("+esc(D.pointage)+")";
@@ -231,6 +309,8 @@ function showHub(id){
   "<tr><td>Statut</td><td>"+esc(h.reg.statut)+"</td></tr>"+
   "<tr><td>Cadre</td><td>"+esc(h.reg.cadre)+"</td></tr>"+
   "<tr><td>Vérification</td><td><span class='tag src'>"+esc(h.reg.verif)+"</span></td></tr></table>"+
+  "<h3>Socle minéral et sourcing réel</h3>"+
+  ((D.cao&&D.cao[h.id])||((D.p3||{})[h.id])?caop3Tables(h.id):"<div class='muted'>Bassin pilote P2 antérieur à la flotte V2.3 — raccord aux couches CaO/P3 prévu lors de la prochaine vague (voir al-atlas-consolidation.md).</div>")+
   (h.cand?"<h3>Fenêtre candidate</h3><div class='gre'>"+esc(h.cand)+"</div>":"")+
   "<div class='warn'><b>CA potentiel business :</b> hors périmètre public — doctrine PI du dépôt (volumes adressables, prix, parts de marché). Version interne / data room uniquement. Devant un investisseur : « simulation », toujours.</div>"+
   "<div class='warn'>Résultats SYNTHÉTIQUES sur registre de développement — la qualification reste le monopole des FAT/SAT sur machines réelles.</div>";

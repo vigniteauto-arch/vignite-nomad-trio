@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Couche P2.7 — flotte généralisée « as if in operation » (V2.2, 08/11/2026).
+"""Couche P2.7 — flotte généralisée « as if in operation » (V2.3, 14/11/2026).
 
 Fait tourner le trio Nomad v1 en simulation sur TOUS les points des
 atlas versionnés (v1.0 : 52 intrants du master, v1.1 : 67 intrants
@@ -36,6 +36,9 @@ RÈGLES :
   Sans clé : repli synthétique propre, inchangé. Les tirages du moteur
   sont alignés (scenario v0.6) : les KPI restent identiques avec ou
   sans clé.
+- V2.3 (14/11/2026) — snapshot FAOSTAT v18 (959 séries : v17 + 360
+  séries Asie v1.3, fenêtre 2020-2024) ; composition ventilée :
+  points sourcés, repli densité v1.4-v1.8, À SOURCER stricts.
 - Les gisements, réglementations et volumes restent ceux des atlas, avec
   leurs étiquettes SOURCÉ / ILLUSTRATION / À VÉRIFIER d'origine.
 - La capacité d'un trio n'est PAS calibrée : depuis la v1.7, le
@@ -344,6 +347,11 @@ def composition():
                            if h["_meta"]["gisement"])
     points_a_sourcer += sum(h["_meta"]["points"] for h in hubs.values()
                             if not h["_meta"]["gisement"])
+    points_repli_densite = sum(
+        1 for p in points
+        if p.get("source_atlas") in gisements_hubs.REPLI_DENSITE_ATLAS)
+    points_a_sourcer_strict = sum(
+        1 for p in points if p["token"] in gisements_hubs.A_SOURCER)
     gisement_mondial = sum(h["_meta"]["gisement"]["moy_t_an"]
                            for h in hubs.values()
                            if h["_meta"]["gisement"])
@@ -361,6 +369,10 @@ def composition():
             "fenetre": list(gisements_hubs.FENETRE),
             "points_sources": points_sources,
             "points_a_sourcer": points_a_sourcer,
+            "points_repli_densite": points_repli_densite,
+            "points_a_sourcer_strict": points_a_sourcer_strict,
+            "series_snapshot": len(
+                gisements_hubs.charger_snapshot()["series"]),
             "somme_mondiale_t_an": round(gisement_mondial, 1),
             "seuils_trios_t": [int(s) for s in gisements_hubs.SEUILS_TRIO],
             "etiquette": "SOURCÉ (FAOSTAT 2020-2024) + ratios ILLUSTRATION, "
@@ -531,7 +543,7 @@ def verifier():
 def sommaire():
     comp = composition()
     lignes = [
-        "Flotte généralisée World Twin (V2.2, atlas v1.0-v1.8) — étiquette %s" % ETIQUETTE,
+        "Flotte généralisée World Twin (V2.3, atlas v1.0-v1.8) — étiquette %s" % ETIQUETTE,
         "",
         "- Points d'atlas : %d (rattachés flotte P2 : %d, généralisés : %d)"
         % (comp["points_atlas"], comp["points_rattaches_flotte_p2"],
@@ -539,13 +551,16 @@ def sommaire():
         "- Hubs généralisés : %d sur %d pays" % (comp["hubs_generalises"], comp["pays"]),
         "- Trios : %d — opérateurs : %d (ratio %.2f par trio)"
         % (comp["trios"], comp["operateurs"], comp["ratio_operateurs_par_trio"]),
-        "- Dimensionnement v1.7 : gisement FAOSTAT %d-%d, points sourcés %d, "
-        "À SOURCER %d, somme mondiale %.0f Mt/an (proxy national, P3 pour "
-        "l'addressable)" % (comp["gisements"]["fenetre"][0],
-                            comp["gisements"]["fenetre"][1],
-                            comp["gisements"]["points_sources"],
-                            comp["gisements"]["points_a_sourcer"],
-                            comp["gisements"]["somme_mondiale_t_an"] / 1.0e6),
+        "- Dimensionnement v1.8 : gisement FAOSTAT %d-%d (snapshot v18, %d "
+        "séries), points sourcés %d, repli densité %d, À SOURCER %d, somme "
+        "mondiale %.0f Mt/an (proxy national, P3 pour l'addressable)" % (
+            comp["gisements"]["fenetre"][0],
+            comp["gisements"]["fenetre"][1],
+            comp["gisements"]["series_snapshot"],
+            comp["gisements"]["points_sources"],
+            comp["gisements"]["points_repli_densite"],
+            comp["gisements"]["points_a_sourcer_strict"],
+            comp["gisements"]["somme_mondiale_t_an"] / 1.0e6),
         "- Figeage : MTBF %g h, MTTR %g h, 2 opérateurs pour %d trios max, "
         "6e trio = seconde équipe" % (simulateur.MTBF_HEURES,
                                       simulateur.MTTR_HEURES,

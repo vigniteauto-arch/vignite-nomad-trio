@@ -1,6 +1,8 @@
-# Abonnements satellites et veille mondiale : World Twin (V2.0, 06/11/2026)
+# Abonnements satellites et veille mondiale : World Twin (V2.1, 14/11/2026)
 
 Demande de Manu Moineau (06/11/2026) : examiner toutes les possibilités d'abonnement aux satellites et à leurs données utiles, croisées et enregistrées pour le World Twin, puis extension à toutes les régions du monde, comme si les Trio Nomad étaient en opération en Afrique, en Asie, dans le Pacifique, aux États-Unis, au Canada, en Europe du Nord et de l'Est et au Moyen-Orient. Livrable de référence : le canvas « World Twin : abonnements satellites, données utiles, croisements et enregistrement (06/11/2026) » (notes de sources complètes avec URL exactes et crédibilité sur 5). Ce fichier en est la version dépôt.
+
+V2.1 (vague V2.3 du 14/11/2026, préparée, rien poussé sans double-clic de Manu) : la couche de données s'élargit au socle minéral du World Twin. Nouveaux fichiers versionnés dans data/ : engine/gisements-faostat-snapshot-v18.json (959 séries FAOSTAT, fenêtre 2020-2024, dont 360 séries Asie issues des 72 mappings de l'atlas v1.3 sur 20 pays nouvellement mappés), cao-pays-referentiel.json, cao-bois-faostat-snapshot.json (139 pays, bois rond FAOSTAT 2024), cao-population-snapshot.json (population 2023, Our World in Data), cao-industrie-snapshot.json (USGS Mineral Commodity Summaries 2026 : ciment et fonte/acier), cao-hubs-public.json (capacités et besoins en réactifs minéraux des 217 hubs, sans aucun coût), p3-sites-snapshot.json et sourcing-p3-public.json (sites industriels Global Energy Monitor : 2 887 cimenteries, 457 unités de haut fourneau, 910 unités bois, matching par rayons de 50 puis 100 kilomètres). Aucune activation externe nouvelle : ces données proviennent de téléchargements publics ponctuels, pas d'abonnements.
 
 DOCTRINE (inchangée) : données publiques étiquetées SOURCÉ, toute simulation étiquetée SYNTHÉTIQUE (« simulation » devant les investisseurs), toute lecture agronomique ILLUSTRATION. Aucune valeur calibrée, aucune clé, aucun jeton dans ce dossier (la MAP_KEY FIRMS, les clés ADS (Atmosphere Data Store), CDS (Climate Data Store), CDSE (Copernicus Data Space Ecosystem), les jetons Earthdata et l'EKU (EUMETSAT Key Unit) vivent uniquement en local, motif *.env). Caches (cache-sols/, cache-meteo-temps-reel/, cache-firms-histo/, cache-faostat-bulk/ et autres cache-*/) jamais versionnés. Télémétrie SYNTHÉTIQUE sur le registre de DÉVELOPPEMENT uniquement, jamais le registre Merkle de production.
 
@@ -8,11 +10,14 @@ DOCTRINE (inchangée) : données publiques étiquetées SOURCÉ, toute simulatio
 
 - NASA FIRMS (Fire Information for Resource Management System) via API (Application Programming Interface) : MAP_KEY locale (firms.env, jamais versionnée), capteurs VIIRS (Visible Infrared Imaging Radiometer Suite) NOAA-20 et NOAA-21 NRT (Near Real Time) plus MODIS (Moderate Resolution Imaging Spectroradiometer), 91 zones (10 bassins P2 + 81 hubs généralisés v1.8), repli synthétique sans clé. Suomi NPP retiré le 01/11/2026.
 - Open-Meteo (réanalyse ERA5 de l'ECMWF, European Centre for Medium-Range Weather Forecasts) : agrégats mensuels réels versionnés dans cache-meteo/agregats-mensuels.json (10 bassins), branche temps réel pour les 52 points de l'atlas v1.0 (cache horaire non versionné).
-- FAOSTAT (Organisation des Nations unies pour l'alimentation et l'agriculture) bulk : snapshot v1.7 versionné (engine/gisements-faostat-snapshot-v17.json), 599 séries, fenêtre 2020-2024, licence CC BY 4.0.
+- FAOSTAT (Organisation des Nations unies pour l'alimentation et l'agriculture) bulk : snapshot v18 versionné (engine/gisements-faostat-snapshot-v18.json), 959 séries (599 mondiales v17 + 360 Asie v18), fenêtre 2020-2024, licence CC BY 4.0, 72 mappings familles Asie (atlas v1.3).
 - GEOGLAM Crop Monitor : calendriers sous-nationaux, bulletins AMIS (Agricultural Market Information System) et CM4EW.
 - NASA EMIT (Earth Surface Mineral Dust Source Investigation) : granules L2B MIN et L3 ASA dans data/emit/, extraction locale (lecteur HDF5 (Hierarchical Data Format version 5) maison, bibliothèque standard uniquement), 5/10 bassins couverts en L3 ASA au 06/11/2026, scènes 2302410_038 (Cuyo) et 2420510_006 (Atlas).
 - CAMS (Copernicus Atmosphere Monitoring Service) Aerosol Alerts : deux abonnements actifs par email (Dust Cuyo, boîte −36,37 à −28,52 / −70,66 à −66,93, épisode prévu 06-07/11/2026 niveau ≥ 1, et Dust Haouz, boîte 30,44 à 33,20 / −10,63 à −5,76, épisode 26-28/10/2026 passé), paramètre od550dust, six fils Gmail étiquetés Vignite/International.
 - SoilGrids et Natural Earth (cartes dans data/).
+- USGS (United States Geological Survey) Mineral Commodity Summaries 2026 : production ciment et fonte/acier par pays, parse des PDF publics en local (data/pdfpos.py), versionnés dans cao-industrie-snapshot.json (14/11/2026).
+- OWID (Our World in Data) : population 2023 par pays (cao-population-snapshot.json, 14/11/2026).
+- Global Energy Monitor : GCCT (Global Cement and Concrete Tracker) ciment, GIST (Global Iron and Steel Tracker) acier, GBPT (Global Biomass Power Tracker) bois — fichiers publics téléchargés le 14/11/2026, parse XLSX en flux (data/xlslite.py), sites versionnés dans p3-sites-snapshot.json, matching par hub dans sourcing-p3-public.json.
 
 ## 2. Quatre mécanismes d'abonnement retenus (gratuits ou coût nul au démarrage)
 
@@ -103,9 +108,13 @@ Aucune sollicitation externe n'a été faite depuis ce dépôt : l'activation de
 
 | Service | Zone | Paramètre | Canal | Étiquette | Dernier contrôle | Statut |
 |---|---|---|---|---|---|---|
-| FIRMS API | 91 zones (10 bassins + 81 hubs) | feux actifs VIIRS/MODIS NRT | API + firms.env local | DONNÉES RÉELLES | 06/11/2026 | ACTIF |
-| CAMS Aerosol Alerts | Dust Cuyo, Dust Haouz | od550dust, seuil ≥ 1 | email | SOURCÉ | 06/11/2026 (épisode 06-07/11 prévu) | ACTIF |
-| Open-Meteo ERA5 | 10 bassins + 52 points | météo mensuelle + temps réel | API sans clé | SOURCÉ | 06/11/2026 | ACTIF |
+| FIRMS API | 91 zones (10 bassins + 81 hubs) | feux actifs VIIRS/MODIS NRT | API + firms.env local | DONNÉES RÉELLES | 14/11/2026 | ACTIF |
+| CAMS Aerosol Alerts | Dust Cuyo, Dust Haouz | od550dust, seuil ≥ 1 | email | SOURCÉ | 14/11/2026 | ACTIF |
+| Open-Meteo ERA5 | 10 bassins + 52 points | météo mensuelle + temps réel | API sans clé | SOURCÉ | 14/11/2026 | ACTIF |
+| FAOSTAT bulk | mondial | snapshot v18 : 959 séries 2020-2024 | téléchargement public | SOURCÉ | 14/11/2026 | ACTIF |
+| USGS MCS 2026 | mondial | ciment, fonte/acier par pays | PDF publics parseés en local | SOURCÉ | 14/11/2026 | ACTIF |
+| OWID population | mondial | population 2023 par pays | CSV public | SOURCÉ | 14/11/2026 | ACTIF |
+| GEM GCCT/GIST/GBPT | mondial | 2 887 cimenteries, 457 unités BF, 910 unités bois | XLSX publics parseés en flux | SOURCÉ | 14/11/2026 | ACTIF |
 | FIRMS email | 32 hubs | alertes feux par zone | email | SOURCÉ | à activer | PROPOSÉ |
 | CAMS poussières | 6 hubs exposés + 8 bassins restants | od550dust | email | SOURCÉ | à activer | PROPOSÉ |
 | MyGFW/GNW | 32 hubs | AOI, alertes feux + changement forestier | email | SOURCÉ | à activer | PROPOSÉ |
@@ -156,4 +165,4 @@ Aucune sollicitation externe n'a été faite depuis ce dépôt : l'activation de
 
 ## 13. Gouvernance et prochaine vague
 
-Rite « je prépare, tu pousses » : cette vague V2.0 pousse la documentation uniquement, avec validation explicite de Manu Moineau (06/11/2026). Aucun module moteur modifié (BOITES_BASSINS inchangé, 10 bassins), aucun abonnement externe activé, aucune clé créée, ops-horodatage.md inchangé (mis à jour par le run World Ops). Prochaine vague proposée (à décision de Manu) : activation des alertes gratuites (FIRMS email, CAMS, GNW, GDACS, vigilances nationales) sur les 32 hubs, abonnements CDSE OData PULL, puis prototype local de la couche « hubs virtuels » (caches non versionnés) avec les replis documentés (ERA5-Land au-delà de 60°N, Landsat/GEDI pour la biomasse aux hautes latitudes et en Amérique du Nord, WaPOR Afrique et Proche-Orient uniquement).
+Rite « je prépare, tu pousses » : cette vague V2.1 (14/11/2026) complète la V2.0 du 06/11 avec la couche minérale de la vague V2.3 (snapshot FAOSTAT v18 et mappings Asie, atlas CaO P2.9, sourcing P3 des sites industriels), documentation et moteurs uniquement, avec validation explicite de Manu Moineau. Aucun module d'abonnement modifié (BOITES_BASSINS inchangé, 10 bassins), aucun abonnement externe activé, aucune clé créée, ops-horodatage.md inchangé (mis à jour par le run World Ops). Les nouveaux moteurs (engine/atlas_cao.py, engine/sourcing_p3.py) et leurs sorties publiques (cao-hubs-public.json, sourcing-p3-public.json, p3-sites-snapshot.json) sont des données publiques étiquetées SOURCÉ ; les fichiers de coûts correspondants (cao-hubs.json, sourcing-p3.json) restent PRIVÉS et jamais versionnés (doctrine PI, 00-gouvernance/GARDE_FOUS_PI.md). Prochaine vague proposée (à décision de Manu) : activation des alertes gratuites (FIRMS email, CAMS, GNW, GDACS, vigilances nationales) sur les 32 hubs, abonnements CDSE OData PULL, puis prototype local de la couche « hubs virtuels » (caches non versionnés) avec les replis documentés (ERA5-Land au-delà de 60°N, Landsat/GEDI pour la biomasse aux hautes latitudes et en Amérique du Nord, WaPOR Afrique et Proche-Orient uniquement).

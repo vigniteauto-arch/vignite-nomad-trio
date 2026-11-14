@@ -1,0 +1,569 @@
+{
+ "pays": {
+  "Afghanistan": {
+   "faostat": "Afghanistan",
+   "iso3": "AFG"
+  },
+  "Afrique du Sud": {
+   "faostat": "South Africa",
+   "iso3": "ZAF"
+  },
+  "Algérie": {
+   "faostat": "Algeria",
+   "iso3": "DZA"
+  },
+  "Allemagne": {
+   "faostat": "Germany",
+   "iso3": "DEU"
+  },
+  "Angola": {
+   "faostat": "Angola",
+   "iso3": "AGO"
+  },
+  "Arabie Saoudite": {
+   "faostat": "Saudi Arabia",
+   "iso3": "SAU"
+  },
+  "Argentine": {
+   "faostat": "Argentina",
+   "iso3": "ARG"
+  },
+  "Australie": {
+   "faostat": "Australia",
+   "iso3": "AUS"
+  },
+  "Autriche": {
+   "faostat": "Austria",
+   "iso3": "AUT"
+  },
+  "Azerbaïdjan": {
+   "faostat": "Azerbaijan",
+   "iso3": "AZE"
+  },
+  "Bangladesh": {
+   "faostat": "Bangladesh",
+   "iso3": "BGD"
+  },
+  "Belgique": {
+   "faostat": "Belgium",
+   "iso3": "BEL"
+  },
+  "Belize": {
+   "faostat": "Belize",
+   "iso3": "BLZ"
+  },
+  "Biélorussie": {
+   "faostat": "Belarus",
+   "iso3": "BLR"
+  },
+  "Bolivie": {
+   "faostat": "Bolivia (Plurinational State of)",
+   "iso3": "BOL"
+  },
+  "Botswana": {
+   "faostat": "Botswana",
+   "iso3": "BWA"
+  },
+  "Brésil": {
+   "faostat": "Brazil",
+   "iso3": "BRA"
+  },
+  "Bulgarie": {
+   "faostat": "Bulgaria",
+   "iso3": "BGR"
+  },
+  "Burkina Faso": {
+   "faostat": "Burkina Faso",
+   "iso3": "BFA"
+  },
+  "Burundi": {
+   "faostat": "Burundi",
+   "iso3": "BDI"
+  },
+  "Bénin": {
+   "faostat": "Benin",
+   "iso3": "BEN"
+  },
+  "Cambodge": {
+   "faostat": "Cambodia",
+   "iso3": "KHM"
+  },
+  "Cameroun": {
+   "faostat": "Cameroon",
+   "iso3": "CMR"
+  },
+  "Canada": {
+   "faostat": "Canada",
+   "iso3": "CAN"
+  },
+  "Chili": {
+   "faostat": "Chile",
+   "iso3": "CHL"
+  },
+  "Chine": {
+   "faostat": "China, mainland",
+   "iso3": "CHN"
+  },
+  "Chypre": {
+   "faostat": "Cyprus",
+   "iso3": "CYP"
+  },
+  "Colombie": {
+   "faostat": "Colombia",
+   "iso3": "COL"
+  },
+  "Congo": {
+   "faostat": "Congo",
+   "iso3": "COG"
+  },
+  "Corée du Sud": {
+   "faostat": "Republic of Korea",
+   "iso3": "KOR"
+  },
+  "Costa Rica": {
+   "faostat": "Costa Rica",
+   "iso3": "CRI"
+  },
+  "Cuba": {
+   "faostat": "Cuba",
+   "iso3": "CUB"
+  },
+  "Côte d'Ivoire": {
+   "faostat": "Côte d'Ivoire",
+   "iso3": "CIV"
+  },
+  "Danemark": {
+   "faostat": "Denmark",
+   "iso3": "DNK"
+  },
+  "El Salvador": {
+   "faostat": "El Salvador",
+   "iso3": "SLV"
+  },
+  "Espagne": {
+   "faostat": "Spain",
+   "iso3": "ESP"
+  },
+  "Estonie": {
+   "faostat": "Estonia",
+   "iso3": "EST"
+  },
+  "Finlande": {
+   "faostat": "Finland",
+   "iso3": "FIN"
+  },
+  "France": {
+   "faostat": "France",
+   "iso3": "FRA"
+  },
+  "Gabon": {
+   "faostat": "Gabon",
+   "iso3": "GAB"
+  },
+  "Gambie": {
+   "faostat": "Gambia",
+   "iso3": "GMB"
+  },
+  "Ghana": {
+   "faostat": "Ghana",
+   "iso3": "GHA"
+  },
+  "Grèce": {
+   "faostat": "Greece",
+   "iso3": "GRC"
+  },
+  "Guatemala": {
+   "faostat": "Guatemala",
+   "iso3": "GTM"
+  },
+  "Guinée": {
+   "faostat": "Guinea",
+   "iso3": "GIN"
+  },
+  "Guinée-Bissau": {
+   "faostat": "Guinea-Bissau",
+   "iso3": "GNB"
+  },
+  "Guyana": {
+   "faostat": "Guyana",
+   "iso3": "GUY"
+  },
+  "Géorgie": {
+   "faostat": "Georgia",
+   "iso3": "GEO"
+  },
+  "Haïti": {
+   "faostat": "Haiti",
+   "iso3": "HTI"
+  },
+  "Honduras": {
+   "faostat": "Honduras",
+   "iso3": "HND"
+  },
+  "Hongrie": {
+   "faostat": "Hungary",
+   "iso3": "HUN"
+  },
+  "Inde": {
+   "faostat": "India",
+   "iso3": "IND"
+  },
+  "Indonésie": {
+   "faostat": "Indonesia",
+   "iso3": "IDN"
+  },
+  "Irak": {
+   "faostat": "Iraq",
+   "iso3": "IRQ"
+  },
+  "Iran": {
+   "faostat": "Iran (Islamic Republic of)",
+   "iso3": "IRN"
+  },
+  "Irlande": {
+   "faostat": "Ireland",
+   "iso3": "IRL"
+  },
+  "Israël": {
+   "faostat": "Israel",
+   "iso3": "ISR"
+  },
+  "Italie": {
+   "faostat": "Italy",
+   "iso3": "ITA"
+  },
+  "Jamaïque": {
+   "faostat": "Jamaica",
+   "iso3": "JAM"
+  },
+  "Japon": {
+   "faostat": "Japan",
+   "iso3": "JPN"
+  },
+  "Jordanie": {
+   "faostat": "Jordan",
+   "iso3": "JOR"
+  },
+  "Kazakhstan": {
+   "faostat": "Kazakhstan",
+   "iso3": "KAZ"
+  },
+  "Kenya": {
+   "faostat": "Kenya",
+   "iso3": "KEN"
+  },
+  "Kirghizistan": {
+   "faostat": "Kyrgyzstan",
+   "iso3": "KGZ"
+  },
+  "Koweït": {
+   "faostat": "Kuwait",
+   "iso3": "KWT"
+  },
+  "Laos": {
+   "faostat": "Lao People's Democratic Republic",
+   "iso3": "LAO"
+  },
+  "Lettonie": {
+   "faostat": "Latvia",
+   "iso3": "LVA"
+  },
+  "Liban": {
+   "faostat": "Lebanon",
+   "iso3": "LBN"
+  },
+  "Liberia": {
+   "faostat": "Liberia",
+   "iso3": "LBR"
+  },
+  "Libye": {
+   "faostat": "Libya",
+   "iso3": "LBY"
+  },
+  "Lituanie": {
+   "faostat": "Lithuania",
+   "iso3": "LTU"
+  },
+  "Madagascar": {
+   "faostat": "Madagascar",
+   "iso3": "MDG"
+  },
+  "Malaisie": {
+   "faostat": "Malaysia",
+   "iso3": "MYS"
+  },
+  "Malawi": {
+   "faostat": "Malawi",
+   "iso3": "MWI"
+  },
+  "Mali": {
+   "faostat": "Mali",
+   "iso3": "MLI"
+  },
+  "Maroc": {
+   "faostat": "Morocco",
+   "iso3": "MAR"
+  },
+  "Maurice": {
+   "faostat": "Mauritius",
+   "iso3": "MUS"
+  },
+  "Mauritanie": {
+   "faostat": "Mauritania",
+   "iso3": "MRT"
+  },
+  "Mexique": {
+   "faostat": "Mexico",
+   "iso3": "MEX"
+  },
+  "Moldavie": {
+   "faostat": "Republic of Moldova",
+   "iso3": "MDA"
+  },
+  "Mozambique": {
+   "faostat": "Mozambique",
+   "iso3": "MOZ"
+  },
+  "Myanmar": {
+   "faostat": "Myanmar",
+   "iso3": "MMR"
+  },
+  "Nicaragua": {
+   "faostat": "Nicaragua",
+   "iso3": "NIC"
+  },
+  "Niger": {
+   "faostat": "Niger",
+   "iso3": "NER"
+  },
+  "Nigeria": {
+   "faostat": "Nigeria",
+   "iso3": "NGA"
+  },
+  "Norvège": {
+   "faostat": "Norway",
+   "iso3": "NOR"
+  },
+  "Nouvelle-Zélande": {
+   "faostat": "New Zealand",
+   "iso3": "NZL"
+  },
+  "Népal": {
+   "faostat": "Nepal",
+   "iso3": "NPL"
+  },
+  "Oman": {
+   "faostat": "Oman",
+   "iso3": "OMN"
+  },
+  "Ouganda": {
+   "faostat": "Uganda",
+   "iso3": "UGA"
+  },
+  "Ouzbékistan": {
+   "faostat": "Uzbekistan",
+   "iso3": "UZB"
+  },
+  "Pakistan": {
+   "faostat": "Pakistan",
+   "iso3": "PAK"
+  },
+  "Panama": {
+   "faostat": "Panama",
+   "iso3": "PAN"
+  },
+  "Paraguay": {
+   "faostat": "Paraguay",
+   "iso3": "PRY"
+  },
+  "Pays-Bas": {
+   "faostat": "Netherlands (Kingdom of the)",
+   "iso3": "NLD"
+  },
+  "Philippines": {
+   "faostat": "Philippines",
+   "iso3": "PHL"
+  },
+  "Pologne": {
+   "faostat": "Poland",
+   "iso3": "POL"
+  },
+  "Portugal": {
+   "faostat": "Portugal",
+   "iso3": "PRT"
+  },
+  "Pérou": {
+   "faostat": "Peru",
+   "iso3": "PER"
+  },
+  "Qatar": {
+   "faostat": "Qatar",
+   "iso3": "QAT"
+  },
+  "RDC": {
+   "faostat": "Democratic Republic of the Congo",
+   "iso3": "COD"
+  },
+  "Roumanie": {
+   "faostat": "Romania",
+   "iso3": "ROU"
+  },
+  "Royaume-Uni": {
+   "faostat": "United Kingdom of Great Britain and Northern Ireland",
+   "iso3": "GBR"
+  },
+  "Russie": {
+   "faostat": "Russian Federation",
+   "iso3": "RUS"
+  },
+  "Rwanda": {
+   "faostat": "Rwanda",
+   "iso3": "RWA"
+  },
+  "Rép. dominicaine": {
+   "faostat": "Dominican Republic",
+   "iso3": "DOM"
+  },
+  "Serbie": {
+   "faostat": "Serbia",
+   "iso3": "SRB"
+  },
+  "Sierra Leone": {
+   "faostat": "Sierra Leone",
+   "iso3": "SLE"
+  },
+  "Slovaquie": {
+   "faostat": "Slovakia",
+   "iso3": "SVK"
+  },
+  "Somalie": {
+   "faostat": "Somalia",
+   "iso3": "SOM"
+  },
+  "Soudan": {
+   "faostat": "Sudan",
+   "iso3": "SDN"
+  },
+  "Soudan du Sud": {
+   "faostat": "South Sudan",
+   "iso3": "SSD"
+  },
+  "Sri Lanka": {
+   "faostat": "Sri Lanka",
+   "iso3": "LKA"
+  },
+  "Suisse": {
+   "faostat": "Switzerland",
+   "iso3": "CHE"
+  },
+  "Suriname": {
+   "faostat": "Suriname",
+   "iso3": "SUR"
+  },
+  "Suède": {
+   "faostat": "Sweden",
+   "iso3": "SWE"
+  },
+  "Syrie": {
+   "faostat": "Syrian Arab Republic",
+   "iso3": "SYR"
+  },
+  "Sénégal": {
+   "faostat": "Senegal",
+   "iso3": "SEN"
+  },
+  "Tadjikistan": {
+   "faostat": "Tajikistan",
+   "iso3": "TJK"
+  },
+  "Tanzanie": {
+   "faostat": "United Republic of Tanzania",
+   "iso3": "TZA"
+  },
+  "Tchad": {
+   "faostat": "Chad",
+   "iso3": "TCD"
+  },
+  "Tchéquie": {
+   "faostat": "Czechia",
+   "iso3": "CZE"
+  },
+  "Thaïlande": {
+   "faostat": "Thailand",
+   "iso3": "THA"
+  },
+  "Togo": {
+   "faostat": "Togo",
+   "iso3": "TGO"
+  },
+  "Trinité-et-Tobago": {
+   "faostat": "Trinidad and Tobago",
+   "iso3": "TTO"
+  },
+  "Tunisie": {
+   "faostat": "Tunisia",
+   "iso3": "TUN"
+  },
+  "Turkménistan": {
+   "faostat": "Turkmenistan",
+   "iso3": "TKM"
+  },
+  "Turquie": {
+   "faostat": "Türkiye",
+   "iso3": "TUR"
+  },
+  "Ukraine": {
+   "faostat": "Ukraine",
+   "iso3": "UKR"
+  },
+  "Uruguay": {
+   "faostat": "Uruguay",
+   "iso3": "URY"
+  },
+  "Venezuela": {
+   "faostat": "Venezuela (Bolivarian Republic of)",
+   "iso3": "VEN"
+  },
+  "Viêt Nam": {
+   "faostat": "Viet Nam",
+   "iso3": "VNM"
+  },
+  "Yémen": {
+   "faostat": "Yemen",
+   "iso3": "YEM"
+  },
+  "Zambie": {
+   "faostat": "Zambia",
+   "iso3": "ZMB"
+  },
+  "Zimbabwe": {
+   "faostat": "Zimbabwe",
+   "iso3": "ZWE"
+  },
+  "Égypte": {
+   "faostat": "Egypt",
+   "iso3": "EGY"
+  },
+  "Émirats arabes unis": {
+   "faostat": "United Arab Emirates",
+   "iso3": "ARE"
+  },
+  "Équateur": {
+   "faostat": "Ecuador",
+   "iso3": "ECU"
+  },
+  "États-Unis": {
+   "faostat": "United States of America",
+   "iso3": "USA"
+  },
+  "Éthiopie": {
+   "faostat": "Ethiopia",
+   "iso3": "ETH"
+  }
+ },
+ "provenance": {
+  "date_extraction": "2026-11-14",
+  "note": "Référentiel des 140 pays de la flotte généralisée : nom français, code ISO 3166-1 alpha-3, nom bulk FAOSTAT. Données publiques, versionnable.",
+  "source": "ISO 3166-1 alpha-3 ; noms FAOSTAT ; flotte_monde"
+ }
+}

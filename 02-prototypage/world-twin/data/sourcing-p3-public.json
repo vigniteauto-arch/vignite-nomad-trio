@@ -1,0 +1,4984 @@
+{
+ "hubs": {
+  "fr-rhone": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 3820.0,
+   "distance_site_proche_km": 9.1,
+   "hub_pilote": true,
+   "pays": "France",
+   "ratio": 6.57,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 3050.0,
+     "distance_km": 9.1,
+     "site": "cim-P100000125516",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 780.0,
+     "distance_km": 43.9,
+     "site": "cim-P100000125629",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-afghanistan-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 4860.0,
+   "distance_site_proche_km": 23.6,
+   "hub_pilote": false,
+   "pays": "Afghanistan",
+   "ratio": 2.78,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 4860.0,
+     "distance_km": 23.6,
+     "site": "cim-P100000123429",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-afghanistan-2": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 970.0,
+   "distance_site_proche_km": 94.0,
+   "hub_pilote": false,
+   "pays": "Afghanistan",
+   "ratio": 1.67,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 490.0,
+     "distance_km": 94.0,
+     "site": "cim-P100000123428",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 490.0,
+     "distance_km": 94.2,
+     "site": "cim-P100000123427",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-afrique-du-sud-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 4570.0,
+   "distance_site_proche_km": 57.4,
+   "hub_pilote": false,
+   "pays": "Afrique du Sud",
+   "ratio": 3.92,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 1720.0,
+     "distance_km": 57.4,
+     "site": "cim-P100000125303",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 2850.0,
+     "distance_km": 99.8,
+     "site": "cim-P100000126135",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-algerie-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 4860.0,
+   "distance_site_proche_km": 25.4,
+   "hub_pilote": false,
+   "pays": "Algérie",
+   "ratio": 4.18,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 4860.0,
+     "distance_km": 25.4,
+     "site": "cim-P100000126863",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-allemagne-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 13560.0,
+   "distance_site_proche_km": 50.7,
+   "hub_pilote": false,
+   "pays": "Allemagne",
+   "ratio": 23.29,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 3080.0,
+     "distance_km": 50.7,
+     "site": "cim-P100000124384",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 2590.0,
+     "distance_km": 51.7,
+     "site": "cim-P100000124254",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 2590.0,
+     "distance_km": 52.4,
+     "site": "cim-P100000124468",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 4210.0,
+     "distance_km": 54.2,
+     "site": "cim-P100000125772",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 490.0,
+     "distance_km": 70.9,
+     "site": "cim-P100000125785",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 210.0,
+     "distance_km": 79.6,
+     "site": "bois-G100001053201-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 120.0,
+     "distance_km": 88.1,
+     "site": "bois-G100001053154-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 50.0,
+     "distance_km": 88.4,
+     "site": "aci-P100000120423-2",
+     "type": "acier"
+    },
+    {
+     "capacite_t_an": 210.0,
+     "distance_km": 91.2,
+     "site": "bois-G100001053145-0",
+     "type": "bois"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-angola-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 247.0,
+   "hub_pilote": false,
+   "pays": "Angola",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-arabie-saoudite-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 31430.0,
+   "distance_site_proche_km": 35.4,
+   "hub_pilote": false,
+   "pays": "Arabie Saoudite",
+   "ratio": 54.0,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 31430.0,
+     "distance_km": 35.4,
+     "site": "cim-P100000126967",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-arabie-saoudite-2": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 12960.0,
+   "distance_site_proche_km": 18.0,
+   "hub_pilote": false,
+   "pays": "Arabie Saoudite",
+   "ratio": 11.13,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 12960.0,
+     "distance_km": 18.0,
+     "site": "cim-P100000126953",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-arabie-saoudite-3": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 199.1,
+   "hub_pilote": false,
+   "pays": "Arabie Saoudite",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-argentine-1": {
+   "besoin_t_an": 2328.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 105.6,
+   "hub_pilote": false,
+   "pays": "Argentine",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 4
+  },
+  "gen-argentine-2": {
+   "besoin_t_an": 2328.0,
+   "capacite_rayon_t_an": 1340.0,
+   "distance_site_proche_km": 61.6,
+   "hub_pilote": false,
+   "pays": "Argentine",
+   "ratio": 0.58,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 50.0,
+     "distance_km": 61.6,
+     "site": "aci-P100000120008-385",
+     "type": "acier"
+    },
+    {
+     "capacite_t_an": 1300.0,
+     "distance_km": 62.0,
+     "site": "cim-P100000126212",
+     "type": "ciment"
+    }
+   ],
+   "statut": "PARTIEL",
+   "trios": 4
+  },
+  "gen-argentine-3": {
+   "besoin_t_an": 2910.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 182.1,
+   "hub_pilote": false,
+   "pays": "Argentine",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 5
+  },
+  "gen-argentine-4": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 2140.0,
+   "distance_site_proche_km": 22.3,
+   "hub_pilote": false,
+   "pays": "Argentine",
+   "ratio": 3.67,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 2140.0,
+     "distance_km": 22.3,
+     "site": "cim-P100000126204",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-australie-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 6090.0,
+   "distance_site_proche_km": 21.2,
+   "hub_pilote": false,
+   "pays": "Australie",
+   "ratio": 10.47,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 910.0,
+     "distance_km": 21.2,
+     "site": "cim-P100000123432",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 5180.0,
+     "distance_km": 43.2,
+     "site": "cim-P100000123433",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-australie-2": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 289.5,
+   "hub_pilote": false,
+   "pays": "Australie",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-australie-3": {
+   "besoin_t_an": 2328.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 599.0,
+   "hub_pilote": false,
+   "pays": "Australie",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 4
+  },
+  "gen-australie-4": {
+   "besoin_t_an": 2328.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 245.9,
+   "hub_pilote": false,
+   "pays": "Australie",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 4
+  },
+  "gen-australie-5": {
+   "besoin_t_an": 2328.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 334.2,
+   "hub_pilote": false,
+   "pays": "Australie",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 4
+  },
+  "gen-australie-6": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 357.5,
+   "hub_pilote": false,
+   "pays": "Australie",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 3
+  },
+  "gen-australie-7": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 963.8,
+   "hub_pilote": false,
+   "pays": "Australie",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-autriche-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 9460.0,
+   "distance_site_proche_km": 29.3,
+   "hub_pilote": false,
+   "pays": "Autriche",
+   "ratio": 16.25,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 10.0,
+     "distance_km": 29.3,
+     "site": "aci-P100000120011-409",
+     "type": "acier"
+    },
+    {
+     "capacite_t_an": 10.0,
+     "distance_km": 29.3,
+     "site": "aci-P100000120011-410",
+     "type": "acier"
+    },
+    {
+     "capacite_t_an": 1300.0,
+     "distance_km": 56.8,
+     "site": "cim-P100000125249",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 1620.0,
+     "distance_km": 64.5,
+     "site": "cim-P100000125245",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 350.0,
+     "distance_km": 82.0,
+     "site": "bois-G100001055295-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 40.0,
+     "distance_km": 84.2,
+     "site": "aci-P100000120010-411",
+     "type": "acier"
+    },
+    {
+     "capacite_t_an": 20.0,
+     "distance_km": 84.2,
+     "site": "aci-P100000120010-412",
+     "type": "acier"
+    },
+    {
+     "capacite_t_an": 1620.0,
+     "distance_km": 86.6,
+     "site": "cim-P100000125250",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 180.0,
+     "distance_km": 86.7,
+     "site": "bois-G100001055306-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 2590.0,
+     "distance_km": 87.8,
+     "site": "cim-P100000125244",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 110.0,
+     "distance_km": 96.0,
+     "site": "bois-G100001055293-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 1620.0,
+     "distance_km": 97.3,
+     "site": "cim-P100000125251",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-azerbaidjan-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 4420.0,
+   "distance_site_proche_km": 91.5,
+   "hub_pilote": false,
+   "pays": "Azerbaïdjan",
+   "ratio": 2.53,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 210.0,
+     "distance_km": 91.5,
+     "site": "cim-P100000126886",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 4210.0,
+     "distance_km": 99.4,
+     "site": "cim-P100000123412",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-bangladesh-1": {
+   "besoin_t_an": 2328.0,
+   "capacite_rayon_t_an": 1670.0,
+   "distance_site_proche_km": 71.2,
+   "hub_pilote": false,
+   "pays": "Bangladesh",
+   "ratio": 0.72,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 890.0,
+     "distance_km": 71.2,
+     "site": "cim-P100000123856",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 780.0,
+     "distance_km": 89.4,
+     "site": "cim-P100000123855",
+     "type": "ciment"
+    }
+   ],
+   "statut": "PARTIEL",
+   "trios": 4
+  },
+  "gen-belgique-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 5510.0,
+   "distance_site_proche_km": 38.6,
+   "hub_pilote": false,
+   "pays": "Belgique",
+   "ratio": 9.46,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 5510.0,
+     "distance_km": 38.6,
+     "site": "cim-P100000126409",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-belize-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 180.8,
+   "hub_pilote": false,
+   "pays": "Belize",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-benin-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 124.1,
+   "hub_pilote": false,
+   "pays": "Bénin",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-bielorussie-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 228.4,
+   "hub_pilote": false,
+   "pays": "Biélorussie",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-bolivie-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 2350.0,
+   "distance_site_proche_km": 90.4,
+   "hub_pilote": false,
+   "pays": "Bolivie",
+   "ratio": 2.02,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 2350.0,
+     "distance_km": 90.4,
+     "site": "cim-P100000126227",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-botswana-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 281.7,
+   "hub_pilote": false,
+   "pays": "Botswana",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-bresil-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 117.7,
+   "hub_pilote": false,
+   "pays": "Brésil",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 3
+  },
+  "gen-bresil-2": {
+   "besoin_t_an": 2910.0,
+   "capacite_rayon_t_an": 30.0,
+   "distance_site_proche_km": 23.5,
+   "hub_pilote": false,
+   "pays": "Brésil",
+   "ratio": 0.01,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 30.0,
+     "distance_km": 23.5,
+     "site": "bois-G100000200904-0",
+     "type": "bois"
+    }
+   ],
+   "statut": "A_SOURCER",
+   "trios": 5
+  },
+  "gen-bresil-3": {
+   "besoin_t_an": 2910.0,
+   "capacite_rayon_t_an": 160.0,
+   "distance_site_proche_km": 30.7,
+   "hub_pilote": false,
+   "pays": "Brésil",
+   "ratio": 0.05,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 120.0,
+     "distance_km": 30.7,
+     "site": "bois-G100000201098-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 30.0,
+     "distance_km": 68.7,
+     "site": "bois-G100000200917-0",
+     "type": "bois"
+    }
+   ],
+   "statut": "A_SOURCER",
+   "trios": 5
+  },
+  "gen-bresil-4": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 3710.0,
+   "distance_site_proche_km": 7.1,
+   "hub_pilote": false,
+   "pays": "Brésil",
+   "ratio": 6.38,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 320.0,
+     "distance_km": 7.1,
+     "site": "cim-P100000127404",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 80.0,
+     "distance_km": 11.4,
+     "site": "aci-P100000120034-32",
+     "type": "acier"
+    },
+    {
+     "capacite_t_an": 2330.0,
+     "distance_km": 11.8,
+     "site": "cim-P100000126298",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 970.0,
+     "distance_km": 15.5,
+     "site": "cim-P100000126259",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-bresil-5": {
+   "besoin_t_an": 2910.0,
+   "capacite_rayon_t_an": 1360.0,
+   "distance_site_proche_km": 16.6,
+   "hub_pilote": false,
+   "pays": "Brésil",
+   "ratio": 0.47,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 300.0,
+     "distance_km": 16.6,
+     "site": "bois-G100000200462-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 290.0,
+     "distance_km": 16.6,
+     "site": "bois-G100000201511-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 20.0,
+     "distance_km": 32.3,
+     "site": "bois-G100000200868-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 320.0,
+     "distance_km": 55.9,
+     "site": "bois-G100000200568-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 440.0,
+     "distance_km": 63.4,
+     "site": "bois-G100000200591-0",
+     "type": "bois"
+    }
+   ],
+   "statut": "PARTIEL",
+   "trios": 5
+  },
+  "gen-bresil-6": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 126.8,
+   "hub_pilote": false,
+   "pays": "Brésil",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-bulgarie-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 6480.0,
+   "distance_site_proche_km": 83.3,
+   "hub_pilote": false,
+   "pays": "Bulgarie",
+   "ratio": 11.13,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 1620.0,
+     "distance_km": 83.3,
+     "site": "cim-P100000126417",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 4860.0,
+     "distance_km": 97.0,
+     "site": "cim-P100000126419",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-burkina-faso-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 2370.0,
+   "distance_site_proche_km": 41.6,
+   "hub_pilote": false,
+   "pays": "Burkina Faso",
+   "ratio": 2.03,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 2370.0,
+     "distance_km": 41.6,
+     "site": "cim-P100000126923",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-burundi-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 1070.0,
+   "distance_site_proche_km": 98.8,
+   "hub_pilote": false,
+   "pays": "Burundi",
+   "ratio": 1.84,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 1070.0,
+     "distance_km": 98.8,
+     "site": "cim-P100000125512",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-cambodge-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 147.0,
+   "hub_pilote": false,
+   "pays": "Cambodge",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 3
+  },
+  "gen-cameroun-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 224.9,
+   "hub_pilote": false,
+   "pays": "Cameroun",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-canada-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 550.0,
+   "distance_site_proche_km": 88.4,
+   "hub_pilote": false,
+   "pays": "Canada",
+   "ratio": 0.95,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 550.0,
+     "distance_km": 88.4,
+     "site": "bois-G100001054286-0",
+     "type": "bois"
+    }
+   ],
+   "statut": "COUVERT",
+   "trios": 1
+  },
+  "gen-canada-2": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 419.5,
+   "hub_pilote": false,
+   "pays": "Canada",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-chili-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 9400.0,
+   "distance_site_proche_km": 65.2,
+   "hub_pilote": false,
+   "pays": "Chili",
+   "ratio": 8.07,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 1620.0,
+     "distance_km": 65.2,
+     "site": "cim-P100000127434",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 970.0,
+     "distance_km": 80.9,
+     "site": "cim-P100000127442",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 5510.0,
+     "distance_km": 86.1,
+     "site": "cim-P100000127441",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 1300.0,
+     "distance_km": 87.9,
+     "site": "cim-P100000127437",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-chine-1": {
+   "besoin_t_an": 2910.0,
+   "capacite_rayon_t_an": 33130.0,
+   "distance_site_proche_km": 25.2,
+   "hub_pilote": false,
+   "pays": "Chine",
+   "ratio": 11.39,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 10370.0,
+     "distance_km": 25.2,
+     "site": "cim-P100000123328",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 6480.0,
+     "distance_km": 28.9,
+     "site": "cim-P100000123309",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 6480.0,
+     "distance_km": 40.1,
+     "site": "cim-P100000123306",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 80.0,
+     "distance_km": 46.4,
+     "site": "aci-P100000120178-175",
+     "type": "acier"
+    },
+    {
+     "capacite_t_an": 9720.0,
+     "distance_km": 47.4,
+     "site": "cim-P100000123661",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 5
+  },
+  "gen-chine-2": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 71670.0,
+   "distance_site_proche_km": 5.2,
+   "hub_pilote": false,
+   "pays": "Chine",
+   "ratio": 123.14,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 5310.0,
+     "distance_km": 5.2,
+     "site": "cim-P100000123310",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 4830.0,
+     "distance_km": 40.7,
+     "site": "cim-P100000123785",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 3890.0,
+     "distance_km": 42.4,
+     "site": "cim-P100000123334",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 4670.0,
+     "distance_km": 43.5,
+     "site": "cim-P100000123272",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 5640.0,
+     "distance_km": 45.2,
+     "site": "cim-P100000123321",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 11660.0,
+     "distance_km": 45.7,
+     "site": "cim-P100000123297",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 8750.0,
+     "distance_km": 48.1,
+     "site": "cim-P100000123313",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 4240.0,
+     "distance_km": 48.6,
+     "site": "cim-P100000123332",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 22680.0,
+     "distance_km": 50.0,
+     "site": "cim-P100000123376",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-chine-3": {
+   "besoin_t_an": 2910.0,
+   "capacite_rayon_t_an": 31100.0,
+   "distance_site_proche_km": 19.7,
+   "hub_pilote": false,
+   "pays": "Chine",
+   "ratio": 10.69,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 6480.0,
+     "distance_km": 19.7,
+     "site": "cim-P100000123556",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 16200.0,
+     "distance_km": 25.8,
+     "site": "cim-P100000123518",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 7450.0,
+     "distance_km": 31.9,
+     "site": "cim-P100000124674",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 970.0,
+     "distance_km": 49.8,
+     "site": "cim-P100000124982",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 5
+  },
+  "gen-chine-4": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 18600.0,
+   "distance_site_proche_km": 29.6,
+   "hub_pilote": false,
+   "pays": "Chine",
+   "ratio": 10.65,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 4210.0,
+     "distance_km": 29.6,
+     "site": "cim-P100000123366",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 9720.0,
+     "distance_km": 30.4,
+     "site": "cim-P100000123694",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 4670.0,
+     "distance_km": 37.6,
+     "site": "cim-P100000123708",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-chine-5": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 28840.0,
+   "distance_site_proche_km": 22.4,
+   "hub_pilote": false,
+   "pays": "Chine",
+   "ratio": 16.52,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 22030.0,
+     "distance_km": 22.4,
+     "site": "cim-P100000123681",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 6800.0,
+     "distance_km": 37.3,
+     "site": "cim-P100000125038",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-chine-6": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 3240.0,
+   "distance_site_proche_km": 36.7,
+   "hub_pilote": false,
+   "pays": "Chine",
+   "ratio": 2.78,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 3240.0,
+     "distance_km": 36.7,
+     "site": "cim-P100000125103",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-chine-7": {
+   "besoin_t_an": 2910.0,
+   "capacite_rayon_t_an": 12960.0,
+   "distance_site_proche_km": 9.5,
+   "hub_pilote": false,
+   "pays": "Chine",
+   "ratio": 4.45,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 320.0,
+     "distance_km": 9.5,
+     "site": "bois-G100000201880-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 320.0,
+     "distance_km": 9.5,
+     "site": "bois-G100000201881-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 12310.0,
+     "distance_km": 14.7,
+     "site": "cim-P100000123666",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 20.0,
+     "distance_km": 43.1,
+     "site": "aci-P100000120418-193",
+     "type": "acier"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 5
+  },
+  "gen-chypre-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 6480.0,
+   "distance_site_proche_km": 42.2,
+   "hub_pilote": false,
+   "pays": "Chypre",
+   "ratio": 11.13,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 6480.0,
+     "distance_km": 42.2,
+     "site": "cim-P100000126426",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-colombie-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 151.5,
+   "hub_pilote": false,
+   "pays": "Colombie",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-congo-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 382.1,
+   "hub_pilote": false,
+   "pays": "Congo",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-coree-du-sud-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 4540.0,
+   "distance_site_proche_km": 4.7,
+   "hub_pilote": false,
+   "pays": "Corée du Sud",
+   "ratio": 3.9,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 2270.0,
+     "distance_km": 4.7,
+     "site": "cim-P100000124230",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 340.0,
+     "distance_km": 5.6,
+     "site": "bois-G100000200816-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 50.0,
+     "distance_km": 14.8,
+     "site": "bois-G100001021921-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 40.0,
+     "distance_km": 16.8,
+     "site": "bois-G100001021906-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 40.0,
+     "distance_km": 16.8,
+     "site": "bois-G100001021907-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 100.0,
+     "distance_km": 16.8,
+     "site": "bois-G100001021909-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 630.0,
+     "distance_km": 38.6,
+     "site": "bois-G100000202490-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 1060.0,
+     "distance_km": 47.4,
+     "site": "bois-G100000200818-0",
+     "type": "bois"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-costa-rica-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 6480.0,
+   "distance_site_proche_km": 8.4,
+   "hub_pilote": false,
+   "pays": "Costa Rica",
+   "ratio": 5.57,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 2920.0,
+     "distance_km": 8.4,
+     "site": "cim-P100000127467",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 3560.0,
+     "distance_km": 11.0,
+     "site": "cim-P100000127470",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-cote-d-ivoire-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 552.9,
+   "hub_pilote": false,
+   "pays": "Côte d'Ivoire",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 3
+  },
+  "gen-cote-d-ivoire-2": {
+   "besoin_t_an": 2328.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 149.1,
+   "hub_pilote": false,
+   "pays": "Côte d'Ivoire",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 4
+  },
+  "gen-cote-d-ivoire-3": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 236.2,
+   "hub_pilote": false,
+   "pays": "Côte d'Ivoire",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-cuba-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 5980.0,
+   "distance_site_proche_km": 28.8,
+   "hub_pilote": false,
+   "pays": "Cuba",
+   "ratio": 10.27,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 490.0,
+     "distance_km": 28.8,
+     "site": "cim-P100000127475",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 630.0,
+     "distance_km": 85.2,
+     "site": "bois-G100000200214-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 4860.0,
+     "distance_km": 93.1,
+     "site": "cim-P100000127471",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-danemark-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 5610.0,
+   "distance_site_proche_km": 22.3,
+   "hub_pilote": false,
+   "pays": "Danemark",
+   "ratio": 9.64,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 390.0,
+     "distance_km": 22.3,
+     "site": "bois-G100000200294-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 550.0,
+     "distance_km": 32.5,
+     "site": "bois-G100000202506-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 3820.0,
+     "distance_km": 34.1,
+     "site": "bois-G100000202507-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 850.0,
+     "distance_km": 49.9,
+     "site": "bois-G100000200229-0",
+     "type": "bois"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-egypte-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 22680.0,
+   "distance_site_proche_km": 69.0,
+   "hub_pilote": false,
+   "pays": "Égypte",
+   "ratio": 38.97,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 7130.0,
+     "distance_km": 69.0,
+     "site": "cim-P100000126729",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 15550.0,
+     "distance_km": 84.8,
+     "site": "cim-P100000126720",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-el-salvador-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 12960.0,
+   "distance_site_proche_km": 87.3,
+   "hub_pilote": false,
+   "pays": "El Salvador",
+   "ratio": 11.13,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 5510.0,
+     "distance_km": 87.3,
+     "site": "cim-P100000127491",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 6160.0,
+     "distance_km": 89.5,
+     "site": "cim-P100000127492",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 320.0,
+     "distance_km": 98.9,
+     "site": "cim-P100000127490",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 970.0,
+     "distance_km": 99.1,
+     "site": "cim-P100000123054",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-emirats-arabes-unis-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 17500.0,
+   "distance_site_proche_km": 1.8,
+   "hub_pilote": false,
+   "pays": "Émirats arabes unis",
+   "ratio": 30.06,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 9720.0,
+     "distance_km": 1.8,
+     "site": "cim-P100000126940",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 3890.0,
+     "distance_km": 3.0,
+     "site": "cim-P100000126952",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 3890.0,
+     "distance_km": 4.1,
+     "site": "cim-P100000126948",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-equateur-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 19760.0,
+   "distance_site_proche_km": 79.2,
+   "hub_pilote": false,
+   "pays": "Équateur",
+   "ratio": 11.32,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 2270.0,
+     "distance_km": 79.2,
+     "site": "cim-P100000127487",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 17500.0,
+     "distance_km": 95.9,
+     "site": "cim-P100000127485",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-espagne-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 4150.0,
+   "distance_site_proche_km": 37.5,
+   "hub_pilote": false,
+   "pays": "Espagne",
+   "ratio": 7.13,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 3240.0,
+     "distance_km": 37.5,
+     "site": "cim-P100000127606",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 910.0,
+     "distance_km": 38.9,
+     "site": "cim-P100000127710",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-espagne-2": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 7100.0,
+   "distance_site_proche_km": 91.4,
+   "hub_pilote": false,
+   "pays": "Espagne",
+   "ratio": 4.06,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 4860.0,
+     "distance_km": 91.4,
+     "site": "cim-P100000127714",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 2240.0,
+     "distance_km": 91.4,
+     "site": "cim-P100000127601",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-espagne-3": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 2640.0,
+   "distance_site_proche_km": 38.7,
+   "hub_pilote": false,
+   "pays": "Espagne",
+   "ratio": 1.51,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 2640.0,
+     "distance_km": 38.7,
+     "site": "cim-P100000127721",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-espagne-4": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 4540.0,
+   "distance_site_proche_km": 53.3,
+   "hub_pilote": false,
+   "pays": "Espagne",
+   "ratio": 2.6,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 4540.0,
+     "distance_km": 53.3,
+     "site": "cim-P100000127733",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-estonie-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 850.0,
+   "distance_site_proche_km": 56.7,
+   "hub_pilote": false,
+   "pays": "Estonie",
+   "ratio": 1.45,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 250.0,
+     "distance_km": 56.7,
+     "site": "bois-G100001053998-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 260.0,
+     "distance_km": 72.3,
+     "site": "bois-G100001053995-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 220.0,
+     "distance_km": 72.3,
+     "site": "bois-G100001053996-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 110.0,
+     "distance_km": 72.5,
+     "site": "bois-G100001053997-0",
+     "type": "bois"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-etats-unis-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 1490.0,
+   "distance_site_proche_km": 3.3,
+   "hub_pilote": false,
+   "pays": "États-Unis",
+   "ratio": 2.56,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 580.0,
+     "distance_km": 3.3,
+     "site": "bois-G100000409502-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 500.0,
+     "distance_km": 75.2,
+     "site": "bois-G100000201614-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 410.0,
+     "distance_km": 75.2,
+     "site": "bois-G100000201615-0",
+     "type": "bois"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-etats-unis-2": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 900.0,
+   "distance_site_proche_km": 49.9,
+   "hub_pilote": false,
+   "pays": "États-Unis",
+   "ratio": 0.77,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 420.0,
+     "distance_km": 49.9,
+     "site": "bois-G100000201655-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 210.0,
+     "distance_km": 49.9,
+     "site": "bois-G100001054065-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 260.0,
+     "distance_km": 49.9,
+     "site": "bois-G100001054066-0",
+     "type": "bois"
+    }
+   ],
+   "statut": "PARTIEL",
+   "trios": 2
+  },
+  "gen-etats-unis-3": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 1130.0,
+   "distance_site_proche_km": 18.3,
+   "hub_pilote": false,
+   "pays": "États-Unis",
+   "ratio": 0.65,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 570.0,
+     "distance_km": 18.3,
+     "site": "bois-G100000202484-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 260.0,
+     "distance_km": 87.2,
+     "site": "bois-G100001054213-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 300.0,
+     "distance_km": 88.8,
+     "site": "bois-G100001054176-0",
+     "type": "bois"
+    }
+   ],
+   "statut": "PARTIEL",
+   "trios": 3
+  },
+  "gen-etats-unis-4": {
+   "besoin_t_an": 2328.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 222.5,
+   "hub_pilote": false,
+   "pays": "États-Unis",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 4
+  },
+  "gen-etats-unis-5": {
+   "besoin_t_an": 2910.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 239.7,
+   "hub_pilote": false,
+   "pays": "États-Unis",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 5
+  },
+  "gen-ethiopie-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 2490.0,
+   "distance_site_proche_km": 89.9,
+   "hub_pilote": false,
+   "pays": "Éthiopie",
+   "ratio": 2.14,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 2490.0,
+     "distance_km": 89.9,
+     "site": "cim-P100000125481",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-finlande-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 3680.0,
+   "distance_site_proche_km": 58.8,
+   "hub_pilote": false,
+   "pays": "Finlande",
+   "ratio": 6.32,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 370.0,
+     "distance_km": 58.8,
+     "site": "bois-G100001052830-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 2010.0,
+     "distance_km": 59.7,
+     "site": "bois-G100001052847-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 450.0,
+     "distance_km": 59.7,
+     "site": "bois-G100000201369-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 850.0,
+     "distance_km": 61.6,
+     "site": "bois-G100001052848-0",
+     "type": "bois"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-france-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 1940.0,
+   "distance_site_proche_km": 20.9,
+   "hub_pilote": false,
+   "pays": "France",
+   "ratio": 3.34,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 1940.0,
+     "distance_km": 20.9,
+     "site": "cim-P100000125538",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-france-2": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 1780.0,
+   "distance_site_proche_km": 22.9,
+   "hub_pilote": false,
+   "pays": "France",
+   "ratio": 1.02,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 1780.0,
+     "distance_km": 22.9,
+     "site": "cim-P100000125466",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-france-3": {
+   "besoin_t_an": 2328.0,
+   "capacite_rayon_t_an": 7610.0,
+   "distance_site_proche_km": 53.2,
+   "hub_pilote": false,
+   "pays": "France",
+   "ratio": 3.27,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 6480.0,
+     "distance_km": 53.2,
+     "site": "cim-P100000125470",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 320.0,
+     "distance_km": 75.0,
+     "site": "bois-G100001052553-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 810.0,
+     "distance_km": 83.9,
+     "site": "cim-P100000125445",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 4
+  },
+  "gen-france-4": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 11640.0,
+   "distance_site_proche_km": 66.4,
+   "hub_pilote": false,
+   "pays": "France",
+   "ratio": 20.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 1460.0,
+     "distance_km": 66.4,
+     "site": "cim-P100000125506",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 2920.0,
+     "distance_km": 67.3,
+     "site": "cim-P100000125440",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 320.0,
+     "distance_km": 69.9,
+     "site": "bois-G100001052373-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 130.0,
+     "distance_km": 79.7,
+     "site": "bois-G100001052598-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 260.0,
+     "distance_km": 79.7,
+     "site": "bois-G100001052599-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 70.0,
+     "distance_km": 81.0,
+     "site": "bois-G100001052374-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 2920.0,
+     "distance_km": 93.4,
+     "site": "cim-P100000126708",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 3560.0,
+     "distance_km": 94.8,
+     "site": "cim-P100000125774",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-france-5": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 115.9,
+   "hub_pilote": false,
+   "pays": "France",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-gabon-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 247.7,
+   "hub_pilote": false,
+   "pays": "Gabon",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-gambie-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 142.2,
+   "hub_pilote": false,
+   "pays": "Gambie",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-georgie-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 9880.0,
+   "distance_site_proche_km": 57.7,
+   "hub_pilote": false,
+   "pays": "Géorgie",
+   "ratio": 16.98,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 1300.0,
+     "distance_km": 57.7,
+     "site": "cim-P100000123415",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 810.0,
+     "distance_km": 58.0,
+     "site": "cim-P100000124463",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 4210.0,
+     "distance_km": 85.9,
+     "site": "cim-P100000123412",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 3560.0,
+     "distance_km": 87.9,
+     "site": "cim-P100000123414",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-ghana-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 113.4,
+   "hub_pilote": false,
+   "pays": "Ghana",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-grece-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 329.5,
+   "hub_pilote": false,
+   "pays": "Grèce",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-grece-2": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 19760.0,
+   "distance_site_proche_km": 80.9,
+   "hub_pilote": false,
+   "pays": "Grèce",
+   "ratio": 33.96,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 1300.0,
+     "distance_km": 80.9,
+     "site": "cim-P100000126444",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 10040.0,
+     "distance_km": 83.9,
+     "site": "cim-P100000126443",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 2270.0,
+     "distance_km": 85.6,
+     "site": "cim-P100000126445",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 6160.0,
+     "distance_km": 91.9,
+     "site": "cim-P100000126442",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-guatemala-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 16620.0,
+   "distance_site_proche_km": 76.4,
+   "hub_pilote": false,
+   "pays": "Guatemala",
+   "ratio": 14.28,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 9490.0,
+     "distance_km": 76.4,
+     "site": "cim-P100000127499",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 7130.0,
+     "distance_km": 95.4,
+     "site": "cim-P100000127498",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-guinee-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 285.6,
+   "hub_pilote": false,
+   "pays": "Guinée",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-guinee-bissau-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 970.0,
+   "distance_site_proche_km": 64.1,
+   "hub_pilote": false,
+   "pays": "Guinée-Bissau",
+   "ratio": 1.67,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 970.0,
+     "distance_km": 64.1,
+     "site": "cim-P100000125453",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-guyana-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 178.6,
+   "hub_pilote": false,
+   "pays": "Guyana",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-haiti-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 185.6,
+   "hub_pilote": false,
+   "pays": "Haïti",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-honduras-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 3240.0,
+   "distance_site_proche_km": 97.0,
+   "hub_pilote": false,
+   "pays": "Honduras",
+   "ratio": 2.78,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 3240.0,
+     "distance_km": 97.0,
+     "site": "cim-P100000127636",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-hongrie-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 3010.0,
+   "distance_site_proche_km": 52.5,
+   "hub_pilote": false,
+   "pays": "Hongrie",
+   "ratio": 2.59,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 420.0,
+     "distance_km": 52.5,
+     "site": "bois-G100000201400-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 2590.0,
+     "distance_km": 74.1,
+     "site": "cim-P100000126449",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-inde-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 151.1,
+   "hub_pilote": false,
+   "pays": "Inde",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-inde-2": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 37580.0,
+   "distance_site_proche_km": 50.4,
+   "hub_pilote": false,
+   "pays": "Inde",
+   "ratio": 21.53,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 10370.0,
+     "distance_km": 50.4,
+     "site": "cim-P100000124516",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 3890.0,
+     "distance_km": 73.3,
+     "site": "cim-P100000124110",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 4860.0,
+     "distance_km": 79.2,
+     "site": "cim-P100000124125",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 18470.0,
+     "distance_km": 79.8,
+     "site": "cim-P100000123986",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-inde-3": {
+   "besoin_t_an": 2910.0,
+   "capacite_rayon_t_an": 11340.0,
+   "distance_site_proche_km": 19.3,
+   "hub_pilote": false,
+   "pays": "Inde",
+   "ratio": 3.9,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 11340.0,
+     "distance_km": 19.3,
+     "site": "cim-P100000124052",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 5
+  },
+  "gen-inde-4": {
+   "besoin_t_an": 2910.0,
+   "capacite_rayon_t_an": 34990.0,
+   "distance_site_proche_km": 70.1,
+   "hub_pilote": false,
+   "pays": "Inde",
+   "ratio": 12.02,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 8100.0,
+     "distance_km": 70.1,
+     "site": "cim-P100000123998",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 4210.0,
+     "distance_km": 75.9,
+     "site": "cim-P100000124152",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 4860.0,
+     "distance_km": 79.3,
+     "site": "cim-P100000123997",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 6480.0,
+     "distance_km": 81.3,
+     "site": "cim-P100000124076",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 6480.0,
+     "distance_km": 95.9,
+     "site": "cim-P100000124086",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 4860.0,
+     "distance_km": 98.4,
+     "site": "cim-P100000124507",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 5
+  },
+  "gen-indonesie-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 20620.0,
+   "distance_site_proche_km": 28.0,
+   "hub_pilote": false,
+   "pays": "Indonésie",
+   "ratio": 11.81,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 9720.0,
+     "distance_km": 28.0,
+     "site": "cim-P100000123882",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 9720.0,
+     "distance_km": 28.2,
+     "site": "cim-P100000124733",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 1180.0,
+     "distance_km": 30.0,
+     "site": "cim-P100000124734",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-indonesie-2": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 14900.0,
+   "distance_site_proche_km": 3.2,
+   "hub_pilote": false,
+   "pays": "Indonésie",
+   "ratio": 8.54,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 6800.0,
+     "distance_km": 3.2,
+     "site": "cim-P100000124736",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 8100.0,
+     "distance_km": 21.8,
+     "site": "cim-P100000123878",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-indonesie-3": {
+   "besoin_t_an": 2328.0,
+   "capacite_rayon_t_an": 41640.0,
+   "distance_site_proche_km": 26.6,
+   "hub_pilote": false,
+   "pays": "Indonésie",
+   "ratio": 17.88,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 3890.0,
+     "distance_km": 26.6,
+     "site": "cim-P100000123884",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 14260.0,
+     "distance_km": 26.7,
+     "site": "cim-P100000123867",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 3890.0,
+     "distance_km": 31.0,
+     "site": "cim-P100000123869",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 30.0,
+     "distance_km": 39.2,
+     "site": "aci-P100000120502-237",
+     "type": "acier"
+    },
+    {
+     "capacite_t_an": 3240.0,
+     "distance_km": 42.5,
+     "site": "cim-P100000123896",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 2240.0,
+     "distance_km": 43.2,
+     "site": "cim-P100000124730",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 5670.0,
+     "distance_km": 44.2,
+     "site": "cim-P100000123875",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 1940.0,
+     "distance_km": 44.2,
+     "site": "cim-P100000123874",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 6480.0,
+     "distance_km": 44.6,
+     "site": "cim-P100000124731",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 4
+  },
+  "gen-indonesie-4": {
+   "besoin_t_an": 2910.0,
+   "capacite_rayon_t_an": 5650.0,
+   "distance_site_proche_km": 50.8,
+   "hub_pilote": false,
+   "pays": "Indonésie",
+   "ratio": 1.94,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 5650.0,
+     "distance_km": 50.8,
+     "site": "bois-G100000200736-0",
+     "type": "bois"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 5
+  },
+  "gen-irak-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 7100.0,
+   "distance_site_proche_km": 26.8,
+   "hub_pilote": false,
+   "pays": "Irak",
+   "ratio": 6.1,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 7100.0,
+     "distance_km": 26.8,
+     "site": "cim-P100000126999",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-irak-2": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 1910.0,
+   "distance_site_proche_km": 74.8,
+   "hub_pilote": false,
+   "pays": "Irak",
+   "ratio": 1.1,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 970.0,
+     "distance_km": 74.8,
+     "site": "cim-P100000126991",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 940.0,
+     "distance_km": 75.0,
+     "site": "cim-P100000126984",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-iran-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 202.8,
+   "hub_pilote": false,
+   "pays": "Iran",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-iran-2": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 6930.0,
+   "distance_site_proche_km": 10.2,
+   "hub_pilote": false,
+   "pays": "Iran",
+   "ratio": 5.96,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 2270.0,
+     "distance_km": 10.2,
+     "site": "cim-P100000125639",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 650.0,
+     "distance_km": 11.3,
+     "site": "cim-P100000125718",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 4020.0,
+     "distance_km": 40.1,
+     "site": "cim-P100000125665",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-iran-3": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 8620.0,
+   "distance_site_proche_km": 23.7,
+   "hub_pilote": false,
+   "pays": "Iran",
+   "ratio": 4.94,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 1070.0,
+     "distance_km": 23.7,
+     "site": "cim-P100000126154",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 7550.0,
+     "distance_km": 24.0,
+     "site": "cim-P100000125689",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-iran-4": {
+   "besoin_t_an": 2328.0,
+   "capacite_rayon_t_an": 8520.0,
+   "distance_site_proche_km": 57.2,
+   "hub_pilote": false,
+   "pays": "Iran",
+   "ratio": 3.66,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 6160.0,
+     "distance_km": 57.2,
+     "site": "cim-P100000125714",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 2370.0,
+     "distance_km": 98.6,
+     "site": "cim-P100000125663",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 4
+  },
+  "gen-irlande-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 9800.0,
+   "distance_site_proche_km": 58.7,
+   "hub_pilote": false,
+   "pays": "Irlande",
+   "ratio": 16.84,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 2270.0,
+     "distance_km": 58.7,
+     "site": "cim-P100000126452",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 410.0,
+     "distance_km": 60.8,
+     "site": "bois-G100001053950-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 2590.0,
+     "distance_km": 86.5,
+     "site": "cim-P100000126453",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 4540.0,
+     "distance_km": 96.5,
+     "site": "cim-P100000125281",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-israel-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 21380.0,
+   "distance_site_proche_km": 68.5,
+   "hub_pilote": false,
+   "pays": "Israël",
+   "ratio": 18.37,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 14900.0,
+     "distance_km": 68.5,
+     "site": "cim-P100000127104",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 6480.0,
+     "distance_km": 98.2,
+     "site": "cim-P100000127001",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-italie-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 7130.0,
+   "distance_site_proche_km": 66.7,
+   "hub_pilote": false,
+   "pays": "Italie",
+   "ratio": 12.25,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 970.0,
+     "distance_km": 66.7,
+     "site": "cim-P100000125422",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 6160.0,
+     "distance_km": 68.5,
+     "site": "cim-P100000125364",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-italie-2": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 4640.0,
+   "distance_site_proche_km": 36.7,
+   "hub_pilote": false,
+   "pays": "Italie",
+   "ratio": 2.66,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 270.0,
+     "distance_km": 36.7,
+     "site": "bois-G100001053479-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 3560.0,
+     "distance_km": 51.9,
+     "site": "cim-P100000125365",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 810.0,
+     "distance_km": 95.7,
+     "site": "cim-P100000125404",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-italie-3": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 2740.0,
+   "distance_site_proche_km": 35.7,
+   "hub_pilote": false,
+   "pays": "Italie",
+   "ratio": 2.35,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 210.0,
+     "distance_km": 35.7,
+     "site": "bois-G100001053468-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 2530.0,
+     "distance_km": 36.4,
+     "site": "cim-P100000125373",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-italie-4": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 7020.0,
+   "distance_site_proche_km": 55.2,
+   "hub_pilote": false,
+   "pays": "Italie",
+   "ratio": 6.03,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 970.0,
+     "distance_km": 55.2,
+     "site": "cim-P100000126711",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 2590.0,
+     "distance_km": 60.0,
+     "site": "cim-P100000125371",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 3240.0,
+     "distance_km": 68.4,
+     "site": "cim-P100000125366",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 220.0,
+     "distance_km": 73.2,
+     "site": "bois-G100001053477-0",
+     "type": "bois"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-jamaique-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 5830.0,
+   "distance_site_proche_km": 62.0,
+   "hub_pilote": false,
+   "pays": "Jamaïque",
+   "ratio": 10.02,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 5830.0,
+     "distance_km": 62.0,
+     "site": "cim-P100000127639",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-japon-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 530.0,
+   "distance_site_proche_km": 18.8,
+   "hub_pilote": false,
+   "pays": "Japon",
+   "ratio": 0.3,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 530.0,
+     "distance_km": 18.8,
+     "site": "bois-G100000200028-0",
+     "type": "bois"
+    }
+   ],
+   "statut": "PARTIEL",
+   "trios": 3
+  },
+  "gen-japon-2": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 125.1,
+   "hub_pilote": false,
+   "pays": "Japon",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-jordanie-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 14980.0,
+   "distance_site_proche_km": 73.4,
+   "hub_pilote": false,
+   "pays": "Jordanie",
+   "ratio": 25.75,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 5830.0,
+     "distance_km": 73.4,
+     "site": "cim-P100000127004",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 5910.0,
+     "distance_km": 79.6,
+     "site": "cim-P100000127005",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 3240.0,
+     "distance_km": 84.3,
+     "site": "cim-P100000127006",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-kazakhstan-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 151.1,
+   "hub_pilote": false,
+   "pays": "Kazakhstan",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-kazakhstan-2": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 1620.0,
+   "distance_site_proche_km": 32.6,
+   "hub_pilote": false,
+   "pays": "Kazakhstan",
+   "ratio": 0.93,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 1620.0,
+     "distance_km": 32.6,
+     "site": "cim-P100000124497",
+     "type": "ciment"
+    }
+   ],
+   "statut": "COUVERT",
+   "trios": 3
+  },
+  "gen-kazakhstan-3": {
+   "besoin_t_an": 2328.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 162.7,
+   "hub_pilote": false,
+   "pays": "Kazakhstan",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 4
+  },
+  "gen-kenya-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 205.7,
+   "hub_pilote": false,
+   "pays": "Kenya",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-kirghizistan-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 144.1,
+   "hub_pilote": false,
+   "pays": "Kirghizistan",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-koweit-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 39200.0,
+   "distance_site_proche_km": 67.2,
+   "hub_pilote": false,
+   "pays": "Koweït",
+   "ratio": 67.36,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 7450.0,
+     "distance_km": 67.2,
+     "site": "cim-P100000127023",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 3240.0,
+     "distance_km": 68.2,
+     "site": "cim-P100000127024",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 16200.0,
+     "distance_km": 69.1,
+     "site": "cim-P100000127020",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 10370.0,
+     "distance_km": 69.4,
+     "site": "cim-P100000127022",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 1940.0,
+     "distance_km": 92.4,
+     "site": "cim-P100000126983",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-laos-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 110.0,
+   "distance_site_proche_km": 86.2,
+   "hub_pilote": false,
+   "pays": "Laos",
+   "ratio": 0.09,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 110.0,
+     "distance_km": 86.2,
+     "site": "bois-G100001054740-0",
+     "type": "bois"
+    }
+   ],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-lettonie-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 102.1,
+   "hub_pilote": false,
+   "pays": "Lettonie",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-liban-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 23170.0,
+   "distance_site_proche_km": 45.7,
+   "hub_pilote": false,
+   "pays": "Liban",
+   "ratio": 39.8,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 9070.0,
+     "distance_km": 45.7,
+     "site": "cim-P100000127025",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 4370.0,
+     "distance_km": 46.2,
+     "site": "cim-P100000127026",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 9720.0,
+     "distance_km": 48.8,
+     "site": "cim-P100000127027",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-liberia-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 151.2,
+   "hub_pilote": false,
+   "pays": "Liberia",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-libye-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 515.9,
+   "hub_pilote": false,
+   "pays": "Libye",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-lituanie-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 115.0,
+   "hub_pilote": false,
+   "pays": "Lituanie",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-madagascar-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 129.1,
+   "hub_pilote": false,
+   "pays": "Madagascar",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-malaisie-1": {
+   "besoin_t_an": 2328.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 105.2,
+   "hub_pilote": false,
+   "pays": "Malaisie",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 4
+  },
+  "gen-malaisie-2": {
+   "besoin_t_an": 2328.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 152.5,
+   "hub_pilote": false,
+   "pays": "Malaisie",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 4
+  },
+  "gen-malaisie-3": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 6480.0,
+   "distance_site_proche_km": 46.5,
+   "hub_pilote": false,
+   "pays": "Malaisie",
+   "ratio": 3.71,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 6480.0,
+     "distance_km": 46.5,
+     "site": "cim-P100000124287",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-malawi-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 2920.0,
+   "distance_site_proche_km": 75.9,
+   "hub_pilote": false,
+   "pays": "Malawi",
+   "ratio": 5.01,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 2920.0,
+     "distance_km": 75.9,
+     "site": "cim-P100000125358",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-mali-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 582.0,
+   "hub_pilote": false,
+   "pays": "Mali",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-maroc-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 10210.0,
+   "distance_site_proche_km": 71.6,
+   "hub_pilote": false,
+   "pays": "Maroc",
+   "ratio": 5.85,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 5670.0,
+     "distance_km": 71.6,
+     "site": "cim-P100000123964",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 4540.0,
+     "distance_km": 94.7,
+     "site": "cim-P100000124453",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-maurice-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 214.5,
+   "hub_pilote": false,
+   "pays": "Maurice",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-mauritanie-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 510.3,
+   "hub_pilote": false,
+   "pays": "Mauritanie",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-mexique-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 168.5,
+   "hub_pilote": false,
+   "pays": "Mexique",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-mexique-2": {
+   "besoin_t_an": 2328.0,
+   "capacite_rayon_t_an": 8910.0,
+   "distance_site_proche_km": 37.3,
+   "hub_pilote": false,
+   "pays": "Mexique",
+   "ratio": 3.83,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 8910.0,
+     "distance_km": 37.3,
+     "site": "cim-P100000127666",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 4
+  },
+  "gen-mexique-3": {
+   "besoin_t_an": 2328.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 100.9,
+   "hub_pilote": false,
+   "pays": "Mexique",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 4
+  },
+  "gen-mexique-4": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 291.6,
+   "hub_pilote": false,
+   "pays": "Mexique",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-moldavie-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 4860.0,
+   "distance_site_proche_km": 70.3,
+   "hub_pilote": false,
+   "pays": "Moldavie",
+   "ratio": 8.35,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 1620.0,
+     "distance_km": 70.3,
+     "site": "cim-P100000126476",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 3240.0,
+     "distance_km": 70.6,
+     "site": "cim-P100000126477",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-mozambique-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 196.5,
+   "hub_pilote": false,
+   "pays": "Mozambique",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-myanmar-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 131.0,
+   "hub_pilote": false,
+   "pays": "Myanmar",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 3
+  },
+  "gen-myanmar-2": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 18740.0,
+   "distance_site_proche_km": 24.6,
+   "hub_pilote": false,
+   "pays": "Myanmar",
+   "ratio": 10.73,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 350.0,
+     "distance_km": 24.6,
+     "site": "cim-P100000124759",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 320.0,
+     "distance_km": 25.7,
+     "site": "cim-P100000124270",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 10690.0,
+     "distance_km": 25.8,
+     "site": "cim-P100000124264",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 5910.0,
+     "distance_km": 26.7,
+     "site": "cim-P100000124760",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 1460.0,
+     "distance_km": 29.4,
+     "site": "cim-P100000124267",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-nepal-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 27930.0,
+   "distance_site_proche_km": 18.1,
+   "hub_pilote": false,
+   "pays": "Népal",
+   "ratio": 15.99,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 510.0,
+     "distance_km": 18.1,
+     "site": "cim-P100000124816",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 950.0,
+     "distance_km": 22.2,
+     "site": "cim-P100000124791",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 3240.0,
+     "distance_km": 23.0,
+     "site": "cim-P100000124299",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 4860.0,
+     "distance_km": 23.3,
+     "site": "cim-P100000124801",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 590.0,
+     "distance_km": 23.7,
+     "site": "cim-P100000124822",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 200.0,
+     "distance_km": 24.2,
+     "site": "cim-P100000124310",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 350.0,
+     "distance_km": 24.4,
+     "site": "cim-P100000124792",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 1070.0,
+     "distance_km": 24.6,
+     "site": "cim-P100000124311",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 2130.0,
+     "distance_km": 24.6,
+     "site": "cim-P100000124307",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 710.0,
+     "distance_km": 24.6,
+     "site": "cim-P100000124805",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 200.0,
+     "distance_km": 25.9,
+     "site": "cim-P100000124797",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 2600.0,
+     "distance_km": 29.6,
+     "site": "cim-P100000124820",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 970.0,
+     "distance_km": 30.4,
+     "site": "cim-P100000124800",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 3550.0,
+     "distance_km": 39.0,
+     "site": "cim-P100000124304",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 830.0,
+     "distance_km": 39.1,
+     "site": "cim-P100000124799",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 120.0,
+     "distance_km": 43.5,
+     "site": "cim-P100000124802",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 1660.0,
+     "distance_km": 45.1,
+     "site": "cim-P100000124794",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 1180.0,
+     "distance_km": 45.2,
+     "site": "cim-P100000124826",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 1020.0,
+     "distance_km": 46.0,
+     "site": "cim-P100000124798",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 830.0,
+     "distance_km": 46.1,
+     "site": "cim-P100000124795",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 350.0,
+     "distance_km": 46.9,
+     "site": "cim-P100000124830",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-nicaragua-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 115.5,
+   "hub_pilote": false,
+   "pays": "Nicaragua",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-niger-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 392.1,
+   "hub_pilote": false,
+   "pays": "Niger",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-nigeria-1": {
+   "besoin_t_an": 2328.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 206.7,
+   "hub_pilote": false,
+   "pays": "Nigeria",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 4
+  },
+  "gen-norvege-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 171.6,
+   "hub_pilote": false,
+   "pays": "Norvège",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-nouvelle-zelande-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 342.8,
+   "hub_pilote": false,
+   "pays": "Nouvelle-Zélande",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-oman-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 234.8,
+   "hub_pilote": false,
+   "pays": "Oman",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-ouganda-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 118.8,
+   "hub_pilote": false,
+   "pays": "Ouganda",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-ouzbekistan-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 22450.0,
+   "distance_site_proche_km": 51.0,
+   "hub_pilote": false,
+   "pays": "Ouzbékistan",
+   "ratio": 12.86,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 3890.0,
+     "distance_km": 51.0,
+     "site": "cim-P100000124478",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 8810.0,
+     "distance_km": 59.1,
+     "site": "cim-P100000124487",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 4370.0,
+     "distance_km": 94.8,
+     "site": "cim-P100000124482",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 5380.0,
+     "distance_km": 95.9,
+     "site": "cim-P100000124480",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-ouzbekistan-2": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 6800.0,
+   "distance_site_proche_km": 18.6,
+   "hub_pilote": false,
+   "pays": "Ouzbékistan",
+   "ratio": 3.9,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 3560.0,
+     "distance_km": 18.6,
+     "site": "cim-P100000123421",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 3240.0,
+     "distance_km": 37.6,
+     "site": "cim-P100000124451",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-pakistan-1": {
+   "besoin_t_an": 2328.0,
+   "capacite_rayon_t_an": 16260.0,
+   "distance_site_proche_km": 28.7,
+   "hub_pilote": false,
+   "pays": "Pakistan",
+   "ratio": 6.98,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 1870.0,
+     "distance_km": 28.7,
+     "site": "cim-P100000124344",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 160.0,
+     "distance_km": 39.4,
+     "site": "cim-P100000124316",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 10920.0,
+     "distance_km": 89.9,
+     "site": "cim-P100000124341",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 3310.0,
+     "distance_km": 92.6,
+     "site": "cim-P100000124338",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 4
+  },
+  "gen-pakistan-2": {
+   "besoin_t_an": 2328.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 165.0,
+   "hub_pilote": false,
+   "pays": "Pakistan",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 4
+  },
+  "gen-panama-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 810.0,
+   "distance_site_proche_km": 93.7,
+   "hub_pilote": false,
+   "pays": "Panama",
+   "ratio": 1.39,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 810.0,
+     "distance_km": 93.7,
+     "site": "cim-P100000127686",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-paraguay-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 134.6,
+   "hub_pilote": false,
+   "pays": "Paraguay",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-pays-bas-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 15450.0,
+   "distance_site_proche_km": 55.2,
+   "hub_pilote": false,
+   "pays": "Pays-Bas",
+   "ratio": 26.55,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 210.0,
+     "distance_km": 55.2,
+     "site": "bois-G100001052312-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 4540.0,
+     "distance_km": 66.9,
+     "site": "cim-P100000126479",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 230.0,
+     "distance_km": 67.9,
+     "site": "bois-G100001052308-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 70.0,
+     "distance_km": 67.9,
+     "site": "aci-P100000120758-380",
+     "type": "acier"
+    },
+    {
+     "capacite_t_an": 5280.0,
+     "distance_km": 70.7,
+     "site": "bois-G100000202522-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 2110.0,
+     "distance_km": 84.1,
+     "site": "cim-P100000126478",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 210.0,
+     "distance_km": 87.7,
+     "site": "bois-G100001052313-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 230.0,
+     "distance_km": 90.1,
+     "site": "bois-G100001052306-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 620.0,
+     "distance_km": 90.5,
+     "site": "bois-G100000400524-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 1940.0,
+     "distance_km": 92.8,
+     "site": "cim-P100000126480",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-perou-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 2590.0,
+   "distance_site_proche_km": 58.1,
+   "hub_pilote": false,
+   "pays": "Pérou",
+   "ratio": 4.45,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 2590.0,
+     "distance_km": 58.1,
+     "site": "cim-P100000127691",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-philippines-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 20310.0,
+   "distance_site_proche_km": 16.5,
+   "hub_pilote": false,
+   "pays": "Philippines",
+   "ratio": 11.64,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 7350.0,
+     "distance_km": 16.5,
+     "site": "cim-P100000124356",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 12960.0,
+     "distance_km": 45.5,
+     "site": "cim-P100000124789",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-philippines-2": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 33060.0,
+   "distance_site_proche_km": 30.6,
+   "hub_pilote": false,
+   "pays": "Philippines",
+   "ratio": 18.93,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 9080.0,
+     "distance_km": 30.6,
+     "site": "cim-P100000124787",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 9720.0,
+     "distance_km": 45.0,
+     "site": "cim-P100000124361",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 12310.0,
+     "distance_km": 45.2,
+     "site": "cim-P100000124351",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 1940.0,
+     "distance_km": 45.2,
+     "site": "cim-P100000124349",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-philippines-3": {
+   "besoin_t_an": 2328.0,
+   "capacite_rayon_t_an": 43900.0,
+   "distance_site_proche_km": 64.5,
+   "hub_pilote": false,
+   "pays": "Philippines",
+   "ratio": 18.86,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 24950.0,
+     "distance_km": 64.5,
+     "site": "cim-P100000124353",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 1620.0,
+     "distance_km": 71.9,
+     "site": "cim-P100000124786",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 3890.0,
+     "distance_km": 72.4,
+     "site": "cim-P100000124360",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 10690.0,
+     "distance_km": 81.6,
+     "site": "cim-P100000124355",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 2750.0,
+     "distance_km": 86.9,
+     "site": "cim-P100000124348",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 4
+  },
+  "gen-pologne-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 9060.0,
+   "distance_site_proche_km": 74.6,
+   "hub_pilote": false,
+   "pays": "Pologne",
+   "ratio": 7.78,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 530.0,
+     "distance_km": 74.6,
+     "site": "bois-G100000201417-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 530.0,
+     "distance_km": 74.6,
+     "site": "bois-G100000202501-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 8000.0,
+     "distance_km": 98.1,
+     "site": "cim-P100000126470",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-portugal-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 11340.0,
+   "distance_site_proche_km": 41.2,
+   "hub_pilote": false,
+   "pays": "Portugal",
+   "ratio": 9.74,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 11340.0,
+     "distance_km": 41.2,
+     "site": "cim-P100000127702",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-qatar-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 35480.0,
+   "distance_site_proche_km": 32.1,
+   "hub_pilote": false,
+   "pays": "Qatar",
+   "ratio": 60.96,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 18340.0,
+     "distance_km": 32.1,
+     "site": "cim-P100000127034",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 17140.0,
+     "distance_km": 37.1,
+     "site": "cim-P100000127033",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-rdc-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 387.1,
+   "hub_pilote": false,
+   "pays": "RDC",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-rep-dominicaine-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 6480.0,
+   "distance_site_proche_km": 41.0,
+   "hub_pilote": false,
+   "pays": "Rép. dominicaine",
+   "ratio": 5.57,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 6480.0,
+     "distance_km": 41.0,
+     "site": "cim-P100000127480",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-roumanie-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 110.9,
+   "hub_pilote": false,
+   "pays": "Roumanie",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-royaume-uni-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 9690.0,
+   "distance_site_proche_km": 37.0,
+   "hub_pilote": false,
+   "pays": "Royaume-Uni",
+   "ratio": 8.32,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 3110.0,
+     "distance_km": 37.0,
+     "site": "cim-P100000125279",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 750.0,
+     "distance_km": 41.7,
+     "site": "cim-P100000125268",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 5830.0,
+     "distance_km": 49.2,
+     "site": "cim-P100000125270",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-royaume-uni-2": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 117.7,
+   "hub_pilote": false,
+   "pays": "Royaume-Uni",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-russie-1": {
+   "besoin_t_an": 2910.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 133.2,
+   "hub_pilote": false,
+   "pays": "Russie",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 5
+  },
+  "gen-russie-2": {
+   "besoin_t_an": 2328.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 179.3,
+   "hub_pilote": false,
+   "pays": "Russie",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 4
+  },
+  "gen-russie-3": {
+   "besoin_t_an": 2328.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 110.8,
+   "hub_pilote": false,
+   "pays": "Russie",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 4
+  },
+  "gen-russie-4": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 7500.0,
+   "distance_site_proche_km": 12.5,
+   "hub_pilote": false,
+   "pays": "Russie",
+   "ratio": 4.29,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 40.0,
+     "distance_km": 12.5,
+     "site": "aci-P100000120805-257",
+     "type": "acier"
+    },
+    {
+     "capacite_t_an": 7450.0,
+     "distance_km": 34.4,
+     "site": "cim-P100000123002",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-rwanda-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 3240.0,
+   "distance_site_proche_km": 30.0,
+   "hub_pilote": false,
+   "pays": "Rwanda",
+   "ratio": 5.57,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 3240.0,
+     "distance_km": 30.0,
+     "site": "cim-P100000126169",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-senegal-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 216.3,
+   "hub_pilote": false,
+   "pays": "Sénégal",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-serbie-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 2430.0,
+   "distance_site_proche_km": 45.9,
+   "hub_pilote": false,
+   "pays": "Serbie",
+   "ratio": 4.18,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 2430.0,
+     "distance_km": 45.9,
+     "site": "cim-P100000126495",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-sierra-leone-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 188.8,
+   "hub_pilote": false,
+   "pays": "Sierra Leone",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-slovaquie-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 9160.0,
+   "distance_site_proche_km": 54.5,
+   "hub_pilote": false,
+   "pays": "Slovaquie",
+   "ratio": 15.74,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 3190.0,
+     "distance_km": 54.5,
+     "site": "cim-P100000126498",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 50.0,
+     "distance_km": 77.8,
+     "site": "aci-P100000120854-405",
+     "type": "acier"
+    },
+    {
+     "capacite_t_an": 5910.0,
+     "distance_km": 93.8,
+     "site": "cim-P100000126446",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-somalie-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 564.4,
+   "hub_pilote": false,
+   "pays": "Somalie",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-soudan-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 260.2,
+   "hub_pilote": false,
+   "pays": "Soudan",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-soudan-du-sud-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 658.2,
+   "hub_pilote": false,
+   "pays": "Soudan du Sud",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-sri-lanka-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 101.6,
+   "hub_pilote": false,
+   "pays": "Sri Lanka",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-suede-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 6200.0,
+   "distance_site_proche_km": 61.6,
+   "hub_pilote": false,
+   "pays": "Suède",
+   "ratio": 10.65,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 540.0,
+     "distance_km": 61.6,
+     "site": "bois-G100000201441-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 580.0,
+     "distance_km": 61.6,
+     "site": "bois-G100000201442-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 2640.0,
+     "distance_km": 61.6,
+     "site": "bois-G100001009098-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 1060.0,
+     "distance_km": 62.2,
+     "site": "bois-G100000201440-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 740.0,
+     "distance_km": 62.2,
+     "site": "bois-G100001052195-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 400.0,
+     "distance_km": 72.6,
+     "site": "bois-G100000200273-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 240.0,
+     "distance_km": 90.5,
+     "site": "bois-G100001052255-0",
+     "type": "bois"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-suede-2": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 790.0,
+   "distance_site_proche_km": 97.9,
+   "hub_pilote": false,
+   "pays": "Suède",
+   "ratio": 1.36,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 790.0,
+     "distance_km": 97.9,
+     "site": "bois-G100000201451-0",
+     "type": "bois"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-suisse-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 6020.0,
+   "distance_site_proche_km": 15.1,
+   "hub_pilote": false,
+   "pays": "Suisse",
+   "ratio": 10.34,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 2590.0,
+     "distance_km": 15.1,
+     "site": "cim-P100000126705",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 70.0,
+     "distance_km": 28.0,
+     "site": "bois-G100001052374-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 2920.0,
+     "distance_km": 28.4,
+     "site": "cim-P100000126708",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 120.0,
+     "distance_km": 41.4,
+     "site": "bois-G100001052372-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 320.0,
+     "distance_km": 47.3,
+     "site": "bois-G100001052373-0",
+     "type": "bois"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-suriname-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 146.4,
+   "hub_pilote": false,
+   "pays": "Suriname",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-syrie-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 8850.0,
+   "distance_site_proche_km": 67.8,
+   "hub_pilote": false,
+   "pays": "Syrie",
+   "ratio": 7.6,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 5830.0,
+     "distance_km": 67.8,
+     "site": "cim-P100000126102",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 3010.0,
+     "distance_km": 99.6,
+     "site": "cim-P100000125827",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-syrie-2": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 9490.0,
+   "distance_site_proche_km": 92.2,
+   "hub_pilote": false,
+   "pays": "Syrie",
+   "ratio": 5.44,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 8040.0,
+     "distance_km": 92.2,
+     "site": "cim-P100000126110",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 1460.0,
+     "distance_km": 96.7,
+     "site": "cim-P100000125830",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-tadjikistan-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 3500.0,
+   "distance_site_proche_km": 76.7,
+   "hub_pilote": false,
+   "pays": "Tadjikistan",
+   "ratio": 2.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 3500.0,
+     "distance_km": 76.7,
+     "site": "cim-P100000123401",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-tanzanie-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 225.8,
+   "hub_pilote": false,
+   "pays": "Tanzanie",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-tchad-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 485.4,
+   "hub_pilote": false,
+   "pays": "Tchad",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-tchequie-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 2920.0,
+   "distance_site_proche_km": 40.2,
+   "hub_pilote": false,
+   "pays": "Tchéquie",
+   "ratio": 2.51,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 2920.0,
+     "distance_km": 40.2,
+     "site": "cim-P100000126428",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-thailande-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 22490.0,
+   "distance_site_proche_km": 75.2,
+   "hub_pilote": false,
+   "pays": "Thaïlande",
+   "ratio": 12.88,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 100.0,
+     "distance_km": 75.2,
+     "site": "bois-G100001054744-0",
+     "type": "bois"
+    },
+    {
+     "capacite_t_an": 22390.0,
+     "distance_km": 85.6,
+     "site": "cim-P100000124373",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-thailande-2": {
+   "besoin_t_an": 2328.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 103.9,
+   "hub_pilote": false,
+   "pays": "Thaïlande",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 4
+  },
+  "gen-togo-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 810.0,
+   "distance_site_proche_km": 91.6,
+   "hub_pilote": false,
+   "pays": "Togo",
+   "ratio": 1.39,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 810.0,
+     "distance_km": 91.6,
+     "site": "cim-P100000125300",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-trinite-et-tobago-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 3240.0,
+   "distance_site_proche_km": 24.1,
+   "hub_pilote": false,
+   "pays": "Trinité-et-Tobago",
+   "ratio": 5.57,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 3240.0,
+     "distance_km": 24.1,
+     "site": "cim-P100000127619",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-tunisie-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 12640.0,
+   "distance_site_proche_km": 30.3,
+   "hub_pilote": false,
+   "pays": "Tunisie",
+   "ratio": 10.86,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 5830.0,
+     "distance_km": 30.3,
+     "site": "cim-P100000124500",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 6800.0,
+     "distance_km": 46.4,
+     "site": "cim-P100000124464",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-turkmenistan-1": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 223.5,
+   "hub_pilote": false,
+   "pays": "Turkménistan",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 3
+  },
+  "gen-turkmenistan-2": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 5180.0,
+   "distance_site_proche_km": 80.3,
+   "hub_pilote": false,
+   "pays": "Turkménistan",
+   "ratio": 4.45,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 650.0,
+     "distance_km": 80.3,
+     "site": "cim-P100000126914",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 4540.0,
+     "distance_km": 80.4,
+     "site": "cim-P100000123426",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-turquie-1": {
+   "besoin_t_an": 2328.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 113.9,
+   "hub_pilote": false,
+   "pays": "Turquie",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 4
+  },
+  "gen-turquie-2": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 4600.0,
+   "distance_site_proche_km": 21.1,
+   "hub_pilote": false,
+   "pays": "Turquie",
+   "ratio": 2.64,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 4600.0,
+     "distance_km": 21.1,
+     "site": "cim-P100000125829",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-turquie-3": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 13930.0,
+   "distance_site_proche_km": 23.2,
+   "hub_pilote": false,
+   "pays": "Turquie",
+   "ratio": 11.97,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 6480.0,
+     "distance_km": 23.2,
+     "site": "cim-P100000125743",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 7450.0,
+     "distance_km": 28.3,
+     "site": "cim-P100000125747",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "gen-turquie-4": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 5830.0,
+   "distance_site_proche_km": 99.2,
+   "hub_pilote": false,
+   "pays": "Turquie",
+   "ratio": 10.02,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 5830.0,
+     "distance_km": 99.2,
+     "site": "cim-P100000125737",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-turquie-5": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 6800.0,
+   "distance_site_proche_km": 14.3,
+   "hub_pilote": false,
+   "pays": "Turquie",
+   "ratio": 3.9,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 6800.0,
+     "distance_km": 14.3,
+     "site": "cim-P100000125748",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 3
+  },
+  "gen-ukraine-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 11660.0,
+   "distance_site_proche_km": 41.9,
+   "hub_pilote": false,
+   "pays": "Ukraine",
+   "ratio": 20.04,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 11660.0,
+     "distance_km": 41.9,
+     "site": "cim-P100000124180",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 1
+  },
+  "gen-ukraine-2": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 228.0,
+   "hub_pilote": false,
+   "pays": "Ukraine",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-uruguay-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 122.7,
+   "hub_pilote": false,
+   "pays": "Uruguay",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-venezuela-1": {
+   "besoin_t_an": 582.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 282.2,
+   "hub_pilote": false,
+   "pays": "Venezuela",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 1
+  },
+  "gen-viet-nam-1": {
+   "besoin_t_an": 2910.0,
+   "capacite_rayon_t_an": 34670.0,
+   "distance_site_proche_km": 59.2,
+   "hub_pilote": false,
+   "pays": "Viêt Nam",
+   "ratio": 11.91,
+   "rayon_km": 100.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 4210.0,
+     "distance_km": 59.2,
+     "site": "cim-P100000124421",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 970.0,
+     "distance_km": 60.6,
+     "site": "cim-P100000124846",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 6480.0,
+     "distance_km": 64.6,
+     "site": "cim-P100000125289",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 14580.0,
+     "distance_km": 65.1,
+     "site": "cim-P100000124415",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 970.0,
+     "distance_km": 73.5,
+     "site": "cim-P100000124849",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 6480.0,
+     "distance_km": 75.9,
+     "site": "cim-P100000124385",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 650.0,
+     "distance_km": 82.0,
+     "site": "cim-P100000124862",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 320.0,
+     "distance_km": 85.8,
+     "site": "cim-P100000124850",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 5
+  },
+  "gen-yemen-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 210.6,
+   "hub_pilote": false,
+   "pays": "Yémen",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-zambie-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 0,
+   "distance_site_proche_km": 133.7,
+   "hub_pilote": false,
+   "pays": "Zambie",
+   "ratio": 0.0,
+   "rayon_km": 100.0,
+   "sites_retenus": [],
+   "statut": "A_SOURCER",
+   "trios": 2
+  },
+  "gen-zimbabwe-1": {
+   "besoin_t_an": 1164.0,
+   "capacite_rayon_t_an": 1300.0,
+   "distance_site_proche_km": 28.1,
+   "hub_pilote": false,
+   "pays": "Zimbabwe",
+   "ratio": 1.11,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 1300.0,
+     "distance_km": 28.1,
+     "site": "cim-P100000125262",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 2
+  },
+  "ma-atlas": {
+   "besoin_t_an": 1746.0,
+   "capacite_rayon_t_an": 9560.0,
+   "distance_site_proche_km": 5.5,
+   "hub_pilote": true,
+   "pays": "Maroc",
+   "ratio": 5.47,
+   "rayon_km": 50.0,
+   "sites_retenus": [
+    {
+     "capacite_t_an": 5670.0,
+     "distance_km": 5.5,
+     "site": "cim-P100000123964",
+     "type": "ciment"
+    },
+    {
+     "capacite_t_an": 3890.0,
+     "distance_km": 40.4,
+     "site": "cim-P100000123232",
+     "type": "ciment"
+    }
+   ],
+   "statut": "AUTONOME",
+   "trios": 3
+  }
+ },
+ "provenance": {
+  "date": "2026-11-14",
+  "etiquette": "SOURCÉ (Global Energy Monitor GCCT/GIST/GBPT, données publiques) + ratios ILLUSTRATION",
+  "etiquette_simulation": "SYNTHÉTIQUE",
+  "note": "Sourcing P3 par hub — sites industriels Global Energy Monitor dans le rayon du hub, statuts et distances. AUCUNE donnée économique. Versionné."
+ },
+ "totaux_hubs_generalises": {
+  "co2_sites_kt_an": 1373.2,
+  "hubs": 217,
+  "hubs_matches": 129,
+  "mediane_distance_km": 54.5,
+  "mediane_ratio_matchs": 5.96,
+  "mediane_site_proche_km": 76.4,
+  "paires_hub_site": 362,
+  "sites_acier": 13,
+  "sites_bois": 79,
+  "sites_ciment": 270,
+  "statuts": {
+   "AUTONOME": 118,
+   "A_SOURCER": 91,
+   "COUVERT": 2,
+   "PARTIEL": 6
+  },
+  "trios": 480
+ }
+}
