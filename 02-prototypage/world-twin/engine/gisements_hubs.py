@@ -638,8 +638,10 @@ for _pays, _suffixe in [("Afrique du Sud", "ZA"), ("Allemagne", "DE"),
                         ("Portugal", "PT"), ("États-Unis", "US")]:
     MAPPINGS["MARC_RAISIN_" + _suffixe] = {
         "pays": _pays, "item": "Grapes", "element": "Production",
-        "ratio": (0.15, 0.15, 0.25),
-        "note": "marc ≈ 15 à 25 % de la vendange (doctrine v1.2)"}
+        "ratio": (0.15, 0.20, 0.30),
+        "note": "marc SOURCÉ V2.7 : 15 à 30 % de la vendange, retenu 0,20"
+                " (MDPI Foods 14(24):4246 2025 ; MDPI Fermentation"
+                " 11(2):57 2025)"}
 for _pays, _suffixe in [("Afrique du Sud", "ZA"), ("Allemagne", "DE"),
                         ("Australie", "AU"), ("Brésil", "BR"),
                         ("Chili", "CL"), ("Chine", "CN"),
@@ -819,6 +821,9 @@ def verifier():
             rapport["erreurs"].append("doctrine : %s %s" % (pays, item))
 
     # Reproduction des valeurs SOURCÉ des fiches v1.1, v1.2 et v1.3
+# (V2.7 : cibles marc recalées sur le ratio SOURCÉ 0,20 de la vendange,
+# fiches v1.2 initiales à 0,15 — MDPI Foods 14(24):4246 2025, MDPI
+# Fermentation 11(2):57 2025)
     # (2024 ; Asie : fiches v1.3, snapshot v18).
     fiches = {
         "PAILLE_BLE_SA": 0.8e6, "PAILLE_BLE_AR": 18.5e6,
@@ -836,7 +841,7 @@ def verifier():
         "PAILLE_BLE_ES": 7.1e6, "PAILLE_ORGE_ES": 6.7e6,
         "BALLE_ARACHIDE_IN": 3.6e6, "PAILLE_BLE_IN": 113e6,
         "PAILLE_RIZ_IN": 261e6, "TIGE_MOUTARDE_IN": 19.9e6,
-        "BALLE_RIZ_IT": 0.29e6, "MARC_RAISIN_IT": 1.1e6,
+        "BALLE_RIZ_IT": 0.29e6, "MARC_RAISIN_IT": 1.57e6,
         "PAILLE_BLE_IT": 6.2e6, "RAFLE_MAIS_IT": 0.74e6,
         "COQUE_COCO_MY": 0.27e6, "FIBRE_PALMIER_MY": 12e6,
         "PAILLE_RIZ_MY": 2.5e6, "PAILLE_BLE_MA": 2.4e6,
@@ -852,21 +857,21 @@ def verifier():
         "BALLE_RIZ_EC": 0.31e6, "FIBRE_PALMIER_EC": 0.32e6,
         "BALLE_RIZ_US": 2.0e6, "COQUE_AMANDE_US": 4e6,
         "PAILLE_BLE_US": 54e6, "PAILLE_MAIS_US": 378e6,
-        "MARC_RAISIN_ZA": 0.281e6, "SARMENT_VIGNE_ZA": 0.208e6,
-        "MARC_RAISIN_DE": 0.159e6, "SARMENT_VIGNE_DE": 0.203e6,
-        "MARC_RAISIN_AR": 0.288e6, "MARC_RAISIN_AU": 0.242e6,
+        "MARC_RAISIN_ZA": 0.397e6, "SARMENT_VIGNE_ZA": 0.208e6,
+        "MARC_RAISIN_DE": 0.230e6, "SARMENT_VIGNE_DE": 0.203e6,
+        "MARC_RAISIN_AR": 0.384e6, "MARC_RAISIN_AU": 0.352e6,
         "SARMENT_VIGNE_AU": 0.271e6, "SARMENT_VIGNE_BR": 0.169e6,
-        "MARC_RAISIN_CL": 0.368e6, "SARMENT_VIGNE_CL": 0.333e6,
-        "MARC_RAISIN_CN": 2.5e6, "SARMENT_VIGNE_CN": 1.5e6,
-        "MARC_RAISIN_ES": 0.808e6, "MARC_RAISIN_GR": 0.117e6,
+        "MARC_RAISIN_CL": 0.518e6, "SARMENT_VIGNE_CL": 0.333e6,
+        "MARC_RAISIN_CN": 3.11e6, "SARMENT_VIGNE_CN": 1.5e6,
+        "MARC_RAISIN_ES": 1.16e6, "MARC_RAISIN_GR": 0.152e6,
         "SARMENT_VIGNE_GR": 0.167e6, "SARMENT_VIGNE_GE": 0.099e6,
         "SARMENT_VIGNE_IN": 0.359e6, "SARMENT_VIGNE_IR": 0.239e6,
         "SARMENT_VIGNE_MA": 0.080e6, "SARMENT_VIGNE_MD": 0.145e6,
-        "SARMENT_VIGNE_NZ": 0.075e6, "MARC_RAISIN_PT": 0.138e6,
+        "SARMENT_VIGNE_NZ": 0.075e6, "MARC_RAISIN_PT": 0.186e6,
         "SARMENT_VIGNE_PT": 0.346e6, "SARMENT_VIGNE_PE": 0.074e6,
         "SARMENT_VIGNE_RO": 0.324e6, "SARMENT_VIGNE_RU": 0.153e6,
         "SARMENT_VIGNE_TR": 0.745e6, "SARMENT_VIGNE_EG": 0.160e6,
-        "MARC_RAISIN_US": 0.735e6, "SARMENT_VIGNE_US": 0.747e6,
+        "MARC_RAISIN_US": 1.07e6, "SARMENT_VIGNE_US": 0.747e6,
         "BAGASSE_CANNE_ID": 9.6e6,
         "BAGASSE_CANNE_MM": 3.6e6,
         "BAGASSE_CANNE_PK": 25.3e6,

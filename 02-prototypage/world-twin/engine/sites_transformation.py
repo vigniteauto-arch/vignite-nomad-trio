@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""World Twin v2.6 — Sites de transformation post-récolte : gisements au site.
+"""World Twin v2.7 — Sites de transformation post-récolte : gisements au site.
 
 Quatre attributs posés sur les 219 hubs (217 généralisés + 2 pilotes) SANS
 toucher aux coordonnées ni aux figeages (aucun effet cascade, contrairement à
@@ -16,7 +16,12 @@ la vague V2.4) :
    (FranceAgriMer marcs 93-99 %, MDPI alperujo 80-85 % du fruit, CNP balle
    20 % du paddy, BioCycle/USAID cabosse ~75 % au champ, parcs MPOB,
    PalmWatch, UNICA), ILLUSTRATION ailleurs ; un hub n'est SOURCÉ que si
-   toutes ses familles le sont.
+   toutes ses familles le sont. V2.7 : six familles supplémentaires passent
+   SOURCÉ (drêches de brasserie ~85 % des résidus à la brasserie, marc de
+   pomme 25-30 % du fruit au pressoir, résidus d'agrumes 50-60 % du fruit à
+   l'usine de jus, bagasse d'agave ~40 % du poids humide à la distillerie,
+   résidus de sciage 46 % du volume de grume à la scierie, coques aux
+   hullers et décortiqueurs).
 3. ENERGIE_SITE — AUTONOME quand le site vend de l'énergie (moulin de
    palmier, rizerie de parboiling, sucrerie : chaudières biomasse +
    turbines, autofourniture documentée) contre IMPORTATEUR quand le site
@@ -28,7 +33,11 @@ la vague V2.4) :
    la population rurale à moins de 2 km d'une route toute saison), tous
    deux SOURCÉS par pays du hub (V2.6 : RAI extrait du jeu SDSN SDG
    Transformation Center « Rural Access Index by Country (2022-2023) »,
-   189 pays, d'après la méthodologie Banque mondiale).
+   189 pays, d'après la méthodologie Banque mondiale). V2.7 : les 23 pays
+   non enquêtés en 2023 mais enquêtés à une édition antérieure récupèrent
+   leur score le plus récent (indicateur LP.LPI.OVRL.XQ, API open data
+   Banque mondiale, édition portée à la fiche) ; seuls Belize, Soudan du
+   Sud et Suriname (jamais enquêtés) restent À SOURCER.
 
 Doctrine : tout est étiqueté SYNTHÉTIQUE, aucune valeur calibrée, aucune
 clé, aucun coût. Les captabilités portent leur statut SOURCÉ ou
@@ -46,6 +55,25 @@ Sources (toutes publiques, vérifiées le 14/11/2026) :
 - FranceAgriMer : 93-99 % des marcs français partent en distillerie.
 - MDPI : alperujo 80-85 % du fruit entrant au moulin à deux phases.
 - BioCycle / USAID : environ 75 % de la cabosse de cacao rejetée au champ.
+- V2.7 — Banque mondiale, LPI éditions antérieures (indicateur
+  LP.LPI.OVRL.XQ, API open data api.worldbank.org, extrait 14/11/2026) :
+  23 pays de la flotte récupèrent leur score le plus récent (19 pays en
+  2018, Éthiopie Mozambique Tanzanie en 2016, Azerbaïdjan en 2014).
+- V2.7 — MDPI Sustainability 18(5):2464 (2026) : drêches ≈ 85 % des
+  résidus solides de brasserie, générées à la brasserie.
+- V2.7 — MDPI Antioxidants 15(4):429 (2026) : marc de pomme 25-30 % de la
+  masse du fruit frais, généré au pressoir industriel.
+- V2.7 — MDPI Sustainability 15(21):15225 (2023) : résidus d'orangerie
+  50-60 % de la masse du fruit, à l'usine de jus concentré.
+- V2.7 — MDPI Fermentation 12(2):79 (2026) : bagasse d'agave ≈ 40 % du
+  poids humide de l'agave cuit, à la distillerie.
+- V2.7 — FAO, appendice VI « Generation of wood residues » (rapport
+  T0269E) : résidus de sciage 46 % du volume de la grume, à la scierie.
+- V2.7 — Biomass Conversion and Biorefinery (Springer, 2023) : coques et
+  brou de noix, sous-produits des unités de transformation.
+- V2.7 — MDPI Foods 14(24):4246 (2025) et MDPI Fermentation 11(2):57
+  (2025) : marc de raisin 15-30 % de la vendange (ratio sourcé dans
+  gisements_hubs.py, retenu 0,20).
 
 Lancement :
 
@@ -132,24 +160,26 @@ FAMILLES_SITES = [
 ["RESIDU_THE"],
      "résidus de manufacture concentrés en station de séchage",
      "ILLUSTRATION"),
-    ("AGAVE", "DISTILLERIE_AGAVE", 0.80, "IMPORTATEUR",
+    ("AGAVE", "DISTILLERIE_AGAVE", 0.90, "IMPORTATEUR",
      "stockable",
 ["RESIDU_AGAVE"],
-     "bagasse et vinasses au Jalisco, valorisation biogaz et compost" 
-     "émergente",
-     "ILLUSTRATION"),
+     "bagasse = environ 40 % du poids humide de l'agave cuit, générée à"
+     " la distillerie (MDPI Fermentation 12(2):79 2026), vinasses et"
+     " valorisation biogaz émergente au Jalisco",
+     "SOURCÉ"),
     ("PECHE_COQUILLES", "STATION_TRANSFORM_PECHE", 0.70, "IMPORTATEUR",
      "heures",
 ["COQUILLE_", "CARAPACE_CRABE"],
      "coquilles (huître, moule, coquille Saint-Jacques) et carapaces aux" 
      "criées et stations de conditionnement",
      "ILLUSTRATION"),
-    ("AGRUMES", "USINE_JUS_AGRUMES", 0.70, "IMPORTATEUR",
+    ("AGRUMES", "USINE_JUS_AGRUMES", 0.90, "IMPORTATEUR",
      "heures",
 ["MARC_AGRUME", "ECORCE_ORANGE", "MARC_CITRON"],
-     "marcs et écorces aux usines de jus concentré (São Paulo, Floride," 
-     "Veracruz)",
-     "ILLUSTRATION"),
+     "résidus de pressage = 50 à 60 % de la masse du fruit, générés à"
+     " l'usine de jus concentré (São Paulo, Floride, Veracruz) (MDPI"
+     " Sustainability 15(21):15225 2023)",
+     "SOURCÉ"),
     ("CAFE", "BENEFICIO_SEC", 0.70, "IMPORTATEUR",
      "stockable",
 ["PARCHE_CAFE", "COQUE_CAFE", "MARC_CAFE"],
@@ -161,16 +191,19 @@ FAMILLES_SITES = [
      ["COQUE_AMANDE", "COQUE_MACADAMIA", "COQUE_NOIX", "COQUE_NOISETTE", 
       "COQUE_PISTACHE", "COQUE_PECAN", "COQUE_CAJOU", "COQUE_ARACHIDE", 
 "BALLE_ARACHIDE"],
-     "coques concentrées aux hullers et décortiqueurs (modèle coopératif de" 
-     "la Central Valley californienne)",
-     "ILLUSTRATION"),
-    ("FORET_SCIERIE", "SCIERIE", 0.90, "IMPORTATEUR",
+     "coques = sous-produit des hullers et décortiqueurs centralisés"
+     " (revue coques et brou de noix, Biomass Conversion and Biorefinery"
+     " 2023 ; modèle coopératif de la Central Valley californienne)",
+     "SOURCÉ"),
+    ("FORET_SCIERIE", "SCIERIE", 0.95, "IMPORTATEUR",
      "continu",
      ["SCIURE_", "ECORCE_PIN", "AIGUILLE_PIN", "COPEAU_HETRE", 
 "CHENEVOTTE", "ECORCE_EUCALYPTUS", "BRISURE_LIEGE"],
-     "sciures, écorces et chenevettes concentrées en scieries et usines de" 
-     "liège",
-     "ILLUSTRATION"),
+     "résidus de sciage = 46 % du volume de la grume (délignures et"
+     " délignures de sciage 34 % + sciure 12 %), générés à la scierie et à"
+     " l'usine de liège (FAO, appendice VI « Generation of wood residues »,"
+     " rapport T0269E)",
+     "SOURCÉ"),
     ("VIGNE_MARC", "CHAI", 0.95, "IMPORTATEUR",
      "heures (vendange)",
 ["MARC_RAISIN", "GRAPE_POMACE"],
@@ -180,13 +213,17 @@ FAMILLES_SITES = [
     ("BIERE", "BRASSERIE", 0.95, "IMPORTATEUR",
      "continu",
 ["DRECHE_BIERE"],
-     "drêches de brasserie, flux continu urbain, forte teneur en eau",
-     "ILLUSTRATION"),
+     "drêches = environ 85 % des résidus solides de brasserie, générées à"
+     " la brasserie (MDPI Sustainability 18(5):2464 2026), flux continu"
+     " urbain, forte teneur en eau",
+     "SOURCÉ"),
     ("POMME", "PRESSOIR_CIDRERIE", 0.85, "IMPORTATEUR",
      "heures (pressoir)",
 ["MARC_POMME"],
-     "marcs au pressoir et à la cidrerie, fenêtre septembre-novembre",
-     "ILLUSTRATION"),
+     "marc de pomme = 25 à 30 % de la masse du fruit frais, généré au"
+     " pressoir industriel jus et cidrerie (MDPI Antioxidants"
+     " 15(4):429 2026), fenêtre septembre-novembre",
+     "SOURCÉ"),
     ("OLIVE", "MOULIN_OLIVE", 0.85, "IMPORTATEUR",
      "jours",
 ["GRIGNONS_OLIVE", "GRIGNON_OLIVE", "NOYAU_OLIVE", "POMACE_OLIVE"],
@@ -248,6 +285,27 @@ LPI_2023 = {
     "KGZ": 2.3, "MDG": 2.3, "MRT": 2.3, "SYR": 2.3, "VEN": 2.3, "CUB": 2.2,
     "YEM": 2.2, "AGO": 2.1, "CMR": 2.1, "HTI": 2.1, "SOM": 2.0, "AFG": 1.9,
     "LBY": 1.9,
+}
+
+
+# ---------------------------------------------------------------------------
+# LPI éditions antérieures (V2.7) — Logistics Performance Index, Banque
+# mondiale, indicateur LP.LPI.OVRL.XQ de l'API open data. Les 23 pays de
+# la flotte non enquêtés en 2023 mais enquêtés à une édition précédente
+# récupèrent leur score le plus récent, avec l'édition portée à la fiche.
+# SOURCÉ : API Banque mondiale (api.worldbank.org), extrait le 14/11/2026.
+# Restent À SOURCER : Belize, Soudan du Sud, Suriname (jamais enquêtés,
+# aucune édition) : aucune valeur inventée.
+# ---------------------------------------------------------------------------
+LPI_EDITIONS_ANTERIEURES = {
+    "AZE": (2014, 2.45), "BDI": (2018, 2.06), "CIV": (2018, 3.08),
+    "ECU": (2018, 2.88), "ETH": (2016, 2.38), "JOR": (2018, 2.69),
+    "KEN": (2018, 2.81), "LBN": (2018, 2.72), "MAR": (2018, 2.54),
+    "MMR": (2018, 2.30), "MOZ": (2016, 2.68), "MWI": (2018, 2.59),
+    "NER": (2018, 2.07), "NPL": (2018, 2.51), "PAK": (2018, 2.42),
+    "SEN": (2018, 2.25), "SLE": (2018, 2.08), "TCD": (2018, 2.42),
+    "TKM": (2018, 2.41), "TUN": (2018, 2.57), "TZA": (2016, 2.99),
+    "UGA": (2018, 2.58), "ZMB": (2018, 2.53),
 }
 
 
@@ -404,6 +462,9 @@ def fiche_hub(hid):
             % (hid, ", ".join(jetons_sans_famille)))
     iso = PAYS_VERS_ISO.get(pays)
     lpi = LPI_2023.get(iso) if iso else None
+    lpi_edition = 2023 if lpi is not None else None
+    if lpi is None and iso in LPI_EDITIONS_ANTERIEURES:
+        lpi_edition, lpi = LPI_EDITIONS_ANTERIEURES[iso]
     rai = RAI_2023.get(iso) if iso else None
     # famille dominante : captabilité la plus élevée, égalité par ordre
     ordre = {f[0]: i for i, f in enumerate(FAMILLES_SITES)}
@@ -429,8 +490,11 @@ def fiche_hub(hid):
         "energie_site": energie,
         "fenetre_fraicheur": fd[4],
         "lpi_2023": lpi,
-        "lpi_statut": ("SOURCÉ (Banque mondiale, LPI 2023)" if lpi
-                       else "A_SOURCER (pays non enquêté en 2023)"),
+        "lpi_edition": lpi_edition,
+        "lpi_statut": ("SOURCÉ (Banque mondiale, LPI %d)" % lpi_edition
+                       if lpi is not None
+                       else "A_SOURCER (jamais enquêté, aucune édition du"
+                            " LPI)"),
         "rai_2023": rai,
         "rai_statut": ("SOURCÉ (SDSN SDG Transformation Center, indicateur "
                        "ODD 9.1.1, d'après Banque mondiale)" if rai is not None
@@ -457,6 +521,7 @@ def couches():
             "energie_site": f["energie_site"],
             "fenetre": f["fenetre_fraicheur"],
             "lpi": f["lpi_2023"],
+            "lpi_edition": f["lpi_edition"],
             "rai": f["rai_2023"],
             "cap_statut": f["captabilite_statut"].split(" (")[0],
         }
@@ -465,7 +530,7 @@ def couches():
 
 def sommaire():
     lignes = [
-        "World Twin v2.6 — sites de transformation post-récolte",
+        "World Twin v2.7 — sites de transformation post-récolte",
         "=====================================================",
         "",
         "Quatre attributs sur 219 hubs (217 généralisés + 2 pilotes),",
@@ -473,10 +538,11 @@ def sommaire():
         "",
         "1. TYPE_SITE — site de transformation dominant du cluster ;",
         "2. CAPTABILITE — fraction du gisement disponible au site",
-        "   (ILLUSTRATION, deepsearch post-récolte du 14/11/2026) ;",
+        "   (statut SOURCÉ ou ILLUSTRATION par famille) ;",
         "3. ENERGIE_SITE — AUTONOME (le site vend) contre IMPORTATEUR ;",
-        "4. LOGISTIQUE — LPI 2023 et RAI 2023 SOURCÉS (Banque mondiale,",
-        "   SDSN ; indicateur ODD 9.1.1 pour le RAI).",
+        "4. LOGISTIQUE — LPI (édition 2023 ou la plus récente disponible)",
+        "   et RAI 2023 SOURCÉS (Banque mondiale, SDSN ; indicateur",
+        "   ODD 9.1.1 pour le RAI).",
         "",
         "Familles de sites : %d" % len(FAMILLES_SITES),
     ]
@@ -545,6 +611,7 @@ def verifier():
     stats_lpi = {}
     stats_rai = {}
     stats_cap = {}
+    stats_lpi_editions = {}
     for hid, (pays, _j) in entrees.items():
         f = fiche_hub(hid)
         stats_lpi[f["lpi_statut"].split(" (")[0]] = \
@@ -553,20 +620,26 @@ def verifier():
             stats_rai.get(f["rai_statut"].split(" (")[0], 0) + 1
         stats_cap[f["captabilite_statut"].split(" (")[0]] = \
             stats_cap.get(f["captabilite_statut"].split(" (")[0], 0) + 1
+        if f["lpi_edition"] is not None:
+            stats_lpi_editions[f["lpi_edition"]] = \
+                stats_lpi_editions.get(f["lpi_edition"], 0) + 1
     lignes = [
-        "VERIFICATEUR SITES V2.6",
+        "VERIFICATEUR SITES V2.7",
         "hubs : %d (attendu 219)" % len(entrees),
         "jetons couverts : %d — familles actives : %s"
         % (len(jetons_vus), ", ".join(
             "%s=%d" % kv for kv in sorted(familles_hubs.items()))),
-        "LPI 2023 : %s" % ", ".join("%s=%d" % kv
-                                    for kv in sorted(stats_lpi.items())),
+        "LPI : %s (éditions enquêtées : %s)" % (
+            ", ".join("%s=%d" % kv for kv in sorted(stats_lpi.items())),
+            ", ".join("LPI %s=%d" % kv
+                      for kv in sorted(stats_lpi_editions.items()))),
         "RAI 2023 : %s" % ", ".join("%s=%d" % kv
                                     for kv in sorted(stats_rai.items())),
         "captabilités : %s" % ", ".join("%s=%d" % kv
                                        for kv in sorted(stats_cap.items())),
-        "flotte : module sans effet sur figeages et coordonnées (+1 trio",
-        "V2.6 gen-malaisie-1 : voir les verifiers dédiés),",
+        "flotte : module sans effet sur figeages et coordonnées (ratio marc",
+        "V2.7 absorbé : aucun palier de trio ne bouge, voir les verifiers",
+        "dédiés),",
         "VERDICT : %s (%d erreur(s))"
         % ("OK" if not erreurs else "ÉCHEC", len(erreurs)),
     ]
