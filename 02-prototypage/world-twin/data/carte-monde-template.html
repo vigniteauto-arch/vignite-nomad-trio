@@ -30,7 +30,7 @@ svg{width:100%;height:100%;display:block}
 #panel h2{font-size:15px;margin:0 0 2px;color:#fff}
 #panel h3{font-size:12px;margin:14px 0 4px;color:#34d399;text-transform:uppercase;letter-spacing:.06em}
 #panel .tag{display:inline-block;font-size:10px;padding:1px 7px;border-radius:4px;margin-right:4px;margin-bottom:2px;font-weight:600}
-.tag.ok{background:#14532d;color:#bbf7d0}.tag.off{background:#3f3f46;color:#d4d4d8}.tag.ill{background:#78350f;color:#fde68a}.tag.src{background:#164e63;color:#a5f3fc}.tag.pri{background:#4c1d95;color:#ddd6fe}
+.tag.ok{background:#14532d;color:#bbf7d0}.tag.off{background:#3f3f46;color:#d4d4d8}.tag.ill{background:#78350f;color:#fde68a}.tag.src{background:#164e63;color:#a5f3fc}.tag.pri{background:#4c1d95;color:#ddd6fe}.tag.reg{background:#134e4a;color:#99f6e4}
 table{border-collapse:collapse;width:100%;margin:4px 0}
 td,th{padding:3px 6px;border-bottom:1px solid #1f2a44;text-align:left;font-size:11.5px;vertical-align:top}
 th{color:#64748b;font-weight:600}
@@ -63,7 +63,7 @@ th{color:#64748b;font-weight:600}
 <body>
 <header>
 <h1>World Twin — la flotte mondiale de trios Nomad « as if in operation » <span class="badge">SYNTHÉTIQUE — SIMULATION</span><span class="badge pub">DONNÉES PUBLIQUES SOURCÉES</span><span class="badge __MODECLASS__">__MODE__</span></h1>
-<div class="sub">Carte du monde « remplie de trios Nomad en opération » — 7 hubs pilotes + 217 hubs généralisés (flotte V2.3), 2 hémisphères · cliquer un hub (marqueur N), un losange orange (hub généralisé CaO/P3) ou un pays coloré · météo réelle pointée __POINTAGE__ (réelle) — en local téléchargé : passage en direct Open-Meteo si le réseau est disponible · sources : FAOSTAT bulk 2024, NASA FIRMS 2021-2025, GEOGLAM, fiches pays, Open-Meteo, socle minéral CaO P2.9 (USGS MCS 2026, FAOSTAT bois 2024, OWID), sites industriels P3 (Global Energy Monitor GCCT/GIST/GBPT), sites de transformation post-récolte V2.7 (LPI Banque mondiale 2023 ou édition la plus récente, RAI 2023 SDSN, indicateur ODD 9.1.1) · aucune valeur calibrée du VDE (doctrine PI).</div>
+<div class="sub">Carte du monde « remplie de trios Nomad en opération » — 7 hubs pilotes + 217 hubs généralisés (flotte V2.3), 2 hémisphères · cliquer un hub (marqueur N), un losange orange (hub généralisé CaO/P3) ou un pays coloré · météo réelle pointée __POINTAGE__ (réelle) — en local téléchargé : passage en direct Open-Meteo si le réseau est disponible · sources : FAOSTAT bulk 2024, NASA FIRMS 2021-2025, GEOGLAM, fiches pays, Open-Meteo, socle minéral CaO P2.9 (USGS MCS 2026, FAOSTAT bois 2024, OWID), sites industriels P3 (Global Energy Monitor GCCT/GIST/GBPT), sites de transformation post-récolte V2.8 (LPI Banque mondiale 2023 ou édition la plus récente, moyenne régionale en proxy pour les pays jamais enquêtés, RAI 2023 SDSN, indicateur ODD 9.1.1) · aucune valeur calibrée du VDE (doctrine PI).</div>
 <div class="strip">
 <span><span class="k">Trios simulés :</span> <b>480</b> (V2.3 : 217 hubs généralisés + 7 bassins pilotes)</span>
 <span><span class="k">Opérateurs tournants :</span> <b>2 / trio</b> (hub régional 3-5 trios)</span>
@@ -231,13 +231,13 @@ function caop3Tables(id){
     (p.cout_eur_an!=null?"<tr><td>Coût achats (PRIVÉ · ILLUSTRATION)</td><td><span class='tag pri'>"+fmt(p.cout_eur_an)+" €/an"+(p.deficit_marche_t_an?" · déficit marché "+fmt(p.deficit_marche_t_an)+" t à 90 €/t":"")+"</span></td></tr>":"")+
     "</table>";}
   const s=D.sites&&D.sites[id];
-  if(s){out+="<h3>Site de transformation — V2.7</h3><table>"+
+  if(s){out+="<h3>Site de transformation — V2.8</h3><table>"+
     "<tr><td>Type de site dominant</td><td>"+esc(s.type_site)+"</td></tr>"+
     "<tr><td>Familles de co-produits</td><td>"+esc(s.familles)+"</td></tr>"+
     "<tr><td>Captabilité au site (gisement / champ)</td><td>"+s.captabilite+" <span class='tag "+(s.cap_statut==="SOURCÉ"?"src":"ill")+"'>"+(s.cap_statut||"ILLUSTRATION")+"</span></td></tr>"+
     "<tr><td>Énergie du site</td><td>"+esc(s.energie_site)+(s.energie_site==="AUTONOME"?" — le site VEND de l'énergie, cibler les co-produits en excès":" — le site ACHÈTE de l'énergie")+"</td></tr>"+
     "<tr><td>Fenêtre de fraîcheur récolte → usine</td><td>"+esc(s.fenetre)+"</td></tr>"+
-    "<tr><td>LPI "+(s.lpi_edition||"—")+" (Banque mondiale, logistique)</td><td>"+(s.lpi!=null?s.lpi+" / 5 <span class='tag src'>SOURCÉ</span>":(s.lpi_edition?"édition "+s.lpi_edition:"<span class='tag off'>À SOURCER — jamais enquêté, aucune édition</span>"))+"</td></tr>"+
+    "<tr><td>LPI "+(s.lpi_edition||"—")+" (Banque mondiale, logistique)</td><td>"+(s.lpi!=null?(s.lpi+" / 5 "+(s.lpi_proxy?"<span class='tag reg'>RÉGIONAL</span> — "+esc(s.lpi_detail).replace(/^RÉGIONAL \(/,"").replace(/\)$/,""):"<span class='tag src'>SOURCÉ</span>")):(s.lpi_edition?"édition "+s.lpi_edition:"<span class='tag off'>À SOURCER — jamais enquêté, aucune édition</span>"))+"</td></tr>"+
     "<tr><td>RAI 2023 (accès rural, ODD 9.1.1)</td><td>"+(s.rai!=null?s.rai+" % <span class='tag src'>SOURCÉ</span> — SDSN, d'après Banque mondiale":"<span class='tag off'>À SOURCER</span>")+"</td></tr></table>";}
   return out;
 }

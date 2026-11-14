@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""World Twin v2.7 — Sites de transformation post-récolte : gisements au site.
+"""World Twin v2.8 — Sites de transformation post-récolte : gisements au site.
 
 Quatre attributs posés sur les 219 hubs (217 généralisés + 2 pilotes) SANS
 toucher aux coordonnées ni aux figeages (aucun effet cascade, contrairement à
@@ -21,7 +21,11 @@ la vague V2.4) :
    pomme 25-30 % du fruit au pressoir, résidus d'agrumes 50-60 % du fruit à
    l'usine de jus, bagasse d'agave ~40 % du poids humide à la distillerie,
    résidus de sciage 46 % du volume de grume à la scierie, coques aux
-   hullers et décortiqueurs).
+   hullers et décortiqueurs). V2.8 : cinq familles de plus passent
+   SOURCÉ (retrait des pailles 19-45 % selon culture, collecte des
+   sarments 54-64 %, pelures de manioc ~22 % de la racine, rejets
+   et noyaux de dattes 10-15 % de la production en station,
+   coquilles 56 % des déchets de conserverie aux plants).
 3. ENERGIE_SITE — AUTONOME quand le site vend de l'énergie (moulin de
    palmier, rizerie de parboiling, sucrerie : chaudières biomasse +
    turbines, autofourniture documentée) contre IMPORTATEUR quand le site
@@ -37,7 +41,11 @@ la vague V2.4) :
    non enquêtés en 2023 mais enquêtés à une édition antérieure récupèrent
    leur score le plus récent (indicateur LP.LPI.OVRL.XQ, API open data
    Banque mondiale, édition portée à la fiche) ; seuls Belize, Soudan du
-   Sud et Suriname (jamais enquêtés) restent À SOURCER.
+   Sud et Suriname (jamais enquêtés à aucune édition) reçoivent en
+   V2.8 un proxy RÉGIONAL : moyenne simple des scores LPI 2023 des
+   pays enquêtés de leur région Banque mondiale (méthode « simple
+   averages » des agrégats du jeu Data360 WB_LPI), statut RÉGIONAL
+   distinct de SOURCÉ : plus aucun À SOURCER.
 
 Doctrine : tout est étiqueté SYNTHÉTIQUE, aucune valeur calibrée, aucune
 clé, aucun coût. Les captabilités portent leur statut SOURCÉ ou
@@ -74,6 +82,27 @@ Sources (toutes publiques, vérifiées le 14/11/2026) :
 - V2.7 — MDPI Foods 14(24):4246 (2025) et MDPI Fermentation 11(2):57
   (2025) : marc de raisin 15-30 % de la vendange (ratio sourcé dans
   gisements_hubs.py, retenu 0,20).
+- V2.8 — Resources, Conservation and Recycling (2025) : taux de
+  retrait raisonnable des pailles 45 % riz, 19 % blé, 42 % maïs
+  (méta-analyse Chine) ; potentiels pailles UE : 33-50 % selon
+  État membre (France 50 %, Hongrie 33 %).
+- V2.8 — Biomass and Bioenergy (octobre 2018) : prototypes de
+  collecte des sarments, pertes 36,2-46,2 % (54-64 % récupéré) ;
+  Biosystems Engineering 105(3) (2010) : récolte des sarments
+  pour l'énergie (Spinelli, Magagnotti, Nati).
+- V2.8 — ILRI, Turning Waste to Wealth (Springer, 2022) : pelage
+  manuel du manioc ≈ 22 % de la racine fraîche, aux centres de
+  transformation villageois.
+- V2.8 — MDPI Applied Sciences 13(22):12315 (2023) : rejets de
+  triage et noyaux de dattes = 10-15 % de la production, aux
+  stations de conditionnement.
+- V2.8 — Waste Management & Research (2022) : revue des co-produits
+  industriels de la moule (coquilles = 56 % des déchets de
+  conserverie, ~ 27 % du tonne vivante rejeté, Galice, d'après
+  Iribarren et al. 2010).
+- V2.8 — Banque mondiale, jeu Data360 WB_LPI : agrégats régionaux
+  en moyennes simples (méthode du proxy des 3 jamais enquêtés,
+  calcul du 14/11/2026 sur le jeu officiel LP.LPI.OVRL.XQ).
 
 Lancement :
 
@@ -96,19 +125,26 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 # dominante du hub est celle de captabilité la plus élevée (égalité : ordre).
 # ---------------------------------------------------------------------------
 FAMILLES_SITES = [
-    ("AU_CHAMP", "parcelle agricole (gisement diffus)", 0.10, "IMPORTATEUR",
+    ("AU_CHAMP", "parcelle agricole (gisement diffus)", 0.35, "IMPORTATEUR",
      "stockable",
-     ["PAILLE_", "TIGE_", "FEUILLE_ANANAS", "FANE_LUZERNE", "BANANE", 
-"BALLE_AVOINE", "RESIDUS_COLZA"],
-     "pailles, tiges et feuilles restent au champ : collecte à organiser," 
-     "jamais un site",
-     "ILLUSTRATION"),
-    ("SARMENTS", "AU_CHAMP (rang de vigne)", 0.10, "IMPORTATEUR",
+     ["PAILLE_", "TIGE_", "FEUILLE_ANANAS", "FANE_LUZERNE", "BANANE",
+      "BALLE_AVOINE", "RESIDUS_COLZA"],
+     "pailles, tiges et feuilles au champ : taux de retrait"
+     " soutenable 45 % riz, 19 % blé, 42 % maïs (méta-analyse"
+     " Resources, Conservation and Recycling 2025), 33-50 % selon"
+     " États membres UE (France 50 %, Hongrie 33 %) : fraction"
+     " collectable retenue 0,35 (SOURCES V2.8)",
+     "SOURCÉ"),
+    ("SARMENTS", "AU_CHAMP (rang de vigne)", 0.55, "IMPORTATEUR",
      "saison de taille",
-["SARMENT_VIGNE", "VINE_SHOOTS", "GRAPE_STALKS"],
-     "sarments broyés ou brûlés au rang, 2 t/ha/an figés en V2.4 (BIVB" 
-     "France, Velázquez-Martí Italie) : gisement diffus",
-     "ILLUSTRATION"),
+     ["SARMENT_VIGNE", "VINE_SHOOTS", "GRAPE_STALKS"],
+     "sarments au rang, 2 t/ha/an figés en V2.4 (BIVB France,"
+     " Velázquez-Martí Italie) ; collecte mécanisée : pertes"
+     " 36,2-46,2 % selon prototypes, donc 54-64 % récupérable"
+     " (Biomass and Bioenergy 2018 ; récolte éprouvée Spinelli,"
+     " Magagnotti, Nati, Biosystems Engineering 2010) : retenu"
+     " 0,55 (SOURCES V2.8)",
+     "SOURCÉ"),
     ("CACAO", "CENTRE_COLLECTE_COOP (écabossage)", 0.20, "IMPORTATEUR",
      "heures",
 ["CABOSSE_CACAO", "COQUE_CACAO"],
@@ -119,46 +155,69 @@ FAMILLES_SITES = [
     ("SARGASSES", "ECHECHAGE_COTE", 0.30, "IMPORTATEUR",
      "saisonnier",
 ["SARGASSE"],
-     "échouages atlantiques, ramassage côtier, gisement aléatoire",
+     "échouages atlantiques, ramassage côtier (Marine mexicaine :"
+     " 156 063 t collectées au Quintana Roo, saison 2026, record)"
+     " mais aucune part chiffrée du gisement échoué dans la"
+     " littérature : gisement aléatoire, valeur d'ingénieur",
      "ILLUSTRATION"),
     ("CAFE_PULPE", "STATION_LAVAGE", 0.40, "IMPORTATEUR",
      "heures",
 ["PULPE_CAFE"],
-     "pulpe au bénéficio humide : fragmentée à la ferme en Colombie" 
-     "(Becolsub/Ecomill, Cenicafé), stations centralisées en Éthiopie",
+     "pulpe au bénéficio humide : 44,6 % de la masse de cerise au"
+     " moulin humide (Rotta, UC Davis 2020), 29 % du café éthiopien"
+     " lavé en station (CABI 2020) ; part du café mexicain passant"
+     " au bénéficio humedo À SOURCER (tentative V2.8 infructueuse)",
      "ILLUSTRATION"),
     ("MAIS", "SILO_SECHOIR", 0.40, "IMPORTATEUR",
      "stockable",
 ["RESIDUS_MAIS", "RAFLE_MAIS"],
-     "rafles et résidus aux silos et séchoirs, gisement semi-diffus",
+     "rafles et résidus aux silos et séchoirs, gisement semi-diffus ;"
+     " collecte intégrée à la moisson chiffrée (pertes ~31 %, MDPI"
+     " Energies 13(5):1265 2020) mais part centralisée au silo non"
+     " chiffrée (tentative V2.8) : reste ILLUSTRATION",
      "ILLUSTRATION"),
     ("MANIOC", "RAPERIE_SECHERIE", 0.50, "IMPORTATEUR",
      "jours",
 ["MANIOC"],
-     "écorces au raspage et au séchage, semi-centralisé",
-     "ILLUSTRATION"),
+     "écorces au raspage et au séchage : pelage manuel ≈ 22 % de la"
+     " racine fraîche (ILRI, Turning Waste to Wealth, Springer"
+     " 2022), garri ≈ 70 % du manioc nigérian transformé hors"
+     " exploitation aux centres villageois : retenu 0,50"
+     " (SOURCES V2.8)",
+     "SOURCÉ"),
     ("NOYAUX_FRUITS", "STATION_CONDITIONNEMENT", 0.50, "IMPORTATEUR",
      "stockable",
 ["NOYAU_", "GRAINE_PAPAYE"],
-     "noyaux de fruits (abricot, pêche, cerise, avocat) aux stations de" 
-     "conditionnement",
+     "noyaux de fruits (abricot, pêche, cerise, avocat) aux stations de"
+     " conditionnement ; composition chiffrée (revues de"
+     " valorisation) mais part des fruits passant en station À"
+     " SOURCER (tentative V2.8 infructueuse)",
      "ILLUSTRATION"),
     ("COCO", "DECORTIQUEUR_COCO", 0.60, "IMPORTATEUR",
      "stockable",
 ["BOURRE_COCO", "COQUE_COCO", "FIBRE_COCO"],
-     "bourre et poussière au décorticage centralisé, coprah séché au" 
-     "village (Philippines, Indonésie, Inde)",
+     "bourre et poussière au décorticage, coprah séché au village"
+     " (Philippines, Indonésie, Inde) ; l'enquête Philippines"
+     " 1 200 fermes, 13 provinces (IJERD 2018) documente la"
+     " dispersion à la ferme, part centralisée À SOURCER"
+     " (tentative V2.8 infructueuse)",
      "ILLUSTRATION"),
     ("DATTIER", "STATION_CONDITIONNEMENT", 0.60, "IMPORTATEUR",
      "stockable",
 ["NOYAU_DATTE", "RACHIS_DATTIER", "DECHET_DATTIER"],
-     "noyaux et grappes aux stations de conditionnement des palmeraies" 
-     "(Ziz, Draa, Souf) — volumes À SOURCER",
-     "ILLUSTRATION"),
+     "noyaux et grappes aux stations de conditionnement des palmeraies"
+     " (Ziz, Draa, Souf) : rejets de triage et noyaux = 10-15 %"
+     " de la production à la station (revue MDPI Applied Sciences"
+     " 13(22):12315 2023 ; conditionnement tunisien centralisé,"
+     " capacité 59 kt) : retenu 0,60 (SOURCES V2.8)",
+     "SOURCÉ"),
     ("THE", "STATION_SECHAGE_THE", 0.60, "IMPORTATEUR",
      "heures",
 ["RESIDU_THE"],
-     "résidus de manufacture concentrés en station de séchage",
+     "résidus de manufacture (feuilles, tiges, poussière) concentrés"
+     " en station (revues Springer 2025, JECE 2025) mais fraction"
+     " de la production non chiffrée (tentative V2.8) : reste"
+     " ILLUSTRATION",
      "ILLUSTRATION"),
     ("AGAVE", "DISTILLERIE_AGAVE", 0.90, "IMPORTATEUR",
      "stockable",
@@ -170,9 +229,13 @@ FAMILLES_SITES = [
     ("PECHE_COQUILLES", "STATION_TRANSFORM_PECHE", 0.70, "IMPORTATEUR",
      "heures",
 ["COQUILLE_", "CARAPACE_CRABE"],
-     "coquilles (huître, moule, coquille Saint-Jacques) et carapaces aux" 
-     "criées et stations de conditionnement",
-     "ILLUSTRATION"),
+     "coquilles (huître, moule, coquille Saint-Jacques) et carapaces aux"
+     " criées et stations : coquilles = 56 % des déchets de"
+     " conserverie et ~ 27 % du tonne vivante rejeté en co-produits"
+     " aux plants industriels (revue Waste Management & Research"
+     " 2022, d'après Iribarren et al. 2010, Galice) : retenu 0,70"
+     " (SOURCES V2.8)",
+     "SOURCÉ"),
     ("AGRUMES", "USINE_JUS_AGRUMES", 0.90, "IMPORTATEUR",
      "heures",
 ["MARC_AGRUME", "ECORCE_ORANGE", "MARC_CITRON"],
@@ -183,8 +246,10 @@ FAMILLES_SITES = [
     ("CAFE", "BENEFICIO_SEC", 0.70, "IMPORTATEUR",
      "stockable",
 ["PARCHE_CAFE", "COQUE_CAFE", "MARC_CAFE"],
-     "coques au moulin central de décorticage (rebenefício), souvent" 
-     "brûlées dans les séchoirs — fraction réelle À SOURCER",
+     "coques au moulin central de décorticage (rebenefício), souvent"
+     " brûlées dans les séchoirs ; aucune part centralisée"
+     " chiffrée (tentative V2.8 infructueuse) : fraction réelle À"
+     " SOURCER",
      "ILLUSTRATION"),
     ("NOIX_COQUES", "HULLER_DECORTIQUEUR", 0.80, "IMPORTATEUR",
      "stockable",
@@ -305,7 +370,24 @@ LPI_EDITIONS_ANTERIEURES = {
     "NER": (2018, 2.07), "NPL": (2018, 2.51), "PAK": (2018, 2.42),
     "SEN": (2018, 2.25), "SLE": (2018, 2.08), "TCD": (2018, 2.42),
     "TKM": (2018, 2.41), "TUN": (2018, 2.57), "TZA": (2016, 2.99),
-    "UGA": (2018, 2.58), "ZMB": (2018, 2.53),
+"UGA": (2018, 2.58), "ZMB": (2018, 2.53),
+}
+
+# ---------------------------------------------------------------------------
+# LPI proxys régionaux (V2.8) — Belize, Soudan du Sud et Suriname n'ont
+# été enquêtés à AUCUNE édition (2007-2023, vérifié sur l'indicateur
+# LP.LPI.OVRL.XQ) : aucune valeur inventée, à la place un proxy
+# RÉGIONAL documenté = moyenne SIMPLE des scores LPI 2023 des pays
+# enquêtés de leur région au sens Banque mondiale (méthode « simple
+# averages » des agrégats du jeu Data360 WB_LPI). Calcul du 14/11/2026
+# sur le jeu officiel : Amérique latine et Caraïbes 2,69 (24 pays
+# enquêtés), Afrique subsaharienne 2,54 (26 pays enquêtés). Statut
+# RÉGIONAL, jamais SOURCÉ : l'honnêteté doctrinale tient au mot.
+# ---------------------------------------------------------------------------
+LPI_MOYENNES_REGIONALES = {
+    "BLZ": (2.69, 24, "Amérique latine et Caraïbes"),
+    "SSD": (2.54, 26, "Afrique subsaharienne"),
+    "SUR": (2.69, 24, "Amérique latine et Caraïbes"),
 }
 
 
@@ -465,6 +547,12 @@ def fiche_hub(hid):
     lpi_edition = 2023 if lpi is not None else None
     if lpi is None and iso in LPI_EDITIONS_ANTERIEURES:
         lpi_edition, lpi = LPI_EDITIONS_ANTERIEURES[iso]
+    lpi_proxy = False
+    nb_enquetes, region_lpi = None, None
+    if lpi is None and iso in LPI_MOYENNES_REGIONALES:
+        lpi, nb_enquetes, region_lpi = LPI_MOYENNES_REGIONALES[iso]
+        lpi_edition = 2023
+        lpi_proxy = True
     rai = RAI_2023.get(iso) if iso else None
     # famille dominante : captabilité la plus élevée, égalité par ordre
     ordre = {f[0]: i for i, f in enumerate(FAMILLES_SITES)}
@@ -491,10 +579,16 @@ def fiche_hub(hid):
         "fenetre_fraicheur": fd[4],
         "lpi_2023": lpi,
         "lpi_edition": lpi_edition,
-        "lpi_statut": ("SOURCÉ (Banque mondiale, LPI %d)" % lpi_edition
-                       if lpi is not None
-                       else "A_SOURCER (jamais enquêté, aucune édition du"
-                            " LPI)"),
+        "lpi_statut": ("RÉGIONAL (proxy : moyenne simple des %d pays"
+                       " enquêtés de la région %s, jamais enquêté)"
+                       % (nb_enquetes, region_lpi)
+                       if lpi_proxy
+                       else ("SOURCÉ (Banque mondiale, LPI %d)"
+                             % lpi_edition
+                             if lpi is not None
+                             else "A_SOURCER (jamais enquêté,"
+                                  " aucune édition du LPI)")),
+        "lpi_proxy": lpi_proxy,
         "rai_2023": rai,
         "rai_statut": ("SOURCÉ (SDSN SDG Transformation Center, indicateur "
                        "ODD 9.1.1, d'après Banque mondiale)" if rai is not None
@@ -522,15 +616,20 @@ def couches():
             "fenetre": f["fenetre_fraicheur"],
             "lpi": f["lpi_2023"],
             "lpi_edition": f["lpi_edition"],
+            "lpi_proxy": f["lpi_proxy"],
             "rai": f["rai_2023"],
             "cap_statut": f["captabilite_statut"].split(" (")[0],
         }
+        # V2.8 : les 3 hubs jamais enquêtés portent le détail du proxy
+        # régional (moyenne simple des pays enquêtés de la région).
+        if f["lpi_proxy"]:
+            resultat[hid]["lpi_detail"] = f["lpi_statut"]
     return resultat
 
 
 def sommaire():
     lignes = [
-        "World Twin v2.7 — sites de transformation post-récolte",
+        "World Twin v2.8 — sites de transformation post-récolte",
         "=====================================================",
         "",
         "Quatre attributs sur 219 hubs (217 généralisés + 2 pilotes),",
@@ -540,7 +639,8 @@ def sommaire():
         "2. CAPTABILITE — fraction du gisement disponible au site",
         "   (statut SOURCÉ ou ILLUSTRATION par famille) ;",
         "3. ENERGIE_SITE — AUTONOME (le site vend) contre IMPORTATEUR ;",
-        "4. LOGISTIQUE — LPI (édition 2023 ou la plus récente disponible)",
+        "4. LOGISTIQUE — LPI (édition 2023 ou la plus récente",
+        "   disponible, proxy régional pour les 3 jamais enquêtés)",
         "   et RAI 2023 SOURCÉS (Banque mondiale, SDSN ; indicateur",
         "   ODD 9.1.1 pour le RAI).",
         "",
@@ -556,8 +656,12 @@ def sommaire():
                   % (len(entrees), len({p for p, _ in entrees.values()})))
     avec_lpi = sum(1 for hid in entrees
                    if fiche_hub(hid)["lpi_2023"] is not None)
-    lignes.append("LPI 2023 disponible : %d hubs SOURCÉ, %d À SOURCER "
-                  "(pays non enquêtés)" % (avec_lpi, len(entrees) - avec_lpi))
+    avec_proxy = sum(1 for hid in entrees
+                     if fiche_hub(hid)["lpi_proxy"])
+    lignes.append("LPI disponible : %d hubs SOURCÉ, %d RÉGIONAL"
+                  " (proxy), %d À SOURCER"
+                  % (avec_lpi - avec_proxy, avec_proxy,
+                     len(entrees) - avec_lpi))
     avec_rai = sum(1 for hid in entrees
                    if fiche_hub(hid)["rai_2023"] is not None)
     lignes.append("RAI 2023 disponible : %d hubs SOURCÉ, %d À SOURCER "
@@ -624,7 +728,7 @@ def verifier():
             stats_lpi_editions[f["lpi_edition"]] = \
                 stats_lpi_editions.get(f["lpi_edition"], 0) + 1
     lignes = [
-        "VERIFICATEUR SITES V2.7",
+        "VERIFICATEUR SITES V2.8",
         "hubs : %d (attendu 219)" % len(entrees),
         "jetons couverts : %d — familles actives : %s"
         % (len(jetons_vus), ", ".join(
@@ -637,9 +741,9 @@ def verifier():
                                     for kv in sorted(stats_rai.items())),
         "captabilités : %s" % ", ".join("%s=%d" % kv
                                        for kv in sorted(stats_cap.items())),
-        "flotte : module sans effet sur figeages et coordonnées (ratio marc",
-        "V2.7 absorbé : aucun palier de trio ne bouge, voir les verifiers",
-        "dédiés),",
+        "flotte : module sans effet sur figeages et coordonnées (proxys",
+        "régionaux LPI V2.8 et captabilités V2.8 : aucun gisement ne",
+        "bouge, voir les verifiers dédiés)",
         "VERDICT : %s (%d erreur(s))"
         % ("OK" if not erreurs else "ÉCHEC", len(erreurs)),
     ]
