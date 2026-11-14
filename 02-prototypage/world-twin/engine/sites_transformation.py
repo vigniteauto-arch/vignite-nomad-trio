@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""World Twin v2.8 — Sites de transformation post-récolte : gisements au site.
+"""World Twin v2.10 — Sites de transformation post-récolte : gisements au site.
 
 Quatre attributs posés sur les 219 hubs (217 généralisés + 2 pilotes) SANS
 toucher aux coordonnées ni aux figeages (aucun effet cascade, contrairement à
@@ -25,7 +25,12 @@ la vague V2.4) :
    SOURCÉ (retrait des pailles 19-45 % selon culture, collecte des
    sarments 54-64 %, pelures de manioc ~22 % de la racine, rejets
    et noyaux de dattes 10-15 % de la production en station,
-   coquilles 56 % des déchets de conserverie aux plants).
+   coquilles 56 % des déchets de conserverie aux plants). V2.10 : deux
+   familles de plus passent SOURCÉ (coques de café au dry mill, étape
+   universelle de hullage, retenu 0,85 ; résidus de thé à la fabrique de
+   thé, transformation obligatoire en usine, retenu 0,85) ; cinq familles
+   restent ILLUSTRATION après tentative V2.10 documentée (sargasses,
+   pulpe de café, maïs, coco, noyaux de fruits).
 3. ENERGIE_SITE — AUTONOME quand le site vend de l'énergie (moulin de
    palmier, rizerie de parboiling, sucrerie : chaudières biomasse +
    turbines, autofourniture documentée) contre IMPORTATEUR quand le site
@@ -156,17 +161,21 @@ FAMILLES_SITES = [
      "saisonnier",
 ["SARGASSE"],
      "échouages atlantiques, ramassage côtier (Marine mexicaine :"
-     " 156 063 t collectées au Quintana Roo, saison 2026, record)"
-     " mais aucune part chiffrée du gisement échoué dans la"
-     " littérature : gisement aléatoire, valeur d'ingénieur",
+     " 156 063 t collectées au Quintana Roo, saison 2026 ; record"
+     " 2025 ≈ 91 000 t) mais aucune part chiffrée du gisement"
+     " échoué et barrières laissant passer la majeure partie"
+     " (TU Delft) : tentative V2.10 infructueuse, gisement"
+     " aléatoire, valeur d'ingénieur",
      "ILLUSTRATION"),
     ("CAFE_PULPE", "STATION_LAVAGE", 0.40, "IMPORTATEUR",
      "heures",
 ["PULPE_CAFE"],
      "pulpe au bénéficio humide : 44,6 % de la masse de cerise au"
      " moulin humide (Rotta, UC Davis 2020), 29 % du café éthiopien"
-     " lavé en station (CABI 2020) ; part du café mexicain passant"
-     " au bénéficio humedo À SOURCER (tentative V2.8 infructueuse)",
+     " lavé en station (CABI 2020), Colombie 100 % lavé (doctrine"
+     " FNC/Cenicafé) ; part du café mexicain passant au bénéficio"
+     " humedo À SOURCER (tentatives V2.8 et V2.10 infructueuses,"
+     " Agrociencia 2024 Chiapas sans pourcentage)",
      "ILLUSTRATION"),
     ("MAIS", "SILO_SECHOIR", 0.40, "IMPORTATEUR",
      "stockable",
@@ -174,7 +183,9 @@ FAMILLES_SITES = [
      "rafles et résidus aux silos et séchoirs, gisement semi-diffus ;"
      " collecte intégrée à la moisson chiffrée (pertes ~31 %, MDPI"
      " Energies 13(5):1265 2020) mais part centralisée au silo non"
-     " chiffrée (tentative V2.8) : reste ILLUSTRATION",
+     " chiffrée (tentatives V2.8 et V2.10 : récolte en single-pass"
+     " documentée mais dépôts ponctuels non généralisés) : reste"
+     " ILLUSTRATION",
      "ILLUSTRATION"),
     ("MANIOC", "RAPERIE_SECHERIE", 0.50, "IMPORTATEUR",
      "jours",
@@ -191,7 +202,9 @@ FAMILLES_SITES = [
      "noyaux de fruits (abricot, pêche, cerise, avocat) aux stations de"
      " conditionnement ; composition chiffrée (revues de"
      " valorisation) mais part des fruits passant en station À"
-     " SOURCER (tentative V2.8 infructueuse)",
+     " SOURCER (tentatives V2.8 et V2.10 infructueuses : dénoyautage"
+     " documenté aux conserveries de jus mais part transformée non"
+     " chiffrée)",
      "ILLUSTRATION"),
     ("COCO", "DECORTIQUEUR_COCO", 0.60, "IMPORTATEUR",
      "stockable",
@@ -200,7 +213,9 @@ FAMILLES_SITES = [
      " (Philippines, Indonésie, Inde) ; l'enquête Philippines"
      " 1 200 fermes, 13 provinces (IJERD 2018) documente la"
      " dispersion à la ferme, part centralisée À SOURCER"
-     " (tentative V2.8 infructueuse)",
+     " (tentatives V2.8 et V2.10 infructueuses : bourre et coques"
+     " générées à l'usine de desiccated coconut mais part des"
+     " noix décollée à la ferme non chiffrée)",
      "ILLUSTRATION"),
     ("DATTIER", "STATION_CONDITIONNEMENT", 0.60, "IMPORTATEUR",
      "stockable",
@@ -211,14 +226,17 @@ FAMILLES_SITES = [
      " 13(22):12315 2023 ; conditionnement tunisien centralisé,"
      " capacité 59 kt) : retenu 0,60 (SOURCES V2.8)",
      "SOURCÉ"),
-    ("THE", "STATION_SECHAGE_THE", 0.60, "IMPORTATEUR",
+    ("THE", "STATION_SECHAGE_THE", 0.85, "IMPORTATEUR",
      "heures",
 ["RESIDU_THE"],
-     "résidus de manufacture (feuilles, tiges, poussière) concentrés"
-     " en station (revues Springer 2025, JECE 2025) mais fraction"
-     " de la production non chiffrée (tentative V2.8) : reste"
-     " ILLUSTRATION",
-     "ILLUSTRATION"),
+     "fabrique de thé : transformation obligatoire en usine, toutes"
+     " les feuilles vertes passent par la manufacture, rafles et"
+     " fibres et feuilles hors grade rejetées à la fabrique (IJRED"
+     " 2026, caractérisation thermochimique des rafles et feuilles"
+     " hors grade ; JECE 2025, déchets échantillonnés dans deux"
+     " fabriques ; thé noir = 75 % de la consommation mondiale)"
+     " : retenu 0,85 (SOURCES V2.10)",
+     "SOURCÉ"),
     ("AGAVE", "DISTILLERIE_AGAVE", 0.90, "IMPORTATEUR",
      "stockable",
 ["RESIDU_AGAVE"],
@@ -243,14 +261,16 @@ FAMILLES_SITES = [
      " l'usine de jus concentré (São Paulo, Floride, Veracruz) (MDPI"
      " Sustainability 15(21):15225 2023)",
      "SOURCÉ"),
-    ("CAFE", "BENEFICIO_SEC", 0.70, "IMPORTATEUR",
+    ("CAFE", "BENEFICIO_SEC", 0.85, "IMPORTATEUR",
      "stockable",
 ["PARCHE_CAFE", "COQUE_CAFE", "MARC_CAFE"],
-     "coques au moulin central de décorticage (rebenefício), souvent"
-     " brûlées dans les séchoirs ; aucune part centralisée"
-     " chiffrée (tentative V2.8 infructueuse) : fraction réelle À"
-     " SOURCER",
-     "ILLUSTRATION"),
+     "hullage universel au dry mill : tout café lavé, naturel ou"
+     " honey passe au décorticage du café vert, coques et pellicule"
+     " argentée naissent au moulin (Coffeester ; Café Supply"
+     " Chain, procédure de mouture du parché lavé ; Nordic"
+     " Approach, dry mill) : étape unique et universelle du"
+     " café vert, retenu 0,85 (SOURCES V2.10)",
+     "SOURCÉ"),
     ("NOIX_COQUES", "HULLER_DECORTIQUEUR", 0.80, "IMPORTATEUR",
      "stockable",
      ["COQUE_AMANDE", "COQUE_MACADAMIA", "COQUE_NOIX", "COQUE_NOISETTE", 
@@ -728,7 +748,7 @@ def verifier():
             stats_lpi_editions[f["lpi_edition"]] = \
                 stats_lpi_editions.get(f["lpi_edition"], 0) + 1
     lignes = [
-        "VERIFICATEUR SITES V2.8",
+        "VERIFICATEUR SITES V2.10",
         "hubs : %d (attendu 219)" % len(entrees),
         "jetons couverts : %d — familles actives : %s"
         % (len(jetons_vus), ", ".join(
@@ -742,7 +762,7 @@ def verifier():
         "captabilités : %s" % ", ".join("%s=%d" % kv
                                        for kv in sorted(stats_cap.items())),
         "flotte : module sans effet sur figeages et coordonnées (proxys",
-        "régionaux LPI V2.8 et captabilités V2.8 : aucun gisement ne",
+        "régionaux LPI V2.8 et captabilités V2.10 : aucun gisement ne",
         "bouge, voir les verifiers dédiés)",
         "VERDICT : %s (%d erreur(s))"
         % ("OK" if not erreurs else "ÉCHEC", len(erreurs)),

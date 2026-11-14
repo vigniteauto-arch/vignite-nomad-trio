@@ -1,6 +1,6 @@
-# Sites de transformation post-récolte — couche V2.8 des hubs World Twin (14/11/2026)
+# Sites de transformation post-récolte — couche V2.10 des hubs World Twin (14/11/2026)
 
-Vagues V2.5 à V2.8 : quatre attributs posés sur les 219 hubs (217
+Vagues V2.5 à V2.10 : quatre attributs posés sur les 219 hubs (217
 généralisés + fr-rhone + ma-atlas). La couche ne touche ni aux coordonnées
 ni aux figeages : aucun effet cascade, contrairement à la vague V2.4.
 Répond à la question d'approvisionnement centrale : où sont les gisements
@@ -16,6 +16,15 @@ pays jamais enquêtés par le LPI (Belize, Soudan du Sud, Suriname)
 reçoivent un proxy régional explicite, étiqueté RÉGIONAL et distinct de
 SOURCÉ : le À SOURCER tombe à zéro sans qu'aucune valeur soit inventée.
 
+La vague V2.10 « captabilités des familles ILLUSTRATION » attaque la dette
+restante : deux familles passent SOURCÉ (CAFE 0,85 — le hullage du café vert
+au dry mill est une étape universelle, tout café lavé, naturel ou honey passe
+au décorticage ; THE 0,85 — la fabrique de thé est une transformation
+obligatoire en usine, toutes les feuilles vertes y passent), soit 19 familles
+SOURCÉ sur 24 et 164 hubs SOURCÉ. Les cinq familles restantes (SARGASSES,
+CAFE_PULPE, MAIS, COCO, NOYAUX_FRUITS) restent ILLUSTRATION : tentatives
+V2.8 et V2.10 documentées et infructueuses, aucune valeur inventée.
+
 ## Les quatre attributs par hub
 
 1. TYPE_SITE — le type de site de transformation dominant du cluster
@@ -29,9 +38,11 @@ SOURCÉ : le À SOURCER tombe à zéro sans qu'aucune valeur soit inventée.
    VIGNE_MARC, OLIVE, RIZ, CANNE, PALMIER), V2.7 : six de plus (BIERE,
    POMME, AGRUMES, AGAVE, FORET_SCIERIE, NOIX_COQUES), V2.8 : cinq de
    plus (AU_CHAMP 0,35, SARMENTS 0,55, MANIOC 0,50, DATTIER 0,60,
-   PECHE_COQUILLES 0,70), soit 17 familles SOURCÉ sur 24. Un hub n'est
-   SOURCÉ que si toutes ses familles le sont (verifier : 156 hubs SOURCÉ,
-   63 ILLUSTRATION, contre 45/174 en V2.7). La captabilité est un attribut
+   PECHE_COQUILLES 0,70) ; V2.10 : deux de plus (CAFE 0,85, coques au
+   dry mill, hullage universel ; THE 0,85, fabrique de thé, transformation
+   obligatoire en usine), soit 19 familles SOURCÉ sur 24. Un hub n'est
+   SOURCÉ que si toutes ses familles le sont (verifier : 164 hubs SOURCÉ,
+   55 ILLUSTRATION, contre 156/63 en V2.8). La captabilité est un attribut
    de la couche sites : aucun gisement, aucun figeage ne bouge.
 3. ENERGIE_SITE — AUTONOME quand le site vend de l'énergie (moulin de
    palmier, rizerie de parboiling, sucrerie : chaudières biomasse +
@@ -177,28 +188,60 @@ Familles SOURCÉ, V2.8 (sourcing du 14/11/2026, suite des À SOURCER) :
   Management & Research 2022, d'après Iribarren et al. 2010, Galice) ;
   la valeur 0,70 devient SOURCÉ.
 
-Familles ILLUSTRATION (7 restantes, tentatives V2.8 documentées et
-infructueuses, à figer par sourcing dédié) :
+Familles SOURCÉ, V2.10 (sourcing du 14/11/2026, captabilités des sept
+familles restées ILLUSTRATION, deux réussites) :
+
+- CAFE (0,70 → 0,85, bénéficio sec — le hullage du café vert au dry mill
+  est UNE ÉTAPE UNIVERSELLE : tout café lavé, naturel ou honey passe au
+  décorticage, les coques et la pellicule argentée naissent au moulin
+  (Coffeester, « Milling, Sorting & Grading Green Coffee » ; Café Supply
+  Chain, procédure de mouture du parché lavé ; Nordic Approach, « What Is
+  a Coffee Dry Mill »). La fraction centralisée est chiffrée par
+  l'universalité de l'étape : la valeur passe SOURCÉ).
+- THE (0,60 → 0,85, fabrique de thé — la transformation est OBLIGATOIRE
+  en usine : toutes les feuilles vertes passent par la manufacture, les
+  rafles, fibres et feuilles hors grade y sont rejetées (IJRED,
+  International Journal of Renewable Energy Development, 15(5) 2026,
+  Muñoz-Salazar, Cruz-Ospina, Duque-Dussan : caractérisation
+  thermochimique des rafles et feuilles hors grade ; JECE, Journal of
+  Environmental Chemical Engineering, 2025, Szufa, Ozdemir, Angelidaki :
+  déchets de transformation échantillonnés dans deux fabriques ; le thé
+  noir représente 75 pour cent de la consommation mondiale). La valeur
+  passe SOURCÉ).
+
+Familles ILLUSTRATION (5 restantes, tentatives V2.8 et V2.10 documentées
+et infructueuses, à figer par sourcing dédié) :
 
 - SARGASSES (0,30, échouage côtier — 156 063 t collectées au Quintana
-  Roo par la Marine mexicaine, saison 2026, record documenté, mais
-  aucune part chiffrée du gisement échoué : gisement aléatoire, valeur
-  d'ingénieur).
+  Roo par la Marine mexicaine, saison 2026, record 2025 ≈ 91 000 t ;
+  tentative V2.10 infructueuse : les barrières laissent passer la majeure
+  partie du gisement (TU Delft) et aucune part chiffrée de l'échouage
+  n'existe : gisement aléatoire, valeur d'ingénieur).
 - CAFE_PULPE (0,40, station de lavage — pulpe 44,6 pour cent de la
   masse de cerise au moulin humide (Rotta, UC Davis 2020), 29 pour cent
   du café éthiopien lavé en station (CABI 2020) ; part du café mexicain
-  passant au bénéficio humide À SOURCER, tentative V2.8 infructueuse ;
-  hub porteur : gen-mexique-1).
+  passant au bénéficio humide À SOURCER, tentatives V2.8 et V2.10
+  infructueuses (Agrociencia 2024, Chiapas : comparaison des méthodes
+  lavé, natural et honey sans pourcentage ; ancre Colombie : 100 pour
+  cent du café colombien est lavé, doctrine FNC/Cenicafé, mais
+  insuffisant au niveau famille) ; hub porteur : gen-mexique-1).
 - MAIS (0,40, silo séchoir — collecte intégrée à la moisson chiffrée
   (pertes ≈ 31 pour cent, MDPI Energies 13(5):1265 2020) mais part
-  centralisée au silo non chiffrée, tentative V2.8 infructueuse).
+  centralisée au silo non chiffrée, tentatives V2.8 et V2.10
+  infructueuses (récolte en single-pass documentée, BioEnergy Research
+  2024, mais dépôts DuPont et POET ponctuels, non généralisés).
 - NOYAUX_FRUITS (0,50, station de conditionnement — composition chiffrée
   par les revues de valorisation, mais part des fruits passant en
-  station À SOURCER, tentative V2.8 infructueuse).
+  station À SOURCER, tentatives V2.8 et V2.10 infructueuses :
+  dénoyautage documenté aux conserveries de jus (Tridge, revues Prunus
+  de valorisation 2026) mais part des fruits transformée
+  industriellement non chiffrée).
 - COCO (0,60, décortiqueur — l'enquête Philippines 1 200 fermes,
   13 provinces (IJERD, International Journal of Environment and Rural
   Development, 2018) documente la dispersion à la ferme, part
-  centralisée À SOURCER, tentative V2.8 infructueuse).
+  centralisée À SOURCER, tentatives V2.8 et V2.10 infructueuses :
+  bourre et coques générées à l'usine de desiccated coconut (OilCocos,
+  Cocotech) mais part des noix décollée à la ferme non chiffrée).
 - THE (0,60, station de séchage — résidus de manufacture concentrés en
   station (revues Springer 2025, JECE 2025) mais fraction de la
   production non chiffrée, tentative V2.8 infructueuse).
@@ -279,6 +322,20 @@ valeurs historiques à 0,15 : le moteur V2.7 fait autorité.
 - V2.8 — Waste Management & Research (2022), d'après Iribarren et al.
   2010 (Galice) : coquilles 56 pour cent des déchets de conserverie,
   ≈ 27 pour cent de la tonne vivante aux plants industriels.
+- V2.10 — Coffeester « Milling, Sorting & Grading Green Coffee », Café
+  Supply Chain « Wet-Processed Parchment Coffee Beans Milling SOP » et
+  Nordic Approach « What Is a Coffee Dry Mill » : hullage universel du
+  café vert au dry mill, coques et pellicule argentée nées au moulin
+  (trois sources croisées).
+- V2.10 — IJRED (International Journal of Renewable Energy Development)
+  15(5) 2026, Muñoz-Salazar, Cruz-Ospina, Duque-Dussan :
+  caractérisation thermochimique des rafles et feuilles hors grade de
+  thé ; JECE (Journal of Environmental Chemical Engineering) 2025,
+  Szufa, Ozdemir, Angelidaki : valorisation des déchets de deux
+  fabriques de thé noir (75 pour cent de la consommation mondiale).
+- V2.10 — TU Delft (repository, étude des barrières d'interception des
+  sargasses) : la majeure partie du gisement échoué passe les barrières,
+  tentative SARGASSES infructueuse.
 - Détail des 47 sources croisées de la V2.5 : canvas
   world-twin-transformation-post-recolte (deepsearch du 14/11/2026).
 
@@ -296,22 +353,27 @@ valeurs historiques à 0,15 : le moteur V2.7 fait autorité.
   Caraïbes ; Soudan du Sud 2,54, Afrique subsaharienne), 0 À SOURCER.
 - RAI 2023 : 219 hubs SOURCÉ, 0 À SOURCER (les 140 pays de la flotte sont
   tous présents dans le jeu SDSN, millésime 2023).
-- Captabilités : 156 hubs SOURCÉ (toutes les familles du hub chiffrées,
-  soit 17 familles SOURCÉ combinées), 63 ILLUSTRATION.
+- Captabilités : 164 hubs SOURCÉ (toutes les familles du hub chiffrées,
+  soit 19 familles SOURCÉ combinées ; V2.10 : huit hubs basculent, tous
+  porteurs de CAFE ou THE), 55 ILLUSTRATION.
 - Flotte : le module ne touche ni figeages ni coordonnées ; la captabilité
   est un attribut de couche. Figeage reprise octet par octet IDENTIQUE
   (md5 d30c8ba6e939b27cb27f451b21bca57a), somme mondiale inchangée
   3 103 Mt/an, voir les verifiers dédiés.
 - Sondages exacts : gen-cote-d-ivoire-2 = MOULIN_PALME, cap 0,55 SOURCÉ,
   AUTONOME (CACAO + PALMIER, LPI 3,08 édition 2018, RAI 90 pour cent) ;
-  fr-rhone = CHAI, cap 0,47 ILLUSTRATION, LPI 3,9 édition 2023, RAI 98
+  fr-rhone = CHAI, cap 0,61 ILLUSTRATION, LPI 3,9 édition 2023, RAI 98
   pour cent (France) ; ma-atlas = MOULIN_OLIVE, cap 0,85 SOURCÉ,
   IMPORTATEUR, LPI 2,54 édition 2018, RAI 99 pour cent (Maroc) ;
   gen-belize-1 = RIZERIE, cap 0,90 SOURCÉ (RIZ + CANNE), LPI 2,69
   RÉGIONAL (proxy Amérique latine et Caraïbes, 24 pays), jamais enquêté ;
   gen-soudan-du-sud-1 = parcelle agricole, cap 0,35 SOURCÉ (AU_CHAMP),
   LPI 2,54 RÉGIONAL (proxy Afrique subsaharienne, 26 pays) ;
-  gen-espagne-2 = CHAI, cap 0,88, LPI 3,9, RAI 100 pour cent.
+  gen-espagne-2 = CHAI, cap 0,88, LPI 3,9, RAI 100 pour cent ;
+  gen-turquie-4 = STATION_SECHAGE_THE, cap 0,60 → 0,85 SOURCÉ en V2.10
+  (THE seul, monopole d'État Çaykur au ciblage LOI), LPI 3,4 édition
+  2023, RAI 98 pour cent ; gen-sri-lanka-1 = RIZERIE, cap 0,75 → 0,88
+  SOURCÉ en V2.10 (THE + RIZ), LPI 2,8 édition 2023, RAI 100 pour cent.
 
 ## Intégration aux cartes interactives
 
@@ -319,14 +381,14 @@ valeurs historiques à 0,15 : le moteur V2.7 fait autorité.
   (219 couches sites, une par hub) ; le verifier du générateur exige
   nb sites = nb P3 et des fiches non vides pour fr-rhone, ma-atlas,
   gen-cote-d-ivoire-2 ; l'anti-fuite du mode public s'étend à la couche.
-- data/carte-monde-template.html : table « Site de transformation — V2.8 »
+- data/carte-monde-template.html : table « Site de transformation — V2.10 »
   dans la fiche hub (type de site, familles, captabilité avec statut
   SOURCÉ ou ILLUSTRATION, énergie avec lecture stratégique AUTONOME = le
   site vend / IMPORTATEUR = le site achète, fenêtre de fraîcheur, LPI
   avec édition portée à la fiche et étiquette RÉGIONAL dédiée pour les
   proxys — le détail « moyenne simple des N pays enquêtés de la région,
   jamais enquêté » suit le score, RAI 2023 SOURCÉ en pour cent) ; légende :
-  « sites de transformation post-récolte V2.8 (LPI Banque mondiale 2023
+  « sites de transformation post-récolte V2.10 (LPI Banque mondiale 2023
   ou édition la plus récente, moyenne régionale en proxy pour les pays
   jamais enquêtés, RAI 2023 SDSN, indicateur ODD 9.1.1) ».
 - Les deux modes (public et privé) portent la couche ; la carte publique
