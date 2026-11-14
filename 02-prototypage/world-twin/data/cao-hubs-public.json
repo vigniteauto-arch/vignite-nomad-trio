@@ -641,14 +641,14 @@
    "trios": 1
   },
   "gen-equateur-1": {
-   "besoin_t_an": 1746.0,
+   "besoin_t_an": 2328.0,
    "capacite_t_an": 32750.0,
    "etiquette_simulation": "SYNTHÉTIQUE",
    "hub_pilote": false,
    "pays": "Équateur",
-   "ratio": 18.76,
+   "ratio": 14.07,
    "statut": "AUTONOME",
-   "trios": 3
+   "trios": 4
   },
   "gen-espagne-1": {
    "besoin_t_an": 582.0,
@@ -2198,12 +2198,12 @@
   "note": "Réactifs minéraux par hub — chaîne documentaire publique (USGS MCS 2026, FAOSTAT bois 2024, OWID population 2023). Capacités et besoins par hub, sans AUCUNE donnée économique privée. Versionné."
  },
  "totaux_hubs_generalises": {
-  "besoin_t_an": 279360.0,
+  "besoin_t_an": 279942.0,
   "capacite_mt_co2_an": 34.73,
   "hubs": 217,
   "statuts": {
    "AUTONOME": 217
   },
-  "trios": 480
+  "trios": 481
  }
 }

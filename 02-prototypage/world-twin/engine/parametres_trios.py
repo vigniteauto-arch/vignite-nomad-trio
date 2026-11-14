@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Couche P1 — figeage des paramètres opérationnels par trio (V2.3.1).
 
-Fige, pour chaque trio de la flotte World Twin — les 480 trios des 217
+Fige, pour chaque trio de la flotte World Twin — les 481 trios des 217
 hubs généralisés (engine/flotte_monde.py) et les 9 trios des 7 hubs
 pilotes P2 (engine/monde.py, dont ma-atlas qui porte 3 trios,
 convention data/carte-monde.json, raccord V2.3.1) — les paramètres
@@ -252,8 +252,8 @@ def verifier():
     charge = _charge()
     trios = charge["trios"]
     t = charge["totaux"]
-    controle(len(trios) == 489, "489 trios (480 généralisés + 9 pilotes)")
-    controle(t["trios_generalises"] == 480, "480 trios généralisés")
+    controle(len(trios) == 490, "490 trios (481 généralisés + 9 pilotes)")
+    controle(t["trios_generalises"] == 481, "481 trios généralisés (V2.6 : +1 à gen-malaisie-1, EFB_PALMIER_MY)")
     controle(t["hubs_generalises"] == 217, "217 hubs généralisés")
     controle(t["hubs_pilotes"] == 7, "7 hubs pilotes P2")
     controle(t["trios_pilotes"] == 9, "9 trios pilotes (ma-atlas 3 trios)")
@@ -343,7 +343,7 @@ def verifier():
         for e in erreurs:
             print("  - %s" % e)
         return 1
-    print("\nVERDICT : OK (489 trios figés, sources P1 documentées).")
+    print("\nVERDICT : OK (490 trios figés, sources P1 documentées).")
     return 0
 
 

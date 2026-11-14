@@ -17,7 +17,7 @@ Engine) : les coefficients réels vivent hors du dépôt (doctrine PI).
 | --- | --- | --- |
 | Flotte généralisée (engine/flotte_monde.py) | 217 | 480 |
 | Hubs pilotes P2 (engine/monde.py, dont ma-atlas 3 trios — raccord V2.3.1) | 7 | 9 |
-| Total | 224 | 489 |
+| Total | 224 | 490 |
 
 ## Conventions figées par trio
 
@@ -75,7 +75,7 @@ gen-maroc-1-trio-1 (fenêtre 1/2/5/6, graine 19942).
 
 ## Garde-fous du verifier
 
-- Recomptages : 489 trios (480 + 9), 217 hubs généralisés, 7 pilotes,
+- Recomptages : 490 trios (481 + 9), 217 hubs généralisés, 7 pilotes,
   224 équipes, 448 opérateurs.
 - Conventions : MTBF/MTTR/opérateurs sur chaque trio, formule des
   graines, fenêtre ∪ maintenance = 12 mois sans chevauchement, statut de
@@ -91,6 +91,6 @@ gen-maroc-1-trio-1 (fenêtre 1/2/5/6, graine 19942).
 python3 engine/parametres_trios.py sommaire        # totaux et témoins
 python3 engine/parametres_trios.py generer        # écrit data/parametres-trios.json
 python3 engine/parametres_trios.py verifier        # contrôles complets
-python3 engine/parametres_trios.py table           # table des 489 trios
+python3 engine/parametres_trios.py table           # table des 490 trios
 python3 engine/parametres_trios.py trio ma-atlas-trio-2   # fiche d'un trio
 ```

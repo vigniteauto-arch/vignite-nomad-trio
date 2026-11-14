@@ -768,9 +768,9 @@ def verifier():
     controle(len(detail) == 219, "219 hubs (217 généralisés + 2 pilotes)")
     gen = [d for d in detail.values() if not d["hub_pilote"]]
     controle(len(gen) == 217, "217 hubs généralisés, pilotes hors totaux")
-    controle(sum(d["trios"] for d in gen) == 480, "480 trios généralisés")
-    controle(abs(sum(d["besoin_t_an"] for d in gen) - 279360.0) < 1e-6,
-             "besoin total 279 360 t/an (480 × 582)")
+    controle(sum(d["trios"] for d in gen) == 481, "481 trios généralisés (V2.6)")
+    controle(abs(sum(d["besoin_t_an"] for d in gen) - 279942.0) < 1e-6,
+             "besoin total 279 942 t/an (481 × 582, V2.6)")
     controle(detail["fr-rhone"]["hub_pilote"],
              "fr-rhone marqué hub_pilote, hors totaux")
     controle(detail["ma-atlas"]["hub_pilote"],

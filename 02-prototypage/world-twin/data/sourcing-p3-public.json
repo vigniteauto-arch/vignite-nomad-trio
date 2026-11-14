@@ -1517,12 +1517,12 @@
    "trios": 1
   },
   "gen-equateur-1": {
-   "besoin_t_an": 1746.0,
+   "besoin_t_an": 2328.0,
    "capacite_rayon_t_an": 19760.0,
    "distance_site_proche_km": 79.2,
    "hub_pilote": false,
    "pays": "Équateur",
-   "ratio": 11.32,
+   "ratio": 8.49,
    "rayon_km": 100.0,
    "sites_retenus": [
     {
@@ -1539,7 +1539,7 @@
     }
    ],
    "statut": "AUTONOME",
-   "trios": 3
+   "trios": 4
   },
   "gen-espagne-1": {
    "besoin_t_an": 582.0,
@@ -4979,6 +4979,6 @@
    "COUVERT": 2,
    "PARTIEL": 6
   },
-  "trios": 480
+  "trios": 481
  }
 }

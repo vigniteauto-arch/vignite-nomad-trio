@@ -20,11 +20,11 @@
   "mttr_h": 8.0,
   "operateurs": 448,
   "statuts_fenetre": {
-   "CONTINUE": 126,
+   "CONTINUE": 127,
    "SAISONNIÈRE": 363
   },
-  "trios": 489,
-  "trios_generalises": 480,
+  "trios": 490,
+  "trios_generalises": 481,
   "trios_pilotes": 9
  },
  "trios": {
@@ -4895,6 +4895,37 @@
    "region": "hub généralisé (5 points, centre -1.54/-79.46) — Babahoyo (Los Ríos, riziculture de la Côte), Machala (premier bassin bananier d'exportation), Milagro (Guayas, bassin su",
    "statut_fenetre": "CONTINUE",
    "trio": "gen-equateur-1-trio-3"
+  },
+  "gen-equateur-1-trio-4": {
+   "equipe": 1,
+   "etiquette": "CONVENTIONS FIGÉES (vague P1) — ILLUSTRATION, aucun paramètre calibré du VDE",
+   "etiquette_simulation": "SYNTHÉTIQUE",
+   "fenetre_operation_mois": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+   ],
+   "graine_hub": 28242,
+   "graine_trio": 28245,
+   "hub": "gen-equateur-1",
+   "hub_pilote": false,
+   "maintenance_mois": [],
+   "mtbf_h": 720.0,
+   "mttr_h": 8.0,
+   "operateurs_equipe": 2,
+   "pays": "Équateur",
+   "region": "hub généralisé (5 points, centre -1.54/-79.46) — Babahoyo (Los Ríos, riziculture de la Côte), Machala (premier bassin bananier d'exportation), Milagro (Guayas, bassin su",
+   "statut_fenetre": "CONTINUE",
+   "trio": "gen-equateur-1-trio-4"
   },
   "gen-espagne-1-trio-1": {
    "equipe": 1,

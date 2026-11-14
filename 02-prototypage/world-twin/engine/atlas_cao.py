@@ -389,8 +389,8 @@ def verifier():
     nationales = capacites_nationales()
 
     # 1. Recomptage du besoin et des statuts.
-    assert t["trios"] == 480, t["trios"]
-    assert abs(t["besoin_t_an"] - 480 * BESOIN_PAR_TRIO) < 1e-6
+    assert t["trios"] == 481, t["trios"]
+    assert abs(t["besoin_t_an"] - 481 * BESOIN_PAR_TRIO) < 1e-6
     rapports.append("besoin recompté : %d trios × %.0f t = %.1f kt/an OK"
                     % (t["trios"], BESOIN_PAR_TRIO,
                        t["besoin_t_an"] / 1.0e3))

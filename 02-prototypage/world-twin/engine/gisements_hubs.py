@@ -206,6 +206,9 @@ MAPPINGS = {
     "FIBRE_PALMIER_CI": {"pays": "Côte d'Ivoire", "item": "Oil palm fruit",
                          "element": "Production", "ratio": (0.22, 0.25, 0.28),
                          "note": "fibres et coques selon la fiche v1.1"},
+    "EFB_PALMIER_CI": {"pays": "Côte d'Ivoire", "item": "Oil palm fruit",
+                       "element": "Production", "ratio": (0.20, 0.22, 0.28),
+                       "note": "rafles (EFB) SOURCÉ deepsearch pérennes 14/11/2026 : 0,22 × régimes, fourchette 0,20-0,28 (V2.6)"},
     "PAILLE_RIZ_CI": {"pays": "Côte d'Ivoire", "item": "Rice",
                       "element": "Production", "ratio": (1.0, 1.2, 1.4)},
     "CABOSSE_CACAO": {"pays": "Côte d'Ivoire", "item": "Cocoa beans",
@@ -303,6 +306,9 @@ MAPPINGS = {
     # --- Malaisie ---
     "COQUE_COCO_MY": {"pays": "Malaisie", "item": "Coconuts, in shell",
                       "element": "Production", "ratio": (0.35, 0.40, 0.45)},
+    "BOURRE_COCO_MY": {"pays": "Malaisie", "item": "Coconuts, in shell",
+                      "element": "Production", "ratio": (0.30, 0.35, 0.40),
+                      "note": "bourre (mésocarpe) SOURCÉ FAO Y3612E : 0,35 × noix, fourchette ILLUSTRATION ±0,05 (V2.6)"},
     "FIBRE_PALMIER_MY": {"pays": "Malaisie", "item": "Oil palm fruit",
                          "element": "Production", "ratio": (0.10, 0.12, 0.14),
                          "note": "fibres seules (coques en sus selon fiche)"},
@@ -311,6 +317,9 @@ MAPPINGS = {
     "RAFFLE_PALMIER": {"pays": "Malaisie", "item": "Oil palm fruit",
                        "element": "Production", "ratio": (0.20, 0.22, 0.25),
                        "note": "rafles (EFB) figé v1.3 : 0,22 × régimes"},
+    "EFB_PALMIER_MY": {"pays": "Malaisie", "item": "Oil palm fruit",
+                       "element": "Production", "ratio": (0.20, 0.22, 0.28),
+                       "note": "rafles (EFB) SOURCÉ deepsearch pérennes 14/11/2026 : 0,22 × régimes, fourchette 0,20-0,28 (V2.6)"},
     # --- Maroc ---
     "PAILLE_BLE_MA": {"pays": "Maroc", "item": "Wheat",
                       "element": "Production", "ratio": (0.8, 1.0, 1.2)},
@@ -321,6 +330,9 @@ MAPPINGS = {
                          "element": "Production", "ratio": (0.25, 0.28, 0.30)},
     "COQUE_CAFE_MX": {"pays": "Mexique", "item": "Coffee, green",
                       "element": "Production", "ratio": (0.18, 0.20, 0.22)},
+    "PULPE_CAFE_MX": {"pays": "Mexique", "item": "Coffee, green",
+                      "element": "Production", "ratio": (1.5, 2.0, 2.5),
+                      "note": "pulpe SOURCÉ deepsearch pérennes 14/11/2026 : 2,0 × café vert (30-50 % du fruit), fourchette 1,5-2,5 (V2.6)"},
     "ECORCE_ORANGE_MX": {"pays": "Mexique", "item": "Oranges",
                          "element": "Production", "ratio": (0.22, 0.25, 0.28)},
     "PAILLE_MAIS_MX": {"pays": "Mexique", "item": "Maize (corn)",
@@ -378,6 +390,9 @@ MAPPINGS = {
                      "element": "Production", "ratio": (0.18, 0.20, 0.22)},
     "FIBRE_PALMIER_EC": {"pays": "Équateur", "item": "Oil palm fruit",
                          "element": "Production", "ratio": (0.10, 0.12, 0.14)},
+    "EFB_PALMIER_EC": {"pays": "Équateur", "item": "Oil palm fruit",
+                       "element": "Production", "ratio": (0.20, 0.22, 0.28),
+                       "note": "rafles (EFB) SOURCÉ deepsearch pérennes 14/11/2026 : 0,22 × régimes, fourchette 0,20-0,28 (V2.6)"},
     "TIGE_BANANIER": {"pays": "Équateur", "item": "Bananas",
                       "element": "Area harvested", "ratio": (30.0, 40.0, 50.0),
                       "note": "pseudotroncs ≈ 30 à 50 t/ha/an en matière"
@@ -684,26 +699,11 @@ A_SOURCER = {
                 " de Sargazo",
     "ECORCE_EUCALYPTUS": "filière bois papetier hors FAOSTAT, à sourcer"
                           " CELPA/ICNF",
-    # V2.4 (14/11/2026) — nouveaux jetons pérennes : ratios SOURCÉS par la
-    # littérature (deepsearch pérennes), mais hors snapshot v18 figé en V2.3.
-    # Jamais de valeur inventée : séries FAOSTAT à inscrire au snapshot
-    # v19 (action P3). D'ici là, repli densité du cluster, aucun effet sur
-    # le dimensionnement (gardes vérifiées : 217 hubs, 480 trios).
-    "EFB_PALMIER_MY": "rafles de palmier Malaisie (V2.4), ratio SOURCÉ"
-                      " littérature 0,22 x régimes, série FAOSTAT à"
-                      " inscrire au snapshot v19 (P3)",
-    "EFB_PALMIER_CI": "rafles de palmier Côte d'Ivoire (V2.4), ratio"
-                      " SOURCÉ littérature 0,22 x régimes, série FAOSTAT"
-                      " à inscrire au snapshot v19 (P3)",
-    "EFB_PALMIER_EC": "rafles de palmier Équateur (V2.4), ratio SOURCÉ"
-                      " littérature 0,22 x régimes, série FAOSTAT à"
-                      " inscrire au snapshot v19 (P3)",
-    "BOURRE_COCO_MY": "bourre de coco Malaisie (V2.4), ratio SOURCÉ FAO"
-                      " 0,35 x noix, série FAOSTAT à inscrire au snapshot"
-                      " v19 (P3)",
-    "PULPE_CAFE_MX": "pulpe de café Mexique (V2.4), ratio SOURCÉ"
-                     " littérature 2,0 x café vert, série FAOSTAT à"
-                     " inscrire au snapshot v19 (P3)",
+    # V2.6 (14/11/2026) — les cinq jetons pérennes V2.4 quittent A_SOURCER :
+    # leurs séries FAOSTAT étaient déjà versionnées dans le snapshot v18
+    # (Malaisie/Côte d'Ivoire/Équateur Oil palm fruit, Malaisie Coconuts,
+    # Mexique Coffee, vérifiées identiques au bulk md5 1a202c56), les
+    # mappings sont actifs (action 1 de la vague V2.6, ratios SOURCÉS).
 }
 
 _MEMO_SNAPSHOT = None
