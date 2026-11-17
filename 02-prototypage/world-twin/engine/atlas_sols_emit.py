@@ -1,4 +1,4 @@
-"""Atlas des sols — NASA EMIT (v1.7, 17/11/2026 ; v1.6 : 17/11/2026 ; V1.5 : 27/10/2026).
+"""Atlas des sols — NASA EMIT (v1.8, 17/11/2026 ; v1.7 : 17/11/2026 ; v1.6 : 17/11/2026 ; V1.5 : 27/10/2026).
 
 Réassemble, inventorie et extrait les granules NASA EMIT du dossier
 data/emit/, puis les rattache aux dix bassins de la flotte P2 et en
@@ -28,6 +28,28 @@ data/emit/ sans fragments, référencés par taille et empreinte SHA-512
 (Secure Hash Algorithm 512 bits) du catalogue NASA (fiches UMM du CMR
 — Common Metadata Repository), vérifiées à l'inventaire et contrôlées
 à l'extraction. Les cartouches en fragments restent inchangées.
+
+v1.8 (17/11/2026, dans la nuit) : trois correctifs de parcours constatés
+en atelier après la poussée v1.7 (inventaire et extraire verts, croiser
+et l3-bassins en échec — même famille que le bug v1.7 : des chemins
+jamais exercés sur des fichiers réels). (1) croiser : les bornes lat/lon
+étaient cherchées à la RACINE du fichier alors qu'EMIT les loge dans le
+groupe « location » — d'où « scène hors périmètre » pour les huit
+scènes ; la recherche est désormais récursive sur tout le fichier (1D
+ou 2D, valeur de remplissage −9999 exclue). (2) l3-bassins :
+l'heuristique de grille ne gardait que les 400 premières valeurs de
+chaque axe (les « 400 longitudes » de l'atelier) et élisait « samples »
+(rempli de zéros) comme longitude ; les axes sont désormais pris par
+leur nom (« lat » : 220 latitudes de 55,0 à −54,5°, « lon » : 690
+longitudes de −165,0 à 179,5°, pas 0,5° — faits établis le 17/11/2026
+sur le granule réel), et l'heuristique de repli garde les listes
+complètes en écartant les axes constants. (3) le lecteur HDF5 embarqué
+refusait les en-têtes « OHDR » version 2 (version 1 exigée), confondait
+les identifiants de messages et lisait dimensions et tailles aux
+mauvais décalages : il n'avait jamais lu un seul fichier réel ; il est
+réparé et validé sur le L3 ASA réel (33 couches minérales contiguës
+220 x 690, classe 1 du message de disposition : adresse + taille en
+octets).
 
 PRODUITS (données publiques NASA, LP DAAC — Land Processes
 Distributed Active Archive Center) :
@@ -197,6 +219,14 @@ def _sha512(chemin):
 # du ressort de h5py. Les liens denses (tas fractal FRHP) sont résolus par
 # balayage heuristique : un nom n'est retenu que si les 8 octets qui le
 # suivent pointent sur une signature « OHDR » valide — l'adresse fait foi.
+#
+# v1.8 (17/11/2026, nuit) : lecteur RÉPARÉ — il exigeait la version 1 des
+# en-têtes OHDR (les fichiers réels écrivent la version 2), cherchait
+# l'espace de données sous 0x11, le type sous 0x0B et la disposition sous
+# 0x03 (identifiants réels : 0x01, 0x03, 0x08), et lisait la taille du
+# type à l'octet 8 (elle vit à l'octet 4) et les dimensions v2 à l'octet
+# 8 (elles vivent à l'octet 4 ; v1 : octet 8). Le v1.6 n'avait donc
+# jamais lu un seul fichier réel. Validé sur le L3 ASA réel du dépôt.
 # ===========================================================================
 
 
@@ -241,19 +271,24 @@ class LecteurHDF5Minimal(object):
         """Messages d'un en-tête d'objet v2 (suivis jusqu'à « OCHK »)."""
         if self.donnees[addr:addr + 4] != self.SIG_OHDR:
             raise ErreurLecteur("signature OHDR absente à %d" % addr)
-        if self.donnees[addr + 4] != 1:
-            raise ErreurLecteur("version OHDR inattendue : %d"
-                                % self.donnees[addr + 4])
+        if self.donnees[addr + 4] != 2:
+            raise ErreurLecteur("version OHDR inattendue : %d (attendu : 2 — "
+                                "v1.8 : les fichiers EMIT réels écrivent la "
+                                "version 2)" % self.donnees[addr + 4])
         fanions = self.donnees[addr + 5]
+        # v1.8 : la largeur du champ « taille du chunk 0 » se lit dans les
+        # bits 0-1 des fanions (0 : 1 octet, 1 : 2, 2 : 4, 3 : 8 — préfixe
+        # d'en-tête v2). Le v1.6 testait le bit 2 et lisait toujours
+        # 2 octets : de la chance sur nos fichiers (fanions 0x0d), pas de
+        # la spécification.
+        largeur = (1, 2, 4, 8)[fanions & 0x03]
         pos = addr + 6
-        taille_chunk0 = None
-        if fanions & 0x04:
-            taille_chunk0 = self._u(pos, 2)
-            pos += 2
-        if fanions & 0x20:
-            pos += 2 + self._u(pos, 2)
-        fin = pos + taille_chunk0 if taille_chunk0 else addr + 512
-        return self._messages_a_partir_de(pos, fin, bool(fanions & 0x08))
+        taille_chunk0 = self._u(pos, largeur)
+        if not taille_chunk0:
+            raise ErreurLecteur("taille de chunk nulle à %d" % addr)
+        fin = pos + largeur + taille_chunk0
+        return self._messages_a_partir_de(pos + largeur, fin,
+                                          bool(fanions & 0x08))
 
     def _messages_a_partir_de(self, debut, fin, avec_ordre):
         """Messages v2 : type(1) + taille(2) + fanions(1) + ordre(2 si suivi)."""
@@ -281,20 +316,24 @@ class LecteurHDF5Minimal(object):
 
     # -- messages utiles ----------------------------------------------------
     def _dataspace(self, corps):
+        """v1.8 : dimensions v1 à l'octet 8, v2 à l'octet 4 (spécification)."""
+        version = corps[0]
         ndims = corps[1]
-        pos = 8
+        pos = 8 if version < 2 else 4
         dims = []
         for _ in range(ndims):
-            dims.append(self._u(0, 0) if False else int.from_bytes(
-                corps[pos:pos + 8], "little"))
+            dims.append(int.from_bytes(corps[pos:pos + 8], "little"))
             pos += 8
         return dims
 
     def _datatype(self, corps):
-        classe = corps[0] >> 4
+        """v1.8 : version dans le quartet HAUT, classe dans le BAS ;
+        taille de l'élément à l'octet 4 (le v1.6 lisait la classe dans
+        le mauvais quartet et la taille à l'octet 8)."""
+        classe = corps[0] & 0x0F
         if classe not in (0, 1):
             return None
-        taille = int.from_bytes(corps[8:12], "little")
+        taille = int.from_bytes(corps[4:8], "little")
         gros_boutisme = bool(corps[1] & 0x01)
         return (classe, taille, gros_boutisme)
 
@@ -313,11 +352,15 @@ class LecteurHDF5Minimal(object):
             return None
         dims, dtype, layout = None, None, None
         for mtype, corps in messages:
-            if mtype == 0x11 and dims is None:
+            # v1.8 : identifiants réels — espace de données 0x01 (le v1.6
+            # cherchait 0x11, la table de symboles), type de données 0x03
+            # (cherché sous 0x0B, les filtres) et disposition 0x08
+            # (cherchée sous 0x03) : aucun fichier réel n'était lisible.
+            if mtype == 0x01 and dims is None:
                 dims = self._dataspace(corps)
-            elif mtype == 0x0B and dtype is None:
+            elif mtype == 0x03 and dtype is None:
                 dtype = self._datatype(corps)
-            elif mtype == 0x03 and layout is None:
+            elif mtype == 0x08 and layout is None:
                 layout = self._layout_contigu(corps)
         if dtype is None or not (dims and layout):
             return None
@@ -344,7 +387,7 @@ class LecteurHDF5Minimal(object):
         pas un caractère de nom) : sans cette garde, toute sous-chaîne d'un
         nom (« aolinite » dans « Kaolinite ») créerait un alias parasite.
         L'adresse fait foi : le nom n'est accepté que si les 8 octets qui
-        le suivent pointent sur une signature « OHDR » version 1 valide.
+        le suivent pointent sur une signature « OHDR » version 2 valide.
         """
         donnees = self.donnees
         vus = set()
@@ -353,7 +396,7 @@ class LecteurHDF5Minimal(object):
             addr = donnees.find(self.SIG_OHDR, addr + 1)
             if addr < 0 or addr + 7 > self.taille:
                 break
-            if donnees[addr + 4] == 1 and donnees[addr + 5] <= 0x3f:
+            if donnees[addr + 4] == 2 and donnees[addr + 5] <= 0x3f:
                 vus.add(addr)
         resultat = {}
         i, n = 0, self.taille
@@ -455,26 +498,49 @@ def _decompresser_l3():
 
 
 def _grille_l3(jeux):
-    """Repère lat/lon dans les jeux lus, sinon repli documentaire."""
-    candidats = {}
+    """Axes de la grille L3 lus par leur nom, repli heuristique corrigé (v1.8).
+
+    Le v1.6 ne gardait que les 400 premières valeurs de chaque axe (d'où
+    les « 400 longitudes » de l'atelier) et élit « samples » (jeu rempli
+    de zéros) comme longitude. Sur le granule réel : « lat » = 220
+    latitudes (55,0 à −54,5°, pas −0,5°), « lon » = 690 longitudes
+    (−165,0 à 179,5°, pas 0,5°). Le repli heuristique garde désormais
+    les listes complètes et écarte les axes constants.
+    """
+    lat = lon = None
     for nom, info in jeux.items():
         if len(info["dims"]) != 1 or info["dims"][0] < 50:
             continue
-        vals = [v for v in info["valeurs"][:400]]
-        if not vals:
+        vals = list(info["valeurs"])
+        if len(vals) < 2 or vals[0] == vals[-1]:
+            continue
+        if nom == "lat" and lat is None:
+            lat = (nom, vals)
+        elif nom == "lon" and lon is None:
+            lon = (nom, vals)
+    if lat is not None and lon is not None:
+        return {"lat": lat[1], "lon": lon[1],
+                "source": "lue dans le granule par nom (jeux 1D %s, %s — "
+                          "correctif v1.8)" % (lat[0], lon[0])}
+    candidats = {"lat": [], "lon": []}
+    for nom, info in jeux.items():
+        if len(info["dims"]) != 1 or info["dims"][0] < 50:
+            continue
+        vals = list(info["valeurs"])
+        if len(vals) < 2 or vals[0] == vals[-1]:
             continue
         if -90.0 <= min(vals) and max(vals) <= 90.0:
-            candidats.setdefault("lat", []).append((info["dims"][0], nom, vals))
+            candidats["lat"].append((info["dims"][0], nom, vals))
         if -180.0 <= min(vals) and max(vals) <= 180.0:
-            candidats.setdefault("lon", []).append((info["dims"][0], nom, vals))
-    lat = lon = None
-    if candidats.get("lat") and candidats.get("lon"):
+            candidats["lon"].append((info["dims"][0], nom, vals))
+    if candidats["lat"] and candidats["lon"]:
         lat = sorted(candidats["lat"])[0]
         lon = sorted(candidats["lon"], reverse=True)[0]
         if lat[0] >= lon[0]:
             lat, lon = lon, lat
         return {"lat": lat[2], "lon": lon[2],
-                "source": "lue dans le granule (jeux 1D %s, %s)" % (lat[1], lon[1])}
+                "source": "repli heuristique v1.8, listes complètes "
+                          "(jeux 1D %s, %s)" % (lat[1], lon[1])}
     return {"lat": GRILLE_L3_DOCUMENTAIRE["lat"],
             "lon": GRILLE_L3_DOCUMENTAIRE["lon"],
             "source": "repli documentaire consigné le 06/11/2026 "
@@ -482,7 +548,7 @@ def _grille_l3(jeux):
 
 
 def l3_bassins():
-    """Échantillonne le L3 ASA aux boîtes des dix bassins (v1.6).
+    """Échantillonne le L3 ASA aux boîtes des dix bassins (v1.6, corrigé v1.8).
 
     Décompresse data/emit/EMIT_L3_ASA_002.zip dans cache-sols/, lit le
     .nc avec h5py si présent, sinon avec le lecteur HDF5 minimal embarqué
@@ -578,7 +644,7 @@ def l3_bassins():
 
 def inventaire():
     """Tailles, empreintes md5 et complétude des granules versionnés."""
-    print("Inventaire NASA EMIT — dossier data/emit/ (v1.7)\n")
+    print("Inventaire NASA EMIT — dossier data/emit/ (v1.8)\n")
     if not os.path.isdir(DOSSIER_EMIT):
         print("  dossier data/emit/ introuvable — lancer la vague v1.5 (déplacement des .part)")
         return 1
@@ -740,15 +806,40 @@ def _extraire_h5py(cartouche):
 
 
 def _bornes_h5py(f):
+    """Bornes lat/lon récursives (v1.8).
+
+    EMIT loge les coordonnées des scènes L2B dans le groupe « location »,
+    jamais à la racine : le v1.6 ne cherchait qu'à la racine, donc
+    « scène hors périmètre » pour tout. La recherche parcourt désormais
+    tout le fichier (1D ou 2D), en excluant la valeur de remplissage.
+    """
     bornes = {}
-    for nom in ("lat", "lon", "latitude", "longitude"):
-        if nom in f:
-            jeu = f[nom][:]
-            try:
-                borne_min, borne_max = float(jeu.min()), float(jeu.max())
-                bornes[nom] = [round(borne_min, 4), round(borne_max, 4)]
-            except Exception:
-                pass
+
+    def visiter(nom, objet):
+        base = nom.rsplit("/", 1)[-1].lower()
+        if base not in ("lat", "latitude", "lon", "longitude"):
+            return
+        try:
+            jeu = objet[:]
+            if hasattr(jeu, "ravel"):
+                valeurs = [float(v) for v in jeu.ravel()]
+            else:
+                valeurs = [float(v) for v in jeu]
+            valeurs = [v for v in valeurs
+                       if v != NODATA_L3 and -1000.0 < v < 1000.0]
+            if not valeurs:
+                return
+            cle = "lat" if base in ("lat", "latitude") else "lon"
+            if cle not in bornes:
+                bornes[cle] = [round(min(valeurs), 4),
+                               round(max(valeurs), 4)]
+        except Exception:
+            pass
+
+    try:
+        f.visititems(visiter)
+    except Exception:
+        pass
     return bornes
 
 
@@ -819,8 +910,8 @@ def sommaire(bassin=None):
                 else:
                     print("  L3 ASA : HORS COUVERTURE (végétation ou limite du capteur)")
         return 0
-    print("Atlas des sols — NASA EMIT (v1.7, 17/11/2026 ; v1.6 : 17/11/2026 ; "
-          "V1.5 : 27/10/2026)\n")
+    print("Atlas des sols — NASA EMIT (v1.8, 17/11/2026 ; v1.7 : 17/11/2026 ; "
+          "v1.6 : 17/11/2026 ; V1.5 : 27/10/2026)\n")
     cartouches = sorted(c for c, m in GRANULES_L2B.items() if m["parts"] > 0)
     completes = sorted(c for c, m in GRANULES_L2B.items() if m["parts"] == 0)
     print("Granules L2B MIN : %d — cartouches en fragments : %d (%s) ; "
@@ -828,8 +919,9 @@ def sommaire(bassin=None):
               len(GRANULES_L2B), len(cartouches), ", ".join(cartouches),
               len(completes), ", ".join(completes)))
     print("Granule L3 ASA : %s (agrégation mondiale 0,5 degré)" % GRANULE_L3["fichier"])
-    print("Mode v1.6 « l3-bassins » : échantillonnage du L3 aux dix boîtes, "
-          "lecteur HDF5 minimal embarqué en bibliothèque standard "
+    print("Mode « l3-bassins » (v1.6, corrigé v1.8 : axes de grille lus par "
+          "nom, lecteur HDF5 réparé) : échantillonnage du L3 aux dix "
+          "boîtes, lecteur embarqué en bibliothèque standard "
           "(jeux contigus, h5py préféré s'il est présent)")
     print("Bassins de la flotte : %d" % len(BOITES_BASSINS))
     print("\nGroupes minéraux et lecture agronomique (ILLUSTRATION) :")
