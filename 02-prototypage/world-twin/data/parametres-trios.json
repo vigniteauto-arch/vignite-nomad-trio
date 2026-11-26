@@ -20,8 +20,8 @@
   "mttr_h": 8.0,
   "operateurs": 448,
   "statuts_fenetre": {
-   "CONTINUE": 127,
-   "SAISONNIÈRE": 363
+   "CONTINUE": 132,
+   "SAISONNIÈRE": 358
   },
   "trios": 490,
   "trios_generalises": 481,
@@ -2681,13 +2681,7 @@
    "fenetre_operation_mois": [
     1,
     2,
-    3
-   ],
-   "graine_hub": 10442,
-   "graine_trio": 10442,
-   "hub": "gen-bresil-5",
-   "hub_pilote": false,
-   "maintenance_mois": [
+    3,
     4,
     5,
     6,
@@ -2698,12 +2692,17 @@
     11,
     12
    ],
+   "graine_hub": 10442,
+   "graine_trio": 10442,
+   "hub": "gen-bresil-5",
+   "hub_pilote": false,
+   "maintenance_mois": [],
    "mtbf_h": 720.0,
    "mttr_h": 8.0,
    "operateurs_equipe": 2,
    "pays": "Brésil",
-   "region": "hub généralisé (1 points, centre -12.55/-55.72) — Sorriso (Mato Grosso, front pionnier sojero)",
-   "statut_fenetre": "SAISONNIÈRE",
+   "region": "hub généralisé (2 points, centre -12.55/-55.72) — Sorriso (Mato Grosso, crush sojero), Sorriso (Mato Grosso, front pionnier sojero)",
+   "statut_fenetre": "CONTINUE",
    "trio": "gen-bresil-5-trio-1"
   },
   "gen-bresil-5-trio-2": {
@@ -2713,13 +2712,7 @@
    "fenetre_operation_mois": [
     1,
     2,
-    3
-   ],
-   "graine_hub": 10442,
-   "graine_trio": 10443,
-   "hub": "gen-bresil-5",
-   "hub_pilote": false,
-   "maintenance_mois": [
+    3,
     4,
     5,
     6,
@@ -2730,12 +2723,17 @@
     11,
     12
    ],
+   "graine_hub": 10442,
+   "graine_trio": 10443,
+   "hub": "gen-bresil-5",
+   "hub_pilote": false,
+   "maintenance_mois": [],
    "mtbf_h": 720.0,
    "mttr_h": 8.0,
    "operateurs_equipe": 2,
    "pays": "Brésil",
-   "region": "hub généralisé (1 points, centre -12.55/-55.72) — Sorriso (Mato Grosso, front pionnier sojero)",
-   "statut_fenetre": "SAISONNIÈRE",
+   "region": "hub généralisé (2 points, centre -12.55/-55.72) — Sorriso (Mato Grosso, crush sojero), Sorriso (Mato Grosso, front pionnier sojero)",
+   "statut_fenetre": "CONTINUE",
    "trio": "gen-bresil-5-trio-2"
   },
   "gen-bresil-5-trio-3": {
@@ -2745,13 +2743,7 @@
    "fenetre_operation_mois": [
     1,
     2,
-    3
-   ],
-   "graine_hub": 10442,
-   "graine_trio": 10444,
-   "hub": "gen-bresil-5",
-   "hub_pilote": false,
-   "maintenance_mois": [
+    3,
     4,
     5,
     6,
@@ -2762,12 +2754,17 @@
     11,
     12
    ],
+   "graine_hub": 10442,
+   "graine_trio": 10444,
+   "hub": "gen-bresil-5",
+   "hub_pilote": false,
+   "maintenance_mois": [],
    "mtbf_h": 720.0,
    "mttr_h": 8.0,
    "operateurs_equipe": 2,
    "pays": "Brésil",
-   "region": "hub généralisé (1 points, centre -12.55/-55.72) — Sorriso (Mato Grosso, front pionnier sojero)",
-   "statut_fenetre": "SAISONNIÈRE",
+   "region": "hub généralisé (2 points, centre -12.55/-55.72) — Sorriso (Mato Grosso, crush sojero), Sorriso (Mato Grosso, front pionnier sojero)",
+   "statut_fenetre": "CONTINUE",
    "trio": "gen-bresil-5-trio-3"
   },
   "gen-bresil-5-trio-4": {
@@ -2777,13 +2774,7 @@
    "fenetre_operation_mois": [
     1,
     2,
-    3
-   ],
-   "graine_hub": 10442,
-   "graine_trio": 10445,
-   "hub": "gen-bresil-5",
-   "hub_pilote": false,
-   "maintenance_mois": [
+    3,
     4,
     5,
     6,
@@ -2794,12 +2785,17 @@
     11,
     12
    ],
+   "graine_hub": 10442,
+   "graine_trio": 10445,
+   "hub": "gen-bresil-5",
+   "hub_pilote": false,
+   "maintenance_mois": [],
    "mtbf_h": 720.0,
    "mttr_h": 8.0,
    "operateurs_equipe": 2,
    "pays": "Brésil",
-   "region": "hub généralisé (1 points, centre -12.55/-55.72) — Sorriso (Mato Grosso, front pionnier sojero)",
-   "statut_fenetre": "SAISONNIÈRE",
+   "region": "hub généralisé (2 points, centre -12.55/-55.72) — Sorriso (Mato Grosso, crush sojero), Sorriso (Mato Grosso, front pionnier sojero)",
+   "statut_fenetre": "CONTINUE",
    "trio": "gen-bresil-5-trio-4"
   },
   "gen-bresil-5-trio-5": {
@@ -2809,13 +2805,7 @@
    "fenetre_operation_mois": [
     1,
     2,
-    3
-   ],
-   "graine_hub": 10442,
-   "graine_trio": 10446,
-   "hub": "gen-bresil-5",
-   "hub_pilote": false,
-   "maintenance_mois": [
+    3,
     4,
     5,
     6,
@@ -2826,12 +2816,17 @@
     11,
     12
    ],
+   "graine_hub": 10442,
+   "graine_trio": 10446,
+   "hub": "gen-bresil-5",
+   "hub_pilote": false,
+   "maintenance_mois": [],
    "mtbf_h": 720.0,
    "mttr_h": 8.0,
    "operateurs_equipe": 2,
    "pays": "Brésil",
-   "region": "hub généralisé (1 points, centre -12.55/-55.72) — Sorriso (Mato Grosso, front pionnier sojero)",
-   "statut_fenetre": "SAISONNIÈRE",
+   "region": "hub généralisé (2 points, centre -12.55/-55.72) — Sorriso (Mato Grosso, crush sojero), Sorriso (Mato Grosso, front pionnier sojero)",
+   "statut_fenetre": "CONTINUE",
    "trio": "gen-bresil-5-trio-5"
   },
   "gen-bresil-6-trio-1": {

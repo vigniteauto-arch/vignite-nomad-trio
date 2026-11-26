@@ -701,6 +701,18 @@ A_SOURCER = {
                 " de Sargazo",
     "ECORCE_EUCALYPTUS": "filière bois papetier hors FAOSTAT, à sourcer"
                           " CELPA/ICNF",
+    # V2.11a vague sûre (26/11/2026) — seul CASCA_SOJA_BR entre en
+    # flotte (fusion cluster Sorriso, gisement À SOURCER, zéro effet
+    # dimensionnement). Les quatre autres jetons du lot BRA de l'Atlas
+    # V8.2 (MACAUBA_BR, CASCA_CAFE_BR, CAROCO_ACAI_BR, BAGACO_UVA_BR)
+    # restent en attente d'arbitrage : chacun crée un hub nouveau et
+    # décale les graines monde (convention 7142 + 100 × compteur). Les
+    # cibles du snapshot v19 demeurent : Brazil Coffee green, Soya
+    # beans crush ABIOVE, BioMapa MDIC (accès humain requis,
+    # Cloudflare) et IBGE PPM pour le Pará.
+                "CASCA_SOJA_BR": "série Brazil Soya beans disponible au snapshot"
+                     " v18 mais ratio cosse de trituration non SOURCÉ"
+                     " (≈ 5 % de la graine, à croiser ABIOVE)",
     # V2.6 (14/11/2026) — les cinq jetons pérennes V2.4 quittent A_SOURCER :
     # leurs séries FAOSTAT étaient déjà versionnées dans le snapshot v18
     # (Malaisie/Côte d'Ivoire/Équateur Oil palm fruit, Malaisie Coconuts,

@@ -212,7 +212,7 @@ PAYS_BIOMASSES = {
 
 "Brésil": {
     "nom_fao": "Brazil",
-    "portrait": "premier producteur mondial de canne, soja, orange et de maïs de contre-saison ; les intrants du master (bagasse de canne, graine de papaye) sont complétés par la paille de canne, la paille de maïs et de soja, la balle de riz du sud et les écorces d'agrumes du parc paulista.",
+    "portrait": "premier producteur mondial de canne, soja, orange et de maïs de contre-saison ; les intrants du master (bagasse de canne, graine de papaye) sont complétés par la paille de canne, la paille de maïs et de soja, la balle de riz du sud et les écorces d'agrumes du parc paulista, puis par le lot BRA de l'Atlas Biomasses V8.2 : la cosse de soja de trituration (vague sûre V2.11a, les quatre autres jetons en attente d'arbitrage hubs nouveaux).",
     "reglementation": {
         "brulage": ("la Ley 11.241/2002 fixe l'éradication progressive du brûlage pré-récolte de la canne ; São Paulo (Lei estadual) l'a rendu marginal — récolte verte généralisée", ETIQUETTE_A_VERIFIER, "Lei 11.241/2002 + protocole agro-environnemental, à re-vérifier"),
         "enfouissement": ("la paille de canne et les résidus de soja/maïs restent au sol par défaut (semis direct pauliste) ; la paille de canne est partiellement collectée pour les chaudières", ETIQUETTE_A_VERIFIER, "système plantio direto, à sourcer"),
@@ -270,6 +270,18 @@ PAYS_BIOMASSES = {
             "gisement": "écorces/pulpe ≈ 3,9 Mt/an humides, concentrées en usines de jus", "etiquette_gisement": ETQ_GISEMENT_SOURCÉ,
             "fenetre": [6, 7, 11, 12, 1], "fenetre_note": "campagne de presse principal (juin-décembre selon variétés)",
             "techniques": "vergers industriels irrigués, pressoirs concentrés, valorisation en alimentation animale (pellets) et digestats",
+        },
+        {
+            "token": "CASCA_SOJA_BR", "famille": "Céréales", "nom_fr": "Cosse (casca) de soja",
+            "region": "Sorriso (Mato Grosso, crush sojero)",
+            "lat": -12.55, "lon": -55.72,
+            "type_point": "point candidat", "hubs_flotte": {},
+            "type_biomasse": "cosses de soja issues de la trituration (distinct de la paille au champ, lignine basse, co-blending)",
+            "production": "soja (graines) : 144 473 768 t (2024, FAOSTAT)",
+            "ratio": "cosse ≈ 5 pour cent de la graine triturée (à vérifier, littérature de trituration à croiser)",
+            "gisement": "à instruire (volumes de trituration)", "etiquette_gisement": ETIQUETTE_A_SOURCER,
+            "fenetre": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "fenetre_note": "trituration continue, pointe après la moisson février-avril",
+            "techniques": "récolte motorisée, unités de trituration intégrées, cosses en siloproduits",
         },
     ],
 },

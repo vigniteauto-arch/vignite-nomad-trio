@@ -275,7 +275,7 @@ FAMILLES_SITES = [
      "stockable",
      ["COQUE_AMANDE", "COQUE_MACADAMIA", "COQUE_NOIX", "COQUE_NOISETTE", 
       "COQUE_PISTACHE", "COQUE_PECAN", "COQUE_CAJOU", "COQUE_ARACHIDE", 
-"BALLE_ARACHIDE"],
+"BALLE_ARACHIDE", "CASCA_SOJA_BR"],  # V2.11a : cosse au triturateur (ABIOVE)
      "coques = sous-produit des hullers et décortiqueurs centralisés"
      " (revue coques et brou de noix, Biomass Conversion and Biorefinery"
      " 2023 ; modèle coopératif de la Central Valley californienne)",
